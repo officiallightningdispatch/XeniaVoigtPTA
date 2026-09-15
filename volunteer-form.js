@@ -28,11 +28,18 @@
           <div class="vol-sidebar-note">You can submit this form for a specific event or choose <strong>Any PTA event / general availability</strong> and we’ll keep your preferences in mind.</div>
         </aside>
 
-        <form id="volunteerForm" class="vol-form" novalidate>
-          <div class="vol-form-head"><span>VOLUNTEER PROFILE</span><h2>Let’s find your perfect fit.</h2><p>Fields marked * are required.</p></div>
+        <form id="volunteerForm" class="vol-form vol-wizard" novalidate>
+          <div class="vol-form-head"><span>VOLUNTEER PROFILE</span><h2>Let’s find your perfect fit.</h2><p>One quick section at a time. Fields marked * are required.</p></div>
 
-          <fieldset>
+          <div class="vol-wizard-progress" aria-label="Form progress">
+            <div class="vol-progress-top"><span id="volStepLabel">Step 1 of 6</span><span id="volPercent">17%</span></div>
+            <div class="vol-progress-track"><span id="volProgressBar"></span></div>
+            <div class="vol-step-dots" id="volStepDots" aria-hidden="true"></div>
+          </div>
+
+          <fieldset data-step-title="About you">
             <legend><span>1</span> About you</legend>
+            <p class="step-intro">First, tell us who you are and the easiest way to reach you.</p>
             <div class="vol-grid two">
               <label>First name *<input name="firstName" autocomplete="given-name" required></label>
               <label>Last name *<input name="lastName" autocomplete="family-name" required></label>
@@ -45,8 +52,9 @@
             </div>
           </fieldset>
 
-          <fieldset>
+          <fieldset data-step-title="Your event">
             <legend><span>2</span> What are you volunteering for?</legend>
+            <p class="step-intro">Choose one event or tell us you’re open to being matched anywhere.</p>
             <div class="vol-grid two">
               <label>Event / project *<select name="event" id="volEvent" required><option value="">Select one</option><option>Any PTA event / general availability</option><option>Viking Quest Fall Festival — October 23, 2026</option><option>Teacher & staff appreciation</option><option>Family event / school activity</option><option>Fundraising / sponsorship support</option><option>PTA operations / behind-the-scenes help</option><option>Other event / project</option></select></label>
               <label>Other event / project<input name="otherEvent" placeholder="Optional"></label>
@@ -57,8 +65,9 @@
             </div>
           </fieldset>
 
-          <fieldset>
+          <fieldset data-step-title="Availability">
             <legend><span>3</span> Your availability</legend>
+            <p class="step-intro">No guilt, no pressure — just tell us what actually works for your schedule.</p>
             <div class="field-label">When are you usually available? <span>Select all that apply.</span></div>
             <div class="choice-grid compact">
               ${['Weekday mornings','School-day hours','Weekday afternoons','Weekday evenings','Saturday','Sunday','Event day only','Flexible / varies'].map(x=>`<label class="choice"><input type="checkbox" name="availability" value="${x}"><span>${x}</span></label>`).join('')}
@@ -69,8 +78,9 @@
             </div>
           </fieldset>
 
-          <fieldset>
+          <fieldset data-step-title="Your strengths">
             <legend><span>4</span> Skills, interests & comfort</legend>
+            <p class="step-intro">Pick what sounds fun, familiar, or comfortable. You do not need special experience.</p>
             <div class="choice-grid compact">
               ${['Arts / crafts','Working with children','Customer service / welcoming','Food service','Event planning','Decor / design','Music / performance','Photography / media','Technology','Organization / admin','Fundraising / outreach','Bilingual / translation','Heavy lifting / setup','Quiet / low-stimulation roles'].map(x=>`<label class="choice"><input type="checkbox" name="skills" value="${x}"><span>${x}</span></label>`).join('')}
             </div>
@@ -78,9 +88,9 @@
             <label class="full-label">Anything that would help us make volunteering more comfortable or accessible for you?<textarea name="comfortNotes" rows="3" placeholder="Optional — no medical details needed."></textarea></label>
           </fieldset>
 
-          <fieldset>
+          <fieldset data-step-title="Student details">
             <legend><span>5</span> Student volunteer details</legend>
-            <p class="fieldset-note">Complete only if this submission is for a student volunteer. Please do not enter sensitive student information.</p>
+            <p class="fieldset-note">Complete only if this submission is for a student volunteer. Otherwise, simply continue.</p>
             <div class="vol-grid two">
               <label>Student grade level<select name="studentGrade"><option value="">Not applicable</option><option>Middle school</option><option>9th grade</option><option>10th grade</option><option>11th grade</option><option>12th grade</option><option>College / other</option></select></label>
               <label>School / organization<input name="studentOrg" placeholder="Optional"></label>
@@ -88,17 +98,24 @@
             <label class="choice consent-choice"><input type="checkbox" name="studentSupervision" value="Yes"><span>I understand student volunteer roles may require school approval and/or adult supervision.</span></label>
           </fieldset>
 
-          <fieldset>
+          <fieldset data-step-title="Review & finish">
             <legend><span>6</span> Final notes</legend>
+            <p class="step-intro">Last step. Add anything else you want us to know, then send it over.</p>
             <label class="full-label">Anything else we should know?<textarea name="notes" rows="4" placeholder="Questions, preferences, ideas, or anything that helps us match you well."></textarea></label>
             <label class="choice consent-choice"><input type="checkbox" name="consent" required><span>I agree that the PTA may contact me about volunteer opportunities based on the information I provided. *</span></label>
+            <div class="vol-review" id="volReview"></div>
           </fieldset>
 
-          <div class="vol-actions">
-            <button type="button" class="vol-save" id="saveVolunteerDraft">Save draft on this device</button>
-            <button type="submit" class="vol-submit">Send volunteer interest <span>→</span></button>
+          <div class="vol-wizard-actions">
+            <button type="button" class="vol-back" id="volBack">← Back</button>
+            <div class="vol-wizard-right">
+              <button type="button" class="vol-save" id="saveVolunteerDraft">Save draft</button>
+              <button type="button" class="vol-next" id="volNext">Continue <span>→</span></button>
+              <button type="submit" class="vol-submit" id="volSubmit">Send volunteer interest <span>→</span></button>
+            </div>
           </div>
-          <p class="vol-submit-note">For this first version, submitting opens a pre-addressed email to <strong>info@xeniavoigtpta.org</strong> with your form responses. A direct secure submission system can be connected later without redesigning this form.</p>
+          <p class="vol-autosave-note">Your progress is saved automatically on this device as you go.</p>
+          <p class="vol-submit-note" id="volSubmitNote">Submitting opens a pre-addressed email to <strong>info@xeniavoigtpta.org</strong> with your responses. A direct secure submission system can be connected later without redesigning this form.</p>
           <div id="volStatus" class="vol-status" role="status" aria-live="polite"></div>
         </form>
       </div>
@@ -106,50 +123,77 @@
 
   const form=document.getElementById('volunteerForm');
   const eventSelect=document.getElementById('volEvent');
+  const fieldsets=[...form.querySelectorAll('fieldset')];
+  const nextBtn=document.getElementById('volNext');
+  const backBtn=document.getElementById('volBack');
+  const submitBtn=document.getElementById('volSubmit');
+  const saveBtn=document.getElementById('saveVolunteerDraft');
+  const stepLabel=document.getElementById('volStepLabel');
+  const percent=document.getElementById('volPercent');
+  const progressBar=document.getElementById('volProgressBar');
+  const dots=document.getElementById('volStepDots');
+  const review=document.getElementById('volReview');
+  const submitNote=document.getElementById('volSubmitNote');
+  let step=0;
+
+  dots.innerHTML=fieldsets.map((f,i)=>`<span data-step-dot="${i}" title="${f.dataset.stepTitle}"></span>`).join('');
+
   if(presetEvent){const match=[...eventSelect.options].find(o=>o.textContent.toLowerCase().includes(presetEvent.toLowerCase()));if(match) eventSelect.value=match.value;else {eventSelect.value='Other event / project';form.elements.otherEvent.value=presetEvent;}}
 
   const key='voigt-volunteer-draft-v1';
+  function values(){const fd=new FormData(form),obj={};for(const [k,v] of fd.entries()){if(obj[k])obj[k]=Array.isArray(obj[k])?[...obj[k],v]:[obj[k],v];else obj[k]=v;}return obj;}
+  function saveDraft(showMessage=false){localStorage.setItem(key,JSON.stringify(values()));if(showMessage){const s=document.getElementById('volStatus');s.textContent='Draft saved on this device ✓';setTimeout(()=>s.textContent='',2200);}}
   try{const draft=JSON.parse(localStorage.getItem(key)||'null');if(draft){Object.entries(draft).forEach(([name,val])=>{const els=form.elements[name];if(!els)return;if(els instanceof RadioNodeList){[...els].forEach(el=>{if(el.type==='checkbox')el.checked=(val||[]).includes(el.value);});}else if(els.type==='checkbox'){els.checked=!!val;}else{els.value=val??'';}})}}catch{}
 
-  function values(){const fd=new FormData(form),obj={};for(const [k,v] of fd.entries()){if(obj[k])obj[k]=Array.isArray(obj[k])?[...obj[k],v]:[obj[k],v];else obj[k]=v;}return obj;}
-  document.getElementById('saveVolunteerDraft')?.addEventListener('click',()=>{localStorage.setItem(key,JSON.stringify(values()));const s=document.getElementById('volStatus');s.textContent='Draft saved on this device ✓';setTimeout(()=>s.textContent='',2200);});
+  function validateStep(index){
+    const controls=[...fieldsets[index].querySelectorAll('input,select,textarea')].filter(el=>!el.disabled);
+    for(const el of controls){if(!el.checkValidity()){el.reportValidity();el.focus({preventScroll:true});el.scrollIntoView({behavior:'smooth',block:'center'});return false;}}
+    return true;
+  }
+  function list(x){return Array.isArray(x)?x.join(', '):(x||'None selected');}
+  function buildReview(){
+    const v=values();
+    review.innerHTML=`<div class="vol-review-head"><span>QUICK REVIEW</span><b>Looks good?</b></div><div class="vol-review-grid">
+      <div><small>Volunteer</small><strong>${v.firstName||'—'} ${v.lastName||''}</strong><span>${v.relationship||'—'}</span></div>
+      <div><small>Event / project</small><strong>${v.event||'—'}</strong><span>${v.otherEvent||''}</span></div>
+      <div><small>Preferred roles</small><strong>${list(v.roles)}</strong></div>
+      <div><small>Availability</small><strong>${list(v.availability)}</strong><span>${v.commitment||''}</span></div>
+    </div>`;
+  }
+  function renderStep(direction=1){
+    fieldsets.forEach((fs,i)=>{fs.hidden=i!==step;fs.classList.remove('step-enter-forward','step-enter-back');if(i===step){requestAnimationFrame(()=>fs.classList.add(direction>=0?'step-enter-forward':'step-enter-back'));}});
+    const done=Math.round(((step+1)/fieldsets.length)*100);
+    stepLabel.textContent=`Step ${step+1} of ${fieldsets.length} · ${fieldsets[step].dataset.stepTitle}`;
+    percent.textContent=`${done}%`;
+    progressBar.style.width=`${done}%`;
+    [...dots.children].forEach((d,i)=>{d.classList.toggle('active',i===step);d.classList.toggle('complete',i<step);});
+    backBtn.hidden=step===0;
+    nextBtn.hidden=step===fieldsets.length-1;
+    submitBtn.hidden=step!==fieldsets.length-1;
+    submitNote.hidden=step!==fieldsets.length-1;
+    if(step===fieldsets.length-1) buildReview();
+    fieldsets[step].querySelector('legend')?.focus?.();
+    const top=form.getBoundingClientRect().top+window.scrollY-100;
+    if(direction!==0 && window.scrollY>top+120) window.scrollTo({top,behavior:'smooth'});
+  }
+
+  nextBtn.addEventListener('click',()=>{if(!validateStep(step))return;saveDraft();step=Math.min(fieldsets.length-1,step+1);renderStep(1);});
+  backBtn.addEventListener('click',()=>{saveDraft();step=Math.max(0,step-1);renderStep(-1);});
+  saveBtn.addEventListener('click',()=>saveDraft(true));
+  form.addEventListener('input',()=>saveDraft(false));
+  form.addEventListener('change',()=>saveDraft(false));
 
   form.addEventListener('submit',e=>{
     e.preventDefault();
-    if(!form.reportValidity()) return;
+    if(!validateStep(step)||!form.reportValidity()) return;
     const v=values();
-    const list=(x)=>Array.isArray(x)?x.join(', '):(x||'None selected');
     const subject=`Volunteer Interest — ${v.event}${v.otherEvent?' — '+v.otherEvent:''}`;
     const body=[
-      'VOIGT PTA VOLUNTEER INTEREST',
-      '',
-      `Name: ${v.firstName} ${v.lastName}`,
-      `Email: ${v.email}`,
-      `Phone: ${v.phone||'Not provided'}`,
-      `Connection to Voigt: ${v.relationship}`,
-      `Preferred contact: ${v.contactMethod}`,
-      '',
-      `Event / project: ${v.event}`,
-      `Other event/project: ${v.otherEvent||'—'}`,
-      `Preferred roles: ${list(v.roles)}`,
-      '',
-      `Availability: ${list(v.availability)}`,
-      `Time commitment: ${v.commitment}`,
-      `Availability notes: ${v.availabilityNotes||'—'}`,
-      '',
-      `Skills / interests: ${list(v.skills)}`,
-      `Skills notes: ${v.skillsNotes||'—'}`,
-      `Comfort / accessibility notes: ${v.comfortNotes||'—'}`,
-      '',
-      `Student grade: ${v.studentGrade||'Not applicable'}`,
-      `Student school/org: ${v.studentOrg||'—'}`,
-      `Student supervision acknowledgement: ${v.studentSupervision||'No / not applicable'}`,
-      '',
-      `Additional notes: ${v.notes||'—'}`,
-      '',
-      'Consent to PTA contact: Yes'
+      'VOIGT PTA VOLUNTEER INTEREST','',`Name: ${v.firstName} ${v.lastName}`,`Email: ${v.email}`,`Phone: ${v.phone||'Not provided'}`,`Connection to Voigt: ${v.relationship}`,`Preferred contact: ${v.contactMethod}`,'',`Event / project: ${v.event}`,`Other event/project: ${v.otherEvent||'—'}`,`Preferred roles: ${list(v.roles)}`,'',`Availability: ${list(v.availability)}`,`Time commitment: ${v.commitment}`,`Availability notes: ${v.availabilityNotes||'—'}`,'',`Skills / interests: ${list(v.skills)}`,`Skills notes: ${v.skillsNotes||'—'}`,`Comfort / accessibility notes: ${v.comfortNotes||'—'}`,'',`Student grade: ${v.studentGrade||'Not applicable'}`,`Student school/org: ${v.studentOrg||'—'}`,`Student supervision acknowledgement: ${v.studentSupervision||'No / not applicable'}`,'',`Additional notes: ${v.notes||'—'}`,'','Consent to PTA contact: Yes'
     ].join('\n');
     localStorage.removeItem(key);
     location.href=`mailto:info@xeniavoigtpta.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
+
+  renderStep(0);
 })();
