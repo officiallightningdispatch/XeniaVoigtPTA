@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "rm -rf public && mkdir -p public/src/data && cp index.html styles.css app.js public/ && cp src/data/site.js public/src/data/site.js"
+    "build": "rm -rf public && mkdir -p public && cp index.html styles.css mobile-fixes.css app.js public/ && for r in about join volunteer events viking-quest fundraising resources contact access; do mkdir -p public/$r && cp index.html public/$r/index.html; done && cp event.ics public/event.ics"
   }
 }
