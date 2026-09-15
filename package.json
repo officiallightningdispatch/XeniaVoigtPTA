@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "rm -rf public && mkdir -p public && cp index.html styles.css mobile-fixes.css fun-extras.css hype.css arts-academy.css membership-embed.css app.js home-hype.js arts-academy.js membership-embed.js public/ && for r in about join volunteer events viking-quest fundraising resources contact access; do mkdir -p public/$r && cp index.html public/$r/index.html; done && cp event.ics public/event.ics"
+    "build": "rm -rf public && mkdir -p public && cp index.html styles.css mobile-fixes.css fun-extras.css hype.css arts-academy.css membership-embed.css join-external.css volunteer-form.css app.js home-hype.js arts-academy.js membership-embed.js join-external.js volunteer-form.js public/ && for r in about join volunteer events viking-quest fundraising resources contact access; do mkdir -p public/$r && cp index.html public/$r/index.html; done && cp event.ics public/event.ics"
   }
 }
