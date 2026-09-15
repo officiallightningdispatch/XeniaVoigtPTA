@@ -2,6 +2,14 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/((?!styles\\.css|app\\.js|src/).*)", "destination": "/index.html" }
+    { "source": "/about", "destination": "/index.html" },
+    { "source": "/join", "destination": "/index.html" },
+    { "source": "/volunteer", "destination": "/index.html" },
+    { "source": "/events", "destination": "/index.html" },
+    { "source": "/viking-quest", "destination": "/index.html" },
+    { "source": "/fundraising", "destination": "/index.html" },
+    { "source": "/resources", "destination": "/index.html" },
+    { "source": "/contact", "destination": "/index.html" },
+    { "source": "/access", "destination": "/index.html" }
   ]
 }
