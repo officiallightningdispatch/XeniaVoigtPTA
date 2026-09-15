@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Xenia Voigt Arts Academy PTA//Viking Quest 2026//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:vikingquest-20261023@xeniavoigtpta.org
+DTSTAMP:20260915T033900Z
+DTSTART:20261023T223000Z
+DTEND:20261024T003000Z
+SUMMARY:Viking Quest Fall Festival
+LOCATION:Xenia Voigt Arts Academy, 1201 Cushing Dr, Round Rock, TX 78664
+DESCRIPTION:Viking Quest Fall Festival hosted by Xenia Voigt Arts Academy PTA. Admission and children's activities are planned to be free.
+END:VEVENT
+END:VCALENDAR
