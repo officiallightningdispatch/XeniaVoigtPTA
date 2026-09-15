@@ -19,18 +19,20 @@
         </div>
         <p class="hype-small">Parents · Caregivers · Teachers · Staff · Grandparents · Community supporters</p>
       </div>
-      <aside class="hype-stage reveal-now" aria-label="What PTA makes possible">
+      <aside class="hype-stage quick-desk reveal-now" aria-label="Quick access">
         <div class="stage-glow"></div>
-        <div class="stage-card stage-main">
-          <span class="stage-tag">NEXT BIG MOMENT</span>
-          <div class="stage-date">OCT <b>23</b></div>
-          <h2>Viking Quest Fall Festival</h2>
-          <p>Games. Arts. Food. Trunk-or-treat. Performances. Sensory-friendly retreat. One unforgettable Viking night.</p>
-          <div class="stage-buttons"><a href="/viking-quest">Explore Viking Quest →</a><a href="/event.ics" download>Add to calendar</a></div>
+        <div class="quick-desk-card">
+          <span class="stage-tag">QUICK ACCESS</span>
+          <h2>What do you need today?</h2>
+          <p class="quick-desk-intro">The most-used Voigt and PTA links, all in one place.</p>
+          <div class="quick-desk-links">
+            <a href="/resources"><span>📚</span><div><b>Resource Hub</b><small>Parents, students, staff & community</small></div><i>→</i></a>
+            <a href="/viking-quest"><span>🍂</span><div><b>Viking Quest</b><small>Oct. 23 · 5:30–7:30 PM</small></div><i>→</i></a>
+            <a href="/volunteer"><span>🙋</span><div><b>Volunteer</b><small>Flexible ways to help</small></div><i>→</i></a>
+            <a href="https://voigt.roundrockisd.org/staff" target="_blank" rel="noopener"><span>🏫</span><div><b>Voigt Staff Directory</b><small>Find a teacher or staff member</small></div><i>↗</i></a>
+          </div>
+          <div class="quick-desk-footer"><a href="/contact">Ask the PTA a question →</a></div>
         </div>
-        <div class="stage-float float-one">🎨 <b>Arts + creativity</b></div>
-        <div class="stage-float float-two">💛 <b>Teacher love</b></div>
-        <div class="stage-float float-three">🎉 <b>Family moments</b></div>
       </aside>
     </div>
     <div class="hype-scroll">SCROLL FOR THE GOOD STUFF <span>↓</span></div>`;
