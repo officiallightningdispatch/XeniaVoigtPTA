@@ -1,6 +1,8 @@
 {
-  "name":"xenia-voigt-pta",
-  "version":"1.0.0",
-  "private":true,
-  "scripts":{"build":"echo static site ready"}
+  "name": "xenia-voigt-pta",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "rm -rf public && mkdir -p public/src/data && cp index.html styles.css app.js public/ && cp src/data/site.js public/src/data/site.js"
+  }
 }
