@@ -52,7 +52,8 @@
       </div>
       <a href="/fundraising" class="${current==='/fundraising'?'active':''}">Support</a>
       <a href="/resources" class="${current==='/resources'?'active':''}">Resources</a>
-      <a href="/contact" class="${current==='/contact'?'active':''}">Contact</a>`;
+      <a href="/contact" class="${current==='/contact'?'active':''}">Contact</a>
+      <a href="/admin" class="${current==='/admin'?'active':''}">Login</a>`;
 
     const dd=nav.querySelector('.nav-dropdown');
     const toggle=dd?.querySelector('.nav-dropdown-toggle');
