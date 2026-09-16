@@ -46,6 +46,23 @@ export async function ensureSchema(sql){
     vehicle_type TEXT,
     payload JSONB NOT NULL
   )`;
+  await sql`CREATE TABLE IF NOT EXISTS pta_board_users (
+    username TEXT PRIMARY KEY,
+    full_name TEXT NOT NULL,
+    role TEXT NOT NULL,
+    password_salt TEXT NOT NULL,
+    password_hash TEXT NOT NULL,
+    must_change_password BOOLEAN NOT NULL DEFAULT TRUE,
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+  )`;
+  await sql`CREATE TABLE IF NOT EXISTS pta_board_sessions (
+    token_hash TEXT PRIMARY KEY,
+    username TEXT NOT NULL REFERENCES pta_board_users(username) ON DELETE CASCADE,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    expires_at TIMESTAMPTZ NOT NULL
+  )`;
+  await sql`CREATE INDEX IF NOT EXISTS pta_board_sessions_username_idx ON pta_board_sessions(username)`;
+  await sql`CREATE INDEX IF NOT EXISTS pta_board_sessions_expires_idx ON pta_board_sessions(expires_at)`;
 }
 
 export function cleanText(v,max=500){
