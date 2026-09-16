@@ -1,26 +1,6 @@
 (()=>{
   const p=(location.pathname.replace(/\/index\.html$/,'').replace(/\/$/,'')||'/');
 
-  if(p==='/events'){
-    const container=document.querySelector('main#main .section .container');
-    if(container && !document.getElementById('loteriaEvent')){
-      container.insertAdjacentHTML('afterbegin',`
-        <article id="loteriaEvent" class="community-feature loteria-feature">
-          <div class="community-date"><span>SEP</span><b>24</b></div>
-          <div class="community-feature-copy">
-            <span class="mini-label">NEXT UP · VOIGT ELEMENTARY</span>
-            <h2>Open House + Lotería Night</h2>
-            <p class="community-time">Thursday, September 24 · 5:30–7:00 PM</p>
-            <p>Meet your child’s teachers, learn about this year’s learning experiences and curriculum, hear how Title I funds support student learning, enjoy Lotería, and connect with the Voigt community.</p>
-            <div class="modern-chiprow"><span>All families welcome</span><span>5th Grade Arts Integration Performance</span><span>Lotería</span><span>Open House</span></div>
-          </div>
-        </article>
-        <div class="community-section-label"><span>COMING NEXT</span></div>`);
-      const oldNext=[...container.querySelectorAll('.mini-label')].find(x=>x.textContent.trim()==='NEXT UP');
-      if(oldNext) oldNext.textContent='OCTOBER 23';
-    }
-  }
-
   const readingCard=`<article id="reading-in-the-rrock" class="reading-rrock-card">
       <div class="reading-rrock-badge">READING IN THE RROCK</div>
       <div><span class="mini-label">RRISD LITERACY PARTNERSHIP</span><h2>Help a kindergartener become a confident reader.</h2>
