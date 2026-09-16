@@ -24,7 +24,7 @@
     if(!nav || nav.dataset.eventMenuUpdated==='1') return;
     nav.dataset.eventMenuUpdated='1';
     const current=location.pathname.replace(/\/index\.html$/,'').replace(/\/$/,'')||'/';
-    const isEvents=['/events','/viking-quest','/volunteer','/vendors'].includes(current);
+    const isEvents=['/events','/viking-quest','/volunteer','/vendors','/trunk-or-treat','/trunk-host.html'].includes(current);
     nav.innerHTML=`
       <a href="/" class="${current==='/'?'active':''}">Home</a>
       <a href="/about" class="${current==='/about'?'active':''}">About</a>
@@ -34,6 +34,7 @@
         <div class="nav-dropdown-menu">
           <a href="/events" class="${current==='/events'?'active':''}">Calendar & Events</a>
           <a href="/viking-quest" class="${current==='/viking-quest'?'active':''}">${FESTIVAL_NAME}</a>
+          <a href="/trunk-or-treat" class="${current==='/trunk-or-treat'||current==='/trunk-host.html'?'active':''}">Trunk-or-Treat Application</a>
           <a href="/volunteer" class="${current==='/volunteer'?'active':''}">Volunteer</a>
           <a href="/vendors" class="${current==='/vendors'?'active':''}">Vendors</a>
         </div>
@@ -59,7 +60,14 @@
     }
   }
 
-  function apply(){rebuildNav();renameFestival();}
+  function addTrunkCta(){
+    const current=location.pathname.replace(/\/index\.html$/,'').replace(/\/$/,'')||'/';
+    if(current!=='/viking-quest' || document.getElementById('trunkHostCta')) return;
+    const main=document.querySelector('main#main'); if(!main) return;
+    main.insertAdjacentHTML('beforeend',`<section id="trunkHostCta" class="section"><div class="container"><article class="modern-panel accent"><span class="mini-label">TRUNK-OR-TREAT · 20 SPOTS MAX</span><h2>Want to host a trunk?</h2><p>Six teacher trunks, the Boys & Girls Club at Voigt, and two parent trunks are already claimed. Applications are open for the remaining spaces while capacity lasts.</p><a class="btn secondary" href="/trunk-or-treat">Apply to host a trunk →</a></article></div></section>`);
+  }
+
+  function apply(){rebuildNav();renameFestival();addTrunkCta();}
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',apply);
   else apply();
   setTimeout(apply,250);
