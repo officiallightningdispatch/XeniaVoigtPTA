@@ -19,7 +19,7 @@
         <label>Electrical needs<select name="electricity"><option>No electricity needed</option><option>Standard outlet requested</option><option>Special power needs — explain below</option></select></label>
         <label class="full">Special notes or requirements<textarea name="notes" rows="3"></textarea></label>
       </div>
-      <div class="vendor-terms"><label><input type="checkbox" name="profitShareAccepted" required> I agree that, if approved to vend, I will contribute 10% of my total event sales to Xenia Voigt Arts Academy PTA and provide the event sales/cost totals needed to calculate that amount. *</label></div>
+      <div class="vendor-terms"><label><input type="checkbox" name="profitShareAccepted" required> I agree that, if approved to vend, I will contribute 10% of my total event sales to Xenia Voigt Arts Academy PTA and provide the total event sales amount needed to calculate that contribution. *</label></div>
       <label><input type="checkbox" name="accuracyAccepted" required> I confirm the information above is accurate and understand submission does not guarantee acceptance. *</label>
       <div style="margin-top:18px"><button class="vendor-submit" type="submit">Submit vendor application →</button></div><div id="vendorStatus" class="newsletter-status" role="status" aria-live="polite"></div>
       </form>
