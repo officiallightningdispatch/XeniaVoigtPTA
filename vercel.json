@@ -12,6 +12,7 @@
     { "source": "/contact", "destination": "/index.html" },
     { "source": "/access", "destination": "/index.html" },
     { "source": "/vendors", "destination": "/index.html" },
+    { "source": "/trunk-host", "destination": "/trunk-host.html" },
     { "source": "/admin", "destination": "/index.html" }
   ],
   "headers": [
