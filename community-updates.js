@@ -21,7 +21,7 @@
     }
   }
 
-  const readingCard=`<article class="reading-rrock-card">
+  const readingCard=`<article id="reading-in-the-rrock" class="reading-rrock-card">
       <div class="reading-rrock-badge">READING IN THE RROCK</div>
       <div><span class="mini-label">RRISD LITERACY PARTNERSHIP</span><h2>Help a kindergartener become a confident reader.</h2>
       <p>Round Rock ISD is looking for caring volunteers to work consistently with Kindergarten students who need extra literacy support. Training, videos, tip sheets, and literacy materials are provided.</p>
@@ -33,12 +33,12 @@
 
   if(p==='/resources'){
     const spot=document.querySelector('.resource-spotlight');
-    if(spot && !document.querySelector('.reading-rrrock-card')) spot.insertAdjacentHTML('afterend',readingCard.replace('reading-rrrock-card','reading-rrrock-card reading-on-resources'));
+    if(spot && !document.querySelector('.reading-rrock-card')) spot.insertAdjacentHTML('afterend',readingCard.replace('reading-rrock-card','reading-rrock-card reading-on-resources'));
   }
 
   if(p==='/volunteer'){
     const section=document.querySelector('.vol-form-section .container');
-    if(section && !document.querySelector('.reading-rrrock-card')) section.insertAdjacentHTML('beforebegin',`<div class="container reading-volunteer-wrap">${readingCard}</div>`);
+    if(section && !document.querySelector('.reading-rrock-card')) section.insertAdjacentHTML('beforebegin',`<div class="container reading-volunteer-wrap">${readingCard}</div>`);
   }
 
   if(p==='/'){
