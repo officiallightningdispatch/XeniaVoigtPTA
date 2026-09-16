@@ -33,6 +33,19 @@ export async function ensureSchema(sql){
     email TEXT NOT NULL UNIQUE,
     source TEXT
   )`;
+  await sql`CREATE TABLE IF NOT EXISTS pta_trunk_hosts (
+    id BIGSERIAL PRIMARY KEY,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    status TEXT NOT NULL DEFAULT 'new',
+    host_name TEXT NOT NULL,
+    host_type TEXT NOT NULL,
+    grade_org TEXT,
+    email TEXT NOT NULL,
+    phone TEXT,
+    theme TEXT,
+    vehicle_type TEXT,
+    payload JSONB NOT NULL
+  )`;
 }
 
 export function cleanText(v,max=500){
