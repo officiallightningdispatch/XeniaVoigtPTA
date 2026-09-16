@@ -19,6 +19,17 @@
     });
   }
 
+  function removePublicAccess(){
+    document.querySelectorAll('a[href="/access"]').forEach(a=>{
+      const card=a.closest('.bento-access');
+      if(card){card.remove();return;}
+      const p=a.closest('p');
+      if(p&&p.parentElement?.closest('.footer')){p.remove();return;}
+      a.remove();
+    });
+    if((location.pathname.replace(/\/index\.html$/,'').replace(/\/$/,'')||'/')==='/access') location.replace('/');
+  }
+
   function rebuildNav(){
     const nav=document.querySelector('#nav .nav-inner');
     if(!nav || nav.dataset.eventMenuUpdated==='1') return;
@@ -41,8 +52,7 @@
       </div>
       <a href="/fundraising" class="${current==='/fundraising'?'active':''}">Support</a>
       <a href="/resources" class="${current==='/resources'?'active':''}">Resources</a>
-      <a href="/contact" class="${current==='/contact'?'active':''}">Contact</a>
-      <a href="/access" class="member-access ${current==='/access'?'active':''}">Sign in</a>`;
+      <a href="/contact" class="${current==='/contact'?'active':''}">Contact</a>`;
 
     const dd=nav.querySelector('.nav-dropdown');
     const toggle=dd?.querySelector('.nav-dropdown-toggle');
@@ -67,7 +77,7 @@
     main.insertAdjacentHTML('beforeend',`<section id="trunkHostCta" class="section"><div class="container"><article class="modern-panel accent"><span class="mini-label">TRUNK-OR-TREAT · 20 SPOTS MAX</span><h2>Want to host a trunk?</h2><p>Six teacher trunks, the Boys & Girls Club at Voigt, and two parent trunks are already claimed. Applications are open for the remaining spaces while capacity lasts.</p><a class="btn secondary" href="/trunk-or-treat">Apply to host a trunk →</a></article></div></section>`);
   }
 
-  function apply(){rebuildNav();renameFestival();addTrunkCta();}
+  function apply(){rebuildNav();renameFestival();removePublicAccess();addTrunkCta();}
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',apply);
   else apply();
   setTimeout(apply,250);
