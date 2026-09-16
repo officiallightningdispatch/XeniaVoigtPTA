@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Host a Trunk | Xenia Voigt Arts Academy PTA</title>
+  <meta name="description" content="Register to host a family-friendly trunk at the 2026 Viking Quest Fall Festival at Xenia Voigt Arts Academy.">
+  <style>
+    :root{--ink:#17263c;--red:#b22135;--gold:#f3b638;--cream:#fffaf1;--white:#fff;--muted:#667085;--line:#eadfce}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--cream);color:var(--ink);line-height:1.5}a{color:inherit}.top{background:var(--ink);color:#fff;padding:14px 20px;text-align:center;font-weight:700}.wrap{width:min(980px,92vw);margin:auto}.hero{padding:58px 0 28px}.eyebrow{font-size:.8rem;letter-spacing:.13em;font-weight:800;color:var(--red);text-transform:uppercase}.hero h1{font-size:clamp(2.2rem,6vw,4.6rem);line-height:1;margin:.35rem 0 1rem}.hero p{font-size:1.1rem;max-width:760px;color:#445}.chips{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}.chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 12px;font-weight:700}.layout{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;padding:16px 0 70px}.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:0 12px 34px rgba(23,38,60,.07)}h2{margin-top:0}.reserved{background:#fff3d7;border-color:#f2cf7a}.reserved strong{color:#8a5b00}.rules ul{padding-left:20px}.rules li{margin:8px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}label{font-weight:800;font-size:.92rem}input,select,textarea{width:100%;border:1px solid #cfd5dd;border-radius:12px;padding:12px 13px;font:inherit;background:#fff;color:var(--ink)}textarea{min-height:105px;resize:vertical}.check{display:flex;gap:10px;align-items:flex-start;margin-top:8px}.check input{width:auto;margin-top:4px}.btn{border:0;border-radius:999px;padding:13px 20px;background:var(--red);color:#fff;font-weight:800;font-size:1rem;cursor:pointer}.btn:disabled{opacity:.6;cursor:wait}.status{margin-top:14px;font-weight:700}.status.ok{color:#166534}.status.bad{color:#b42318}.foot{border-top:1px solid var(--line);padding:26px 0 42px;color:var(--muted);font-size:.94rem}.back{display:inline-block;margin-top:14px;text-decoration:none;font-weight:800}.note{font-size:.94rem;color:#555}@media(max-width:800px){.layout{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.hero{padding-top:38px}}
+  </style>
+</head>
+<body>
+  <div class="top">Viking Quest Fall Festival · Friday, October 23, 2026 · 5:30–7:30 PM</div>
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Xenia Voigt Arts Academy PTA</div>
+      <h1>Host a Trunk 🚗🍬</h1>
+      <p>Help make Viking Quest extra special for Voigt students. Parents, faculty, staff, and approved community partners can apply to host a decorated, family-friendly trunk in our Trunk-or-Treat Zone.</p>
+      <div class="chips"><span class="chip">1201 Cushing Dr, Round Rock</span><span class="chip">Family-friendly</span><span class="chip">Limited spaces</span></div>
+      <a class="back" href="/viking-quest">← Back to Viking Quest</a>
+    </section>
+
+    <section class="layout">
+      <div>
+        <div class="card reserved">
+          <h2>Reserved & confirmed</h2>
+          <p><strong>Spots 1–6:</strong> one teacher trunk for each grade, Kindergarten through 5th grade.</p>
+          <p><strong>Spot 7:</strong> Boys & Girls Club at Voigt — confirmed community partner.</p>
+          <p class="note">All remaining spaces are available to approved parents, faculty/staff, and community participants while space lasts.</p>
+        </div>
+        <div class="card rules" style="margin-top:20px">
+          <h2>Host expectations</h2>
+          <ul>
+            <li>Keep themes and decorations appropriate for an elementary school audience.</li>
+            <li>Provide your own decorations, candy, or approved giveaway items unless the PTA makes another arrangement with you.</li>
+            <li>No realistic weapons, gore, alcohol, tobacco/vape branding, political campaigning, or adult-only content.</li>
+            <li>Stay within your assigned parking space and keep traffic lanes, sidewalks, and fire access clear.</li>
+            <li>Vehicles must be parked and fully set up before families enter the Trunk-or-Treat area and should remain parked during the activity.</li>
+            <li>Candy and giveaway items should be individually wrapped or safely packaged.</li>
+            <li>Electrical access is limited and must be requested in advance; a request does not guarantee availability.</li>
+            <li>Final placement and participation are subject to PTA/school approval and available space.</li>
+          </ul>
+        </div>
+      </div>
+
+      <form class="card" id="trunkForm">
+        <h2>Trunk Host Registration</h2>
+        <p class="note">Submitting this form requests a spot. The PTA will confirm approved hosts and final event-day instructions separately.</p>
+        <div class="grid">
+          <div class="field full"><label for="hostName">Host name *</label><input id="hostName" name="hostName" required maxlength="180"></div>
+          <div class="field"><label for="hostType">Host type *</label><select id="hostType" name="hostType" required><option value="">Choose one</option><option>Teacher</option><option>Parent</option><option>Faculty/Staff</option><option>Community Partner</option><option>Other</option></select></div>
+          <div class="field"><label for="gradeOrg">Grade / organization</label><input id="gradeOrg" name="gradeOrg" maxlength="180" placeholder="Example: 2nd Grade or Boys & Girls Club"></div>
+          <div class="field"><label for="email">Email *</label><input id="email" name="email" type="email" required maxlength="320"></div>
+          <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" maxlength="80"></div>
+          <div class="field"><label for="theme">Trunk theme</label><input id="theme" name="theme" maxlength="180" placeholder="Family-friendly theme"></div>
+          <div class="field"><label for="vehicleType">Vehicle type</label><input id="vehicleType" name="vehicleType" maxlength="120" placeholder="Car, SUV, truck, van…"></div>
+          <div class="field"><label for="electricity">Need electricity?</label><select id="electricity" name="electricity"><option value="No">No</option><option value="Yes">Yes</option></select></div>
+          <div class="field"><label for="candyProvided">Providing candy/giveaways?</label><select id="candyProvided" name="candyProvided"><option value="Yes">Yes</option><option value="No">No</option></select></div>
+          <div class="field full"><label for="notes">Setup notes or accessibility needs</label><textarea id="notes" name="notes" maxlength="800"></textarea></div>
+          <label class="check field full"><input id="rulesAccepted" name="rulesAccepted" type="checkbox" required><span>I have read and agree to the Trunk-or-Treat host expectations above. *</span></label>
+          <div class="field full"><button class="btn" id="submitBtn" type="submit">Request a Trunk Spot</button><div id="status" class="status" role="status" aria-live="polite"></div></div>
+        </div>
+      </form>
+    </section>
+  </main>
+  <footer class="foot"><div class="wrap"><strong>Xenia Voigt Arts Academy PTA</strong><br>1201 Cushing Dr, Round Rock, TX 78664</div></footer>
+<script>
+const form=document.getElementById('trunkForm');
+const statusEl=document.getElementById('status');
+const button=document.getElementById('submitBtn');
+form.addEventListener('submit',async(e)=>{
+  e.preventDefault(); statusEl.textContent=''; statusEl.className='status'; button.disabled=true; button.textContent='Submitting…';
+  const fd=new FormData(form); const data=Object.fromEntries(fd.entries()); data.rulesAccepted=document.getElementById('rulesAccepted').checked;
+  try{
+    const r=await fetch('/api/trunk-hosts',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+    const j=await r.json().catch(()=>({}));
+    if(!r.ok) throw new Error(j.error||'Unable to submit registration.');
+    form.reset(); document.getElementById('candyProvided').value='Yes'; document.getElementById('electricity').value='No';
+    statusEl.textContent='Thank you! Your trunk-host request has been received. The PTA will follow up after review.'; statusEl.className='status ok';
+  }catch(err){statusEl.textContent=err.message||'Unable to submit registration. Please try again.'; statusEl.className='status bad';}
+  finally{button.disabled=false;button.textContent='Request a Trunk Spot';}
+});
+</script>
+</body>
+</html>
