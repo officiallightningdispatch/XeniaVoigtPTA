@@ -20,8 +20,9 @@ export default async function handler(req,res){
     if(req.method==='GET'){
       const volunteers=await sql`SELECT id,created_at,status,first_name,last_name,email,phone,event,payload FROM pta_volunteers ORDER BY created_at DESC LIMIT 500`;
       const vendors=await sql`SELECT id,created_at,status,business_name,contact_name,email,phone,payload FROM pta_vendors ORDER BY created_at DESC LIMIT 500`;
+      const trunkHosts=await sql`SELECT id,created_at,status,host_name,host_type,grade_org,email,phone,theme,vehicle_type,payload FROM pta_trunk_hosts ORDER BY created_at DESC LIMIT 500`;
       const newsletter=await sql`SELECT id,created_at,email,source FROM pta_newsletter ORDER BY created_at DESC LIMIT 1000`;
-      return send(res,200,{member,volunteers,vendors,newsletter});
+      return send(res,200,{member,volunteers,vendors,trunkHosts,newsletter});
     }
     if(req.method==='PATCH'){
       const body=jsonBody(req); const id=Number(body.id); const kind=cleanText(body.kind,40); const status=cleanText(body.status,40);
@@ -29,6 +30,7 @@ export default async function handler(req,res){
       if(!id||!allowed.has(status)) return send(res,400,{error:'Invalid update.'});
       if(kind==='volunteers') await sql`UPDATE pta_volunteers SET status=${status} WHERE id=${id}`;
       else if(kind==='vendors') await sql`UPDATE pta_vendors SET status=${status} WHERE id=${id}`;
+      else if(kind==='trunkHosts') await sql`UPDATE pta_trunk_hosts SET status=${status} WHERE id=${id}`;
       else return send(res,400,{error:'Invalid record type.'});
       return send(res,200,{ok:true,member});
     }
