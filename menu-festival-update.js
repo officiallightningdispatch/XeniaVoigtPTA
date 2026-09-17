@@ -75,7 +75,7 @@
     const current=location.pathname.replace(/\/index\.html$/,'').replace(/\/$/,'')||'/';
     if(current!=='/viking-quest' || document.getElementById('trunkHostCta')) return;
     const main=document.querySelector('main#main'); if(!main) return;
-    main.insertAdjacentHTML('beforeend',`<section id="trunkHostCta" class="section"><div class="container"><article class="modern-panel accent"><span class="mini-label">TRUNK-OR-TREAT · 20 SPOTS MAX</span><h2>Want to host a trunk?</h2><p>Six teacher trunks, the Boys & Girls Club at Voigt, and two parent trunks are already claimed. Applications are open for the remaining spaces while capacity lasts.</p><a class="btn secondary" href="/trunk-or-treat">Apply to host a trunk →</a></article></div></section>`);
+    main.insertAdjacentHTML('beforeend',`<section id="trunkHostCta" class="section"><div class="container"><article class="modern-panel accent"><span class="mini-label">TRUNK-OR-TREAT · 20 SPOTS MAX</span><h2>Want to host a trunk?</h2><p><strong>20 total spaces.</strong> Applications are open for the remaining spaces while capacity lasts. All applications are reviewed in the order received and are subject to PTA and school approval.</p><a class="btn secondary" href="/trunk-or-treat">Apply to host a trunk →</a></article></div></section>`);
   }
 
   function apply(){rebuildNav();renameFestival();removePublicAccess();addTrunkCta();}
