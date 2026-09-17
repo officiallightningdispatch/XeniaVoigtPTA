@@ -74,4 +74,13 @@
     if(type) type.textContent='SWEET FINISH GIVEAWAY PARTNER';
     if(p) p.textContent='Finish the Viking Quest and you could end the night on a sweet note! One completed Quest Card earns one entry for a Cookies & Crumbles gift certificate, with the winner drawn around 7:15 PM. The winner must be present; the prize goes to the student’s parent or guardian.';
   }
+
+  if(!main.querySelector('[data-approved-addition="sponsor-cta"]')){
+    const partners=main.querySelector('.fall26-partners');
+    const section=document.createElement('section');
+    section.className='section fall26-sponsor-cta';
+    section.dataset.approvedAddition='sponsor-cta';
+    section.innerHTML=`<div class="container"><div class="fall26-section-head"><span>COMMUNITY PARTNERS WANTED</span><h2>Help power a free night for Voigt families.</h2><p>Local businesses and community organizations can help sponsor attractions, Arts Integration activities, accessibility resources, prizes, and other festival essentials. We’ll work with you to find a partnership that fits.</p><p><a class="btn primary" href="mailto:voigtpta7@gmail.com?subject=Voigt%20Fall%20Festival%20Sponsorship">Become a community sponsor</a></p></div></div>`;
+    if(partners) partners.insertAdjacentElement('afterend',section); else main.appendChild(section);
+  }
 })();
