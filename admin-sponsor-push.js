@@ -32,13 +32,14 @@
       </div>
       <div class="admin-finance-grid">
         <div class="admin-finance-card"><strong>15</strong><span>targeted sponsor emails sent</span><small>DJ/MC, inflatable, Arts Integration, sensory support, printing/signage, student activities and broader event costs</small></div>
-        <div class="admin-finance-card"><strong>2</strong><span>forms ready but blocked</span><small>Wildflower Orthodontics and Teapioca require a confirmed contact phone number before submission</small></div>
-        <div class="admin-finance-card"><strong>$195</strong><span>priority family attraction</span><small>Bounce/combo sponsorship currently being pitched to local family-service businesses</small></div>
+        <div class="admin-finance-card"><strong>1</strong><span>formal sponsor form submitted</span><small>Wildflower Orthodontics received the $250 / in-kind Arts Integration request and sent confirmation</small></div>
+        <div class="admin-finance-card"><strong>1</strong><span>human verification pending</span><small>Teapioca phone blocker is resolved; reCAPTCHA must be completed before submission</small></div>
         <div class="admin-finance-card"><strong>$300</strong><span>DJ/MC benchmark</span><small>Premier confirmed full 5:30–7:30 PM coverage; LC asked to meet or beat this all-in rate</small></div>
       </div>
       <div class="admin-role-list" style="margin-top:14px">
+        <div class="admin-role-item"><span class="dot"></span><div><b>Wildflower Orthodontics:</b> formal $250 student activities / Arts Integration or equivalent in-kind sponsorship request submitted Sept. 17. Confirmation received from Dr. Giasi &amp; The Wildflower Ortho Team.</div></div>
+        <div class="admin-role-item"><span class="dot"></span><div><b>Teapioca Lounge:</b> contact information corrected to Brittani Simms, 203-604-5305. Form is prepared; required human reCAPTCHA remains the only submission blocker.</div></div>
         <div class="admin-role-item"><span class="dot"></span><div><b>Newest outreach:</b> Evolve Human Optimization Labs — $250 sensory/wellness or in-kind support; CWS Corporate Housing — $300 entertainment or $250 community support; Pediatric Dentistry of Round Rock — $195 inflatable / $250 community follow-up; Kalahari Round Rock — zero-cost in-kind family experience or $250 community sponsorship.</div></div>
-        <div class="admin-role-item"><span class="dot"></span><div><b>Ready when phone is confirmed:</b> Wildflower Orthodontics formal school/PTA sponsorship request and Teapioca Lounge donation/sponsorship request.</div></div>
         <div class="admin-role-item"><span class="dot"></span><div><b>Food vendor:</b> Hearth &amp; Honey is interested and available; application pending. Electrical requirements requested; outlet/load/generator rules still need campus confirmation.</div></div>
         <div class="admin-role-item"><span class="dot"></span><div><b>Entertainment:</b> LC Entertainment follow-up sent Sept. 17; waiting on revised all-in PTA quote. Premier remains the confirmed $300 paid backup while the $0-spend goal is preserved.</div></div>
         <div class="admin-role-item"><span class="dot"></span><div><b>Follow-up rule:</b> re-contact nonresponders after five business days; do not duplicate same-day asks.</div></div>
