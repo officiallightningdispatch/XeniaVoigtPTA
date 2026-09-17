@@ -47,6 +47,22 @@
       <div class="fall26-stats"><div><b>10+</b><span>food vendors targeted</span></div><div><b>6</b><span>teacher trunk spots</span></div><div><b>320</b><span>expected guests</span></div><div><b>2 hrs</b><span>packed with activities</span></div></div>
     </div></section>
 
+    <section class="section fall26-partners" aria-labelledby="fall26-partners-title"><div class="container">
+      <div class="fall26-section-head"><span>COMMUNITY-POWERED</span><h2 id="fall26-partners-title">Thank you to our community partners.</h2><p>Your support helps create a special evening for Voigt students and families.</p></div>
+      <div class="fall26-partner-grid" role="list" aria-label="Confirmed Fall Festival community partners">
+        <div role="listitem">Austin Aquarium</div>
+        <div role="listitem">Austin Zoo</div>
+        <div role="listitem">Round Rock Pumpkin Festival</div>
+        <div role="listitem">Monster Mini Golf &amp; Laser Tag</div>
+        <div role="listitem">Cookies &amp; Crumbles</div>
+        <div role="listitem">FASTSIGNS Round Rock</div>
+        <div role="listitem">Kona Ice Greater Austin</div>
+        <div role="listitem">KK BBQ Mexican Food Truck</div>
+        <div role="listitem">Pour The Fun</div>
+        <div role="listitem">Boys &amp; Girls Club at Voigt</div>
+      </div>
+    </div></section>
+
     <section class="section fall26-plan"><div class="container">
       <div class="fall26-section-head"><span>PLAN YOUR NIGHT</span><h2>Three easy ways to jump in.</h2></div>
       <div class="fall26-plan-grid">
