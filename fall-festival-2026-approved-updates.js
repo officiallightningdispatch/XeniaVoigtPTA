@@ -7,12 +7,12 @@
 
   const lede=main.querySelector('.fall26-lede');
   if(lede){
-    lede.textContent='A full-campus fall night built for families: inflatables, carnival games, food trucks, performances, Trunk-or-Treat, art, the Viking Quest, a fall photo stop, and more.';
+    lede.textContent='A full-campus fall night built for families: inflatables, carnival games, food trucks, performances, Trunk-or-Treat, art, the Arts Integration Viking Quest, a fall photo stop, and more.';
   }
 
   const posterStrip=main.querySelector('.fall26-poster-strip');
   if(posterStrip){
-    posterStrip.textContent='FOOD · GAMES · ART · MUSIC · TRUNKS · PHOTOS';
+    posterStrip.textContent='FOOD · GAMES · ART · MUSIC · TRUNKS · QUEST · PHOTOS';
   }
 
   const cards=[...main.querySelectorAll('.fall26-card')];
@@ -26,10 +26,34 @@
   const questCard=cards.find(card=>card.querySelector('h3')?.textContent.trim()==='Viking Quest');
   if(questCard){
     const p=questCard.querySelector('p');
-    if(p) p.textContent='Take on the themed activity stations, reach the finish line, and turn in a completed Quest Card for one entry in the Viking Quest Sweet Finish Giveaway.';
+    if(p) p.textContent='An Arts Integration adventure built around five creative trials: The Trial of Skill, The Shield Wall, The Rune Maker’s Workshop, The Voigt Longship Builders, and The Skald’s Stage finish line. Students collect a keepsake at each stop in their Quest pouch, then a completed Quest Card earns one Sweet Finish Giveaway entry.';
   }
 
   const grid=main.querySelector('.fall26-grid');
+  if(grid && !grid.querySelector('[data-approved-addition="quest-station-1"]')){
+    grid.insertAdjacentHTML('beforeend',`
+      <article class="fall26-card" data-approved-addition="quest-station-1">
+        <div class="fall26-num">Q1</div><span>SKILL + VISUAL ART</span><h3>The Trial of Skill</h3>
+        <p>Three quick throws with lightweight foam or Velcro axes at a tree-ring target designed with student-created Norse-inspired and fall artwork. Quest keepsake: Hack-Silver Coin.</p>
+      </article>
+      <article class="fall26-card" data-approved-addition="quest-station-2">
+        <div class="fall26-num">Q2</div><span>DESIGN + TEAMWORK</span><h3>The Shield Wall</h3>
+        <p>Create a mini family or harvest shield, then join a small team behind the Shield Wall to block soft fall-fireball beanbags. Quest keepsake: Viking Arm Ring.</p>
+      </article>
+      <article class="fall26-card" data-approved-addition="quest-station-3">
+        <div class="fall26-num">Q3</div><span>SYMBOL + MYSTERY</span><h3>The Rune Maker’s Workshop</h3>
+        <p>Decorate a wooden rune token with metallic art markers and decode a giant visual riddle. The finished wooden token becomes the student’s Quest keepsake.</p>
+      </article>
+      <article class="fall26-card" data-approved-addition="quest-station-4">
+        <div class="fall26-num">Q4</div><span>COLLABORATIVE ART + RHYTHM</span><h3>The Voigt Longship Builders</h3>
+        <p>Add a piece to a giant communal Voigt Longship art installation, then join a short rowing rhythm with shakers, rhythm sticks, or drums. Quest keepsake: Dragon Crew Sticker or temporary tattoo.</p>
+      </article>
+      <article class="fall26-card" data-approved-addition="quest-station-5">
+        <div class="fall26-num">Q5</div><span>PERFORMANCE + CELEBRATION</span><h3>The Skald’s Stage</h3>
+        <p>Finish the Quest with a school-spirit chant, victory pose, sign, or instrument sound. Nonverbal participation is always welcome. Quest keepsake: red-and-white Quest Complete ticket, followed by finish-line verification.</p>
+      </article>`);
+  }
+
   if(grid && !grid.querySelector('[data-approved-addition="harvest-wagon"]')){
     grid.insertAdjacentHTML('beforeend',`
       <article class="fall26-card" data-approved-addition="harvest-wagon">
