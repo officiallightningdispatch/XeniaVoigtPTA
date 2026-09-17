@@ -1,5 +1,6 @@
 (()=>{
   const FESTIVAL_NAME='The 2026 Voigt PTA Fall Festival';
+  const SHOP_URL='https://shop.xeniavoigtpta.org';
 
   function renameFestival(root=document){
     const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
@@ -53,6 +54,7 @@
       <a href="/fundraising" class="${current==='/fundraising'?'active':''}">Support</a>
       <a href="/resources" class="${current==='/resources'?'active':''}">Resources</a>
       <a href="/contact" class="${current==='/contact'?'active':''}">Contact</a>
+      <a href="${SHOP_URL}" class="shop-nav-link">Shop</a>
       <a href="/admin" class="${current==='/admin'?'active':''}">Login</a>`;
 
     const dd=nav.querySelector('.nav-dropdown');
@@ -71,6 +73,18 @@
     }
   }
 
+  function connectShopLinks(){
+    document.querySelectorAll('a').forEach(a=>{
+      const label=(a.textContent||'').trim().toLowerCase();
+      if(/^(shop|shop now|shop merchandise|shop merch|spirit wear|shop spirit wear|pta shop|pta store)$/.test(label)) a.href=SHOP_URL;
+    });
+    document.querySelectorAll('.footer-inner').forEach(footer=>{
+      if(footer.querySelector(`a[href="${SHOP_URL}"]`)) return;
+      const quick=Array.from(footer.querySelectorAll('div')).find(d=>d.querySelector('b')?.textContent.trim()==='Quick links');
+      if(quick) quick.insertAdjacentHTML('beforeend',`<p><a href="${SHOP_URL}">Shop</a></p>`);
+    });
+  }
+
   function addTrunkCta(){
     const current=location.pathname.replace(/\/index\.html$/,'').replace(/\/$/,'')||'/';
     if(current!=='/viking-quest' || document.getElementById('trunkHostCta')) return;
@@ -78,7 +92,7 @@
     main.insertAdjacentHTML('beforeend',`<section id="trunkHostCta" class="section"><div class="container"><article class="modern-panel accent"><span class="mini-label">TRUNK-OR-TREAT · 20 SPOTS MAX</span><h2>Want to host a trunk?</h2><p><strong>20 total spaces.</strong> Applications are open for the remaining spaces while capacity lasts. All applications are reviewed in the order received and are subject to PTA and school approval.</p><a class="btn secondary" href="/trunk-or-treat">Apply to host a trunk →</a></article></div></section>`);
   }
 
-  function apply(){rebuildNav();renameFestival();removePublicAccess();addTrunkCta();}
+  function apply(){rebuildNav();renameFestival();removePublicAccess();connectShopLinks();addTrunkCta();}
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',apply);
   else apply();
   setTimeout(apply,250);
