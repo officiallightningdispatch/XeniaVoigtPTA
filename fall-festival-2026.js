@@ -48,7 +48,7 @@
     </div></section>
 
     <section class="section fall26-partners" aria-labelledby="fall26-partners-title"><div class="container">
-      <div class="fall26-section-head"><span>COMMUNITY-POWERED</span><h2 id="fall26-partners-title">Meet our community partners.</h2><p>See what each partner is bringing to Viking Quest, then visit their business to learn more.</p></div>
+      <div class="fall26-section-head"><span>COMMUNITY-POWERED</span><h2 id="fall26-partners-title">Meet our community partners.</h2><p>From exciting silent-auction finds to delicious festival favorites, our community partners are helping make Viking Quest an unforgettable night!</p></div>
       <div class="fall26-partner-grid" role="list" aria-label="Confirmed Fall Festival community partners">
         <article class="fall26-partner-card" role="listitem">
           <a class="fall26-partner-logo-wrap" href="https://austinaquarium.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Austin Aquarium">
@@ -57,7 +57,7 @@
           <div class="fall26-partner-copy">
             <span class="fall26-partner-type">SILENT AUCTION DONOR</span>
             <h3>Austin Aquarium</h3>
-            <p>A family annual membership for up to five will be featured in the silent auction.</p>
+            <p>Make a splash in the silent auction! Bid on a family annual membership for up to five and enjoy an entire year of underwater adventures together.</p>
             <a class="fall26-partner-link" href="https://austinaquarium.com/" target="_blank" rel="noopener noreferrer">Visit partner <span aria-hidden="true">→</span></a>
           </div>
         </article>
@@ -68,7 +68,7 @@
           <div class="fall26-partner-copy">
             <span class="fall26-partner-type">SILENT AUCTION DONOR</span>
             <h3>Austin Zoo</h3>
-            <p>Four admission tickets will be featured in the silent auction.</p>
+            <p>Go wild in the silent auction! Four Austin Zoo admission tickets could send your family on an unforgettable animal adventure.</p>
             <a class="fall26-partner-link" href="https://austinzoo.org/" target="_blank" rel="noopener noreferrer">Visit partner <span aria-hidden="true">→</span></a>
           </div>
         </article>
@@ -79,7 +79,7 @@
           <div class="fall26-partner-copy">
             <span class="fall26-partner-type">SILENT AUCTION DONOR</span>
             <h3>Round Rock Pumpkin Festival</h3>
-            <p>A family pass for six will be featured in the silent auction.</p>
+            <p>Gather your whole fall crew! A family pass for six—packed with pumpkin-season fun—will be waiting in the silent auction.</p>
             <a class="fall26-partner-link" href="https://roundrockpumpkinfestival.com/" target="_blank" rel="noopener noreferrer">Visit partner <span aria-hidden="true">→</span></a>
           </div>
         </article>
@@ -90,7 +90,7 @@
           <div class="fall26-partner-copy">
             <span class="fall26-partner-type">SILENT AUCTION DONOR</span>
             <h3>Monster Mini Golf &amp; Laser Tag</h3>
-            <p>A family four-pack of mini-golf passes will be featured in the silent auction.</p>
+            <p>Glow, putt and play! Bid on a family four-pack of mini-golf passes for a bright, action-packed adventure beyond festival night.</p>
             <a class="fall26-partner-link" href="https://monsterminigolf.com/locations/us/tx/round-rock/" target="_blank" rel="noopener noreferrer">Visit partner <span aria-hidden="true">→</span></a>
           </div>
         </article>
@@ -101,7 +101,7 @@
           <div class="fall26-partner-copy">
             <span class="fall26-partner-type">CAKE WALK SUPPORTER</span>
             <h3>Cookies &amp; Crumbles</h3>
-            <p>A gift certificate has been confirmed for the festival; fulfillment details are being finalized.</p>
+            <p>Something sweet is joining the celebration! Watch for a Cookies &amp; Crumbles gift certificate at the festival—final fulfillment details are being wrapped up.</p>
             <a class="fall26-partner-link" href="https://www.cookiesandcrumblesbakeshop.com/" target="_blank" rel="noopener noreferrer">Visit partner <span aria-hidden="true">→</span></a>
           </div>
         </article>
@@ -112,7 +112,7 @@
           <div class="fall26-partner-copy">
             <span class="fall26-partner-type">EVENT SIGNAGE PARTNER</span>
             <h3>FASTSIGNS Round Rock</h3>
-            <p>Supporting festival printing and signage after final quantities and display details are approved.</p>
+            <p>Helping Viking Quest look festival-ready from the moment families arrive! FASTSIGNS is supporting our event printing and signage, with final display details being completed.</p>
             <a class="fall26-partner-link" href="https://www.fastsigns.com/round-rock-tx/" target="_blank" rel="noopener noreferrer">Visit partner <span aria-hidden="true">→</span></a>
           </div>
         </article>
@@ -123,7 +123,7 @@
           <div class="fall26-partner-copy">
             <span class="fall26-partner-type">CONFIRMED FOOD VENDOR</span>
             <h3>Kona Ice Greater Austin</h3>
-            <p>Bringing its signature shaved ice experience to Food Truck Row.</p>
+            <p>Cool down between quests with Kona Ice! Their colorful shaved-ice experience is rolling into Food Truck Row for a refreshing festival treat.</p>
             <a class="fall26-partner-link" href="https://www.kona-ice.com/local-site/kona-ice-of-greater-austin/" target="_blank" rel="noopener noreferrer">Visit partner <span aria-hidden="true">→</span></a>
           </div>
         </article>
@@ -134,7 +134,7 @@
           <div class="fall26-partner-copy">
             <span class="fall26-partner-type">CONFIRMED FOOD VENDOR</span>
             <h3>KK BBQ Mexican Food Truck</h3>
-            <p>Joining Food Truck Row with Mexican-BBQ favorites; the final event menu is coming soon.</p>
+            <p>Follow the smoky, savory aromas to Food Truck Row! KK BBQ is bringing its Mexican-BBQ flavor to Viking Quest, with the final event menu coming soon.</p>
             <a class="fall26-partner-link" href="https://www.facebook.com/p/KK-BBQ-Mexican-Food-100095578564767/" target="_blank" rel="noopener noreferrer">Visit partner <span aria-hidden="true">→</span></a>
           </div>
         </article>
@@ -145,7 +145,7 @@
           <div class="fall26-partner-copy">
             <span class="fall26-partner-type">CONFIRMED BEVERAGE VENDOR</span>
             <h3>Pour The Fun</h3>
-            <p>Joining the festival with a specialty beverage experience; event offerings are coming soon.</p>
+            <p>Raise a cup to festival fun! Pour The Fun is bringing a family-friendly specialty beverage experience, with its Viking Quest offerings coming soon.</p>
             <a class="fall26-partner-link" href="https://pourthefun.com/" target="_blank" rel="noopener noreferrer">Visit partner <span aria-hidden="true">→</span></a>
           </div>
         </article>
@@ -156,7 +156,7 @@
           <div class="fall26-partner-copy">
             <span class="fall26-partner-type">TRUNK-OR-TREAT HOST</span>
             <h3>Boys &amp; Girls Club at Voigt</h3>
-            <p>Hosting a family-friendly trunk for Voigt students and families.</p>
+            <p>The Boys &amp; Girls Club at Voigt is bringing even more community spirit to the night with its own family-friendly Trunk-or-Treat stop!</p>
             <a class="fall26-partner-link" href="https://www.bgcaustin.org/join-the-club/" target="_blank" rel="noopener noreferrer">Visit partner <span aria-hidden="true">→</span></a>
           </div>
         </article>
