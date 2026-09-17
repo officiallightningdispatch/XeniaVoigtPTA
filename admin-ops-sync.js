@@ -4,7 +4,7 @@
 
   const SESSION_KEY='voigt-pta-board-session';
   const VOLUNTEER_TARGET=55;
-  const NEEDS_URL='https://drive.google.com/file/d/1SoOIfBnoedQCcbIys1DSyCo5u6fzLD91/view?usp=drivesdk';
+  const NEEDS_URL='https://drive.google.com/file/d/1ozF4g6-HIKs9y3shOdt2JNAgPJuOLD_k/view?usp=drivesdk';
   const MERCH_URL='https://docs.google.com/spreadsheets/d/18svZh4ynkP8a9A-98Zsir4l4wipvoCPuOZXyWiSSPzw/edit#gid=739301024';
   const PRINTIFY_URL='https://printify.com/pop-up-store/';
 
@@ -55,7 +55,7 @@
         ${card('Remaining volunteer gap',remaining,'Pending student groups are not counted until they commit')}
       </div>
       <div class="admin-grid-3" style="margin-top:14px">
-        <a class="admin-resource-link" href="${NEEDS_URL}" target="_blank" rel="noopener"><span>Fall Festival Needs<small>89 detailed line items with quantities, benchmark pricing, coverage, sponsorship strategy and staffing</small></span><span>↗</span></a>
+        <a class="admin-resource-link" href="${NEEDS_URL}" target="_blank" rel="noopener"><span>Fall Festival Needs<small>93 detailed line items with quantities, benchmark pricing, coverage, sponsorship strategy and staffing</small></span><span>↗</span></a>
         <a class="admin-resource-link" href="${MERCH_URL}" target="_blank" rel="noopener"><span>Merch Store Plan<small>PTA, staff, volunteer and spirit-wear product plan</small></span><span>↗</span></a>
         <a class="admin-resource-link" href="${PRINTIFY_URL}" target="_blank" rel="noopener"><span>Printify Setup<small>Fulfillment setup; publish only after approved PTA/school branding is applied</small></span><span>↗</span></a>
       </div>`;
