@@ -48,18 +48,118 @@
     </div></section>
 
     <section class="section fall26-partners" aria-labelledby="fall26-partners-title"><div class="container">
-      <div class="fall26-section-head"><span>COMMUNITY-POWERED</span><h2 id="fall26-partners-title">Thank you to our community partners.</h2><p>Your support helps create a special evening for Voigt students and families.</p></div>
+      <div class="fall26-section-head"><span>COMMUNITY-POWERED</span><h2 id="fall26-partners-title">Meet our community partners.</h2><p>See what each partner is bringing to Viking Quest, then visit their business to learn more.</p></div>
       <div class="fall26-partner-grid" role="list" aria-label="Confirmed Fall Festival community partners">
-        <div role="listitem">Austin Aquarium</div>
-        <div role="listitem">Austin Zoo</div>
-        <div role="listitem">Round Rock Pumpkin Festival</div>
-        <div role="listitem">Monster Mini Golf &amp; Laser Tag</div>
-        <div role="listitem">Cookies &amp; Crumbles</div>
-        <div role="listitem">FASTSIGNS Round Rock</div>
-        <div role="listitem">Kona Ice Greater Austin</div>
-        <div role="listitem">KK BBQ Mexican Food Truck</div>
-        <div role="listitem">Pour The Fun</div>
-        <div role="listitem">Boys &amp; Girls Club at Voigt</div>
+        <article class="fall26-partner-card" role="listitem">
+          <a class="fall26-partner-logo-wrap" href="https://austinaquarium.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Austin Aquarium">
+            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://austinaquarium.com&sz=256" alt="Austin Aquarium logo" loading="lazy" decoding="async">
+          </a>
+          <div class="fall26-partner-copy">
+            <span class="fall26-partner-type">SILENT AUCTION DONOR</span>
+            <h3>Austin Aquarium</h3>
+            <p>A family annual membership for up to five will be featured in the silent auction.</p>
+            <a class="fall26-partner-link" href="https://austinaquarium.com/" target="_blank" rel="noopener noreferrer">Visit partner <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+        <article class="fall26-partner-card" role="listitem">
+          <a class="fall26-partner-logo-wrap" href="https://austinzoo.org/" target="_blank" rel="noopener noreferrer" aria-label="Visit Austin Zoo">
+            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://austinzoo.org&sz=256" alt="Austin Zoo logo" loading="lazy" decoding="async">
+          </a>
+          <div class="fall26-partner-copy">
+            <span class="fall26-partner-type">SILENT AUCTION DONOR</span>
+            <h3>Austin Zoo</h3>
+            <p>Four admission tickets will be featured in the silent auction.</p>
+            <a class="fall26-partner-link" href="https://austinzoo.org/" target="_blank" rel="noopener noreferrer">Visit partner <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+        <article class="fall26-partner-card" role="listitem">
+          <a class="fall26-partner-logo-wrap" href="https://roundrockpumpkinfestival.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Round Rock Pumpkin Festival">
+            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://roundrockpumpkinfestival.com&sz=256" alt="Round Rock Pumpkin Festival logo" loading="lazy" decoding="async">
+          </a>
+          <div class="fall26-partner-copy">
+            <span class="fall26-partner-type">SILENT AUCTION DONOR</span>
+            <h3>Round Rock Pumpkin Festival</h3>
+            <p>A family pass for six will be featured in the silent auction.</p>
+            <a class="fall26-partner-link" href="https://roundrockpumpkinfestival.com/" target="_blank" rel="noopener noreferrer">Visit partner <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+        <article class="fall26-partner-card" role="listitem">
+          <a class="fall26-partner-logo-wrap" href="https://monsterminigolf.com/locations/us/tx/round-rock/" target="_blank" rel="noopener noreferrer" aria-label="Visit Monster Mini Golf & Laser Tag">
+            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://monsterminigolf.com&sz=256" alt="Monster Mini Golf & Laser Tag logo" loading="lazy" decoding="async">
+          </a>
+          <div class="fall26-partner-copy">
+            <span class="fall26-partner-type">SILENT AUCTION DONOR</span>
+            <h3>Monster Mini Golf &amp; Laser Tag</h3>
+            <p>A family four-pack of mini-golf passes will be featured in the silent auction.</p>
+            <a class="fall26-partner-link" href="https://monsterminigolf.com/locations/us/tx/round-rock/" target="_blank" rel="noopener noreferrer">Visit partner <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+        <article class="fall26-partner-card" role="listitem">
+          <a class="fall26-partner-logo-wrap" href="https://www.cookiesandcrumblesbakeshop.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Cookies & Crumbles">
+            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://www.cookiesandcrumblesbakeshop.com&sz=256" alt="Cookies & Crumbles logo" loading="lazy" decoding="async">
+          </a>
+          <div class="fall26-partner-copy">
+            <span class="fall26-partner-type">CAKE WALK SUPPORTER</span>
+            <h3>Cookies &amp; Crumbles</h3>
+            <p>A gift certificate has been confirmed for the festival; fulfillment details are being finalized.</p>
+            <a class="fall26-partner-link" href="https://www.cookiesandcrumblesbakeshop.com/" target="_blank" rel="noopener noreferrer">Visit partner <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+        <article class="fall26-partner-card" role="listitem">
+          <a class="fall26-partner-logo-wrap" href="https://www.fastsigns.com/round-rock-tx/" target="_blank" rel="noopener noreferrer" aria-label="Visit FASTSIGNS Round Rock">
+            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://www.fastsigns.com&sz=256" alt="FASTSIGNS Round Rock logo" loading="lazy" decoding="async">
+          </a>
+          <div class="fall26-partner-copy">
+            <span class="fall26-partner-type">EVENT SIGNAGE PARTNER</span>
+            <h3>FASTSIGNS Round Rock</h3>
+            <p>Supporting festival printing and signage after final quantities and display details are approved.</p>
+            <a class="fall26-partner-link" href="https://www.fastsigns.com/round-rock-tx/" target="_blank" rel="noopener noreferrer">Visit partner <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+        <article class="fall26-partner-card" role="listitem">
+          <a class="fall26-partner-logo-wrap" href="https://www.kona-ice.com/local-site/kona-ice-of-greater-austin/" target="_blank" rel="noopener noreferrer" aria-label="Visit Kona Ice Greater Austin">
+            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://www.kona-ice.com&sz=256" alt="Kona Ice Greater Austin logo" loading="lazy" decoding="async">
+          </a>
+          <div class="fall26-partner-copy">
+            <span class="fall26-partner-type">CONFIRMED FOOD VENDOR</span>
+            <h3>Kona Ice Greater Austin</h3>
+            <p>Bringing its signature shaved ice experience to Food Truck Row.</p>
+            <a class="fall26-partner-link" href="https://www.kona-ice.com/local-site/kona-ice-of-greater-austin/" target="_blank" rel="noopener noreferrer">Visit partner <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+        <article class="fall26-partner-card" role="listitem">
+          <a class="fall26-partner-logo-wrap" href="https://www.facebook.com/p/KK-BBQ-Mexican-Food-100095578564767/" target="_blank" rel="noopener noreferrer" aria-label="Visit KK BBQ Mexican Food Truck">
+            <img class="fall26-partner-logo" src="https://graph.facebook.com/100095578564767/picture?type=large" alt="KK BBQ Mexican Food Truck logo" loading="lazy" decoding="async">
+          </a>
+          <div class="fall26-partner-copy">
+            <span class="fall26-partner-type">CONFIRMED FOOD VENDOR</span>
+            <h3>KK BBQ Mexican Food Truck</h3>
+            <p>Joining Food Truck Row with Mexican-BBQ favorites; the final event menu is coming soon.</p>
+            <a class="fall26-partner-link" href="https://www.facebook.com/p/KK-BBQ-Mexican-Food-100095578564767/" target="_blank" rel="noopener noreferrer">Visit partner <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+        <article class="fall26-partner-card" role="listitem">
+          <a class="fall26-partner-logo-wrap" href="https://pourthefun.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Pour The Fun">
+            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://pourthefun.com&sz=256" alt="Pour The Fun logo" loading="lazy" decoding="async">
+          </a>
+          <div class="fall26-partner-copy">
+            <span class="fall26-partner-type">CONFIRMED BEVERAGE VENDOR</span>
+            <h3>Pour The Fun</h3>
+            <p>Joining the festival with a specialty beverage experience; event offerings are coming soon.</p>
+            <a class="fall26-partner-link" href="https://pourthefun.com/" target="_blank" rel="noopener noreferrer">Visit partner <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+        <article class="fall26-partner-card" role="listitem">
+          <a class="fall26-partner-logo-wrap" href="https://www.bgcaustin.org/join-the-club/" target="_blank" rel="noopener noreferrer" aria-label="Visit Boys & Girls Club at Voigt">
+            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://www.bgcaustin.org&sz=256" alt="Boys & Girls Club at Voigt logo" loading="lazy" decoding="async">
+          </a>
+          <div class="fall26-partner-copy">
+            <span class="fall26-partner-type">TRUNK-OR-TREAT HOST</span>
+            <h3>Boys &amp; Girls Club at Voigt</h3>
+            <p>Hosting a family-friendly trunk for Voigt students and families.</p>
+            <a class="fall26-partner-link" href="https://www.bgcaustin.org/join-the-club/" target="_blank" rel="noopener noreferrer">Visit partner <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
       </div>
     </div></section>
 
