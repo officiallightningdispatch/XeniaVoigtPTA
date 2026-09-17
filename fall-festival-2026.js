@@ -52,7 +52,7 @@
       <div class="fall26-partner-grid" role="list" aria-label="Confirmed Fall Festival community partners">
         <article class="fall26-partner-card" role="listitem">
           <a class="fall26-partner-logo-wrap" href="https://austinaquarium.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Austin Aquarium">
-            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://austinaquarium.com&sz=256" alt="Austin Aquarium logo" loading="lazy" decoding="async">
+            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://austinaquarium.com&sz=256" alt="Austin Aquarium logo" loading="eager" decoding="async">
           </a>
           <div class="fall26-partner-copy">
             <span class="fall26-partner-type">SILENT AUCTION DONOR</span>
@@ -63,7 +63,7 @@
         </article>
         <article class="fall26-partner-card" role="listitem">
           <a class="fall26-partner-logo-wrap" href="https://austinzoo.org/" target="_blank" rel="noopener noreferrer" aria-label="Visit Austin Zoo">
-            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://austinzoo.org&sz=256" alt="Austin Zoo logo" loading="lazy" decoding="async">
+            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://austinzoo.org&sz=256" alt="Austin Zoo logo" loading="eager" decoding="async">
           </a>
           <div class="fall26-partner-copy">
             <span class="fall26-partner-type">SILENT AUCTION DONOR</span>
@@ -74,7 +74,7 @@
         </article>
         <article class="fall26-partner-card" role="listitem">
           <a class="fall26-partner-logo-wrap" href="https://roundrockpumpkinfestival.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Round Rock Pumpkin Festival">
-            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://roundrockpumpkinfestival.com&sz=256" alt="Round Rock Pumpkin Festival logo" loading="lazy" decoding="async">
+            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://roundrockpumpkinfestival.com&sz=256" alt="Round Rock Pumpkin Festival logo" loading="eager" decoding="async">
           </a>
           <div class="fall26-partner-copy">
             <span class="fall26-partner-type">SILENT AUCTION DONOR</span>
@@ -85,7 +85,7 @@
         </article>
         <article class="fall26-partner-card" role="listitem">
           <a class="fall26-partner-logo-wrap" href="https://monsterminigolf.com/locations/us/tx/round-rock/" target="_blank" rel="noopener noreferrer" aria-label="Visit Monster Mini Golf & Laser Tag">
-            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://monsterminigolf.com&sz=256" alt="Monster Mini Golf & Laser Tag logo" loading="lazy" decoding="async">
+            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://monsterminigolf.com&sz=256" alt="Monster Mini Golf & Laser Tag logo" loading="eager" decoding="async">
           </a>
           <div class="fall26-partner-copy">
             <span class="fall26-partner-type">SILENT AUCTION DONOR</span>
@@ -96,7 +96,7 @@
         </article>
         <article class="fall26-partner-card" role="listitem">
           <a class="fall26-partner-logo-wrap" href="https://www.cookiesandcrumblesbakeshop.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Cookies & Crumbles">
-            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://www.cookiesandcrumblesbakeshop.com&sz=256" alt="Cookies & Crumbles logo" loading="lazy" decoding="async">
+            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://www.cookiesandcrumblesbakeshop.com&sz=256" alt="Cookies & Crumbles logo" loading="eager" decoding="async">
           </a>
           <div class="fall26-partner-copy">
             <span class="fall26-partner-type">CAKE WALK SUPPORTER</span>
@@ -107,7 +107,7 @@
         </article>
         <article class="fall26-partner-card" role="listitem">
           <a class="fall26-partner-logo-wrap" href="https://www.fastsigns.com/round-rock-tx/" target="_blank" rel="noopener noreferrer" aria-label="Visit FASTSIGNS Round Rock">
-            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://www.fastsigns.com&sz=256" alt="FASTSIGNS Round Rock logo" loading="lazy" decoding="async">
+            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://www.fastsigns.com&sz=256" alt="FASTSIGNS Round Rock logo" loading="eager" decoding="async">
           </a>
           <div class="fall26-partner-copy">
             <span class="fall26-partner-type">EVENT SIGNAGE PARTNER</span>
@@ -118,7 +118,7 @@
         </article>
         <article class="fall26-partner-card" role="listitem">
           <a class="fall26-partner-logo-wrap" href="https://www.kona-ice.com/local-site/kona-ice-of-greater-austin/" target="_blank" rel="noopener noreferrer" aria-label="Visit Kona Ice Greater Austin">
-            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://www.kona-ice.com&sz=256" alt="Kona Ice Greater Austin logo" loading="lazy" decoding="async">
+            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://www.kona-ice.com&sz=256" alt="Kona Ice Greater Austin logo" loading="eager" decoding="async">
           </a>
           <div class="fall26-partner-copy">
             <span class="fall26-partner-type">CONFIRMED FOOD VENDOR</span>
@@ -129,7 +129,7 @@
         </article>
         <article class="fall26-partner-card" role="listitem">
           <a class="fall26-partner-logo-wrap" href="https://www.facebook.com/p/KK-BBQ-Mexican-Food-100095578564767/" target="_blank" rel="noopener noreferrer" aria-label="Visit KK BBQ Mexican Food Truck">
-            <img class="fall26-partner-logo" src="https://graph.facebook.com/100095578564767/picture?type=large" alt="KK BBQ Mexican Food Truck logo" loading="lazy" decoding="async">
+            <img class="fall26-partner-logo" src="https://graph.facebook.com/100095578564767/picture?type=large" alt="KK BBQ Mexican Food Truck logo" loading="eager" decoding="async">
           </a>
           <div class="fall26-partner-copy">
             <span class="fall26-partner-type">CONFIRMED FOOD VENDOR</span>
@@ -140,7 +140,7 @@
         </article>
         <article class="fall26-partner-card" role="listitem">
           <a class="fall26-partner-logo-wrap" href="https://pourthefun.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Pour The Fun">
-            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://pourthefun.com&sz=256" alt="Pour The Fun logo" loading="lazy" decoding="async">
+            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://pourthefun.com&sz=256" alt="Pour The Fun logo" loading="eager" decoding="async">
           </a>
           <div class="fall26-partner-copy">
             <span class="fall26-partner-type">CONFIRMED BEVERAGE VENDOR</span>
@@ -151,7 +151,7 @@
         </article>
         <article class="fall26-partner-card" role="listitem">
           <a class="fall26-partner-logo-wrap" href="https://www.bgcaustin.org/join-the-club/" target="_blank" rel="noopener noreferrer" aria-label="Visit Boys & Girls Club at Voigt">
-            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://www.bgcaustin.org&sz=256" alt="Boys & Girls Club at Voigt logo" loading="lazy" decoding="async">
+            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://www.bgcaustin.org&sz=256" alt="Boys & Girls Club at Voigt logo" loading="eager" decoding="async">
           </a>
           <div class="fall26-partner-copy">
             <span class="fall26-partner-type">TRUNK-OR-TREAT HOST</span>
