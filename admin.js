@@ -111,7 +111,26 @@
     const role=roleData[member.role]||roleData['Vice President'];
     main.innerHTML=`<section class="admin-shell"><div class="container admin-dashboard" id="adminRoot">
       <header class="admin-suite-head"><div><span class="mini-label">VOIGT PTA BOARD SUITE</span><h1>Welcome, ${esc(member.firstName||'Board Member')}.</h1><p>${esc(member.role||'PTA Board')} · Your role-specific workspace + shared board command center.</p></div><div class="admin-suite-actions"><a class="btn secondary" href="${DRIVE_SHEET}" target="_blank" rel="noopener">Open PTA Drive hub ↗</a><button class="btn secondary" id="adminLogout" type="button">Sign out</button></div></header>
-      <div class="admin-kpis"><div class="admin-kpi"><div class="num">${data.volunteers.length}</div><div class="label">Volunteer submissions</div></div><div class="admin-kpi"><div class="num">${data.vendors.length}</div><div class="label">Vendor applications</div></div><div class="admin-kpi"><div class="num">${data.trunkHosts.length}</div><div class="label">Trunk applications</div></div><div class="admin-kpi"><div class="num">${data.newsletter.length}</div><div class="label">Newsletter subscribers</div></div></div>
+      <div class="admin-kpis"><div class="admin-kpi"><div class="num">${data.volunteers.length} / 55</div><div class="label">Volunteer staffing</div></div><div class="admin-kpi"><div class="num">3 / 15</div><div class="label">Food vendors confirmed</div></div><div class="admin-kpi"><div class="num">9 / 20</div><div class="label">Trunk-or-Treat spaces</div></div><div class="admin-kpi"><div class="num">5 / 151</div><div class="label">Detailed needs covered</div></div></div>
+      <div class="admin-section-title" style="margin-top:18px"><h2>Fall Festival coverage scoreboard</h2><p>Confirmed / target. Pending outreach, quotes and applications do not count until committed.</p></div>
+      <div class="admin-finance-grid">
+        <div class="admin-finance-card"><strong>3 / 15</strong><span>Food vendors</span></div>
+        <div class="admin-finance-card"><strong>9 / 20</strong><span>Trunk-or-Treat spaces</span></div>
+        <div class="admin-finance-card"><strong>${data.volunteers.length} / 55</strong><span>Volunteer staffing</span></div>
+        <div class="admin-finance-card"><strong>5 / 151</strong><span>Detailed needs covered</span></div>
+        <div class="admin-finance-card"><strong>5 / 5</strong><span>Viking Quest stations planned</span></div>
+        <div class="admin-finance-card"><strong>0 / 300</strong><span>Quest participant supply coverage</span></div>
+        <div class="admin-finance-card"><strong>0 / 3</strong><span>Inflatables / major attractions</span></div>
+        <div class="admin-finance-card"><strong>0 / 1</strong><span>DJ / MC locked</span></div>
+        <div class="admin-finance-card"><strong>4 / 4</strong><span>Silent auction donations</span></div>
+        <div class="admin-finance-card"><strong>1 / 1</strong><span>Sweet Finish giveaway</span></div>
+        <div class="admin-finance-card"><strong>12 / 320</strong><span>Cake-walk items</span></div>
+        <div class="admin-finance-card"><strong>0 / 1</strong><span>Sensory retreat coverage</span></div>
+        <div class="admin-finance-card"><strong>0 / 1</strong><span>Harvest Wagon photo stop</span></div>
+        <div class="admin-finance-card"><strong>0 / 12</strong><span>Zone signs</span></div>
+        <div class="admin-finance-card"><strong>0 / 12</strong><span>Parking / traffic signs</span></div>
+        <div class="admin-finance-card"><strong>0 / 600</strong><span>Non-food treat reserve</span></div>
+      </div>
       <nav class="admin-suite-tabs"><button class="active" data-panel="role">My Role</button><button data-panel="submissions">Forms & Applications</button><button data-panel="events">Events</button><button data-panel="finance">Finance</button><button data-panel="communications">Communications</button><button data-panel="resources">Drive Hub</button></nav>
       <section class="admin-panel active" id="panel-role"><div class="admin-grid-2"><article class="admin-card accent"><span class="mini-label">YOUR WORKSPACE</span><h2>${esc(role.headline)}</h2><p>${esc(role.intro)}</p></article><article class="admin-card"><h2>What success looks like now</h2><div class="admin-role-list">${role.tasks.map(t=>`<div class="admin-role-item"><span class="dot"></span><div>${esc(t)}</div></div>`).join('')}</div></article></div><div class="admin-section-title"><h2>Role resources</h2><p>Linked directly to the PTA files in Google Drive.</p></div><div class="admin-grid-3">${role.links.map(([t,u,d])=>resourceLink(t,u,d)).join('')}</div></section>
       <section class="admin-panel" id="panel-submissions"><div class="admin-section-title"><h2>Forms & applications</h2><p>Clean, readable submissions — no raw code.</p></div><div class="admin-table-card"><div class="admin-subnav"><button class="active" data-kind="volunteers">Volunteers</button><button data-kind="vendors">Vendors</button><button data-kind="trunkHosts">Trunk-or-Treat</button><button data-kind="newsletter">Newsletter</button></div><div id="submissionList"></div></div></section>
