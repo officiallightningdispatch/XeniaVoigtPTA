@@ -27,8 +27,8 @@
     }
     block.innerHTML=`
       <div class="admin-section-title">
-        <h2>Fall Festival sponsor push</h2>
-        <p>Private outreach status — updated Sept. 17.</p>
+        <h2>Outreach details & follow-ups</h2>
+        <p>Supporting detail for the action board above. Pending outreach is not counted as confirmed.</p>
       </div>
       <div class="admin-finance-grid">
         <div class="admin-finance-card"><strong>15</strong><span>targeted sponsor emails sent</span><small>DJ/MC, inflatable, Arts Integration, sensory support, printing/signage, student activities and broader event costs</small></div>
