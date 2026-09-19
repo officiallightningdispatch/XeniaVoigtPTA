@@ -92,6 +92,30 @@
         </article>
       </div>
 
+      <div class="admin-section-title" style="margin-top:20px"><h2>Coverage scoreboard</h2><p>Confirmed quantity / event target. Pending outreach and applications are not counted until committed.</p></div>
+      <div class="admin-finance-grid">
+        ${card('Detailed needs covered','5 / 151','146 line items still require coverage, confirmation or fulfillment')}
+        ${card('Food vendors confirmed','3 / 15','Kona Ice, KK BBQ and Pour The Fun confirmed; target uses the 15-vendor stretch goal')}
+        ${card('Trunk-or-Treat spaces','9 / 20','11 spaces remain open based on the current command center')}
+        ${card('Volunteer staffing',general+' / '+VOLUNTEER_TARGET,remaining+' more submissions needed to reach the current minimum staffing plan')}
+        ${card('Viking Quest stations','5 / 5','All five station concepts are planned; individual supplies are tracked separately')}
+        ${card('Quest participant capacity','0 / 300','Supply coverage is still being secured for the planned child capacity')}
+        ${card('Inflatables / major attractions','0 / 3','Three inflatable units are in the current detailed needs plan')}
+        ${card('DJ / MC','0 / 1','Premier is a paid backup; underwriting/zero-cost commitment is not yet locked')}
+        ${card('Silent auction donations','4 / 4','Austin Aquarium, Austin Zoo, Round Rock Pumpkin Festival and Monster Mini Golf are confirmed')}
+        ${card('Sweet Finish giveaway','1 / 1','Cookies & Crumbles gift certificate confirmed')}
+        ${card('Cake-walk donations','12 / 320','12 decorated cookies confirmed from Paige’s Bakehouse; continue bakery/product outreach')}
+        ${card('Family prize certificates','0 / 4','Amy’s Ice Creams request is submitted but pending review')}
+        ${card('Sensory-friendly retreat','0 / 1','Resources/support still being secured')}
+        ${card('Harvest Wagon photo stop','0 / 1','Station concept planned; donated/loaned build package still needs confirmation')}
+        ${card('Main entrance banner','0 / 1','Included in signage sponsorship need')}
+        ${card('Zone signs','0 / 12','Final donated/discounted signage package still needs fulfillment confirmation')}
+        ${card('Parking / traffic signs','0 / 12','Final safety/traffic signage package still needs fulfillment confirmation')}
+        ${card('Volunteer water','0 / 96','Four cases planned')}
+        ${card('Volunteer snacks','0 / 60','Sealed grab-and-go servings planned')}
+        ${card('Non-food treat reserve','0 / 600','Allergy/sensory-friendly alternatives still needed')}
+      </div>
+
       <div class="admin-finance-grid" style="margin-top:14px">
         ${card('Volunteer slots needed',VOLUNTEER_TARGET,'Minimum event-day staffing plan')}
         ${card('Volunteer submissions',general,'All website volunteer submissions currently on file')}
