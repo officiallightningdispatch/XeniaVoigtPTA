@@ -19,8 +19,8 @@
         <aside class="join-steps" aria-label="Texas PTA setup instructions">
           <div class="join-steps-top"><span>2 selections</span><b>before the form</b></div>
           <div class="join-step"><div class="join-step-num">1</div><div><small>School District</small><strong>Round Rock ISD</strong><button class="copy-chip" data-copy="Round Rock ISD">Copy</button></div></div>
-          <div class="join-step"><div class="join-step-num">2</div><div><small>PTA</small><strong>Xenia Voigt Elementary</strong><button class="copy-chip" data-copy="Xenia Voigt Elementary">Copy</button></div></div>
-          <div class="join-tip">Then tap <b>Next</b> and complete the official Texas PTA member form.</div>
+          <div class="join-step"><div class="join-step-num">2</div><div><small>PTA</small><strong>Xenia Voigt PTA</strong><button class="copy-chip" data-copy="Xenia Voigt PTA">Copy</button></div></div>
+          <div class="join-tip">Click <b>Round Rock ISD</b>, then select <b>Xenia Voigt PTA</b>. After those selections, tap <b>Next</b> and complete the official Texas PTA membership form.</div>
         </aside>
       </div>
     </section>
