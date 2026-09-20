@@ -12,8 +12,8 @@ export default async function handler(req,res){
     if(body.profitShareAccepted!==true) return send(res,400,{error:'The 10% event-sales contribution agreement must be accepted.'});
     const phone=cleanText(body.phone,80);
     const sql=db(); await ensureSchema(sql);
-    await sql`INSERT INTO pta_vendors (business_name,contact_name,email,phone,payload)
-      VALUES (${businessName},${contactName},${email},${phone},${JSON.stringify(body)}::jsonb)`;
+    await sql`INSERT INTO pta_vendors (status,business_name,contact_name,email,phone,payload)
+      VALUES ('pending',${businessName},${contactName},${email},${phone},${JSON.stringify(body)}::jsonb)`;
     await sendFormEmails({type:'vendor application',email,name:contactName,details:[['Business',businessName],['Contact',contactName],['Email',email],['Phone',phone],['10% contribution agreement','Accepted']]});
     return send(res,201,{ok:true});
   }catch(err){console.error(err);return send(res,500,{error:'Vendor submission service is not configured yet.'});}
