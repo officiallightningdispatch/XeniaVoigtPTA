@@ -1,5 +1,5 @@
 const PTA_EMAIL='info@xeniavoigtpta.org';
-const FROM='Voigt PTA Website <website@xeniavoigtpta.org>';
+const FROM='Xenia Voigt Arts Academy PTA <info@xeniavoigtpta.org>';
 
 function esc(value=''){
   return String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
