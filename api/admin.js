@@ -1,5 +1,6 @@
 import { randomBytes, scryptSync, timingSafeEqual, createHash } from 'node:crypto';
 import { db, ensureSchema, cleanText, jsonBody, send } from './_db.js';
+import { sendVendorConfirmation } from './_email.js';
 
 const INITIAL_SALT='voigt-board-2026-bootstrap-v1';
 const INITIAL_HASH='9ca194f999c2a0093a833692e44e3fd171906896f4a5cc7e2fe9fd49c9844675cbce6fe042aaeeae35d08e87c6e1da2fdaccccda89659d48a41b1f544ea50f37';
@@ -97,17 +98,29 @@ export default async function handler(req,res){
 
     if(req.method==='GET'){
       const volunteers=await sql`SELECT id,created_at,status,first_name,last_name,email,phone,event,payload FROM pta_volunteers ORDER BY created_at DESC LIMIT 500`;
-      const vendors=await sql`SELECT id,created_at,status,business_name,contact_name,email,phone,payload FROM pta_vendors ORDER BY created_at DESC LIMIT 500`;
+      const vendors=await sql`SELECT id,created_at,status,business_name,contact_name,email,phone,payload,confirmed_at,confirmed_by,confirmation_email_sent_at FROM pta_vendors ORDER BY created_at DESC LIMIT 500`;
       const trunkHosts=await sql`SELECT id,created_at,status,host_name,host_type,grade_org,email,phone,theme,vehicle_type,payload FROM pta_trunk_hosts ORDER BY created_at DESC LIMIT 500`;
       const newsletter=await sql`SELECT id,created_at,email,source FROM pta_newsletter ORDER BY created_at DESC LIMIT 1000`;
       return send(res,200,{member,volunteers,vendors,trunkHosts,newsletter});
     }
     if(req.method==='PATCH'){
       const id=Number(body.id); const kind=cleanText(body.kind,40); const status=cleanText(body.status,40);
-      const allowed=new Set(['new','reviewing','approved','contacted','closed']);
+      const allowed=new Set(['new','reviewing','approved','contacted','closed','pending','confirmed','declined']);
       if(!id||!allowed.has(status)) return send(res,400,{error:'Invalid update.'});
       if(kind==='volunteers') await sql`UPDATE pta_volunteers SET status=${status} WHERE id=${id}`;
-      else if(kind==='vendors') await sql`UPDATE pta_vendors SET status=${status} WHERE id=${id}`;
+      else if(kind==='vendors'){
+        if(status==='confirmed'){
+          const rows=await sql`SELECT id,status,business_name,contact_name,email,payload,confirmation_email_sent_at FROM pta_vendors WHERE id=${id} LIMIT 1`;
+          const vendor=rows[0];
+          if(!vendor) return send(res,404,{error:'Vendor application not found.'});
+          if(vendor.status!=='confirmed'){
+            await sendVendorConfirmation({email:vendor.email,contactName:vendor.contact_name,businessName:vendor.business_name,payload:vendor.payload||{}});
+            await sql`UPDATE pta_vendors SET status='confirmed',confirmed_at=NOW(),confirmed_by=${member.username},confirmation_email_sent_at=NOW() WHERE id=${id}`;
+          }
+        } else {
+          await sql`UPDATE pta_vendors SET status=${status} WHERE id=${id}`;
+        }
+      }
       else if(kind==='trunkHosts') await sql`UPDATE pta_trunk_hosts SET status=${status} WHERE id=${id}`;
       else return send(res,400,{error:'Invalid record type.'});
       return send(res,200,{ok:true,member});
