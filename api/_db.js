@@ -25,8 +25,14 @@ export async function ensureSchema(sql){
     contact_name TEXT NOT NULL,
     email TEXT NOT NULL,
     phone TEXT,
-    payload JSONB NOT NULL
+    payload JSONB NOT NULL,
+    confirmed_at TIMESTAMPTZ,
+    confirmed_by TEXT,
+    confirmation_email_sent_at TIMESTAMPTZ
   )`;
+  await sql`ALTER TABLE pta_vendors ADD COLUMN IF NOT EXISTS confirmed_at TIMESTAMPTZ`;
+  await sql`ALTER TABLE pta_vendors ADD COLUMN IF NOT EXISTS confirmed_by TEXT`;
+  await sql`ALTER TABLE pta_vendors ADD COLUMN IF NOT EXISTS confirmation_email_sent_at TIMESTAMPTZ`;
   await sql`CREATE TABLE IF NOT EXISTS pta_newsletter (
     id BIGSERIAL PRIMARY KEY,
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
