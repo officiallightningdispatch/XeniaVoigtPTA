@@ -1,6 +1,6 @@
 (()=>{
   const path=(location.pathname.replace(/\/index\.html$/,'').replace(/\/$/,'')||'/');
-  if(path!=='/viking-quest') return;
+  if(path!=='/fall-festival') return;
 
   const main=document.querySelector('main#main');
   if(!main) return;
