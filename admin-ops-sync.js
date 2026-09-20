@@ -62,6 +62,7 @@
             <div class="admin-role-item"><span class="dot"></span><div><b>Pour The Fun:</b> Briana confirmed participation (“count me in”)</div></div>
             <div class="admin-role-item"><span class="dot"></span><div><b>Cookies &amp; Crumbles:</b> gift certificate secured for giveaway use</div></div>
             <div class="admin-role-item"><span class="dot"></span><div><b>Wildflower Orthodontics:</b> formal sponsorship request submitted and confirmation received</div></div>
+            <div class="admin-role-item"><span class="dot"></span><div><b>Rune Maker wooden blanks:</b> Brittani is personally sponsoring 400 unfinished 1.5-inch circles at $39.96 total; no outside sponsor needed</div></div>
             <div class="admin-role-item"><span class="dot"></span><div><b>DJ/MC fallback:</b> Premier $300 full-event option documented while we pursue underwriting</div></div>
           </div>
         </article>
@@ -94,7 +95,7 @@
 
       <div class="admin-section-title" style="margin-top:20px"><h2>Coverage scoreboard</h2><p>Confirmed quantity / event target. Pending outreach and applications are not counted until committed.</p></div>
       <div class="admin-finance-grid">
-        ${card('Detailed needs covered','5 / 151','146 line items still require coverage, confirmation or fulfillment')}
+        ${card('Detailed needs covered','6 / 151','145 line items still require coverage, confirmation or fulfillment')}
         ${card('Food vendors confirmed','3 / 15','Kona Ice, KK BBQ and Pour The Fun confirmed; target uses the 15-vendor stretch goal')}
         ${card('Trunk-or-Treat spaces','9 / 20','11 spaces remain open based on the current command center')}
         ${card('Volunteer staffing',general+' / '+VOLUNTEER_TARGET,remaining+' more submissions needed to reach the current minimum staffing plan')}
@@ -121,7 +122,7 @@
         ${card('Volunteer submissions',general,'All website volunteer submissions currently on file')}
         ${card('Fall Festival-tagged',tagged,'Explicit Viking/Fall Festival submissions')}
         ${card('Remaining volunteer gap',remaining,'Pending groups are not counted until committed')}
-        ${card('Fall Festival PTA cash spent','$0','Goal remains $0 PTA cash spend whenever possible')}
+        ${card('Fall Festival PTA cash spent','$0','Rune Maker blanks are personally sponsored by Brittani and do not count as PTA spend')}
         ${card('Food vendor target','10–15','Continue outreach until the target is confirmed')}
       </div>
 
