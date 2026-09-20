@@ -1,6 +1,6 @@
 (()=>{
   const p=(location.pathname.replace(/\/index\.html$/,'').replace(/\/$/,'')||'/');
-  if(p!=='/viking-quest') return;
+  if(p!=='/fall-festival') return;
   const main=document.querySelector('main#main');
   if(!main) return;
   main.className='fall26-page';
