@@ -31,15 +31,15 @@
 
     <section class="section fall26-attractions"><div class="container">
       <div class="fall26-section-head"><span>THE CAMPUS BECOMES THE FESTIVAL</span><h2>More than a school event.<br>A whole-night experience.</h2><p>Every part of the campus has a purpose, so families can move from high-energy attractions to food, performances, creative activities, and quieter spaces without missing the fun.</p></div>
-      <div class="fall26-grid">
-        <article class="fall26-card hero-card"><div class="fall26-num">01</div><span>BIG ENERGY</span><h3>Inflatables + Rides</h3><p>Obstacle courses, bounce houses, combo inflatables, and interactive games.</p></article>
-        <article class="fall26-card"><div class="fall26-num">02</div><span>FALL CLASSICS</span><h3>Games + Carnival</h3><p>Ring toss, beanbag games, pumpkin bowling, target games, and family-friendly carnival stations.</p></article>
-        <article class="fall26-card"><div class="fall26-num">03</div><span>THE QUEST</span><h3>Viking Quest</h3><p>A run of themed activity stations with a finish-line moment — one experience inside the larger festival.</p></article>
-        <article class="fall26-card"><div class="fall26-num">04</div><span>ROLL IN HUNGRY</span><h3>Food Truck Row</h3><p>Dinner, snacks, drinks, and desserts from a diverse lineup of food trucks.</p></article>
-        <article class="fall26-card"><div class="fall26-num">05</div><span>LIGHTS + COSTUMES</span><h3>Trunk-or-Treat</h3><p>Decorated trunks hosted by teachers, families, staff, community groups, and partners.</p></article>
-        <article class="fall26-card"><div class="fall26-num">06</div><span>VOIGT ARTS</span><h3>Art + Creativity</h3><p>Student art, collaborative creative activities, and Arts Academy moments woven throughout the night.</p></article>
-        <article class="fall26-card"><div class="fall26-num">07</div><span>ON STAGE</span><h3>Performances + DJ</h3><p>Live student performances, music, a DJ, and festival announcements.</p></article>
-        <article class="fall26-card calm-card"><div class="fall26-num">08</div><span>A PLACE TO RESET</span><h3>Sensory-Friendly Retreat</h3><p>A lower-stimulation indoor space for students and families who need a quieter break from the festival.</p></article>
+      <div class="fall26-grid fall26-adventure-grid">
+        <article class="fall26-card hero-card"><div class="fall26-icon" aria-hidden="true">🏰</div><span>BOUNCE · CLIMB · RACE</span><h3>Inflatable Zone</h3><p>Big bounce energy and obstacle-course fun.</p></article>
+        <article class="fall26-card"><div class="fall26-icon" aria-hidden="true">🎃</div><span>PLAY TO WIN</span><h3>Fall Carnival</h3><p>Toss it. Bowl it. Hit the target. Try them all.</p></article>
+        <article class="fall26-card quest-card"><div class="fall26-icon" aria-hidden="true">⚔️</div><span>YOUR ADVENTURE AWAITS</span><h3>Viking Quest</h3><p>Five challenges. One epic quest. Can you conquer them all?</p><div class="fall26-chips"><b>🎯 Trial of Skill</b><b>🛡️ Shield Wall</b><b>ᚱ Rune Maker</b><b>🚢 Longship Builders</b><b>🎤 Skald’s Stage</b></div></article>
+        <article class="fall26-card"><div class="fall26-icon" aria-hidden="true">🍔</div><span>COME HUNGRY</span><h3>Food Truck Row</h3><p>Pick your favorites, then come back for dessert.</p></article>
+        <article class="fall26-card"><div class="fall26-icon" aria-hidden="true">🍬</div><span>COSTUMES + CANDY</span><h3>Trunk-or-Treat</h3><p>Decorated trunks, sweet treats, and Halloween fun.</p></article>
+        <article class="fall26-card"><div class="fall26-icon" aria-hidden="true">🎨</div><span>MAKE SOMETHING AWESOME</span><h3>Art + Creativity</h3><p>Create, color, build, and leave your mark on festival night.</p></article>
+        <article class="fall26-card stage-card"><div class="fall26-icon" aria-hidden="true">🎸</div><span>TURN IT UP</span><h3>Live Stage + DJ</h3><p>Student stars, live music, dancing, and festival energy.</p></article>
+        <article class="fall26-card calm-card"><div class="fall26-icon" aria-hidden="true">✨</div><span>TAKE A BREATHER</span><h3>Sensory Retreat</h3><p>A quieter place to reset whenever you need it.</p></article>
       </div>
     </div></section>
 
