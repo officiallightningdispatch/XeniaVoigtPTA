@@ -36,7 +36,7 @@
     if(!nav || nav.dataset.eventMenuUpdated==='1') return;
     nav.dataset.eventMenuUpdated='1';
     const current=location.pathname.replace(/\/index\.html$/,'').replace(/\/$/,'')||'/';
-    const isEvents=['/events','/fall-festival','/volunteer','/vendors','/trunk-or-treat','/trunk-host.html'].includes(current);
+    const isEvents=['/events','/fall-festival','/volunteer','/vendors','/community-partners','/sponsors','/trunk-or-treat','/trunk-host.html'].includes(current);
     nav.innerHTML=`
       <a href="/" class="${current==='/'?'active':''}">Home</a>
       <a href="/about" class="${current==='/about'?'active':''}">About</a>
@@ -49,6 +49,8 @@
           <a href="/trunk-or-treat" class="${current==='/trunk-or-treat'||current==='/trunk-host.html'?'active':''}">Trunk-or-Treat Application</a>
           <a href="/volunteer" class="${current==='/volunteer'?'active':''}">Volunteer</a>
           <a href="/vendors" class="${current==='/vendors'?'active':''}">Vendors</a>
+          <a href="/community-partners" class="${current==='/community-partners'?'active':''}">Community Partners</a>
+          <a href="/sponsors" class="${current==='/sponsors'?'active':''}">Sponsors & Donors</a>
         </div>
       </div>
       <a href="/fundraising" class="${current==='/fundraising'?'active':''}">Support</a>
