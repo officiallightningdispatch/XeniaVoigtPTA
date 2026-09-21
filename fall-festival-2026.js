@@ -1,3 +1,4 @@
+// deployment refresh: fall festival public-copy cleanup
 (()=>{
   const p=(location.pathname.replace(/\/index\.html$/,'').replace(/\/$/,'')||'/');
   if(p!=='/fall-festival') return;
