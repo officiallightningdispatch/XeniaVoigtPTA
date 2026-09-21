@@ -43,6 +43,14 @@
       "destination": "/index.html"
     },
     {
+      "source": "/community-partners",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/sponsors",
+      "destination": "/index.html"
+    },
+    {
       "source": "/trunk-host",
       "destination": "/trunk-host.html"
     },
