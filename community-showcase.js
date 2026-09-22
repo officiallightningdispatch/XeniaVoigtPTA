@@ -28,10 +28,12 @@
       {name:'Express Commercial Cleaning',type:'Safety & Cleanup Supporter',desc:'Pledged event safety and cleanup support; final donated quantities are being coordinated.',url:'',domain:''}
     ],
     vendors:[
-      {name:'Kona Ice Greater Austin',type:'Confirmed Dessert Vendor',desc:'Colorful shaved ice will be rolling into Food Truck Row for a refreshing festival treat.',url:'https://www.kona-ice.com/local-site/kona-ice-of-greater-austin/',domain:'kona-ice.com'},
-      {name:'KK BBQ Mexican Food Truck',type:'Confirmed Food Vendor',desc:'Bringing Mexican-BBQ flavor to Food Truck Row. The 10% PTA event contribution has been accepted.',url:'https://www.facebook.com/p/KK-BBQ-Mexican-Food-100095578564767/',domain:'facebook.com'},
-      {name:"Coco's Eats & Sweets / Vaughan's",type:'Confirmed Food & Dessert Vendor',desc:'Confirmed for October 23 with the 10% PTA event contribution accepted; final application and logistics are being completed.',url:'',domain:''},
-      {name:'Pour The Fun',type:'Confirmed Beverage Vendor',desc:'Bringing a family-friendly specialty beverage experience. Vendor application received and the 10% PTA contribution agreement accepted.',url:'https://pourthefun.com/',domain:'pourthefun.com'}
+      {name:"Coco's Eats & Sweets",type:'Confirmed Food & Dessert Vendor',desc:'Shaved ice, chamoy pickles, nachos and water are planned for Food Truck Row.',url:'',domain:''},
+      {name:'Hearth & Honey',type:'Confirmed Food Vendor',desc:'Honeyfire chicken bowls, Mediterranean turkey meatball bowls, a vegan Garden of Gold bowl, and honey-mint-lavender lemonade.',url:'https://www.hearthandhoneyatx.com/order',domain:'hearthandhoneyatx.com'},
+      {name:'K&K BBQ Mexican Food',type:'Confirmed Food Vendor',desc:'BBQ and Mexican favorites including Frito pies, sausage wraps, brisket wraps and sandwiches, tacos, quesabirria, aguas frescas and sodas.',url:'http://kkbbqmexicanfoodroundrock.com/',domain:'kkbbqmexicanfoodroundrock.com'},
+      {name:'Kona Ice Greater Austin',type:'Confirmed Dessert Vendor',desc:'Shaved ice and toppings will be rolling into Food Truck Row for a colorful festival treat.',url:'https://www.kona-ice.com/local-site/kona-ice-of-greater-austin/',domain:'kona-ice.com'},
+      {name:'Pour The Fun',type:'Confirmed Beverage + Food Vendor',desc:'Non-alcoholic Halloween drinks and street corn.',url:'https://pourthefun.com/',domain:'pourthefun.com'},
+      {name:'Roxk N Grill',type:'Confirmed Food Vendor',desc:'Indian snacks, food and drinks including samosas, veg lollipops, mango lassi and masala tea.',url:'https://rockngrillusa.com',domain:'rockngrillusa.com'}
     ]
   };
 
@@ -305,6 +307,32 @@
     });
   }
 
+  async function refreshApprovedVendors(){
+    try{
+      const r=await fetch('/api/vendors',{cache:'no-store'});
+      const j=await r.json();
+      if(!r.ok||!Array.isArray(j.vendors))return;
+      data.vendors=j.vendors.map(v=>{
+        let domain='';
+        try{domain=v.website?new URL(v.website).hostname.replace(/^www\./,''):'';}catch(_){}
+        return {
+          name:v.name,
+          type:v.type||'Confirmed Food Vendor',
+          desc:v.offering||'Confirmed for the October 23 Viking Quest Fall Festival.',
+          url:v.website||'',
+          domain
+        };
+      });
+      const section=main.querySelector('.showcase-vendors');
+      if(section){
+        const count=section.querySelector('.showcase-count'); if(count)count.textContent=data.vendors.length;
+        const grid=section.querySelector('.showcase-grid');
+        if(grid)grid.outerHTML=cards(data.vendors);
+      }
+      window.VoigtShowcaseData=data;
+    }catch(_){}
+  }
+
   if(path==='/vendors'){
     const formSection=main.querySelector('.section')?.outerHTML||'';
     main.innerHTML=`${hero('FALL FESTIVAL FOOD + VENDORS','Come hungry. Shop local. Meet the businesses joining us.','We proudly feature vendors after their participation is confirmed. New confirmations will be added here as the lineup grows.')}
@@ -315,6 +343,7 @@
       side.querySelector('.mini-label')?.replaceChildren(document.createTextNode('WANT TO JOIN THE LINEUP?'));
       const h=side.querySelector('h2'); if(h)h.textContent='Vendor applications are still open.';
     }
+    refreshApprovedVendors();
   }
 
   window.VoigtShowcaseData=data;
