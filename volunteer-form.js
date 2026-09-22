@@ -17,6 +17,51 @@
       </div>
     </section>
 
+    <section class="section" id="current-volunteer-opportunities">
+      <div class="container">
+        <div class="section-head compact-head"><div class="eyebrow">CURRENT + ONGOING OPPORTUNITIES</div><h2>Want something specific? Start here.</h2><p>These opportunities come directly from current PTA and Round Rock ISD volunteer information.</p></div>
+        <div class="grid three">
+          <article class="modern-panel accent">
+            <span class="mini-label">SEPTEMBER 24</span>
+            <h3>Lotería Night</h3>
+            <p>Help with concession stand, setup, cleanup, or another event-night role.</p>
+            <a class="btn secondary" href="https://www.signupgenius.com/go/70A094AA5A622ABFA7-65971430-voigt" target="_blank" rel="noopener noreferrer">View open Lotería slots ↗</a>
+          </article>
+          <article class="modern-panel">
+            <span class="mini-label">ONGOING · ON CAMPUS</span>
+            <h3>Voigt Clothes Closet</h3>
+            <p>Help the RRISD Council of PTAs provide gently used clothing plus new socks and underwear to district students in need.</p>
+            <p><strong>Voigt hours:</strong> Wednesdays & Thursdays, 9:30–11:30 AM; first Saturday of each month, 10 AM–noon.</p>
+            <div class="buttons left"><a class="btn secondary" href="https://evite.me/GdJucNqSxR" target="_blank" rel="noopener noreferrer">Volunteer ↗</a><a class="btn secondary" href="https://a.co/0gS8aMWI" target="_blank" rel="noopener noreferrer">Wishlist ↗</a></div>
+          </article>
+          <article class="modern-panel">
+            <span class="mini-label">ONGOING · LITERACY</span>
+            <h3>Reading in the RRock</h3>
+            <p>Work with kindergarten students who need extra literacy practice. Volunteers commit to a consistent time, complete the RRISD volunteer application, receive training, and use provided materials.</p>
+            <a class="btn secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSfB1DK1VE39jXMiIMrnHmOrdWqqa9tIyzu2FwclmTqbcKnc6Q/viewform" target="_blank" rel="noopener noreferrer">Volunteer interest form ↗</a>
+          </article>
+          <article class="modern-panel">
+            <span class="mini-label">ONGOING · TEACHER SUPPORT</span>
+            <h3>Help teachers behind the scenes</h3>
+            <p>Support practical campus needs such as copying, laminating, stapling, cutting, and similar preparation tasks.</p>
+            <a class="btn secondary" href="#volunteerForm">Tell us your availability ↓</a>
+          </article>
+          <article class="modern-panel">
+            <span class="mini-label">OCTOBER 23</span>
+            <h3>Viking Quest Fall Festival</h3>
+            <p>Setup, check-in, activity stations, Trunk-or-Treat, sensory support, cleanup, and more.</p>
+            <a class="btn secondary" href="#volunteerForm">Volunteer for Viking Quest ↓</a>
+          </article>
+          <article class="modern-panel">
+            <span class="mini-label">NOVEMBER 2</span>
+            <h3>Fun Run</h3>
+            <p>Pre-event planning and materials plus event-day setup, cleanup, and cheering support.</p>
+            <a class="btn secondary" href="#volunteerForm">Volunteer for Fun Run ↓</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="vol-form-section">
       <div class="container vol-layout">
         <aside class="vol-sidebar">
