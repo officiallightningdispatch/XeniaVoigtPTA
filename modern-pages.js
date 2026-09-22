@@ -39,7 +39,7 @@
   }
 
   if(p==='/donate'){
-    main.innerHTML=`${hero('SUPPORT VIKING QUEST','Help keep festival night free for families.','Every contribution helps the Xenia Voigt Arts Academy PTA cover family attractions, activities, sensory-friendly resources, prizes, supplies, printing, entertainment, and other Fall Festival essentials.')}
+    main.innerHTML=`${hero('SUPPORT VIKING QUEST','Help keep festival night free for families.','Every contribution helps the Xenia Voigt Arts Academy PTA cover family attractions, activities, sensory-friendly resources, prizes, supplies, entertainment, and other Fall Festival essentials.')}
     <section class="section"><div class="container">
       <div class="modern-page-grid">
         <article class="modern-panel accent"><span class="mini-label">DONATE TO THE 2026 FALL FESTIVAL</span><h2>Give directly to Viking Quest.</h2><p>Secure, fee-free online giving is being activated for the PTA. Once payment setup is complete, donors will be able to give here without processing fees being deducted from the PTA's gift.</p>
@@ -57,7 +57,7 @@
       </div>
       <div class="grid three" style="margin-top:16px">
         ${card('Fund a festival need','Help underwrite a current event expense so PTA resources stay focused on students.','mailto:community@xeniavoigtpta.org?subject=Fund%20a%20Viking%20Quest%20Need','Contact the festival team')}
-        ${card('Donate goods or services','Contribute supplies, prizes, food, printing, attractions, professional services, or another useful in-kind resource.','mailto:community@xeniavoigtpta.org?subject=In-Kind%20Donation%20for%20Viking%20Quest','Offer an in-kind donation')}
+        ${card('Donate goods or services','Contribute supplies, prizes, food, attractions, professional services, or another useful in-kind resource.','mailto:community@xeniavoigtpta.org?subject=In-Kind%20Donation%20for%20Viking%20Quest','Offer an in-kind donation')}
         ${card('Community sponsorship','Support the event as a community sponsor and receive appropriate recognition on PTA event materials.','mailto:community@xeniavoigtpta.org?subject=Viking%20Quest%20Community%20Sponsorship','Ask about sponsorship')}
       </div>
       <div class="modern-panel" style="margin-top:16px"><span class="mini-label">QUESTIONS?</span><h3>community@xeniavoigtpta.org</h3><p>Tell us what you would like to contribute and the best way to reach you. We’ll follow up with the current need and next steps.</p></div>
