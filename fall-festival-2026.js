@@ -58,6 +58,17 @@
           </div>
         </article>
         <article class="fall26-partner-card" role="listitem">
+          <a class="fall26-partner-logo-wrap" href="https://aircomechanical.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit AiRCO Mechanical">
+            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://aircomechanical.com&sz=256" alt="AiRCO Mechanical logo" loading="eager" decoding="async">
+          </a>
+          <div class="fall26-partner-copy">
+            <span class="fall26-partner-type">TRACKLESS TRAIN SPONSOR</span>
+            <h3>AiRCO Mechanical</h3>
+            <p>All aboard! AiRCO Mechanical has pledged $1,095 to fully sponsor the Viking Quest trackless train for festival night.</p>
+            <a class="fall26-partner-link" href="https://aircomechanical.com/" target="_blank" rel="noopener noreferrer">Visit sponsor <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+        <article class="fall26-partner-card" role="listitem">
           <a class="fall26-partner-logo-wrap" href="https://austinaquarium.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Austin Aquarium">
             <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://austinaquarium.com&sz=256" alt="Austin Aquarium logo" loading="eager" decoding="async">
           </a>
