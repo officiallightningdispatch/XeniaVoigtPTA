@@ -16,10 +16,10 @@
       {name:'Austin Zoo',type:'Silent Auction Donor',desc:'Donating four admission tickets for the Fall Festival silent auction.',url:'https://austinzoo.org/',domain:'austinzoo.org'},
       {name:'Round Rock Pumpkin Festival',type:'Silent Auction Donor',desc:'Donating a family pass for six for the Fall Festival silent auction.',url:'https://roundrockpumpkinfestival.com/',domain:'roundrockpumpkinfestival.com'},
       {name:'Monster Mini Golf & Laser Tag',type:'Silent Auction Donor',desc:'Donating a family four-pack of mini-golf passes for the Fall Festival silent auction.',url:'https://monsterminigolf.com/locations/us/tx/round-rock/',domain:'monsterminigolf.com'},
-      {name:'Cookies & Crumbles',type:'Sweet Finish Giveaway Donor',desc:'Providing a $65 gift certificate for the Viking Quest Sweet Finish Giveaway.',url:'https://www.cookiesandcrumblesbakeshop.com/',domain:'cookiesandcrumblesbakeshop.com'},
+      {name:'Cookies & Crumbles',type:'Sweet Finish Giveaway Donor',value:'$65 donated',desc:'Providing a $65 gift certificate for the Viking Quest Sweet Finish Giveaway.',url:'https://www.cookiesandcrumblesbakeshop.com/',domain:'cookiesandcrumblesbakeshop.com'},
       {name:'FASTSIGNS Round Rock',type:'Event Signage Partner',desc:'Supporting Fall Festival printing and signage as final quantities and display details are completed.',url:'https://www.fastsigns.com/round-rock-tx/',domain:'fastsigns.com'},
-      {name:'Smile Doctors',type:'Attraction Sponsor',desc:'Pledged $195 to support the Fall Festival bounce/combo inflatable experience.',url:'https://smiledoctors.com/',domain:'smiledoctors.com'},
-      {name:'Toybrary Austin',type:'Family Experience Donor',desc:'Donated a $60 Stay & Play punch card for a young-family festival prize.',url:'https://toybraryaustin.com/',domain:'toybraryaustin.com'},
+      {name:'Smile Doctors',type:'Attraction Sponsor',value:'$195 pledged',desc:'Pledged $195 to support the Fall Festival bounce/combo inflatable experience.',url:'https://smiledoctors.com/',domain:'smiledoctors.com'},
+      {name:'Toybrary Austin',type:'Family Experience Donor',value:'$60 donated',desc:'Donated a $60 Stay & Play punch card for a young-family festival prize.',url:'https://toybraryaustin.com/',domain:'toybraryaustin.com'},
       {name:'Express Commercial Cleaning',type:'Safety & Cleanup Supporter',desc:'Pledged event safety and cleanup support; final donated quantities are being coordinated.',url:'',domain:''}
     ],
     vendors:[
@@ -67,6 +67,7 @@
         .partner-wordmark::first-line{color:#d71920}
         .supporter-tile strong{font-size:18px;line-height:1.15}
         .supporter-tile>span{font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#6b6b6b}
+        .supporter-value{font-style:normal;font-size:13px;font-weight:900;color:#d71920;background:#fff3f3;border:1px solid #d71920;border-radius:999px;padding:5px 9px}
         @keyframes voigtSupporters{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 8px))}}
         .partner-app-shell{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:22px;align-items:start}
         .partner-app{background:#fff;border:2px solid #171717;border-radius:24px;padding:24px;box-shadow:8px 8px 0 #171717}
@@ -170,6 +171,7 @@
       <div class="supporter-logo">${logo(item)}</div>
       <strong>${esc(item.name)}</strong>
       <span>${esc(item.type)}</span>
+      ${item.value?`<em class="supporter-value">${esc(item.value)}</em>`:''}
     </a>`;
     const supporterRun=[...data.sponsors,...data.sponsors].map(supporterTile).join('');
     main.innerHTML=`${hero('THANK YOU, SPONSORS + DONORS','The support behind the experience.','Meet the businesses and community supporters already helping make Viking Quest possible — then join them below.')}
