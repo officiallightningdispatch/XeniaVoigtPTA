@@ -23,6 +23,7 @@ async function totals(sql){
 export default async function handler(req,res){
   try{
     const sql=db(); await ensureSchema(sql);
+    await sql`UPDATE pta_sponsorships SET status='pledged',updated_at=NOW() WHERE status='pending_payment'`;
     if(req.method==='GET'){
       const funded=await totals(sql);
       return send(res,200,{needs:NEEDS.map(n=>({...n,funded:Math.min(n.target,funded[n.id]||0),remaining:Math.max(0,n.target-(funded[n.id]||0)),fulfilled:(funded[n.id]||0)>=n.target}))});
