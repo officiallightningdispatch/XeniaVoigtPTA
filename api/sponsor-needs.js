@@ -1,0 +1,46 @@
+import { db, ensureSchema, cleanText, jsonBody, send } from './_db.js';
+
+const NEEDS = [
+  {id:'dj-mc',category:'Entertainment',title:'DJ / MC underwriting',target:300,priority:'Critical',details:'Underwrite the current two-hour DJ/MC proposal for the October 23 Fall Festival.',fulfillment:'Financial sponsorship. PTA confirms booking after funding and campus sound-connection details are finalized.',recognition:'Sponsor recognition on the event website and applicable entertainment-area recognition.'},
+  {id:'obstacle-course',category:'Inflatables & Attractions',title:'Inflatable obstacle course',target:365,priority:'Critical',details:'Fund one inflatable obstacle-course rental to expand the free attraction area for families.',fulfillment:'Financial sponsorship toward the current estimated rental. Electrical access is available; final layout remains subject to campus safety approval.',recognition:'Recognition near the sponsored attraction when permitted, plus website recognition.'},
+  {id:'interactive-inflatable',category:'Inflatables & Attractions',title:'Interactive inflatable / game',target:225,priority:'Critical',details:'Fund one additional interactive inflatable or comparable major family attraction.',fulfillment:'Financial sponsorship toward the current estimated rental; final attraction selection follows campus/layout approval.',recognition:'Recognition near the sponsored attraction when permitted, plus website recognition.'},
+  {id:'trackless-train',category:'Major Attraction',title:'Trackless train',target:1095,priority:'Critical',details:'Help bring a trackless train experience to Viking Quest as a major family attraction.',fulfillment:'Full or partial financial sponsorship. The PTA will coordinate vendor booking, route, insurance, and campus approval.',recognition:'Major-attraction sponsor recognition, including website and event signage where approved.'},
+  {id:'sensory-retreat',category:'Accessibility',title:'Sensory-Friendly Retreat bundle',target:449.16,priority:'Critical',details:'Support noise-reducing earmuffs, fidgets, weighted lap pads, soft seating/mats, and visual timers for the quiet retreat.',fulfillment:'Financial or equivalent in-kind support. Specialized items remain subject to school protocol and final room setup.',recognition:'Accessibility-support recognition on the website and applicable retreat signage.'},
+  {id:'quest-prizes',category:'Viking Quest',title:'Quest completion prizes',target:262.50,priority:'Critical',details:'Provide approximately 350 small completion prizes so children who finish the Viking Quest leave with a reward.',fulfillment:'Financial or in-kind sponsorship. Multiple sponsors may combine to reach the full quantity.',recognition:'Viking Quest supporter recognition on the website and applicable finish-area signage.'},
+  {id:'quest-cards',category:'Viking Quest',title:'Quest Cards printing',target:122.50,priority:'Critical',details:'Print approximately 350 durable Quest Cards with station checkpoints and finish verification.',fulfillment:'Financial or in-kind printing sponsorship. Final artwork will be supplied by the PTA.',recognition:'Printing/support recognition where appropriate on the website or event materials.'},
+  {id:'quest-pouches',category:'Viking Quest',title:'Quest pouches / favor bags',target:105,priority:'Critical',details:'Provide approximately 300 small bags for children to collect their Viking Quest keepsakes.',fulfillment:'Financial or in-kind donation of equivalent bags. Final style/color coordinated with the PTA.',recognition:'Viking Quest supporter recognition on the website.'},
+  {id:'backup-candy',category:'Trunk-or-Treat',title:'Backup candy reserve',target:320,priority:'Critical',details:'Build a 4,000-piece backup candy reserve for Trunk-or-Treat so hosts can be replenished if needed.',fulfillment:'Financial or in-kind candy donation. PTA will coordinate acceptable sealed products and delivery.',recognition:'Trunk-or-Treat supporter recognition on the website and applicable event signage.'},
+  {id:'harvest-wagon',category:'Photo Experience',title:'Viking Harvest Wagon Photo Stop',target:390,priority:'High',details:'Fund or provide the stationary wagon/cart, faux hay bales, pumpkins/mums, garland, and photo décor.',fulfillment:'Financial or in-kind support. This is a stationary photo experience, not a moving ride.',recognition:'Photo-stop sponsor recognition on the website and optional display signage.'},
+  {id:'volunteer-snacks',category:'Volunteer Support',title:'Volunteer snacks',target:75,priority:'High',details:'Provide approximately 100 simple snack servings for event volunteers.',fulfillment:'Financial or in-kind food/snack support. PTA will coordinate quantity, dietary practicality, and drop-off timing.',recognition:'Volunteer-support recognition on the website.'}
+];
+
+async function totals(sql){
+  const rows=await sql`SELECT need_id, COALESCE(SUM(amount),0)::float AS funded
+    FROM pta_sponsorships WHERE status IN ('pledged','confirmed','paid') GROUP BY need_id`;
+  return Object.fromEntries(rows.map(r=>[r.need_id,Number(r.funded||0)]));
+}
+
+export default async function handler(req,res){
+  try{
+    const sql=db(); await ensureSchema(sql);
+    if(req.method==='GET'){
+      const funded=await totals(sql);
+      return send(res,200,{needs:NEEDS.map(n=>({...n,funded:Math.min(n.target,funded[n.id]||0),remaining:Math.max(0,n.target-(funded[n.id]||0)),fulfilled:(funded[n.id]||0)>=n.target}))});
+    }
+    if(req.method==='POST'){
+      const b=jsonBody(req);
+      const need=NEEDS.find(n=>n.id===cleanText(b.needId,80));
+      if(!need)return send(res,400,{error:'Please choose a valid sponsorship need.'});
+      const amount=Math.round(Number(b.amount)*100)/100;
+      if(!Number.isFinite(amount)||amount<=0)return send(res,400,{error:'Enter a valid contribution amount.'});
+      const donorName=cleanText(b.donorName,160), email=cleanText(b.email,180), phone=cleanText(b.phone,80), organization=cleanText(b.organization,180), recognition=cleanText(b.recognition,120), notes=cleanText(b.notes,1200);
+      if(!donorName||!email)return send(res,400,{error:'Name and email are required.'});
+      const rows=await sql`INSERT INTO pta_sponsorships (need_id,need_title,amount,status,donor_name,organization,email,phone,recognition,notes,payload)
+        VALUES (${need.id},${need.title},${amount},'pledged',${donorName},${organization},${email},${phone},${recognition},${notes},${JSON.stringify(b)}::jsonb)
+        RETURNING id,created_at`;
+      const funded=await totals(sql); const total=Number(funded[need.id]||0);
+      return send(res,200,{ok:true,id:rows[0].id,need:{...need,funded:Math.min(need.target,total),remaining:Math.max(0,need.target-total),fulfilled:total>=need.target},checkoutReady:false,message:'Your sponsorship selection is recorded. Secure payment checkout will be attached to this same need when the PTA payment account is activated.'});
+    }
+    return send(res,405,{error:'Method not allowed'});
+  }catch(err){console.error(err);return send(res,500,{error:'The sponsorship service is temporarily unavailable.'});}
+}
