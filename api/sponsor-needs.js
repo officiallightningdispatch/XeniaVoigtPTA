@@ -51,7 +51,12 @@ export default async function handler(req,res){
       const openCashTarget=needs.filter(n=>!n.inKindPendingValue).reduce((sum,n)=>sum+Number(n.target||0),0);
       const openCashRemaining=needs.filter(n=>!n.inKindPendingValue).reduce((sum,n)=>sum+Number(n.remaining||0),0);
       const inKindConfirmed=needs.filter(n=>n.inKindPendingValue&&n.coverageNote).map(n=>({id:n.id,title:n.title,note:n.coverageNote}));
-      return send(res,200,{needs,summary:{cashPledged,openCashTarget,openCashRemaining,inKindConfirmed}});
+      const confirmedCoverage=[
+        {label:'Shine Pediatric Dental Co.',detail:'$195 bounce/combo inflatable — fully covered'},
+        {label:'H-E-B',detail:'Volunteer snacks — covered with confirmed gift-card support'},
+        {label:'A+ Federal Credit Union',detail:'Backup candy — confirmed in-kind support; final quantity pending'}
+      ];
+      return send(res,200,{needs,summary:{cashPledged,openCashTarget,openCashRemaining,inKindConfirmed,confirmedCoverage}});
     }
     if(req.method==='POST'){
       const b=jsonBody(req);
