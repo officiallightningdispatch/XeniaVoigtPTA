@@ -1,0 +1,121 @@
+(()=> {
+  const path=(location.pathname.replace(/\/index\.html$/,'').replace(/\/$/,'')||'/');
+  if(path!=='/donate')return;
+
+  const money=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(Number(n||0));
+  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const style=document.createElement('style');
+  style.textContent=`
+    .need-shell{margin-top:24px}
+    .need-head{display:flex;justify-content:space-between;gap:16px;align-items:end;margin-bottom:16px}
+    .need-head p{max-width:760px}
+    .need-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .need-card{background:#fff;border:2px solid #171717;border-radius:22px;padding:20px;box-shadow:6px 6px 0 #171717;display:flex;flex-direction:column;gap:12px}
+    .need-card.fulfilled{opacity:.72}
+    .need-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+    .need-category,.need-priority{font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+    .need-priority{background:#171717;color:#fff;border-radius:999px;padding:5px 8px;white-space:nowrap}
+    .need-card h3{margin:0;font-size:23px}
+    .need-meter{height:12px;background:#ececec;border:1px solid #171717;border-radius:999px;overflow:hidden}
+    .need-meter span{display:block;height:100%;background:#d71920}
+    .need-numbers{display:flex;justify-content:space-between;gap:12px;font-size:13px;font-weight:800}
+    .need-detail{background:#f7f7f7;border-radius:14px;padding:13px}
+    .need-detail b{display:block;margin-bottom:4px}
+    .need-card button{margin-top:auto}
+    .need-modal{position:fixed;inset:0;background:rgba(0,0,0,.68);z-index:9999;display:none;padding:18px;overflow:auto}
+    .need-modal.open{display:block}
+    .need-dialog{max-width:760px;margin:30px auto;background:#fff;border-radius:26px;border:2px solid #171717;padding:24px;position:relative}
+    .need-close{position:absolute;right:15px;top:12px;background:none;border:0;font-size:30px;cursor:pointer}
+    .need-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+    .need-form-grid label{display:flex;flex-direction:column;gap:6px;font-weight:800;font-size:14px}
+    .need-form-grid input,.need-form-grid select,.need-form-grid textarea{border:2px solid #171717;border-radius:12px;padding:12px;font:inherit}
+    .need-form-grid .full{grid-column:1/-1}
+    .need-form-grid textarea{min-height:100px}
+    .need-summary{background:#171717;color:#fff;border-radius:18px;padding:18px;margin:14px 0}
+    .need-summary p{color:#eee;margin:6px 0}
+    @media(max-width:760px){.need-grid,.need-form-grid{grid-template-columns:1fr}.need-form-grid .full{grid-column:auto}.need-head{display:block}}
+  `;
+  document.head.appendChild(style);
+
+  const main=document.querySelector('main#main');
+  if(!main)return;
+  const section=document.createElement('section');
+  section.className='section need-shell';
+  section.id='sponsor-current-need';
+  section.innerHTML=`<div class="container"><div class="need-head"><div><span class="mini-label">SPONSOR A CURRENT NEED</span><h2>Choose exactly what you want to fund.</h2><p>Every open need below shows the current target, confirmed funding, remaining balance, what the contribution covers, and how recognition/fulfillment works. Partial sponsorships are welcome unless the item specifically requires full underwriting.</p></div></div><div id="needGrid" class="need-grid"><p>Loading current needs…</p></div></div>`;
+  const existing=main.querySelector('.section');
+  if(existing) existing.insertAdjacentElement('afterend',section); else main.appendChild(section);
+
+  const modal=document.createElement('div');
+  modal.className='need-modal';
+  modal.id='needModal';
+  modal.innerHTML=`<div class="need-dialog" role="dialog" aria-modal="true" aria-labelledby="needModalTitle"><button class="need-close" type="button" aria-label="Close">×</button><span class="mini-label">SPECIFIC-NEED SPONSORSHIP</span><h2 id="needModalTitle">Sponsor this need</h2><div id="needModalSummary"></div><form id="needForm"><div class="need-form-grid">
+      <label>Contribution amount *<input type="number" min="1" step="0.01" name="amount" required></label>
+      <label>Recognition preference<select name="recognition"><option>Recognize me / our organization publicly</option><option>Anonymous</option><option>Contact me about recognition options</option></select></label>
+      <label>Your name *<input name="donorName" autocomplete="name" required></label>
+      <label>Business / organization<input name="organization" autocomplete="organization"></label>
+      <label>Email *<input type="email" name="email" autocomplete="email" required></label>
+      <label>Phone<input type="tel" name="phone" autocomplete="tel"></label>
+      <label class="full">Notes / in-kind alternative<textarea name="notes" placeholder="Optional — include any in-kind equivalent, fulfillment questions, or timing notes."></textarea></label>
+    </div><input type="hidden" name="needId"><button class="btn primary" type="submit" style="margin-top:16px">Continue with this sponsorship →</button><p id="needFormStatus" role="status" style="margin-top:12px"></p></form></div>`;
+  document.body.appendChild(modal);
+
+  let needs=[];
+  const grid=document.getElementById('needGrid');
+  async function load(){
+    try{
+      const r=await fetch('/api/sponsor-needs',{cache:'no-store'}),j=await r.json();
+      if(!r.ok)throw new Error(j.error||'Could not load needs.');
+      needs=j.needs||[];
+      grid.innerHTML=needs.map(n=>{
+        const pct=Math.min(100,Math.round((n.funded/n.target)*100));
+        return `<article class="need-card ${n.fulfilled?'fulfilled':''}">
+          <div class="need-top"><div><span class="need-category">${esc(n.category)}</span><h3>${esc(n.title)}</h3></div><span class="need-priority">${esc(n.fulfilled?'Fulfilled':n.priority)}</span></div>
+          <p>${esc(n.details)}</p>
+          <div class="need-meter" aria-label="${pct}% funded"><span style="width:${pct}%"></span></div>
+          <div class="need-numbers"><span>${money(n.funded)} confirmed</span><span>${n.fulfilled?'Fully funded':money(n.remaining)+' remaining'}</span></div>
+          <div class="need-detail"><b>Fulfillment</b>${esc(n.fulfillment)}</div>
+          <div class="need-detail"><b>Recognition</b>${esc(n.recognition)}</div>
+          <button class="btn ${n.fulfilled?'secondary':'primary'}" type="button" data-need="${esc(n.id)}" ${n.fulfilled?'disabled':''}>${n.fulfilled?'Fulfilled ✓':'Sponsor this need →'}</button>
+        </article>`;
+      }).join('');
+    }catch(err){grid.innerHTML=`<div class="modern-panel"><h3>Current needs are temporarily unavailable.</h3><p>${esc(err.message)}</p></div>`;}
+  }
+  load();
+
+  const old=[...document.querySelectorAll('a')].find(a=>a.textContent.trim().toLowerCase().startsWith('sponsor a current need'));
+  if(old){old.href='#sponsor-current-need';old.addEventListener('click',()=>setTimeout(()=>section.scrollIntoView({behavior:'smooth'}),10));}
+
+  const close=()=>{modal.classList.remove('open');document.body.style.overflow='';};
+  modal.querySelector('.need-close').addEventListener('click',close);
+  modal.addEventListener('click',e=>{if(e.target===modal)close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+
+  grid.addEventListener('click',e=>{
+    const btn=e.target.closest('[data-need]'); if(!btn)return;
+    const n=needs.find(x=>x.id===btn.dataset.need); if(!n||n.fulfilled)return;
+    const form=document.getElementById('needForm');
+    form.elements.needId.value=n.id;
+    form.elements.amount.value=Math.max(1,Math.round(n.remaining*100)/100);
+    form.elements.amount.max=Math.max(1,Math.round(n.remaining*100)/100);
+    document.getElementById('needModalTitle').textContent=n.title;
+    document.getElementById('needModalSummary').innerHTML=`<div class="need-summary"><p><strong>Target:</strong> ${money(n.target)}</p><p><strong>Confirmed:</strong> ${money(n.funded)}</p><p><strong>Remaining:</strong> ${money(n.remaining)}</p><p><strong>What this funds:</strong> ${esc(n.details)}</p><p><strong>Fulfillment:</strong> ${esc(n.fulfillment)}</p><p><strong>Recognition:</strong> ${esc(n.recognition)}</p></div>`;
+    document.getElementById('needFormStatus').textContent='';
+    modal.classList.add('open');document.body.style.overflow='hidden';
+  });
+
+  document.getElementById('needForm').addEventListener('submit',async e=>{
+    e.preventDefault(); const form=e.currentTarget,btn=form.querySelector('button[type=submit]'),status=document.getElementById('needFormStatus');
+    if(!form.reportValidity())return;
+    btn.disabled=true;btn.textContent='Saving your sponsorship…';status.textContent='';
+    try{
+      const body=Object.fromEntries(new FormData(form).entries());
+      body.amount=Number(body.amount);
+      const r=await fetch('/api/sponsor-needs',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+      const j=await r.json().catch(()=>({})); if(!r.ok)throw new Error(j.error||'Could not save sponsorship.');
+      form.innerHTML=`<span class="mini-label">SPONSORSHIP RECORDED</span><h2>Thank you — this specific need is reserved for payment follow-through.</h2><p>Your selection is now visible to the PTA board. It will not be counted as fulfilled until payment or the equivalent in-kind contribution is confirmed.</p><div class="need-summary"><p><strong>Need:</strong> ${esc(j.need.title)}</p><p><strong>Contribution:</strong> ${money(body.amount)}</p><p><strong>Confirmed remaining balance:</strong> ${money(j.need.remaining)}</p></div><p><strong>Payment checkout:</strong> the secure fee-free payment step will attach to this same sponsorship record as soon as the PTA bank/payment connection is activated.</p><button class="btn secondary" type="button" id="closeNeedThanks">Close</button>`;
+      document.getElementById('closeNeedThanks').addEventListener('click',close);
+      load();
+    }catch(err){status.textContent=err.message;btn.disabled=false;btn.textContent='Continue with this sponsorship →';}
+  });
+})();
