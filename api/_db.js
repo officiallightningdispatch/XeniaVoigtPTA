@@ -69,6 +69,26 @@ export async function ensureSchema(sql){
   )`;
   await sql`CREATE INDEX IF NOT EXISTS pta_board_sessions_username_idx ON pta_board_sessions(username)`;
   await sql`CREATE INDEX IF NOT EXISTS pta_board_sessions_expires_idx ON pta_board_sessions(expires_at)`;
+  await sql`CREATE TABLE IF NOT EXISTS pta_sponsorships (
+    id BIGSERIAL PRIMARY KEY,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    need_id TEXT NOT NULL,
+    need_title TEXT NOT NULL,
+    amount NUMERIC(10,2) NOT NULL,
+    status TEXT NOT NULL DEFAULT 'pledged',
+    donor_name TEXT NOT NULL,
+    organization TEXT,
+    email TEXT NOT NULL,
+    phone TEXT,
+    recognition TEXT,
+    notes TEXT,
+    payment_reference TEXT,
+    paid_at TIMESTAMPTZ,
+    payload JSONB NOT NULL DEFAULT '{}'::jsonb
+  )`;
+  await sql`CREATE INDEX IF NOT EXISTS pta_sponsorships_need_idx ON pta_sponsorships(need_id)`;
+  await sql`CREATE INDEX IF NOT EXISTS pta_sponsorships_status_idx ON pta_sponsorships(status)`;
 }
 
 export function cleanText(v,max=500){
