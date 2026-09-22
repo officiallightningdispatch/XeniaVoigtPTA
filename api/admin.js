@@ -82,6 +82,8 @@ export default async function handler(req,res){
     const sql=db();
     await ensureSchema(sql);
     await ensureBoardUsers(sql);
+    const smileExisting=await sql`SELECT id FROM pta_sponsorships WHERE need_id='bounce-combo' AND organization='Smile Doctors' AND status IN ('pledged','confirmed','paid') LIMIT 1`;
+    if(!smileExisting[0]) await sql`INSERT INTO pta_sponsorships (need_id,need_title,amount,status,donor_name,organization,email,phone,recognition,notes,payload) VALUES ('bounce-combo','Bounce / combo inflatable',195,'pledged','Smile Doctors','Smile Doctors','','','Public sponsor recognition','Existing confirmed $195 pledge coordinated with Rudy / PTA.',${JSON.stringify({source:'existing-confirmed-pledge',amount:195})}::jsonb)`;
     const body=req.method==='POST'||req.method==='PATCH'?jsonBody(req):{};
 
     if(req.method==='POST' && body.action==='login') return handleLogin(sql,body,res);
