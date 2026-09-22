@@ -4,55 +4,55 @@
   "rewrites": [
     {
       "source": "/about",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/join",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/volunteer",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/events",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/fall-festival",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/donate",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/fundraising",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/resources",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/contact",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/access",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/vendors",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/community-partners",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/sponsors",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/trunk-host",
@@ -60,7 +60,7 @@
     },
     {
       "source": "/admin",
-      "destination": "/index.html"
+      "destination": "/"
     }
   ],
   "headers": [
