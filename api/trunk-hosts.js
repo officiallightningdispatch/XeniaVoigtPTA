@@ -3,14 +3,17 @@ import { sendFormEmails } from './_email.js';
 
 const allowedTypes=new Set(['Teacher','Parent','Faculty/Staff','Community Partner','Other']);
 const TOTAL_SPOTS=20;
-const RESERVED_SPOTS=9;
+const TEACHER_RESERVED=6;
+const COMMUNITY_CONFIRMED=1;
+const PARENT_CONFIRMED=2;
+const RESERVED_SPOTS=TEACHER_RESERVED+COMMUNITY_CONFIRMED+PARENT_CONFIRMED;
 const PUBLIC_CAPACITY=TOTAL_SPOTS-RESERVED_SPOTS;
 
 async function availability(sql){
   const rows=await sql`SELECT COUNT(*)::int AS n FROM pta_trunk_hosts WHERE COALESCE(status,'new') NOT IN ('declined','cancelled')`;
   const applications=Number(rows[0]?.n||0);
   const remaining=Math.max(0,PUBLIC_CAPACITY-applications);
-  return {totalSpots:TOTAL_SPOTS,reservedSpots:RESERVED_SPOTS,applicationCapacity:PUBLIC_CAPACITY,applications,remaining,full:remaining<=0};
+  return {totalSpots:TOTAL_SPOTS,reservedSpots:RESERVED_SPOTS,teacherReserved:TEACHER_RESERVED,communityConfirmed:COMMUNITY_CONFIRMED,parentConfirmed:PARENT_CONFIRMED,applicationCapacity:PUBLIC_CAPACITY,applications,claimedSpots:RESERVED_SPOTS+applications,remaining,full:remaining<=0};
 }
 
 export default async function handler(req,res){
