@@ -48,9 +48,135 @@
   }
 
   if(path==='/sponsors'){
-    main.innerHTML=`${hero('THANK YOU, SPONSORS + DONORS','The support behind the experience.','Our sponsors and donors help the PTA create memorable experiences while protecting PTA resources for students. Only confirmed support is displayed here.')}
-      <section class="section"><div class="container"><div class="showcase-intro"><span class="showcase-count">${data.sponsors.length}</span><div><h2>Confirmed sponsors & donors</h2><p>Financial support, donated goods, services, auction items, and in-kind contributions all help make the Fall Festival possible.</p></div></div>${cards(data.sponsors)}</div></section>
-      ${cta('Help power the 2026 Fall Festival.','Current sponsorship needs include entertainment, attractions, accessibility resources, prizes, supplies, and event operations.','Become a sponsor','mailto:info@xeniavoigtpta.org?subject=Fall%20Festival%20sponsorship')}`;
+    const supporterTile=item=>`<a class="supporter-tile" href="${esc(item.url||'#')}" ${item.url?'target="_blank" rel="noopener noreferrer"':'aria-disabled="true"'} aria-label="${esc(item.name)}">
+      <div class="supporter-logo">${logo(item)}</div>
+      <strong>${esc(item.name)}</strong>
+      <span>${esc(item.type)}</span>
+    </a>`;
+    const supporterRun=[...data.sponsors,...data.sponsors].map(supporterTile).join('');
+    main.innerHTML=`${hero('THANK YOU, SPONSORS + DONORS','The support behind the experience.','Meet the businesses and community supporters already helping make Viking Quest possible — then join them below.')}
+      <style>
+        .supporter-marquee{overflow:hidden;position:relative;margin-top:24px;padding:8px 0 14px;mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+        .supporter-track{display:flex;gap:16px;width:max-content;animation:voigtSupporters 32s linear infinite}
+        .supporter-marquee:hover .supporter-track,.supporter-marquee:focus-within .supporter-track{animation-play-state:paused}
+        .supporter-tile{width:220px;min-height:190px;background:#fff;border:2px solid #171717;border-radius:22px;padding:22px 18px;text-align:center;text-decoration:none;color:#171717;box-shadow:6px 6px 0 #d71920;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px}
+        .supporter-tile:hover{transform:translateY(-2px)}
+        .supporter-logo{width:92px;height:72px;display:grid;place-items:center}
+        .supporter-logo img{max-width:92px;max-height:72px;object-fit:contain}
+        .supporter-logo span{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:#171717;color:#fff;font-size:28px;font-weight:900}
+        .supporter-tile strong{font-size:18px;line-height:1.15}
+        .supporter-tile>span{font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#6b6b6b}
+        @keyframes voigtSupporters{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 8px))}}
+        .sponsor-app-shell{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:22px;align-items:start}
+        .sponsor-app{background:#fff;border:2px solid #171717;border-radius:24px;padding:24px;box-shadow:8px 8px 0 #171717}
+        .sponsor-app-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+        .sponsor-app label{display:flex;flex-direction:column;gap:7px;font-weight:800;font-size:14px}
+        .sponsor-app input,.sponsor-app select,.sponsor-app textarea{width:100%;border:2px solid #171717;border-radius:12px;padding:12px 13px;font:inherit;background:#fff;color:#171717}
+        .sponsor-app textarea{min-height:118px;resize:vertical}
+        .sponsor-app .full{grid-column:1/-1}
+        .sponsor-app small{font-weight:500;color:#555}
+        .sponsor-side{background:#171717;color:#fff;border-radius:24px;padding:25px;position:sticky;top:24px}
+        .sponsor-side h3{color:#fff;margin-top:8px}
+        .sponsor-side p{color:#eee}
+        .sponsor-side .mini-label{color:#fff}
+        @media(max-width:760px){.sponsor-app-shell{grid-template-columns:1fr}.sponsor-app-grid{grid-template-columns:1fr}.sponsor-app .full{grid-column:auto}.sponsor-side{position:static}.supporter-tile{width:190px}.supporter-track{animation-duration:26s}}
+        @media(prefers-reduced-motion:reduce){.supporter-track{animation:none;flex-wrap:wrap;width:auto}.supporter-marquee{mask-image:none;-webkit-mask-image:none}}
+      </style>
+      <section class="section"><div class="container">
+        <div class="showcase-intro"><span class="showcase-count">${data.sponsors.length}</span><div><h2>Current sponsors & donors</h2><p>These confirmed supporters have contributed funding, donated goods, services, auction items, printing, or other in-kind support.</p></div></div>
+        <div class="supporter-marquee" aria-label="Current sponsors and donors"><div class="supporter-track">${supporterRun}</div></div>
+      </div></section>
+      <section class="section" id="sponsor-application"><div class="container">
+        <div class="sponsor-app-shell">
+          <form class="sponsor-app" id="sponsorDonorForm">
+            <span class="mini-label">SPONSOR + DONOR APPLICATION</span>
+            <h2>Support the 2026 Viking Quest Fall Festival</h2>
+            <p>Tell us how you would like to support the event. Submitting this form does not obligate you to contribute; the PTA will confirm details before anything is finalized.</p>
+            <div class="sponsor-app-grid">
+              <label>Business / organization name
+                <input name="organization" autocomplete="organization" required>
+              </label>
+              <label>Contact name
+                <input name="contact" autocomplete="name" required>
+              </label>
+              <label>Email
+                <input type="email" name="email" autocomplete="email" required>
+              </label>
+              <label>Phone
+                <input type="tel" name="phone" autocomplete="tel">
+              </label>
+              <label>Support type
+                <select name="supportType" required>
+                  <option value="">Select one</option>
+                  <option>Financial donation</option>
+                  <option>Event sponsorship</option>
+                  <option>In-kind goods</option>
+                  <option>Professional service</option>
+                  <option>Prize / giveaway</option>
+                  <option>Printing / signage</option>
+                  <option>Attraction / entertainment</option>
+                  <option>Other community support</option>
+                </select>
+              </label>
+              <label>Donation / sponsorship value
+                <input name="value" placeholder="Example: $250 or estimated retail value">
+              </label>
+              <label class="full">What would you like to contribute?
+                <textarea name="contribution" required placeholder="Tell us what you are offering, quantity if applicable, and any important details."></textarea>
+              </label>
+              <label>Recognition preference
+                <select name="recognition">
+                  <option>Please recognize our support publicly</option>
+                  <option>Anonymous / no public recognition</option>
+                  <option>Please contact me about recognition options</option>
+                </select>
+              </label>
+              <label>Website / social link
+                <input type="url" name="website" placeholder="https://">
+              </label>
+              <label class="full">Anything else we should know?
+                <textarea name="notes" placeholder="Fulfillment details, restrictions, deadlines, logo notes, questions, etc."></textarea>
+              </label>
+            </div>
+            <button class="btn primary" type="submit" style="margin-top:18px">Submit sponsor / donor application</button>
+            <p id="sponsorFormStatus" role="status" style="margin-top:12px"></p>
+          </form>
+          <aside class="sponsor-side">
+            <span class="mini-label">WAYS TO HELP</span>
+            <h3>Funding, goods, services — all of it matters.</h3>
+            <p>Current Fall Festival support can include attractions, activity supplies, sensory-friendly resources, prizes, volunteer support, printing, entertainment, or another useful contribution.</p>
+            <p><strong>Want to make a financial gift?</strong> The secure fee-free donation checkout is being prepared on the Donate page and will be activated once the PTA bank connection is completed.</p>
+            <a class="btn secondary" href="/donate" style="margin-top:12px">Open donation page →</a>
+          </aside>
+        </div>
+      </div></section>`;
+
+    const sponsorForm=document.getElementById('sponsorDonorForm');
+    sponsorForm?.addEventListener('submit',e=>{
+      e.preventDefault();
+      const fd=new FormData(sponsorForm);
+      const subject='Viking Quest Sponsor / Donor Application — '+(fd.get('organization')||fd.get('contact')||'New application');
+      const body=[
+        '2026 VIKING QUEST SPONSOR / DONOR APPLICATION','',
+        'Business / Organization: '+(fd.get('organization')||''),
+        'Contact: '+(fd.get('contact')||''),
+        'Email: '+(fd.get('email')||''),
+        'Phone: '+(fd.get('phone')||''),
+        'Support type: '+(fd.get('supportType')||''),
+        'Donation / sponsorship value: '+(fd.get('value')||''),
+        'Recognition preference: '+(fd.get('recognition')||''),
+        'Website / social: '+(fd.get('website')||''),
+        '',
+        'Contribution details:',
+        fd.get('contribution')||'',
+        '',
+        'Additional notes:',
+        fd.get('notes')||''
+      ].join('\n');
+      const status=document.getElementById('sponsorFormStatus');
+      if(status)status.textContent='Opening your email to send the completed application to the PTA…';
+      location.href='mailto:community@xeniavoigtpta.org?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+    });
   }
 
   if(path==='/vendors'){
