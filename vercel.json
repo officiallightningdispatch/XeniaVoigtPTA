@@ -23,6 +23,10 @@
       "destination": "/index.html"
     },
     {
+      "source": "/donate",
+      "destination": "/index.html"
+    },
+    {
       "source": "/fundraising",
       "destination": "/index.html"
     },
