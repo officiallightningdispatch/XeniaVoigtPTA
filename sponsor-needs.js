@@ -101,9 +101,7 @@
                </div>`}
           ${n.inKindPendingValue&&!n.fulfilled
             ? `<a class="btn primary" href="mailto:info@xeniavoigtpta.org?subject=${encodeURIComponent('In-kind support — '+n.title)}">Offer in-kind support →</a>`
-            : `${n.inKindPendingValue&&!n.fulfilled
-            ? `<a class="btn primary" href="mailto:info@xeniavoigtpta.org?subject=${encodeURIComponent('In-kind support — '+n.title)}">Offer in-kind support →</a>`
-            : `<button class="btn ${n.fulfilled?'secondary':'primary'}" type="button" data-need="${esc(n.id)}" ${n.fulfilled?'disabled':''}>${n.fulfilled?'Covered ✓':'Sponsor this need →'}</button>`}`}
+            : `<button class="btn ${n.fulfilled?'secondary':'primary'}" type="button" data-need="${esc(n.id)}" ${n.fulfilled?'disabled':''}>${n.fulfilled?'Covered ✓':'Sponsor this need →'}</button>`}
         </article>`;
       }).join('');
     }catch(err){grid.innerHTML=`<div class="modern-panel"><h3>Current needs are temporarily unavailable.</h3><p>${esc(err.message)}</p></div>`;}
