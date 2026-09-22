@@ -74,3 +74,58 @@ ${PTA_EMAIL}`;
   if(!r.ok) throw new Error(`Resend ${r.status}: ${await r.text()}`);
   return true;
 }
+
+
+const SPONSOR_ALERT_RECIPIENTS=[
+  PTA_EMAIL,
+  'voigtpta7@gmail.com',
+  'r.delcampo13@gmail.com',
+  'brittanisimms203@gmail.com'
+];
+
+export async function sendSponsorPledgeNotification({needTitle,amount,donorName,organization,email,phone,recognition}){
+  const key=process.env.RESEND_API_KEY;
+  if(!key){ console.warn('RESEND_API_KEY is not configured; skipping sponsorship pledge alert.'); return false; }
+  const sponsor=organization||donorName||'New sponsor';
+  const value=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(Number(amount||0));
+  const subject=`New sponsorship pledge: ${sponsor} — ${value} for ${needTitle}`;
+  const text=`A new Viking Quest sponsorship pledge was submitted through the PTA website.
+
+Sponsor: ${sponsor}
+Contact: ${donorName||''}
+Need: ${needTitle}
+Amount: ${value}
+Email: ${email||''}
+Phone: ${phone||''}
+Recognition: ${recognition||''}
+
+This pledge counts as confirmed coverage immediately under the PTA sponsorship rule.
+
+Board dashboard:
+https://www.xeniavoigtpta.org/admin
+`;
+  const html=`<!doctype html><html><body style="font-family:Arial,sans-serif;color:#222;line-height:1.55">
+    <h2>New Viking Quest sponsorship pledge</h2>
+    <p><strong>${esc(sponsor)}</strong> pledged <strong>${esc(value)}</strong> toward <strong>${esc(needTitle)}</strong>.</p>
+    <table style="border-collapse:collapse">
+      <tr><td style="padding:6px 10px;font-weight:700">Contact</td><td style="padding:6px 10px">${esc(donorName||'')}</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:700">Email</td><td style="padding:6px 10px">${esc(email||'')}</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:700">Phone</td><td style="padding:6px 10px">${esc(phone||'')}</td></tr>
+      <tr><td style="padding:6px 10px;font-weight:700">Recognition</td><td style="padding:6px 10px">${esc(recognition||'')}</td></tr>
+    </table>
+    <p>This pledge counts as confirmed coverage immediately.</p>
+    <p><a href="https://www.xeniavoigtpta.org/admin">Open Board Dashboard</a></p>
+  </body></html>`;
+  try{
+    const r=await fetch('https://api.resend.com/emails',{
+      method:'POST',
+      headers:{Authorization:`Bearer ${key}`,'Content-Type':'application/json'},
+      body:JSON.stringify({from:FROM,to:SPONSOR_ALERT_RECIPIENTS,reply_to:email?[email]:undefined,subject,text,html})
+    });
+    if(!r.ok) throw new Error(`Resend ${r.status}: ${await r.text()}`);
+    return true;
+  }catch(err){
+    console.error('Sponsorship pledge alert failed',err);
+    return false;
+  }
+}
