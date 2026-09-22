@@ -36,6 +36,13 @@
     }catch(_){}
 
     try{
+      const r=await fetch('/api/vendors',{cache:'no-store'});
+      const j=await r.json();
+      const el=root.querySelector('[data-vendors]');
+      if(r.ok&&el&&Array.isArray(j.vendors))el.textContent=j.vendors.length+' / 15';
+    }catch(_){}
+
+    try{
       const r=await fetch('/api/trunk-hosts',{cache:'no-store'});
       const j=await r.json();
       if(r.ok){
@@ -81,7 +88,7 @@
       <div class="admin-compact-metrics">
         <article><strong data-pledged>$1,290.00</strong><span>Pledged toward listed cash needs</span></article>
         <article><strong data-open-sponsor>Loading…</strong><span>Remaining listed cash needs</span></article>
-        <article><strong>${esc(vendorMetric)}</strong><span>Food vendors</span></article>
+        <article><strong data-vendors>${esc(vendorMetric)}</strong><span>Food vendors</span></article>
         <article><strong data-trunks>9 / 20</strong><span>Trunk-or-Treat spaces</span></article>
         <article><strong>${esc(volunteerMetric)}</strong><span>Volunteer staffing</span></article>
         <article class="covered"><strong>80 / 80</strong><span>Apple Scoop apples · covered</span></article>
