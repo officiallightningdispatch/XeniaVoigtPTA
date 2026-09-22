@@ -64,6 +64,21 @@
     </div></section>`;
   }
 
+  if(p==='/resources'){
+    main.innerHTML=`${hero('FAMILY + SCHOOL RESOURCES','Useful links without the scavenger hunt.','Volunteer programs, family support, PTA membership, and school-community resources in one place.')}
+    <section class="section"><div class="container">
+      <div class="grid three">
+        ${card('Voigt Clothes Closet','The RRISD Council of PTAs Clothes Closet serves district students with gently used clothing plus new socks and underwear. Voigt hours: Wednesdays & Thursdays, 9:30–11:30 AM; first Saturday monthly, 10 AM–noon.','https://evite.me/GdJucNqSxR','Volunteer at Voigt')}
+        ${card('Clothes Closet Wishlist','Prefer to donate? The Council of PTAs maintains a current wishlist for needed clothing-support items.','https://a.co/0gS8aMWI','Open wishlist')}
+        ${card('Reading in the RRock','Volunteer with kindergarten students who need additional literacy practice. Training and materials are provided.','https://docs.google.com/forms/d/e/1FAIpQLSfB1DK1VE39jXMiIMrnHmOrdWqqa9tIyzu2FwclmTqbcKnc6Q/viewform','Volunteer interest form')}
+        ${card('PTA Volunteer Hub','See current one-time and ongoing opportunities, including Lotería Night, teacher support, Viking Quest, and Fun Run.','/volunteer','View volunteer opportunities')}
+        ${card('Join the PTA','Membership supports Voigt and does not require volunteering or attending every meeting.','/join','Join PTA')}
+        ${card('Official school calendar','Check Voigt / RRISD for campus dates and schedule changes.','https://voigt.roundrockisd.org/events?view=list-month','View school calendar')}
+      </div>
+      <div class="modern-panel" style="margin-top:18px"><span class="mini-label">CLOTHES CLOSET</span><h2>Additional RRISD location</h2><p>Anderson Mill Elementary, 10610 Salt Mill Hollow, Austin: Tuesdays 10 AM–noon, plus the first Wednesday of each month from 5–7 PM during the school year excluding holidays.</p><a class="btn secondary" href="https://evite.me/YdB9YRk3j7" target="_blank" rel="noopener noreferrer">Volunteer at Anderson Mill ↗</a></div>
+    </div></section>`;
+  }
+
   if(p==='/contact'){
     main.innerHTML=`${hero('CONTACT PTA','Send it to the right place the first time.','Questions, ideas, support requests, partnership conversations, and “who do I ask about this?” messages are all welcome.')}
     <section class="section"><div class="container"><div class="modern-page-grid"><article class="modern-panel accent"><span class="mini-label">GENERAL PTA</span><h2>info@xeniavoigtpta.org</h2><p>Use this for membership, events, support requests, ideas, partnerships, or anything you are not sure how to route.</p><a class="btn secondary" href="mailto:info@xeniavoigtpta.org">Email PTA →</a></article><article class="modern-panel"><span class="mini-label">QUICK ROUTES</span><div class="concierge-links"><a href="/volunteer">Volunteer <span>→</span></a><a href="/vendors">Vendor application <span>→</span></a><a href="/resources">Resources <span>→</span></a><a href="/events">Events <span>→</span></a></div></article></div></div></section>`;
