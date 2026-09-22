@@ -21,6 +21,7 @@
     .need-stat small{display:block;font-size:10px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:#666;margin-bottom:3px}
     .need-stat strong{font-size:15px;line-height:1.15}
     .need-covered-note{font-size:13px;font-weight:800;background:#fff3f3;border:1px solid #d71920;border-radius:12px;padding:9px 11px}
+    .need-outreach{font-size:12px;font-weight:900;letter-spacing:.03em;text-transform:uppercase;background:#f3f3f3;border-radius:10px;padding:8px 10px}
     .need-meter{height:12px;background:#ececec;border:1px solid #171717;border-radius:999px;overflow:hidden}
     .need-meter span{display:block;height:100%;background:#d71920}
     .need-numbers{display:flex;justify-content:space-between;gap:12px;font-size:13px;font-weight:800}
@@ -80,10 +81,11 @@
         summary.innerHTML=`<span class="mini-label">CURRENT COVERAGE</span><h3>${money(s.cashPledged||0)} pledged toward listed dollar targets</h3><p><strong>${money(s.openCashRemaining||0)}</strong> remains across needs with a confirmed dollar value.${ink.length?' '+ink.length+' additional need'+(ink.length===1?' has':'s have')+' confirmed in-kind support whose final quantity/value is still being reconciled.':''}</p>${covered.length?`<div class="modern-chiprow" style="margin-top:12px">${covered.map(x=>`<span title="${esc(x.detail)}"><strong>${esc(x.label)}</strong> · ${esc(x.detail)}</span>`).join('')}</div>`:''}`;
       }
       grid.innerHTML=needs.map(n=>{
-        const pct=Math.min(100,Math.round((n.funded/n.target)*100));
+        const pct=n.target>0?Math.min(100,Math.round((n.funded/n.target)*100)):0;
         return `<article class="need-card ${n.fulfilled?'fulfilled':''}">
           <div class="need-top"><div><span class="need-category">${esc(n.category)}</span><h3>${esc(n.title)}</h3></div><span class="need-priority">${esc(n.fulfilled?'Fulfilled':n.priority)}</span></div>
           <p>${esc(n.details)}</p>
+          ${n.outreachStatus?`<div class="need-outreach">${esc(n.outreachStatus)}</div>`:''}
           ${n.inKindPendingValue
             ? `<div class="need-covered-note">${esc(n.coverageNote||'Confirmed in-kind support')}</div>
                <div class="need-status-line">
@@ -97,7 +99,9 @@
                  <div class="need-stat"><small>Confirmed</small><strong>${money(n.funded)}</strong></div>
                  <div class="need-stat"><small>Remaining</small><strong>${n.fulfilled?'$0':money(n.remaining)}</strong></div>
                </div>`}
-          <button class="btn ${n.fulfilled?'secondary':'primary'}" type="button" data-need="${esc(n.id)}" ${n.fulfilled?'disabled':''}>${n.fulfilled?'Covered ✓':'Sponsor this need →'}</button>
+          ${n.inKindPendingValue&&!n.fulfilled
+            ? `<a class="btn primary" href="mailto:info@xeniavoigtpta.org?subject=${encodeURIComponent('In-kind support — '+n.title)}">Offer in-kind support →</a>`
+            : `<button class="btn ${n.fulfilled?'secondary':'primary'}" type="button" data-need="${esc(n.id)}" ${n.fulfilled?'disabled':''}>${n.fulfilled?'Covered ✓':'Sponsor this need →'}</button>`}
         </article>`;
       }).join('');
     }catch(err){grid.innerHTML=`<div class="modern-panel"><h3>Current needs are temporarily unavailable.</h3><p>${esc(err.message)}</p></div>`;}
