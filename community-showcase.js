@@ -231,7 +231,6 @@
                   <option>In-kind goods</option>
                   <option>Professional service</option>
                   <option>Prize / giveaway</option>
-                  <option>Printing / signage</option>
                   <option>Attraction / entertainment</option>
                   <option>Other community support</option>
                 </select>
@@ -262,7 +261,7 @@
           <aside class="sponsor-side">
             <span class="mini-label">WAYS TO HELP</span>
             <h3>Funding, goods, services — all of it matters.</h3>
-            <p>Current Fall Festival support can include attractions, activity supplies, sensory-friendly resources, prizes, volunteer support, printing, entertainment, or another useful contribution.</p>
+            <p>Current Fall Festival support can include attractions, activity supplies, sensory-friendly resources, prizes, volunteer support, entertainment, or another useful contribution.</p>
             <p><strong>Want to make a financial gift?</strong> The secure fee-free donation checkout is being prepared on the Donate page and will be activated once the PTA bank connection is completed.</p>
             <a class="btn secondary" href="/donate" style="margin-top:12px">Open donation page →</a>
           </aside>
