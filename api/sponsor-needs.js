@@ -62,6 +62,7 @@ export default async function handler(req,res){
         {label:'AiRCO Mechanical',detail:'$1,095 trackless train — fully covered'},
         {label:'H-E-B',detail:'Volunteer snacks — covered with confirmed gift-card support'},
         {label:'A+ Federal Credit Union',detail:'Teacher trunk candy — approximately 6–7 of 12 large bags pledged'},
+        {label:'Apple Scoop Challenge',detail:'80 of 80 apples covered for festival night'},
         {label:"Paige's Bakehouse",detail:'Cake Walk — 1 of approximately 15 physical dessert prizes confirmed'}
       ];
       return send(res,200,{needs,summary:{cashPledged,openCashTarget,openCashRemaining,inKindConfirmed,confirmedCoverage}});
