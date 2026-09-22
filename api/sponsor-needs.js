@@ -16,7 +16,7 @@ const NEEDS = [
 
 async function totals(sql){
   const rows=await sql`SELECT need_id, COALESCE(SUM(amount),0)::float AS funded
-    FROM pta_sponsorships WHERE status IN ('pledged','confirmed','paid') GROUP BY need_id`;
+    FROM pta_sponsorships WHERE status IN ('confirmed','paid') GROUP BY need_id`;
   return Object.fromEntries(rows.map(r=>[r.need_id,Number(r.funded||0)]));
 }
 
@@ -36,7 +36,7 @@ export default async function handler(req,res){
       const donorName=cleanText(b.donorName,160), email=cleanText(b.email,180), phone=cleanText(b.phone,80), organization=cleanText(b.organization,180), recognition=cleanText(b.recognition,120), notes=cleanText(b.notes,1200);
       if(!donorName||!email)return send(res,400,{error:'Name and email are required.'});
       const rows=await sql`INSERT INTO pta_sponsorships (need_id,need_title,amount,status,donor_name,organization,email,phone,recognition,notes,payload)
-        VALUES (${need.id},${need.title},${amount},'pledged',${donorName},${organization},${email},${phone},${recognition},${notes},${JSON.stringify(b)}::jsonb)
+        VALUES (${need.id},${need.title},${amount},'pending_payment',${donorName},${organization},${email},${phone},${recognition},${notes},${JSON.stringify(b)}::jsonb)
         RETURNING id,created_at`;
       const funded=await totals(sql); const total=Number(funded[need.id]||0);
       return send(res,200,{ok:true,id:rows[0].id,need:{...need,funded:Math.min(need.target,total),remaining:Math.max(0,need.target-total),fulfilled:total>=need.target},checkoutReady:false,message:'Your sponsorship selection is recorded. Secure payment checkout will be attached to this same need when the PTA payment account is activated.'});
