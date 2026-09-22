@@ -87,9 +87,9 @@
           ${n.inKindPendingValue
             ? `<div class="need-covered-note">${esc(n.coverageNote||'Confirmed in-kind support')}</div>
                <div class="need-status-line">
-                 <div class="need-stat"><small>Target</small><strong>${money(n.target)}</strong></div>
-                 <div class="need-stat"><small>Confirmed</small><strong>In-kind</strong></div>
-                 <div class="need-stat"><small>Remaining</small><strong>Pending count</strong></div>
+                 <div class="need-stat"><small>Target</small><strong>${n.quantityTarget ? esc(n.quantityTarget+' '+(n.quantityUnit||'')) : 'In-kind'}</strong></div>
+                 <div class="need-stat"><small>Pledged</small><strong>${n.quantityConfirmedMin ? esc((n.quantityConfirmedMin===n.quantityConfirmedMax?n.quantityConfirmedMin:(n.quantityConfirmedMin+'–'+n.quantityConfirmedMax))+' '+(n.quantityUnit||'')) : 'Confirmed'}</strong></div>
+                 <div class="need-stat"><small>Still needed</small><strong>${n.quantityRemainingMin ? esc((n.quantityRemainingMin===n.quantityRemainingMax?n.quantityRemainingMin:(n.quantityRemainingMin+'–'+n.quantityRemainingMax))+' '+(n.quantityUnit||'')) : 'Final count pending'}</strong></div>
                </div>`
             : `<div class="need-meter" aria-label="${pct}% funded"><span style="width:${pct}%"></span></div>
                <div class="need-status-line">
@@ -120,7 +120,7 @@
     form.elements.amount.value=Math.max(1,Math.round(n.remaining*100)/100);
     form.elements.amount.max=Math.max(1,Math.round(n.remaining*100)/100);
     document.getElementById('needModalTitle').textContent=n.title;
-    document.getElementById('needModalSummary').innerHTML=`<div class="need-summary"><p><strong>Need:</strong> ${esc(n.details)}</p><p><strong>Target:</strong> ${money(n.target)}</p><p><strong>Confirmed:</strong> ${n.inKindPendingValue?'Confirmed in-kind support':money(n.funded)}</p><p><strong>Remaining:</strong> ${n.inKindPendingValue?'Will update after exact quantity is confirmed':money(n.remaining)}</p></div>`;
+    document.getElementById('needModalSummary').innerHTML=`<div class="need-summary"><p><strong>Need:</strong> ${esc(n.details)}</p><p><strong>Target:</strong> ${n.inKindPendingValue&&n.quantityTarget?esc(n.quantityTarget+' '+(n.quantityUnit||'')):money(n.target)}</p><p><strong>Confirmed:</strong> ${n.inKindPendingValue?(n.quantityConfirmedMin?esc((n.quantityConfirmedMin===n.quantityConfirmedMax?n.quantityConfirmedMin:(n.quantityConfirmedMin+'–'+n.quantityConfirmedMax))+' '+(n.quantityUnit||'')):'Confirmed in-kind support'):money(n.funded)}</p><p><strong>Remaining:</strong> ${n.inKindPendingValue?(n.quantityRemainingMin?esc((n.quantityRemainingMin===n.quantityRemainingMax?n.quantityRemainingMin:(n.quantityRemainingMin+'–'+n.quantityRemainingMax))+' '+(n.quantityUnit||'')):'Final count pending'):money(n.remaining)}</p></div>`;
     document.getElementById('needFormStatus').textContent='';
     modal.classList.add('open');document.body.style.overflow='hidden';
   });
