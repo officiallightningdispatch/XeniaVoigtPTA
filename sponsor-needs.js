@@ -74,6 +74,7 @@
           <p>${esc(n.details)}</p>
           <div class="need-meter" aria-label="${pct}% funded"><span style="width:${pct}%"></span></div>
           <div class="need-numbers"><span>${money(n.funded)} confirmed</span><span>${n.fulfilled?'Fully funded':money(n.remaining)+' remaining'}</span></div>
+          ${n.coverageNote?`<div class="need-detail"><b>Confirmed support</b>${esc(n.coverageNote)}</div>`:''}
           <div class="need-detail"><b>Fulfillment</b>${esc(n.fulfillment)}</div>
           <div class="need-detail"><b>Recognition</b>${esc(n.recognition)}</div>
           <button class="btn ${n.fulfilled?'secondary':'primary'}" type="button" data-need="${esc(n.id)}" ${n.fulfilled?'disabled':''}>${n.fulfilled?'Fulfilled ✓':'Sponsor this need →'}</button>
