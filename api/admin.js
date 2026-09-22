@@ -101,11 +101,12 @@ export default async function handler(req,res){
       const vendors=await sql`SELECT id,created_at,status,business_name,contact_name,email,phone,payload,confirmed_at,confirmed_by,confirmation_email_sent_at FROM pta_vendors ORDER BY created_at DESC LIMIT 500`;
       const trunkHosts=await sql`SELECT id,created_at,status,host_name,host_type,grade_org,email,phone,theme,vehicle_type,payload FROM pta_trunk_hosts ORDER BY created_at DESC LIMIT 500`;
       const newsletter=await sql`SELECT id,created_at,email,source FROM pta_newsletter ORDER BY created_at DESC LIMIT 1000`;
-      return send(res,200,{member,volunteers,vendors,trunkHosts,newsletter});
+      const sponsorships=await sql`SELECT id,created_at,updated_at,need_id,need_title,amount::float,status,donor_name,organization,email,phone,recognition,notes,payment_reference,paid_at FROM pta_sponsorships ORDER BY created_at DESC LIMIT 500`;
+      return send(res,200,{member,volunteers,vendors,trunkHosts,newsletter,sponsorships});
     }
     if(req.method==='PATCH'){
       const id=Number(body.id); const kind=cleanText(body.kind,40); const status=cleanText(body.status,40);
-      const allowed=new Set(['new','reviewing','approved','contacted','closed','pending','confirmed','declined']);
+      const allowed=new Set(['new','reviewing','approved','contacted','closed','pending','pending_payment','confirmed','paid','declined']);
       if(!id||!allowed.has(status)) return send(res,400,{error:'Invalid update.'});
       if(kind==='volunteers') await sql`UPDATE pta_volunteers SET status=${status} WHERE id=${id}`;
       else if(kind==='vendors'){
@@ -122,6 +123,10 @@ export default async function handler(req,res){
         }
       }
       else if(kind==='trunkHosts') await sql`UPDATE pta_trunk_hosts SET status=${status} WHERE id=${id}`;
+      else if(kind==='sponsorships'){
+        if(status==='paid') await sql`UPDATE pta_sponsorships SET status='paid',paid_at=COALESCE(paid_at,NOW()),updated_at=NOW() WHERE id=${id}`;
+        else await sql`UPDATE pta_sponsorships SET status=${status},updated_at=NOW() WHERE id=${id}`;
+      }
       else return send(res,400,{error:'Invalid record type.'});
       return send(res,200,{ok:true,member});
     }
