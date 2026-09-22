@@ -47,6 +47,17 @@
       <div class="fall26-section-head"><span>COMMUNITY-POWERED</span><h2 id="fall26-partners-title">Meet our community partners.</h2><p>From exciting silent-auction finds to delicious festival favorites, our community partners are helping make Viking Quest an unforgettable night!</p></div>
       <div class="fall26-partner-grid" role="list" aria-label="Confirmed Fall Festival community partners">
         <article class="fall26-partner-card" role="listitem">
+          <a class="fall26-partner-logo-wrap" href="https://roundtherocktx.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Round the Rock">
+            <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://roundtherocktx.com&sz=256" alt="Round the Rock logo" loading="eager" decoding="async">
+          </a>
+          <div class="fall26-partner-copy">
+            <span class="fall26-partner-type">COMMUNITY MEDIA PARTNER</span>
+            <h3>Round the Rock</h3>
+            <p>Connecting Round Rock families to Viking Quest through local event coverage, The Weekly Rock, and community social sharing.</p>
+            <a class="fall26-partner-link" href="https://roundtherocktx.com/" target="_blank" rel="noopener noreferrer">Visit partner <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+        <article class="fall26-partner-card" role="listitem">
           <a class="fall26-partner-logo-wrap" href="https://austinaquarium.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Austin Aquarium">
             <img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://austinaquarium.com&sz=256" alt="Austin Aquarium logo" loading="eager" decoding="async">
           </a>
