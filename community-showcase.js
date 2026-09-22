@@ -23,6 +23,7 @@
       {name:'A+ Federal Credit Union',type:'Trunk-or-Treat Candy Sponsor',value:'Confirmed in-kind',desc:'Repeat Fall Festival candy support is confirmed under the PTA repeat-support rule; final 2026 quantity is pending fulfillment.',url:'https://aplusfcu.org/',domain:'aplusfcu.org'},
       {name:'H-E-B',type:'Volunteer Support Sponsor',value:'$150 gift cards confirmed',desc:'Repeat Fall Festival support; the confirmed H-E-B gift-card support will cover volunteer snacks.',url:'https://www.heb.com/',domain:'heb.com'},
       {name:'Shine Pediatric Dental Co.',type:'Attraction Sponsor',value:'$195 pledged',desc:'Pledged $195 to fully cover the Fall Festival bounce/combo inflatable experience.',url:'https://shinepediatricdentalco.com/',domain:'shinepediatricdentalco.com'},
+      {name:'AiRCO Mechanical',type:'Trackless Train Sponsor',value:'$1,095 pledged',desc:'Fully sponsoring the Viking Quest trackless train attraction for festival night.',url:'https://aircomechanical.com/',domain:'aircomechanical.com'},
       {name:'Toybrary Austin',type:'Family Experience Donor',value:'$60 donated',desc:'Donated a $60 Stay & Play punch card for a young-family festival prize.',url:'https://toybraryaustin.com/',domain:'toybraryaustin.com'},
       {name:'Express Commercial Cleaning',type:'Safety & Cleanup Supporter',desc:'Pledged event safety and cleanup support; final donated quantities are being coordinated.',url:'',domain:''}
     ],
