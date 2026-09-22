@@ -38,6 +38,22 @@
     <section class="section"><div class="container"><div class="grid two">${card('Become an event vendor','Apply to sell food, products, services, or experiences at eligible PTA events.','/vendors','Vendor application')}${card('Sponsor or donate','Support an event, donate an item, provide a service, or help make something possible.','/contact','Start a conversation')}${card('Give time or talent','Volunteer for an event, planning task, creative project, or behind-the-scenes need.','/volunteer','Volunteer')}${card('Offer a community resource','Have an idea, program, partnership, or resource that could help Voigt? We want to hear it.','/contact','Contact PTA')}</div></div></section>`;
   }
 
+  if(p==='/donate'){
+    main.innerHTML=`${hero('SUPPORT VIKING QUEST','Help keep festival night free for families.','Every contribution helps the Xenia Voigt Arts Academy PTA cover family attractions, activities, sensory-friendly resources, prizes, supplies, printing, entertainment, and other Fall Festival essentials.')}
+    <section class="section"><div class="container">
+      <div class="modern-page-grid">
+        <article class="modern-panel accent"><span class="mini-label">DONATE TO THE 2026 FALL FESTIVAL</span><h2>Choose the kind of support that fits.</h2><p>Businesses, organizations, families, and community supporters can contribute funding, goods, services, prizes, or event resources.</p><div class="buttons left" style="margin-top:18px"><a class="btn primary" href="mailto:community@xeniavoigtpta.org?subject=Viking%20Quest%20Donation">Offer a donation</a><a class="btn secondary" href="mailto:community@xeniavoigtpta.org?subject=Viking%20Quest%20Sponsorship">Sponsor a current need</a></div></article>
+        <article class="modern-panel"><span class="mini-label">CURRENT PRIORITIES</span><h2>Your support goes directly to the experience.</h2><p>Current needs may include attractions, activity materials, sensory-friendly resources, prizes and giveaways, volunteer support, printing/signage, entertainment, and other event essentials.</p><p><strong>In-kind support is welcome.</strong> The PTA will coordinate fulfillment, recognition, and any documentation directly with each donor.</p></article>
+      </div>
+      <div class="grid three" style="margin-top:16px">
+        ${card('Fund a festival need','Help underwrite a current event expense so PTA resources stay focused on students.','mailto:community@xeniavoigtpta.org?subject=Fund%20a%20Viking%20Quest%20Need','Contact the festival team')}
+        ${card('Donate goods or services','Contribute supplies, prizes, food, printing, attractions, professional services, or another useful in-kind resource.','mailto:community@xeniavoigtpta.org?subject=In-Kind%20Donation%20for%20Viking%20Quest','Offer an in-kind donation')}
+        ${card('Community sponsorship','Support the event as a community sponsor and receive appropriate recognition on PTA event materials.','mailto:community@xeniavoigtpta.org?subject=Viking%20Quest%20Community%20Sponsorship','Ask about sponsorship')}
+      </div>
+      <div class="modern-panel" style="margin-top:16px"><span class="mini-label">QUESTIONS?</span><h3>community@xeniavoigtpta.org</h3><p>Tell us what you would like to contribute and the best way to reach you. We’ll follow up with the current need and next steps.</p></div>
+    </div></section>`;
+  }
+
   if(p==='/contact'){
     main.innerHTML=`${hero('CONTACT PTA','Send it to the right place the first time.','Questions, ideas, support requests, partnership conversations, and “who do I ask about this?” messages are all welcome.')}
     <section class="section"><div class="container"><div class="modern-page-grid"><article class="modern-panel accent"><span class="mini-label">GENERAL PTA</span><h2>info@xeniavoigtpta.org</h2><p>Use this for membership, events, support requests, ideas, partnerships, or anything you are not sure how to route.</p><a class="btn secondary" href="mailto:info@xeniavoigtpta.org">Email PTA →</a></article><article class="modern-panel"><span class="mini-label">QUICK ROUTES</span><div class="concierge-links"><a href="/volunteer">Volunteer <span>→</span></a><a href="/vendors">Vendor application <span>→</span></a><a href="/resources">Resources <span>→</span></a><a href="/events">Events <span>→</span></a></div></article></div></div></section>`;
