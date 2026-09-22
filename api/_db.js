@@ -89,6 +89,13 @@ export async function ensureSchema(sql){
   )`;
   await sql`CREATE INDEX IF NOT EXISTS pta_sponsorships_need_idx ON pta_sponsorships(need_id)`;
   await sql`CREATE INDEX IF NOT EXISTS pta_sponsorships_status_idx ON pta_sponsorships(status)`;
+  await sql`CREATE TABLE IF NOT EXISTS pta_bank_setup (
+    id INTEGER PRIMARY KEY CHECK (id=1),
+    encrypted_blob TEXT NOT NULL,
+    status TEXT NOT NULL DEFAULT 'details_saved',
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_by TEXT
+  )`;
 }
 
 export function cleanText(v,max=500){
