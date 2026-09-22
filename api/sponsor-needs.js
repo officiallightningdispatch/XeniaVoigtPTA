@@ -1,4 +1,5 @@
 import { db, ensureSchema, cleanText, jsonBody, send } from './_db.js';
+import { sendSponsorPledgeNotification } from './_email.js';
 
 const NEEDS = [
   {id:'dj-mc',category:'Entertainment',title:'DJ / MC underwriting',target:300,priority:'Critical',details:'Underwrite the current two-hour DJ/MC proposal for the October 23 Fall Festival.',fulfillment:'Financial sponsorship. PTA confirms booking after funding and campus sound-connection details are finalized.',recognition:'Sponsor recognition on the event website and applicable entertainment-area recognition.'},
@@ -53,6 +54,7 @@ export default async function handler(req,res){
       const inKindConfirmed=needs.filter(n=>n.inKindPendingValue&&n.coverageNote).map(n=>({id:n.id,title:n.title,note:n.coverageNote}));
       const confirmedCoverage=[
         {label:'Shine Pediatric Dental Co.',detail:'$195 bounce/combo inflatable — fully covered'},
+        {label:'AiRCO Mechanical',detail:'$1,095 trackless train — fully covered'},
         {label:'H-E-B',detail:'Volunteer snacks — covered with confirmed gift-card support'},
         {label:'A+ Federal Credit Union',detail:'Teacher trunk candy — approximately 6–7 of 12 large bags pledged'}
       ];
@@ -69,6 +71,7 @@ export default async function handler(req,res){
       const rows=await sql`INSERT INTO pta_sponsorships (need_id,need_title,amount,status,donor_name,organization,email,phone,recognition,notes,payload)
         VALUES (${need.id},${need.title},${amount},'pledged',${donorName},${organization},${email},${phone},${recognition},${notes},${JSON.stringify(b)}::jsonb)
         RETURNING id,created_at`;
+      await sendSponsorPledgeNotification({needTitle:need.title,amount,donorName,organization,email,phone,recognition});
       const funded=await totals(sql); const total=Number(funded[need.id]||0);
       return send(res,200,{ok:true,id:rows[0].id,need:{...need,funded:Math.min(need.target,total),remaining:Math.max(0,need.target-total),fulfilled:total>=need.target},checkoutReady:false,message:'Your sponsorship pledge is recorded and now counts toward this need. Secure payment checkout will be attached to this same pledge when the PTA payment account is activated.'});
     }
