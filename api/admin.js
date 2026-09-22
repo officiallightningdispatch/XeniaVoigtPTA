@@ -82,8 +82,15 @@ export default async function handler(req,res){
     const sql=db();
     await ensureSchema(sql);
     await ensureBoardUsers(sql);
-    const smileExisting=await sql`SELECT id FROM pta_sponsorships WHERE need_id='bounce-combo' AND organization='Smile Doctors' AND status IN ('pledged','confirmed','paid') LIMIT 1`;
-    if(!smileExisting[0]) await sql`INSERT INTO pta_sponsorships (need_id,need_title,amount,status,donor_name,organization,email,phone,recognition,notes,payload) VALUES ('bounce-combo','Bounce / combo inflatable',195,'pledged','Smile Doctors','Smile Doctors','','','Public sponsor recognition','Existing confirmed $195 pledge coordinated with Rudy / PTA.',${JSON.stringify({source:'existing-confirmed-pledge',amount:195})}::jsonb)`;
+    await sql`UPDATE pta_sponsorships SET organization='Shine Pediatric Dental Co.',donor_name='Shine Pediatric Dental Co.',updated_at=NOW() WHERE need_id='bounce-combo' AND amount=195 AND organization='Smile Doctors'`;
+    const shineRows=await sql`SELECT id FROM pta_sponsorships WHERE need_id='bounce-combo' AND organization='Shine Pediatric Dental Co.' AND amount=195 AND status IN ('pledged','confirmed','paid') ORDER BY id ASC`;
+    if(!shineRows[0]) {
+      await sql`INSERT INTO pta_sponsorships (need_id,need_title,amount,status,donor_name,organization,email,phone,recognition,notes,payload)
+        VALUES ('bounce-combo','Bounce / combo inflatable',195,'pledged','Shine Pediatric Dental Co.','Shine Pediatric Dental Co.','','','Public sponsor recognition','Confirmed $195 bounce/combo sponsorship.',${JSON.stringify({source:'existing-confirmed-pledge',amount:195})}::jsonb)`;
+    } else if(shineRows.length>1) {
+      const keep=shineRows[0].id;
+      await sql`DELETE FROM pta_sponsorships WHERE need_id='bounce-combo' AND organization='Shine Pediatric Dental Co.' AND amount=195 AND id<>${keep}`;
+    }
     const body=req.method==='POST'||req.method==='PATCH'?jsonBody(req):{};
 
     if(req.method==='POST' && body.action==='login') return handleLogin(sql,body,res);
