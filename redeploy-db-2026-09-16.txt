@@ -1,1 +1,2 @@
 Trigger production redeploy after configuring DATABASE_URL in Vercel.
+Fall Festival admin/data reconciliation refresh 2026-09-22.
