@@ -9,7 +9,7 @@ const NEEDS = [
   {id:'sensory-retreat',category:'Accessibility',title:'Sensory-Friendly Retreat bundle',target:449.16,priority:'Critical',details:'Support noise-reducing earmuffs, fidgets, weighted lap pads, soft seating/mats, and visual timers for the quiet retreat.',fulfillment:'Financial or equivalent in-kind support. Specialized items remain subject to school protocol and final room setup.',recognition:'Accessibility-support recognition on the website and applicable retreat signage.'},
   {id:'quest-prizes',category:'Viking Quest',title:'Quest completion prizes',target:262.50,priority:'Critical',details:'Provide approximately 350 small completion prizes so children who finish the Viking Quest leave with a reward.',fulfillment:'Financial or in-kind sponsorship. Multiple sponsors may combine to reach the full quantity.',recognition:'Viking Quest supporter recognition on the website and applicable finish-area signage.'},
   {id:'quest-pouches',category:'Viking Quest',title:'Quest pouches / favor bags',target:105,priority:'Critical',details:'Provide approximately 300 small bags for children to collect their Viking Quest keepsakes.',fulfillment:'Financial or in-kind donation of equivalent bags. Final style/color coordinated with the PTA.',recognition:'Viking Quest supporter recognition on the website.'},
-  {id:'backup-candy',category:'Trunk-or-Treat',title:'Backup candy reserve',target:320,priority:'Partially covered',details:'4,000-piece backup candy reserve for Trunk-or-Treat.',fulfillment:'A+ Federal Credit Union candy support is confirmed.',recognition:'Trunk-or-Treat sponsor recognition.',coverageNote:'A+ Federal Credit Union · confirmed in-kind candy support',inKindPendingValue:true},
+  {id:'backup-candy',category:'Trunk-or-Treat',title:'Teacher trunk candy',target:0,priority:'Partially covered',details:'Provide candy for the 6 reserved teacher trunks — plan for about 2 large bulk bags per teacher trunk.',fulfillment:'A+ Federal Credit Union repeat candy support is confirmed based on prior support of approximately 6–7 large bags. Exact 2026 quantity is still being finalized.',recognition:'Trunk-or-Treat sponsor recognition.',coverageNote:'A+ Federal Credit Union · approximately 6–7 large bags pledged',inKindPendingValue:true,quantityTarget:12,quantityUnit:'large bags',quantityConfirmedMin:6,quantityConfirmedMax:7,quantityRemainingMin:5,quantityRemainingMax:6},
   {id:'harvest-wagon',category:'Photo Experience',title:'Viking Harvest Wagon Photo Stop',target:390,priority:'High',details:'Fund or provide the stationary wagon/cart, faux hay bales, pumpkins/mums, garland, and photo décor.',fulfillment:'Financial or in-kind support. This is a stationary photo experience, not a moving ride.',recognition:'Photo-stop sponsor recognition on the website and optional display signage.'},
 ];
 
@@ -54,7 +54,7 @@ export default async function handler(req,res){
       const confirmedCoverage=[
         {label:'Shine Pediatric Dental Co.',detail:'$195 bounce/combo inflatable — fully covered'},
         {label:'H-E-B',detail:'Volunteer snacks — covered with confirmed gift-card support'},
-        {label:'A+ Federal Credit Union',detail:'Backup candy — confirmed in-kind support; final quantity pending'}
+        {label:'A+ Federal Credit Union',detail:'Teacher trunk candy — approximately 6–7 of 12 large bags pledged'}
       ];
       return send(res,200,{needs,summary:{cashPledged,openCashTarget,openCashRemaining,inKindConfirmed,confirmedCoverage}});
     }
