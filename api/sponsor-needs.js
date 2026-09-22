@@ -3,6 +3,7 @@ import { db, ensureSchema, cleanText, jsonBody, send } from './_db.js';
 const NEEDS = [
   {id:'dj-mc',category:'Entertainment',title:'DJ / MC underwriting',target:300,priority:'Critical',details:'Underwrite the current two-hour DJ/MC proposal for the October 23 Fall Festival.',fulfillment:'Financial sponsorship. PTA confirms booking after funding and campus sound-connection details are finalized.',recognition:'Sponsor recognition on the event website and applicable entertainment-area recognition.'},
   {id:'obstacle-course',category:'Inflatables & Attractions',title:'Inflatable obstacle course',target:365,priority:'Critical',details:'Fund one inflatable obstacle-course rental to expand the free attraction area for families.',fulfillment:'Financial sponsorship toward the current estimated rental. Electrical access is available; final layout remains subject to campus safety approval.',recognition:'Recognition near the sponsored attraction when permitted, plus website recognition.'},
+  {id:'bounce-combo',category:'Inflatables & Attractions',title:'Bounce / combo inflatable',target:195,priority:'Covered',details:'One bounce/combo inflatable experience for families during Viking Quest.',fulfillment:'Fully pledged by Smile Doctors for the current $195 attraction cost. Final placement remains subject to campus safety/layout approval.',recognition:'Smile Doctors will receive attraction sponsor recognition on the website and near the sponsored inflatable where permitted.'},
   {id:'interactive-inflatable',category:'Inflatables & Attractions',title:'Interactive inflatable / game',target:225,priority:'Critical',details:'Fund one additional interactive inflatable or comparable major family attraction.',fulfillment:'Financial sponsorship toward the current estimated rental; final attraction selection follows campus/layout approval.',recognition:'Recognition near the sponsored attraction when permitted, plus website recognition.'},
   {id:'trackless-train',category:'Major Attraction',title:'Trackless train',target:1095,priority:'Critical',details:'Help bring a trackless train experience to Viking Quest as a major family attraction.',fulfillment:'Full or partial financial sponsorship. The PTA will coordinate vendor booking, route, insurance, and campus approval.',recognition:'Major-attraction sponsor recognition, including website and event signage where approved.'},
   {id:'sensory-retreat',category:'Accessibility',title:'Sensory-Friendly Retreat bundle',target:449.16,priority:'Critical',details:'Support noise-reducing earmuffs, fidgets, weighted lap pads, soft seating/mats, and visual timers for the quiet retreat.',fulfillment:'Financial or equivalent in-kind support. Specialized items remain subject to school protocol and final room setup.',recognition:'Accessibility-support recognition on the website and applicable retreat signage.'},
@@ -12,6 +13,14 @@ const NEEDS = [
   {id:'harvest-wagon',category:'Photo Experience',title:'Viking Harvest Wagon Photo Stop',target:390,priority:'High',details:'Fund or provide the stationary wagon/cart, faux hay bales, pumpkins/mums, garland, and photo décor.',fulfillment:'Financial or in-kind support. This is a stationary photo experience, not a moving ride.',recognition:'Photo-stop sponsor recognition on the website and optional display signage.'},
   {id:'volunteer-snacks',category:'Volunteer Support',title:'Volunteer snacks',target:75,priority:'High',details:'Provide approximately 100 simple snack servings for event volunteers.',fulfillment:'Financial or in-kind food/snack support. PTA will coordinate quantity, dietary practicality, and drop-off timing.',recognition:'Volunteer-support recognition on the website.'}
 ];
+
+async function ensureKnownPledges(sql){
+  const existing=await sql`SELECT id FROM pta_sponsorships WHERE need_id='bounce-combo' AND organization='Smile Doctors' AND status IN ('pledged','confirmed','paid') LIMIT 1`;
+  if(!existing[0]){
+    await sql`INSERT INTO pta_sponsorships (need_id,need_title,amount,status,donor_name,organization,email,phone,recognition,notes,payload)
+      VALUES ('bounce-combo','Bounce / combo inflatable',195,'pledged','Smile Doctors','Smile Doctors','', '', 'Public sponsor recognition', 'Existing confirmed $195 pledge coordinated with Rudy / PTA.', ${JSON.stringify({source:'existing-confirmed-pledge',amount:195})}::jsonb)`;
+  }
+}
 
 async function totals(sql){
   const rows=await sql`SELECT need_id, COALESCE(SUM(amount),0)::float AS funded
@@ -23,6 +32,7 @@ export default async function handler(req,res){
   try{
     const sql=db(); await ensureSchema(sql);
     await sql`UPDATE pta_sponsorships SET status='pledged',updated_at=NOW() WHERE status='pending_payment'`;
+    await ensureKnownPledges(sql);
     if(req.method==='GET'){
       const funded=await totals(sql);
       return send(res,200,{needs:NEEDS.map(n=>({...n,funded:Math.min(n.target,funded[n.id]||0),remaining:Math.max(0,n.target-(funded[n.id]||0)),fulfilled:(funded[n.id]||0)>=n.target}))});
