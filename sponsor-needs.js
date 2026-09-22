@@ -76,7 +76,8 @@
       if(summary){
         const s=j.summary||{};
         const ink=(s.inKindConfirmed||[]);
-        summary.innerHTML=`<span class="mini-label">CURRENT COVERAGE</span><h3>${money(s.cashPledged||0)} pledged toward listed dollar targets</h3><p><strong>${money(s.openCashRemaining||0)}</strong> remains across needs with a confirmed dollar value.${ink.length?' '+ink.length+' additional need'+(ink.length===1?' has':'s have')+' confirmed in-kind support whose final quantity/value is still being reconciled.':''}</p>`;
+        const covered=(s.confirmedCoverage||[]);
+        summary.innerHTML=`<span class="mini-label">CURRENT COVERAGE</span><h3>${money(s.cashPledged||0)} pledged toward listed dollar targets</h3><p><strong>${money(s.openCashRemaining||0)}</strong> remains across needs with a confirmed dollar value.${ink.length?' '+ink.length+' additional need'+(ink.length===1?' has':'s have')+' confirmed in-kind support whose final quantity/value is still being reconciled.':''}</p>${covered.length?`<div class="modern-chiprow" style="margin-top:12px">${covered.map(x=>`<span title="${esc(x.detail)}"><strong>${esc(x.label)}</strong> · ${esc(x.detail)}</span>`).join('')}</div>`:''}`;
       }
       grid.innerHTML=needs.map(n=>{
         const pct=Math.min(100,Math.round((n.funded/n.target)*100));
