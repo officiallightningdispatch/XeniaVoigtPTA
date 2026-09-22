@@ -47,7 +47,7 @@
   const section=document.createElement('section');
   section.className='section need-shell';
   section.id='sponsor-current-need';
-  section.innerHTML=`<div class="container"><div class="need-head"><div><span class="mini-label">SPONSOR A CURRENT NEED</span><h2>Choose exactly what you want to fund.</h2><p>Every open need below shows the current target, confirmed funding, remaining balance, what the contribution covers, and how recognition/fulfillment works. Partial sponsorships are welcome unless the item specifically requires full underwriting.</p></div></div><div id="needGrid" class="need-grid"><p>Loading current needs…</p></div></div>`;
+  section.innerHTML=`<div class="container"><div class="need-head"><div><span class="mini-label">SPONSOR A CURRENT NEED</span><h2>Choose exactly what you want to fund.</h2><p>Every open need below shows the current target and confirmed coverage. Pledges count immediately. In-kind support is shown separately when an exact dollar value is not yet available.</p></div></div><div id="needSummary" class="modern-panel" style="margin-bottom:16px"><p>Loading confirmed coverage…</p></div><div id="needGrid" class="need-grid"><p>Loading current needs…</p></div></div>`;
   const existing=main.querySelector('.section');
   if(existing) existing.insertAdjacentElement('afterend',section); else main.appendChild(section);
 
@@ -72,6 +72,12 @@
       const r=await fetch('/api/sponsor-needs',{cache:'no-store'}),j=await r.json();
       if(!r.ok)throw new Error(j.error||'Could not load needs.');
       needs=j.needs||[];
+      const summary=document.getElementById('needSummary');
+      if(summary){
+        const s=j.summary||{};
+        const ink=(s.inKindConfirmed||[]);
+        summary.innerHTML=`<span class="mini-label">CURRENT COVERAGE</span><h3>${money(s.cashPledged||0)} pledged toward listed dollar targets</h3><p><strong>${money(s.openCashRemaining||0)}</strong> remains across needs with a confirmed dollar value.${ink.length?' '+ink.length+' additional need'+(ink.length===1?' has':'s have')+' confirmed in-kind support whose final quantity/value is still being reconciled.':''}</p>`;
+      }
       grid.innerHTML=needs.map(n=>{
         const pct=Math.min(100,Math.round((n.funded/n.target)*100));
         return `<article class="need-card ${n.fulfilled?'fulfilled':''}">
