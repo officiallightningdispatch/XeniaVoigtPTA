@@ -106,7 +106,7 @@ export default async function handler(req,res){
     }
     if(req.method==='PATCH'){
       const id=Number(body.id); const kind=cleanText(body.kind,40); const status=cleanText(body.status,40);
-      const allowed=new Set(['new','reviewing','approved','contacted','closed','pending','pending_payment','confirmed','paid','declined']);
+      const allowed=new Set(['new','reviewing','approved','contacted','closed','pending','pending_payment','pledged','confirmed','paid','declined']);
       if(!id||!allowed.has(status)) return send(res,400,{error:'Invalid update.'});
       if(kind==='volunteers') await sql`UPDATE pta_volunteers SET status=${status} WHERE id=${id}`;
       else if(kind==='vendors'){
