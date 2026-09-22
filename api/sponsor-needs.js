@@ -14,6 +14,11 @@ const NEEDS = [
 ];
 
 async function ensureKnownPledges(sql){
+  // Normalize and deduplicate the confirmed Shine Pediatric Dental Co. $195 pledge.
+  await sql`UPDATE pta_sponsorships SET organization='Shine Pediatric Dental Co.',donor_name='Shine Pediatric Dental Co.',updated_at=NOW() WHERE need_id='bounce-combo' AND amount=195 AND organization='Smile Doctors'`;
+  const shineDupes=await sql`SELECT id FROM pta_sponsorships WHERE need_id='bounce-combo' AND organization='Shine Pediatric Dental Co.' AND amount=195 AND status IN ('pledged','confirmed','paid') ORDER BY id ASC`;
+  if(shineDupes.length>1){ const keep=shineDupes[0].id; await sql`DELETE FROM pta_sponsorships WHERE need_id='bounce-combo' AND organization='Shine Pediatric Dental Co.' AND amount=195 AND id<>${keep}`; }
+
   const heb=await sql`SELECT id FROM pta_sponsorships WHERE organization='H-E-B' AND need_id='volunteer-snacks' AND status IN ('pledged','confirmed','paid') LIMIT 1`;
   if(!heb[0]) await sql`INSERT INTO pta_sponsorships (need_id,need_title,amount,status,donor_name,organization,email,phone,recognition,notes,payload)
     VALUES ('volunteer-snacks','Volunteer snacks',150,'pledged','H-E-B','H-E-B','s495aa@heb.com','','Public sponsor recognition','Repeat-support rule: H-E-B previously awarded Voigt $150 in Fall Festival gift cards; 2026 support requested again. Gift card will cover volunteer snacks.',${JSON.stringify({source:'historical-repeat-support',priorYear:2024,priorValue:150,currentUse:'volunteer snacks'})}::jsonb)`;
@@ -21,7 +26,6 @@ async function ensureKnownPledges(sql){
   if(!aplus[0]) await sql`INSERT INTO pta_sponsorships (need_id,need_title,amount,status,donor_name,organization,email,phone,recognition,notes,payload)
     VALUES ('backup-candy','Backup candy reserve',0,'pledged','A+ Federal Credit Union','A+ Federal Credit Union','vbrooks@aplusfcu.org','','Public sponsor recognition','Repeat-support rule: A+ FCU previously sponsored approximately 6–7 bags of Fall Festival candy and was asked to sponsor candy again for 2026. Exact 2026 quantity/value pending fulfillment.',${JSON.stringify({source:'historical-repeat-support',priorQuantity:'6-7 bags',status:'confirmed-in-kind-quantity-pending'})}::jsonb)`;
 
-  await sql`UPDATE pta_sponsorships SET organization='Shine Pediatric Dental Co.',donor_name='Shine Pediatric Dental Co.',updated_at=NOW() WHERE need_id='bounce-combo' AND amount=195 AND organization='Smile Doctors'`;
   const existing=await sql`SELECT id FROM pta_sponsorships WHERE need_id='bounce-combo' AND organization='Shine Pediatric Dental Co.' AND status IN ('pledged','confirmed','paid') LIMIT 1`;
   if(!existing[0]){
     await sql`INSERT INTO pta_sponsorships (need_id,need_title,amount,status,donor_name,organization,email,phone,recognition,notes,payload)
@@ -42,7 +46,12 @@ export default async function handler(req,res){
     await ensureKnownPledges(sql);
     if(req.method==='GET'){
       const funded=await totals(sql);
-      return send(res,200,{needs:NEEDS.map(n=>({...n,funded:Math.min(n.target,funded[n.id]||0),remaining:Math.max(0,n.target-(funded[n.id]||0)),fulfilled:(funded[n.id]||0)>=n.target}))});
+      const needs=NEEDS.map(n=>({...n,funded:Math.min(n.target,funded[n.id]||0),remaining:Math.max(0,n.target-(funded[n.id]||0)),fulfilled:(funded[n.id]||0)>=n.target}));
+      const cashPledged=needs.reduce((sum,n)=>sum+Number(n.funded||0),0);
+      const openCashTarget=needs.filter(n=>!n.inKindPendingValue).reduce((sum,n)=>sum+Number(n.target||0),0);
+      const openCashRemaining=needs.filter(n=>!n.inKindPendingValue).reduce((sum,n)=>sum+Number(n.remaining||0),0);
+      const inKindConfirmed=needs.filter(n=>n.inKindPendingValue&&n.coverageNote).map(n=>({id:n.id,title:n.title,note:n.coverageNote}));
+      return send(res,200,{needs,summary:{cashPledged,openCashTarget,openCashRemaining,inKindConfirmed}});
     }
     if(req.method==='POST'){
       const b=jsonBody(req);
