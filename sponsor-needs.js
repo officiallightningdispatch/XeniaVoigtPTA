@@ -16,6 +16,11 @@
     .need-category,.need-priority{font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
     .need-priority{background:#171717;color:#fff;border-radius:999px;padding:5px 8px;white-space:nowrap}
     .need-card h3{margin:0;font-size:23px}
+    .need-status-line{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:4px}
+    .need-stat{background:#f7f7f7;border-radius:12px;padding:10px 8px;text-align:center}
+    .need-stat small{display:block;font-size:10px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:#666;margin-bottom:3px}
+    .need-stat strong{font-size:15px;line-height:1.15}
+    .need-covered-note{font-size:13px;font-weight:800;background:#fff3f3;border:1px solid #d71920;border-radius:12px;padding:9px 11px}
     .need-meter{height:12px;background:#ececec;border:1px solid #171717;border-radius:999px;overflow:hidden}
     .need-meter span{display:block;height:100%;background:#d71920}
     .need-numbers{display:flex;justify-content:space-between;gap:12px;font-size:13px;font-weight:800}
@@ -72,12 +77,20 @@
         return `<article class="need-card ${n.fulfilled?'fulfilled':''}">
           <div class="need-top"><div><span class="need-category">${esc(n.category)}</span><h3>${esc(n.title)}</h3></div><span class="need-priority">${esc(n.fulfilled?'Fulfilled':n.priority)}</span></div>
           <p>${esc(n.details)}</p>
-          <div class="need-meter" aria-label="${pct}% funded"><span style="width:${pct}%"></span></div>
-          <div class="need-numbers"><span>${money(n.funded)} confirmed</span><span>${n.fulfilled?'Fully funded':money(n.remaining)+' remaining'}</span></div>
-          ${n.coverageNote?`<div class="need-detail"><b>Confirmed support</b>${esc(n.coverageNote)}</div>`:''}
-          <div class="need-detail"><b>Fulfillment</b>${esc(n.fulfillment)}</div>
-          <div class="need-detail"><b>Recognition</b>${esc(n.recognition)}</div>
-          <button class="btn ${n.fulfilled?'secondary':'primary'}" type="button" data-need="${esc(n.id)}" ${n.fulfilled?'disabled':''}>${n.fulfilled?'Fulfilled ✓':'Sponsor this need →'}</button>
+          ${n.inKindPendingValue
+            ? `<div class="need-covered-note">${esc(n.coverageNote||'Confirmed in-kind support')}</div>
+               <div class="need-status-line">
+                 <div class="need-stat"><small>Target</small><strong>${money(n.target)}</strong></div>
+                 <div class="need-stat"><small>Confirmed</small><strong>In-kind</strong></div>
+                 <div class="need-stat"><small>Remaining</small><strong>Pending count</strong></div>
+               </div>`
+            : `<div class="need-meter" aria-label="${pct}% funded"><span style="width:${pct}%"></span></div>
+               <div class="need-status-line">
+                 <div class="need-stat"><small>Target</small><strong>${money(n.target)}</strong></div>
+                 <div class="need-stat"><small>Confirmed</small><strong>${money(n.funded)}</strong></div>
+                 <div class="need-stat"><small>Remaining</small><strong>${n.fulfilled?'$0':money(n.remaining)}</strong></div>
+               </div>`}
+          <button class="btn ${n.fulfilled?'secondary':'primary'}" type="button" data-need="${esc(n.id)}" ${n.fulfilled?'disabled':''}>${n.fulfilled?'Covered ✓':'Sponsor this need →'}</button>
         </article>`;
       }).join('');
     }catch(err){grid.innerHTML=`<div class="modern-panel"><h3>Current needs are temporarily unavailable.</h3><p>${esc(err.message)}</p></div>`;}
@@ -100,7 +113,7 @@
     form.elements.amount.value=Math.max(1,Math.round(n.remaining*100)/100);
     form.elements.amount.max=Math.max(1,Math.round(n.remaining*100)/100);
     document.getElementById('needModalTitle').textContent=n.title;
-    document.getElementById('needModalSummary').innerHTML=`<div class="need-summary"><p><strong>Target:</strong> ${money(n.target)}</p><p><strong>Confirmed:</strong> ${money(n.funded)}</p><p><strong>Remaining:</strong> ${money(n.remaining)}</p><p><strong>What this funds:</strong> ${esc(n.details)}</p><p><strong>Fulfillment:</strong> ${esc(n.fulfillment)}</p><p><strong>Recognition:</strong> ${esc(n.recognition)}</p></div>`;
+    document.getElementById('needModalSummary').innerHTML=`<div class="need-summary"><p><strong>Need:</strong> ${esc(n.details)}</p><p><strong>Target:</strong> ${money(n.target)}</p><p><strong>Confirmed:</strong> ${n.inKindPendingValue?'Confirmed in-kind support':money(n.funded)}</p><p><strong>Remaining:</strong> ${n.inKindPendingValue?'Will update after exact quantity is confirmed':money(n.remaining)}</p></div>`;
     document.getElementById('needFormStatus').textContent='';
     modal.classList.add('open');document.body.style.overflow='hidden';
   });
