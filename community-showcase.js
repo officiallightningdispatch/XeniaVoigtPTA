@@ -5,7 +5,7 @@
 
   const data={
     communityPartners:[
-      {name:'Round the Rock',type:'Community Media Partner',desc:'Helping spread the word about Viking Quest through its Round Rock event calendar, The Weekly Rock, and community social channels.',url:'https://roundtherocktx.com/',domain:'roundtherocktx.com',logoData:'data:image/png;base64,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'},
+      {name:'Round the Rock',type:'Community Media Partner',desc:'Helping spread the word about Viking Quest through its Round Rock event calendar, The Weekly Rock, and community social channels.',url:'https://roundtherocktx.com/',domain:'roundtherocktx.com',logoMark:'Round the Rock'},
       {name:'PHP Agency',type:'Community Partner · Educational Booth',desc:'PHP Agency will join the Fall Festival with a family-focused educational life-insurance booth and an optional consent-based raffle experience. This community partnership is not being counted as a financial sponsorship.',url:'https://phpagency.com/',domain:'phpagency.com'},
       {name:'Boys & Girls Club at Voigt',type:'Community Partner · Trunk-or-Treat Host',desc:'The Boys & Girls Club at Voigt is bringing community spirit to festival night with a family-friendly Trunk-or-Treat stop.',url:'https://www.bgcaustin.org/join-the-club/',domain:'bgcaustin.org'},
       {name:'Round Rock Public Library',type:'Community Partner · Information & Resources',desc:'A local community resource partner helping connect Voigt families with programs, learning opportunities, and information beyond the school day.',url:'https://www.roundrocktexas.gov/city-departments/library-home/',domain:'roundrocktexas.gov'},
@@ -28,9 +28,11 @@
   };
 
   const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const logo=item=>item.logoData
-    ? `<img src="${item.logoData}" alt="${esc(item.name)} logo" loading="lazy" decoding="async">`
-    : item.domain
+  const logo=item=>item.logoMark
+    ? `<span class="partner-wordmark" aria-label="${esc(item.name)}">${esc(item.logoMark)}</span>`
+    : item.logoData
+      ? `<img src="${item.logoData}" alt="${esc(item.name)} logo" loading="lazy" decoding="async">`
+      : item.domain
       ? `<img src="https://www.google.com/s2/favicons?domain_url=https://${esc(item.domain)}&sz=256" alt="" loading="lazy" decoding="async">`
       : `<span aria-hidden="true">${esc(item.name.slice(0,1))}</span>`;
   const cards=items=>`<div class="showcase-grid">${items.map(item=>`<article class="showcase-card">
@@ -42,9 +44,122 @@
   const cta=(title,copy,label,href)=>`<section class="section showcase-cta"><div class="container"><div><span class="mini-label">JOIN THE COMMUNITY</span><h2>${title}</h2><p>${copy}</p></div><a class="btn primary" href="${href}">${label}</a></div></section>`;
 
   if(path==='/community-partners'){
-    main.innerHTML=`${hero('COMMUNITY-POWERED','Meet the neighbors who show up for Voigt.','These organizations are giving their time, expertise, programs, and presence to strengthen the Xenia Voigt community. We proudly recognize confirmed community partners here as they join us.')}
-      <section class="section"><div class="container"><div class="showcase-intro"><span class="showcase-count">${data.communityPartners.length}</span><div><h2>Confirmed community partners</h2><p>Partnership can mean a booth, a program, volunteer support, family resources, or another meaningful way of showing up.</p></div></div>${cards(data.communityPartners)}</div></section>
-      ${cta('Want to partner with Voigt PTA?','We welcome organizations that can offer useful resources, educational experiences, volunteer support, or family-friendly community engagement.','Start a community partnership','mailto:info@xeniavoigtpta.org?subject=Community%20partnership%20interest')}`;
+    const partnerTile=item=>`<a class="supporter-tile" href="${esc(item.url||'#')}" ${item.url?'target="_blank" rel="noopener noreferrer"':'aria-disabled="true"'} aria-label="${esc(item.name)}">
+      <div class="supporter-logo">${logo(item)}</div>
+      <strong>${esc(item.name)}</strong>
+      <span>${esc(item.type)}</span>
+    </a>`;
+    const partnerRun=[...data.communityPartners,...data.communityPartners].map(partnerTile).join('');
+    main.innerHTML=`${hero('COMMUNITY-POWERED','Meet the neighbors who show up for Voigt.','These organizations contribute time, expertise, programs, resources, visibility, and community presence to strengthen Xenia Voigt Arts Academy.')}
+      <style>
+        .supporter-marquee{overflow:hidden;position:relative;margin-top:24px;padding:8px 0 14px;mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+        .supporter-track{display:flex;gap:16px;width:max-content;animation:voigtSupporters 32s linear infinite}
+        .supporter-marquee:hover .supporter-track,.supporter-marquee:focus-within .supporter-track{animation-play-state:paused}
+        .supporter-tile{width:220px;min-height:190px;background:#fff;border:2px solid #171717;border-radius:22px;padding:22px 18px;text-align:center;text-decoration:none;color:#171717;box-shadow:6px 6px 0 #d71920;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px}
+        .supporter-tile:hover{transform:translateY(-2px)}
+        .supporter-logo{width:112px;height:76px;display:grid;place-items:center}
+        .supporter-logo img{max-width:112px;max-height:76px;object-fit:contain}
+        .supporter-logo>span:not(.partner-wordmark){width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:#171717;color:#fff;font-size:28px;font-weight:900}
+        .partner-wordmark{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;font-size:18px;line-height:1.05;color:#d71920;letter-spacing:-.04em;max-width:110px}
+        .partner-wordmark::first-line{color:#d71920}
+        .supporter-tile strong{font-size:18px;line-height:1.15}
+        .supporter-tile>span{font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#6b6b6b}
+        @keyframes voigtSupporters{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 8px))}}
+        .partner-app-shell{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:22px;align-items:start}
+        .partner-app{background:#fff;border:2px solid #171717;border-radius:24px;padding:24px;box-shadow:8px 8px 0 #171717}
+        .partner-app-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+        .partner-app label{display:flex;flex-direction:column;gap:7px;font-weight:800;font-size:14px}
+        .partner-app input,.partner-app select,.partner-app textarea{width:100%;border:2px solid #171717;border-radius:12px;padding:12px 13px;font:inherit;background:#fff;color:#171717}
+        .partner-app textarea{min-height:118px;resize:vertical}
+        .partner-app .full{grid-column:1/-1}
+        .partner-side{background:#171717;color:#fff;border-radius:24px;padding:25px;position:sticky;top:24px}
+        .partner-side h3{color:#fff;margin-top:8px}.partner-side p{color:#eee}.partner-side .mini-label{color:#fff}
+        @media(max-width:760px){.partner-app-shell{grid-template-columns:1fr}.partner-app-grid{grid-template-columns:1fr}.partner-app .full{grid-column:auto}.partner-side{position:static}.supporter-tile{width:190px}.supporter-track{animation-duration:26s}}
+        @media(prefers-reduced-motion:reduce){.supporter-track{animation:none;flex-wrap:wrap;width:auto}.supporter-marquee{mask-image:none;-webkit-mask-image:none}}
+      </style>
+      <section class="section"><div class="container">
+        <div class="showcase-intro"><span class="showcase-count">${data.communityPartners.length}</span><div><h2>Current community partners</h2><p>These confirmed partners support Voigt through resources, volunteer connections, educational programming, media support, family engagement, or another meaningful community contribution.</p></div></div>
+        <div class="supporter-marquee" aria-label="Current community partners"><div class="supporter-track">${partnerRun}</div></div>
+      </div></section>
+      <section class="section" id="community-partner-application"><div class="container">
+        <div class="partner-app-shell">
+          <form class="partner-app" id="communityPartnerForm">
+            <span class="mini-label">COMMUNITY PARTNER APPLICATION</span>
+            <h2>Partner with Xenia Voigt PTA</h2>
+            <p>Tell us how your organization would like to support Voigt families. Community partnerships are separate from paid sponsorships and may include resources, programs, volunteers, educational engagement, event participation, or community visibility.</p>
+            <div class="partner-app-grid">
+              <label>Organization / business name
+                <input name="organization" autocomplete="organization" required>
+              </label>
+              <label>Contact name
+                <input name="contact" autocomplete="name" required>
+              </label>
+              <label>Email
+                <input type="email" name="email" autocomplete="email" required>
+              </label>
+              <label>Phone
+                <input type="tel" name="phone" autocomplete="tel">
+              </label>
+              <label>Partnership type
+                <select name="partnerType" required>
+                  <option value="">Select one</option>
+                  <option>Family resources / information</option>
+                  <option>Educational program or activity</option>
+                  <option>Volunteer support / recruitment</option>
+                  <option>Community media / promotion</option>
+                  <option>Event booth / family engagement</option>
+                  <option>Student or youth programming</option>
+                  <option>Professional expertise / service</option>
+                  <option>Other community partnership</option>
+                </select>
+              </label>
+              <label>Website / social link
+                <input type="url" name="website" placeholder="https://">
+              </label>
+              <label class="full">How would you like to partner with Voigt?
+                <textarea name="proposal" required placeholder="Describe the resource, activity, program, booth, volunteer support, promotion, or other contribution you would like to provide."></textarea>
+              </label>
+              <label class="full">Event or timing notes
+                <textarea name="timing" placeholder="Specific event, preferred dates, setup needs, audience, restrictions, or other details."></textarea>
+              </label>
+            </div>
+            <button class="btn primary" type="submit" style="margin-top:18px">Submit community partner application</button>
+            <p id="communityPartnerStatus" role="status" style="margin-top:12px"></p>
+          </form>
+          <aside class="partner-side">
+            <span class="mini-label">WHAT PARTNERSHIP CAN LOOK LIKE</span>
+            <h3>Show up in a way that helps families.</h3>
+            <p>Partnership can mean providing useful resources, hosting a family-friendly informational or educational experience, helping recruit volunteers, sharing an event with the community, supporting student programming, or bringing another practical resource to Voigt.</p>
+            <p><strong>Want to fund an event need instead?</strong> Financial and in-kind sponsorship opportunities are handled separately so recognition and fulfillment stay clear.</p>
+            <a class="btn secondary" href="/sponsors" style="margin-top:12px">View sponsors & donors →</a>
+          </aside>
+        </div>
+      </div></section>`;
+
+    const partnerForm=document.getElementById('communityPartnerForm');
+    partnerForm?.addEventListener('submit',e=>{
+      e.preventDefault();
+      const fd=new FormData(partnerForm);
+      const subject='Voigt PTA Community Partner Application — '+(fd.get('organization')||fd.get('contact')||'New partner');
+      const body=[
+        'VOIGT PTA COMMUNITY PARTNER APPLICATION','',
+        'Organization / Business: '+(fd.get('organization')||''),
+        'Contact: '+(fd.get('contact')||''),
+        'Email: '+(fd.get('email')||''),
+        'Phone: '+(fd.get('phone')||''),
+        'Partnership type: '+(fd.get('partnerType')||''),
+        'Website / social: '+(fd.get('website')||''),
+        '',
+        'Partnership proposal:',
+        fd.get('proposal')||'',
+        '',
+        'Event / timing notes:',
+        fd.get('timing')||''
+      ].join('\n');
+      const status=document.getElementById('communityPartnerStatus');
+      if(status)status.textContent='Opening your email to send the completed application to the PTA…';
+      location.href='mailto:community@xeniavoigtpta.org?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+    });
   }
 
   if(path==='/sponsors'){
