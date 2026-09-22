@@ -55,8 +55,8 @@
     const header=root.querySelector('.admin-suite-head');
     if(!header)return false;
 
-    const vendorMetric=legacyMetric(root,'Food vendors','7 / 15');
-    const volunteerMetric=legacyMetric(root,'Volunteer staffing','— / 55');
+    const vendorMetric=legacyMetric(root,'Food vendors','See tracker');
+    const volunteerMetric=legacyMetric(root,'Volunteer staffing','See tracker');
 
     removeHeavyDuplicate(root,'Fall Festival coverage scoreboard');
     removeHeavyDuplicate(root,'Whole-event inventory');
