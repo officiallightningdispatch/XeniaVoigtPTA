@@ -17,8 +17,9 @@
       {name:'Round Rock Pumpkin Festival',type:'Silent Auction Donor',desc:'Donating a family pass for six for the Fall Festival silent auction.',url:'https://roundrockpumpkinfestival.com/',domain:'roundrockpumpkinfestival.com'},
       {name:'Monster Mini Golf & Laser Tag',type:'Silent Auction Donor',desc:'Donating a family four-pack of mini-golf passes for the Fall Festival silent auction.',url:'https://monsterminigolf.com/locations/us/tx/round-rock/',domain:'monsterminigolf.com'},
       {name:'Cookies & Crumbles',type:'Sweet Finish Giveaway Donor',value:'$65 donated',desc:'Providing a $65 gift certificate for the Viking Quest Sweet Finish Giveaway.',url:'https://www.cookiesandcrumblesbakeshop.com/',domain:'cookiesandcrumblesbakeshop.com'},
+      {name:"Paige's Bakehouse",type:'Cake Walk Donor',value:'$36 donated',desc:'Donating one dozen decorated cookies for the Fall Festival cake walk, with event-day pickup confirmed.',url:'https://paigesbakehouse.com/',domain:'paigesbakehouse.com'},
       {name:'FASTSIGNS Round Rock',type:'Event Signage Partner',desc:'Supporting Fall Festival printing and signage as final quantities and display details are completed.',url:'https://www.fastsigns.com/round-rock-tx/',domain:'fastsigns.com'},
-      {name:'Smile Doctors',type:'Attraction Sponsor',value:'$195 pledged',desc:'Pledged $195 to support the Fall Festival bounce/combo inflatable experience.',url:'https://smiledoctors.com/',domain:'smiledoctors.com'},
+      {name:'Shine Pediatric Dental Co.',type:'Attraction Sponsor',value:'$195 pledged',desc:'Pledged $195 to fully cover the Fall Festival bounce/combo inflatable experience.',url:'https://shinepediatricdentalco.com/',domain:'shinepediatricdentalco.com'},
       {name:'Toybrary Austin',type:'Family Experience Donor',value:'$60 donated',desc:'Donated a $60 Stay & Play punch card for a young-family festival prize.',url:'https://toybraryaustin.com/',domain:'toybraryaustin.com'},
       {name:'Express Commercial Cleaning',type:'Safety & Cleanup Supporter',desc:'Pledged event safety and cleanup support; final donated quantities are being coordinated.',url:'',domain:''}
     ],
