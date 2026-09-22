@@ -51,7 +51,7 @@
             <button class="btn secondary" type="button" disabled aria-disabled="true">Custom</button>
           </div>
           <p style="margin-top:8px"><strong>Secure checkout activation pending PTA bank connection.</strong></p>
-          <div class="buttons left" style="margin-top:18px"><a class="btn primary" href="mailto:community@xeniavoigtpta.org?subject=I%20want%20to%20donate%20to%20Viking%20Quest">I want to donate now</a><a class="btn secondary" href="mailto:community@xeniavoigtpta.org?subject=Viking%20Quest%20Sponsorship">Sponsor a current need</a></div>
+          <div class="buttons left" style="margin-top:18px"><a class="btn primary" href="mailto:community@xeniavoigtpta.org?subject=I%20want%20to%20donate%20to%20Viking%20Quest">I want to donate now</a><a class="btn secondary" href="#sponsor-current-need">Sponsor a current need</a></div>
         </article>
         <article class="modern-panel"><span class="mini-label">100% TO THE PTA</span><h2>No processing fee deducted from your gift.</h2><p>Our planned secure donation checkout is designed so the PTA receives the full donation amount. Donors may see an optional contribution to the fundraising platform at checkout; that contribution is separate and optional.</p><p><strong>In-kind support is welcome too.</strong> We can coordinate donated goods, services, prizes, printing, attractions, and other festival resources directly.</p></article>
       </div>
