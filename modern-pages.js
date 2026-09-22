@@ -42,8 +42,18 @@
     main.innerHTML=`${hero('SUPPORT VIKING QUEST','Help keep festival night free for families.','Every contribution helps the Xenia Voigt Arts Academy PTA cover family attractions, activities, sensory-friendly resources, prizes, supplies, printing, entertainment, and other Fall Festival essentials.')}
     <section class="section"><div class="container">
       <div class="modern-page-grid">
-        <article class="modern-panel accent"><span class="mini-label">DONATE TO THE 2026 FALL FESTIVAL</span><h2>Choose the kind of support that fits.</h2><p>Businesses, organizations, families, and community supporters can contribute funding, goods, services, prizes, or event resources.</p><div class="buttons left" style="margin-top:18px"><a class="btn primary" href="mailto:community@xeniavoigtpta.org?subject=Viking%20Quest%20Donation">Offer a donation</a><a class="btn secondary" href="mailto:community@xeniavoigtpta.org?subject=Viking%20Quest%20Sponsorship">Sponsor a current need</a></div></article>
-        <article class="modern-panel"><span class="mini-label">CURRENT PRIORITIES</span><h2>Your support goes directly to the experience.</h2><p>Current needs may include attractions, activity materials, sensory-friendly resources, prizes and giveaways, volunteer support, printing/signage, entertainment, and other event essentials.</p><p><strong>In-kind support is welcome.</strong> The PTA will coordinate fulfillment, recognition, and any documentation directly with each donor.</p></article>
+        <article class="modern-panel accent"><span class="mini-label">DONATE TO THE 2026 FALL FESTIVAL</span><h2>Give directly to Viking Quest.</h2><p>Secure, fee-free online giving is being activated for the PTA. Once payment setup is complete, donors will be able to give here without processing fees being deducted from the PTA's gift.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 8px">
+            <button class="btn secondary" type="button" disabled aria-disabled="true">$25</button>
+            <button class="btn secondary" type="button" disabled aria-disabled="true">$50</button>
+            <button class="btn secondary" type="button" disabled aria-disabled="true">$100</button>
+            <button class="btn secondary" type="button" disabled aria-disabled="true">$250</button>
+            <button class="btn secondary" type="button" disabled aria-disabled="true">Custom</button>
+          </div>
+          <p style="margin-top:8px"><strong>Secure checkout activation pending PTA bank connection.</strong></p>
+          <div class="buttons left" style="margin-top:18px"><a class="btn primary" href="mailto:community@xeniavoigtpta.org?subject=I%20want%20to%20donate%20to%20Viking%20Quest">I want to donate now</a><a class="btn secondary" href="mailto:community@xeniavoigtpta.org?subject=Viking%20Quest%20Sponsorship">Sponsor a current need</a></div>
+        </article>
+        <article class="modern-panel"><span class="mini-label">100% TO THE PTA</span><h2>No processing fee deducted from your gift.</h2><p>Our planned secure donation checkout is designed so the PTA receives the full donation amount. Donors may see an optional contribution to the fundraising platform at checkout; that contribution is separate and optional.</p><p><strong>In-kind support is welcome too.</strong> We can coordinate donated goods, services, prizes, printing, attractions, and other festival resources directly.</p></article>
       </div>
       <div class="grid three" style="margin-top:16px">
         ${card('Fund a festival need','Help underwrite a current event expense so PTA resources stay focused on students.','mailto:community@xeniavoigtpta.org?subject=Fund%20a%20Viking%20Quest%20Need','Contact the festival team')}
