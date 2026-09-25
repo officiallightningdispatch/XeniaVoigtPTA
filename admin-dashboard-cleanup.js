@@ -1,165 +1,32 @@
-(()=>{
-  const path=(location.pathname.replace(/\/index\.html$/,'').replace(/\/$/,'')||'/');
-  if(path!=='/admin')return;
-
-  const money=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(Number(n||0));
+(()=> {
+  if((location.pathname.replace(/\\/index\\.html$/,'').replace(/\\/$/,'')||'/')!=='/admin')return;
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const MASTER='https://docs.google.com/spreadsheets/d/18AZisrkN6lm9IP0npjKgPvoQ1ucLxbWN/edit';
-  const LIVE='https://docs.google.com/spreadsheets/d/1Uy_sdelXl_bGrhT38p-b_DjEJ2EQ1TDNMVfqHxDs3kw/edit';
-
-  function legacyMetric(root,label,fallback){
-    const cards=[...root.querySelectorAll('.admin-kpi,.admin-finance-card')];
-    const card=cards.find(x=>x.textContent.toLowerCase().includes(label.toLowerCase()));
-    if(!card)return fallback;
-    const n=card.querySelector('.num,strong')?.textContent?.trim();
-    return n||fallback;
-  }
-
-  function removeHeavyDuplicate(root,titleText){
-    const title=[...root.querySelectorAll('.admin-section-title')].find(x=>x.querySelector('h2')?.textContent.trim().toLowerCase()===titleText.toLowerCase());
-    if(!title)return;
-    const next=title.nextElementSibling;
-    title.remove();
-    if(next)next.remove();
-  }
-
-  async function hydrate(root){
-    const sponsorEl=root.querySelector('[data-open-sponsor]');
-    const pledgedEl=root.querySelector('[data-pledged]');
-    try{
-      const r=await fetch('/api/sponsor-needs',{cache:'no-store'});
-      const j=await r.json();
-      if(r.ok){
-        if(sponsorEl)sponsorEl.textContent=money(j.summary?.openCashRemaining||0);
-        if(pledgedEl)pledgedEl.textContent=money(j.summary?.cashPledged||0);
-      }
-    }catch(_){}
-
-    try{
-      const r=await fetch('/api/vendors',{cache:'no-store'});
-      const j=await r.json();
-      const el=root.querySelector('[data-vendors]');
-      if(r.ok&&el&&Array.isArray(j.vendors))el.textContent=j.vendors.length+' / 15';
-    }catch(_){}
-
-    try{
-      const r=await fetch('/api/trunk-hosts',{cache:'no-store'});
-      const j=await r.json();
-      if(r.ok){
-        const claimed=j.claimed??j.summary?.claimed;
-        const open=j.open??j.summary?.open;
-        const el=root.querySelector('[data-trunks]');
-        if(el && Number.isFinite(Number(claimed)) && Number.isFinite(Number(open))) el.textContent=`${claimed} / ${Number(claimed)+Number(open)}`;
-      }
-    }catch(_){}
-  }
-
-  function install(){
-    const root=document.querySelector('#adminRoot');
-    if(!root||root.dataset.compactDashboard==='1')return false;
-    root.dataset.compactDashboard='1';
-
-    const header=root.querySelector('.admin-suite-head');
-    if(!header)return false;
-
-    const vendorMetric=legacyMetric(root,'Food vendors','See tracker');
-    const volunteerMetric=legacyMetric(root,'Volunteer staffing','See tracker');
-
-    removeHeavyDuplicate(root,'Fall Festival coverage scoreboard');
-    removeHeavyDuplicate(root,'Whole-event inventory');
+  function section(title,items){return `<section class="shared-status-card"><h3>${esc(title)}</h3><ul>${(items||[]).map(i=>`<li><b>${esc(i.title)}:</b> ${esc(i.detail)}</li>`).join('')}</ul></section>`;}
+  function render(data){
+    const root=document.getElementById('adminRoot'),head=root?.querySelector('.admin-suite-head');
+    if(!root||!head||document.getElementById('festivalSharedStatus'))return false;
     root.querySelector('.admin-kpis')?.remove();
-
-    const compact=document.createElement('section');
-    compact.className='admin-compact-command';
-    compact.innerHTML=`
-      <div class="admin-compact-top">
-        <div>
-          <span class="mini-label">FALL FESTIVAL COMMAND CENTER</span>
-          <h2>What needs your attention now</h2>
-          <p>Confirmed coverage, urgent work, and remaining gaps without the endless scroll.</p>
-        </div>
-        <div class="admin-compact-actions">
-          <a class="btn primary" href="/donate#sponsor-current-need">Sponsor needs</a>
-          <a class="btn secondary" href="${MASTER}" target="_blank" rel="noopener">Master tracker ↗</a>
-          <a class="btn secondary" href="${LIVE}" target="_blank" rel="noopener">Live fulfillment ↗</a>
-        </div>
-      </div>
-
-      <div class="admin-compact-metrics">
-        <article><strong data-pledged>$1,290.00</strong><span>Pledged toward listed cash needs</span></article>
-        <article><strong data-open-sponsor>Loading…</strong><span>Remaining listed cash needs</span></article>
-        <article><strong data-vendors>${esc(vendorMetric)}</strong><span>Food vendors</span></article>
-        <article><strong data-trunks>9 / 20</strong><span>Trunk-or-Treat spaces</span></article>
-        <article><strong>${esc(volunteerMetric)}</strong><span>Volunteer staffing</span></article>
-        <article class="covered"><strong>80 / 80</strong><span>Apple Scoop apples · covered</span></article>
-        <article><strong>1 / 15</strong><span>Cakewalk physical prizes</span></article>
-      </div>
-
-      <div class="admin-focus-grid">
-        <section class="admin-focus confirmed">
-          <div class="admin-focus-head"><span>CONFIRMED / LOCKED</span><b>✓</b></div>
-          <ul>
-            <li><strong>Trackless train:</strong> $1,095 pledged by AiRCO Mechanical.</li>
-            <li><strong>Bounce/combo inflatable:</strong> $195 pledged by Shine Pediatric Dental Co.</li>
-            <li><strong>Apple Scoop apples:</strong> 80/80 covered by Brittani; stop apple outreach.</li>
-            <li><strong>Volunteer snacks:</strong> H-E-B repeat support confirmed.</li>
-            <li><strong>Teacher trunk candy:</strong> A+ FCU covers approximately 6–7 of 12 large bags.</li>
-            <li><strong>School stage/sound:</strong> existing cafeteria system confirmed; connection details pending.</li>
-          </ul>
-        </section>
-
-        <section class="admin-focus urgent">
-          <div class="admin-focus-head"><span>URGENT — WORKING NOW</span><b>!</b></div>
-          <ul>
-            <li><strong>DJ / MC:</strong> Infinity Sound Lab offered $300; waiting on cafeteria A/V connection details and underwriting.</li>
-            <li><strong>Food vendors:</strong> build from current confirmations toward the 10–15 target; process replies before duplicate follow-up.</li>
-            <li><strong>Cakewalk:</strong> 1/15 physical dessert prizes confirmed; 14 more rounds to cover.</li>
-            <li><strong>Open attractions:</strong> obstacle course $365 + interactive inflatable/game $225.</li>
-            <li><strong>Sensory Retreat:</strong> $449.16 target; campus and outside support pending.</li>
-            <li><strong>Quest supplies:</strong> prizes $262.50 + pouches $105 remain open.</li>
-            <li><strong>Harvest Wagon photo stop:</strong> $390 target remains open.</li>
-          </ul>
-        </section>
-
-        <section class="admin-focus open">
-          <div class="admin-focus-head"><span>STILL NEEDS WORK</span><b>→</b></div>
-          <ul>
-            <li><strong>Trunk-or-Treat:</strong> 11 host spaces remain open.</li>
-            <li><strong>Apple Scoop smallwares:</strong> 4 food-safe tubs + 8 child-safe scoops/tongs; existing A-Tex/Lakeshore outreach active.</li>
-            <li><strong>Non-food treat reserve:</strong> approximately 600 allergy/sensory-friendly alternatives; outreach not started.</li>
-            <li><strong>Event operations:</strong> lanyards/badges, battery lighting, 4 power banks and 4 rolling carts/wagons; prefer donation/loan.</li>
-            <li><strong>Printing/signage:</strong> keep FASTSIGNS/Ranger work consolidated; do not start duplicate print outreach.</li>
-          </ul>
-        </section>
-      </div>
-
-      <nav class="admin-quick-nav" aria-label="Fall Festival quick links">
-        <a href="/vendors">Vendor page</a>
-        <a href="/volunteer">Volunteer page</a>
-        <a href="/trunk-or-treat">Trunk-or-Treat</a>
-        <a href="/community-partners">Community partners</a>
-        <a href="/sponsors">Sponsors & donors</a>
-        <a href="/fall-festival">Public festival page</a>
-      </nav>
-    `;
-
-    header.insertAdjacentElement('afterend',compact);
-
-    // Collapse the remaining legacy board workspace instead of forcing a long page.
-    const details=document.createElement('details');
-    details.className='admin-full-workspace';
-    details.innerHTML='<summary><span><strong>Full board workspace & records</strong><small>Applications, banking, member records, forms and detailed tables</small></span><b>Expand</b></summary><div class="admin-full-workspace-body"></div>';
-    const body=details.querySelector('.admin-full-workspace-body');
-    [...root.children].filter(n=>n!==header&&n!==compact).forEach(n=>body.appendChild(n));
-    root.appendChild(details);
-
-    details.addEventListener('toggle',()=>{details.querySelector('summary b').textContent=details.open?'Collapse':'Expand';});
-    hydrate(root);
+    root.querySelector('#panel-events')?.remove();
+    root.querySelector('#panel-role')?.remove();
+    root.querySelector('#panel-finance')?.remove();
+    root.querySelector('#panel-communications')?.remove();
+    root.querySelectorAll('.admin-suite-tabs [data-panel]').forEach(b=>{if(!['submissions','resources'].includes(b.dataset.panel))b.remove();});
+    const box=document.createElement('section');box.id='festivalSharedStatus';box.className='shared-status-board';
+    box.innerHTML=`<header class="shared-status-head"><div><span class="mini-label">VIKING QUEST · LIVE STATUS</span><h2>${esc(data.event.title)}</h2><p>${esc(data.event.date)} · ${esc(data.event.time)} · ${esc(data.event.venue)}</p><small>Single shared update: ${esc(data.updatedAt)}</small></div><div class="shared-status-metrics"><b>${esc(data.event.attendance)}</b><span>planning attendance</span><b>${esc(data.budget.cashPledges)}</b><span>cash pledges</span><b>${esc(data.budget.allocation)}</b><span>PTA allocation</span><b>${esc(data.budget.spent)}</b><span>PTA spend to date</span></div></header>
+    <div class="shared-status-groups">${section('Confirmed',data.confirmed)}${section('Pending',data.pending)}${section('Declined',data.declined)}${section('Follow-up',data.followUp)}</div>
+    <div class="shared-status-bottom"><article><h3>What changed</h3><ul>${data.changes.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></article><article><h3>Current blockers</h3><ul>${data.blockers.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></article><article><h3>Approaching deadlines</h3><ul>${data.deadlines.map(x=>`<li><b>${esc(x.date)}:</b> ${esc(x.detail)}</li>`).join('')}</ul></article><article><h3>Next priority actions</h3><ol>${data.actions.map(x=>`<li>${esc(x)}</li>`).join('')}</ol></article></div>`;
+    head.insertAdjacentElement('afterend',box);
+    const nav=root.querySelector('.admin-suite-tabs');
+    const details=document.createElement('details');details.className='shared-tools-fold';details.innerHTML='<summary>Open forms and source files</summary><div></div>';
+    const body=details.querySelector('div');
+    [...root.children].filter(n=>n!==head&&n!==box&&n!==nav).forEach(n=>body.appendChild(n));
+    if(nav)details.insertAdjacentElement('afterend',nav);root.appendChild(details);
+    const style=document.createElement('style');style.textContent='.shared-status-board{margin:18px 0 24px;padding:18px;background:#f5f3ee;border-radius:18px;color:#18212b}.shared-status-head{display:flex;gap:20px;justify-content:space-between;align-items:flex-start;padding:18px;border-radius:14px;background:#142330;color:#fff}.shared-status-head h2{margin:8px 0}.shared-status-head p{margin:6px 0}.shared-status-head small{opacity:.8}.shared-status-metrics{display:grid;grid-template-columns:auto auto;gap:3px 10px;font-size:13px}.shared-status-metrics b{font-size:17px}.shared-status-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px}.shared-status-card,.shared-status-bottom article{background:#fff;border-radius:14px;padding:16px;border:1px solid #e1e3e5}.shared-status-card h3,.shared-status-bottom h3{margin:0 0 8px}.shared-status-card ul,.shared-status-bottom ul,.shared-status-bottom ol{padding-left:20px;margin:0}.shared-status-card li,.shared-status-bottom li{margin:7px 0;line-height:1.45}.shared-status-bottom{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px}.shared-tools-fold{margin-top:16px}.shared-tools-fold>summary{cursor:pointer;font-weight:700;padding:12px;background:#fff;border-radius:10px}@media(max-width:760px){.shared-status-head{display:block}.shared-status-metrics{margin-top:14px}.shared-status-groups,.shared-status-bottom{grid-template-columns:1fr}}';document.head.append(style);
     return true;
   }
-
-  if(!install()){
-    const obs=new MutationObserver(()=>{if(install())obs.disconnect();});
-    obs.observe(document.documentElement,{childList:true,subtree:true});
+  async function install(){
+    if(document.getElementById('festivalSharedStatus'))return true;
+    try{const r=await fetch('/api/festival-status',{cache:'no-store'});if(!r.ok)return false;return render(await r.json());}catch(_){return false;}
   }
+  let n=0;const timer=setInterval(async()=>{n++;if(await install()||n>60)clearInterval(timer);},500);
 })();

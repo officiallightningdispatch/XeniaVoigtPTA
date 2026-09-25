@@ -1,0 +1,151 @@
+{
+  "updatedAt": "2026-09-25",
+  "event": {
+    "title": "Xenia Voigt Viking Quest Fall Festival",
+    "date": "Friday, October 23, 2026",
+    "time": "5:30–7:30 PM",
+    "venue": "Xenia Voigt Arts Integration Academy, 1201 Cushing Drive, Round Rock, TX 78664",
+    "attendance": "Approximately 320"
+  },
+  "confirmed": [
+    {
+      "title": "Board-approved vendor lineup",
+      "detail": "K&K BBQ (savory), Hearth & Honey (sweet), Pour The Fun, and The Gelato Lab. The PTA board waived the 10% vendor fee. Participation approval only; no vendor contracts or agreements will be sent."
+    },
+    {
+      "title": "Trackless train pledge",
+      "detail": "AiRCO Mechanical pledged $1,095 to cover the train."
+    },
+    {
+      "title": "Bounce/combo inflatable support",
+      "detail": "Shine Pediatric Dental pledged $195."
+    },
+    {
+      "title": "Candy",
+      "detail": "A+ Federal Credit Union committed 12 extra-large 5.75 lb candy bags; pickup/drop-off and recognition details are being coordinated."
+    },
+    {
+      "title": "Cleanup and safety supplies",
+      "detail": "Express Commercial Cleaning committed a mop bucket with wringer; 2 mop handles and 2 mop heads; broom and dustpan; 1 gallon PHQ7 disinfectant with 4 labeled sprayers; 1 case 38×58 liners; half case 30×37 liners; 20 rolls kitchen paper towels; 1 gallon floor cleaner; 2 boxes medium gloves; 1 box large gloves; and ½ gallon hand sanitizer with pump."
+    },
+    {
+      "title": "School activity equipment",
+      "detail": "Coach Pettit identified available PE equipment, including cones/markers, poly spots, bean bags, balls, hoops, jump ropes, pool noodles, buckets, ropes, sacks, balance/obstacle equipment, hippity hops, and plastic pools. Final station pull list is pending."
+    },
+    {
+      "title": "Activities",
+      "detail": "Five planned stations: Pumpkin Bowling; Apple Scoop Challenge (80 apples covered by Brittani; no mouth-contact bobbing); Fall Sensory Mystery; Collaborative Autumn Mural; and Gratitude Tree."
+    },
+    {
+      "title": "Garage Band",
+      "detail": "Voigt Garage Band confirmed one song, up to 5 minutes, on the cafeteria stage. A 6:00–6:30 PM window is under consideration; final timing and room setup are pending."
+    },
+    {
+      "title": "Trunk-or-Treat",
+      "detail": "9 of 20 spaces claimed; 11 remain open."
+    },
+    {
+      "title": "Community donations",
+      "detail": "Austin Aquarium membership (up to 5); Austin Zoo (4 tickets); Round Rock Pumpkin Festival family pass (6); Monster Mini Golf family 4-pack; Toybrary Austin $60 punch card; Cookies & Crumbles $65 certificate; Nothing Bundt Cakes 15 individually packaged single Bundtlet towers; Paige’s Bakehouse one dozen decorated cookies for Cake Walk."
+    },
+    {
+      "title": "Community partner",
+      "detail": "PHP Agency booth with family education and an optional, consent-based raffle. Round Rock Sweethearts offered student volunteers; headcount and assignments are pending."
+    }
+  ],
+  "pending": [
+    {
+      "title": "Campus approvals and safety layout",
+      "detail": "School approval is needed for vendor and activity locations, emergency clearances, traffic flow, ADA routes, room/field use, and campus access. Visitor parking is on School Days street; general campus parking is unavailable."
+    },
+    {
+      "title": "Vendor operations",
+      "detail": "Confirm exact outlet locations/load, power access, arrival window, check-in, unloading route, and placements for the four approved vendors. School power is available in principle; exact specifications are not confirmed."
+    },
+    {
+      "title": "Activity supplies",
+      "detail": "Purchase or source food-safe tubs and child-safe scoops/tongs for the Apple Scoop Challenge; finalize the supply pull list and activity layout."
+    },
+    {
+      "title": "Volunteer coverage",
+      "detail": "Dana Berwick’s new website signup needs review and assignment. Round Rock Sweethearts’ student count and arrival/check-in details are pending."
+    },
+    {
+      "title": "Donation logistics",
+      "detail": "Coordinate pickups/drop-offs and recognition details for A+ FCU, Express Commercial Cleaning, Board & Brush’s offered $50 digital gift certificate, Cookies & Crumbles, Nothing Bundt Cakes, and PIE Foundation materials. PIE Foundation materials require the Campus Request Form."
+    },
+    {
+      "title": "Funding applications",
+      "detail": "H-E-B request up to $200 pending; SC Johnson $1,000 application pending; Texas Stars ticket donation is processing with no allocation yet."
+    },
+    {
+      "title": "Signage estimate",
+      "detail": "FASTSIGNS estimate EST-17493 is under review. Do not approve production until the final school layout, quantities, and budget are confirmed."
+    },
+    {
+      "title": "Sound operations",
+      "detail": "The board chose the school system for event audio. Confirm the district employee operating it, basic system capabilities, and how it can support the Garage Band."
+    }
+  ],
+  "declined": [
+    {
+      "title": "Unselected vendor replies",
+      "detail": "Ed’s Smokehouse, Sweet’er Than Sour, and Captain’s Pizza were not selected after the board finalized the lineup; reply drafts are prepared and unsent."
+    },
+    {
+      "title": "Unneeded paid train quote",
+      "detail": "The Train Quest quote was not selected because the train is covered by the AiRCO Mechanical pledge; reply draft is prepared and unsent."
+    }
+  ],
+  "followUp": [
+    {
+      "title": "Reply drafts prepared — pending review",
+      "detail": "Ed’s Smokehouse; Sweet’er Than Sour; Board & Brush; A+ FCU; Brent Massey; Emily Ferguson; Infinity Sound Lab; Express Commercial Cleaning; Cookies & Crumbles; Nothing Bundt Cakes; Round Rock Sweethearts; The Train Quest; Evolve Round Rock; Captain’s Pizza; FASTSIGNS; and Dana Berwick."
+    },
+    {
+      "title": "Website link",
+      "detail": "Megan Aguirre has been told to point the school PTA link to xeniavoigtpta.org; the PTA website itself is already on that domain."
+    },
+    {
+      "title": "Vendor notices",
+      "detail": "The four selected vendors were emailed the board’s approval and 10% fee waiver. No contracts or agreements will be sent."
+    }
+  ],
+  "changes": [
+    "The board finalized four approved vendors and waived the 10% vendor fee.",
+    "The event audio plan is school-system operated; no outside DJ or performer is part of the plan.",
+    "The activity plan is now five fall-themed stations."
+  ],
+  "blockers": [
+    "School-approved campus layout, traffic, emergency clearances, ADA routes, and vendor locations.",
+    "Exact power outlets/load and district staff coordination for school audio.",
+    "Pickup schedules and final counts for donated items and student volunteers."
+  ],
+  "deadlines": [
+    {
+      "date": "October 16, 2026",
+      "detail": "Target to lock school layout, vendor placements, safety details, and event materials; request digital donation certificates by this date."
+    },
+    {
+      "date": "October 22, 2026",
+      "detail": "Planned pickup date for printed donation items where the donor confirms it works."
+    },
+    {
+      "date": "October 23, 2026",
+      "detail": "Festival, 5:30–7:30 PM."
+    }
+  ],
+  "actions": [
+    "Get written campus approval for the layout, safety routes, vendor placements, and electrical plan.",
+    "Confirm a district sound-system operator and the Garage Band’s time and setup area.",
+    "Close donation pickup/check-in details and submit the PIE Foundation Campus Request Form.",
+    "Review FASTSIGNS estimate only after layout and quantities are approved.",
+    "Assign the new volunteer signup and confirm Sweethearts’ headcount."
+  ],
+  "budget": {
+    "allocation": "$300",
+    "spent": "$0",
+    "goal": "$0 PTA cash spend where possible",
+    "cashPledges": "$1,290"
+  }
+}
