@@ -91,10 +91,6 @@
     {
       "title": "Unselected vendor replies",
       "detail": "Ed’s Smokehouse, Sweet’er Than Sour, and Captain’s Pizza were not selected after the board finalized the lineup; reply drafts are prepared and unsent."
-    },
-    {
-      "title": "Unneeded paid train quote",
-      "detail": "The Train Quest quote was not selected because the train is covered by the AiRCO Mechanical pledge; reply draft is prepared and unsent."
     }
   ],
   "followUp": [
@@ -113,7 +109,7 @@
   ],
   "changes": [
     "The board finalized four approved vendors and waived the 10% vendor fee.",
-    "The event audio plan is school-system operated; no outside DJ or performer is part of the plan.",
+    "The event audio plan uses the school system with a district staff operator.",
     "The activity plan is now five fall-themed stations."
   ],
   "blockers": [
