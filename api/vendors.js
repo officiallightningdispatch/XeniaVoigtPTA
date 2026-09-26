@@ -4,6 +4,9 @@ import { sendFormEmails } from './_email.js';
 function publicName(name=''){
   const key=String(name).toLowerCase().replace(/[’]/g,"'").replace(/\s+/g,' ').trim();
   const map={
+    'k&k bbq':'K&K BBQ Mexican Food',
+    'k&k bbq mexican food':'K&K BBQ Mexican Food',
+    'the gelato lab':'The Gelato Lab',
     'k&kbbqmexicanfood':'K&K BBQ Mexican Food',
     'unus vita llc dba kona ice':'Kona Ice Greater Austin',
     "coco's eats & sweets":"Coco's Eats & Sweets",
@@ -52,7 +55,7 @@ export default async function handler(req,res){
           website,
           businessType:cleanText(p.businessType,120)
         };
-      }).sort((a,b)=>a.name.localeCompare(b.name));
+      }).filter(v=>['K&K BBQ Mexican Food','Hearth & Honey','Pour The Fun'].includes(v.name)).sort((a,b)=>a.name.localeCompare(b.name));
       return send(res,200,{vendors,count:vendors.length});
     }
 
