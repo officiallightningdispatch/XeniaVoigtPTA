@@ -52,7 +52,7 @@
     'Vice President of Community Engagement & Special Events':{
       headline:'Community engagement & events command center',
       intro:'Your event, partner, vendor, volunteer, donor, logistics and follow-up workspace.',
-      tasks:['Finalize campus layout and traffic flow','Confirm the district sound operator and Garage Band details','Coordinate logistics for the four board-approved vendors','Coordinate Trunk-or-Treat, volunteers, signage, auction and family experience','Keep the Fall Festival Command Center current'],
+      tasks:['Finalize campus layout and traffic flow','Confirm the district sound operator and Garage Band details','Coordinate logistics for K&K BBQ, Hearth & Honey and Pour The Fun','Coordinate Trunk-or-Treat, volunteers, signage, auction and family experience','Keep the Fall Festival Command Center current'],
       links:[['Fall Festival Command Center',DRIVE.command,'Current planning status and action plan'],['Fall Festival master tracker',DRIVE.tracker,'Event-wide tracking workbook'],['Master plan & decisions',DRIVE.plan,'Approved event direction and decisions'],['Volunteer & student group plan',DRIVE.volunteers,'Volunteer and student support plan'],['Sponsor list',DRIVE.sponsors,'Sponsor outreach and ownership'],['Trunk-or-Treat rules',DRIVE.trunkRules,'Host registration and rules']]
     }
   };
