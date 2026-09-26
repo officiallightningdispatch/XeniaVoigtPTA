@@ -5,12 +5,13 @@ import { sendVendorConfirmation } from './_email.js';
 const INITIAL_SALT='voigt-board-2026-bootstrap-v1';
 const INITIAL_HASH='9ca194f999c2a0093a833692e44e3fd171906896f4a5cc7e2fe9fd49c9844675cbce6fe042aaeeae35d08e87c6e1da2fdaccccda89659d48a41b1f544ea50f37';
 const BOARD = {
-  nikki: { firstName: 'Nikki', fullName: 'Nikki Clark', role: 'President' },
-  john: { firstName: 'John', fullName: 'John Clark', role: 'Vice President' },
-  veronica: { firstName: 'Veronica', fullName: 'Veronica Fabian', role: 'Communications Chair & Secretary' },
-  rudy: { firstName: 'Rudy', fullName: 'Rudy Martin Del Campo', role: 'Treasurer' },
-  brittani: { firstName: 'Brittani', fullName: 'Brittani Simms', role: 'Vice President of Community Engagement & Special Events' }
+  nikki: { firstName: 'Nikki', fullName: 'Nikki Clark', role: 'President', email: 'voigtpta7@gmail.com' },
+  john: { firstName: 'John', fullName: 'John Clark', role: 'Vice President', email: 'john@5cconstruction.com' },
+  veronica: { firstName: 'Veronica', fullName: 'Veronica Fabian', role: 'Communications Chair & Secretary', email: 'vmariefabian@gmail.com' },
+  rudy: { firstName: 'Rudy', fullName: 'Rudy Martin Del Campo', role: 'Treasurer', email: 'r.delcampo13@gmail.com' },
+  brittani: { firstName: 'Brittani', fullName: 'Brittani Simms', role: 'Vice President of Community Engagement & Special Events', email: 'brittanisimms203@gmail.com' }
 };
+const USERNAME_BY_EMAIL=Object.fromEntries(Object.entries(BOARD).map(([username,member])=>[member.email.toLowerCase(),username]));
 
 const digestToken=t=>createHash('sha256').update(String(t||'')).digest('hex');
 const hashPassword=(password,salt)=>scryptSync(password,salt,64).toString('hex');
@@ -54,9 +55,10 @@ async function sessionMember(sql,req){
 }
 
 async function handleLogin(sql,body,res){
-  const username=cleanText(body.username,80).toLowerCase();
+  const identifier=cleanText(body.username,120).toLowerCase();
+  const username=BOARD[identifier]?identifier:(USERNAME_BY_EMAIL[identifier]||identifier);
   const password=String(body.password||'');
-  if(!username||!password) return send(res,400,{error:'Username and password are required.'});
+  if(!identifier||!password) return send(res,400,{error:'Enter your board username or email and password.'});
   const rows=await sql`SELECT username,full_name,role,password_salt,password_hash,must_change_password FROM pta_board_users WHERE username=${username} LIMIT 1`;
   const user=rows[0];
   if(!user || !verifyPassword(password,user.password_salt,user.password_hash)) return send(res,401,{error:'Invalid username or password.'});
