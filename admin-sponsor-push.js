@@ -23,7 +23,7 @@
         <div class="admin-role-item"><span class="dot"></span><div><b>Gmail first:</b> read the complete organization thread before every new email or reply.</div></div>
         <div class="admin-role-item"><span class="dot"></span><div><b>Three-business-day minimum:</b> no routine follow-up sooner unless the recipient explicitly asks for immediate action.</div></div>
         <div class="admin-role-item"><span class="dot"></span><div><b>Silent auction:</b> no new donor solicitation.</div></div>
-        <div class="admin-role-item"><span class="dot"></span><div><b>05 Diaz:</b> backup only unless the primary food-vendor target requires activation.</div></div>
+        <div class="admin-role-item"><span class="dot"></span><div><b>Capped vendor plan:</b> K&amp;K BBQ, Hearth &amp; Honey and Pour The Fun only; do not reactivate unselected vendors without a new board decision.</div></div>
         <div class="admin-role-item"><span class="dot"></span><div><b>Face painting:</b> volunteer-run; no paid-provider outreach.</div></div>
         <div class="admin-role-item"><span class="dot"></span><div><b>Pending ≠ confirmed:</b> quotes, applications, acknowledgements and review queues stay uncovered until explicit commitment.</div></div>
       </div>
