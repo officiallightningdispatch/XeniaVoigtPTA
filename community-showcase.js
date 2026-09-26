@@ -19,21 +19,16 @@
       {name:'Cookies & Crumbles',type:'Sweet Finish Giveaway Donor',value:'$65 donated',desc:'Providing a $65 gift certificate for the Viking Quest Sweet Finish Giveaway.',url:'https://www.cookiesandcrumblesbakeshop.com/',domain:'cookiesandcrumblesbakeshop.com'},
       {name:"Paige's Bakehouse",type:'Cake Walk Donor',value:'$36 donated',desc:'Donating one dozen decorated cookies for the Fall Festival cake walk, with event-day pickup confirmed.',url:'https://paigesbakehouse.com/',domain:'paigesbakehouse.com'},
       {name:'FASTSIGNS Round Rock',type:'Event Signage Partner',desc:'Supporting Fall Festival printing and signage as final quantities and display details are completed.',url:'https://www.fastsigns.com/round-rock-tx/',domain:'fastsigns.com'},
-      {name:'Kendra Scott',type:'Festival Donor',value:'Donated item confirmed',desc:'Repeat Fall Festival donor; a donated Kendra Scott item is being treated as confirmed for 2026 under the PTA repeat-support rule.',url:'https://www.kendrascott.com/',domain:'kendrascott.com'},
-      {name:'A+ Federal Credit Union',type:'Trunk-or-Treat Candy Sponsor',value:'Confirmed in-kind',desc:'Repeat Fall Festival candy support is confirmed under the PTA repeat-support rule; final 2026 quantity is pending fulfillment.',url:'https://aplusfcu.org/',domain:'aplusfcu.org'},
-      {name:'H-E-B',type:'Volunteer Support Sponsor',value:'$150 gift cards confirmed',desc:'Repeat Fall Festival support; the confirmed H-E-B gift-card support will cover volunteer snacks.',url:'https://www.heb.com/',domain:'heb.com'},
+      {name:'A+ Federal Credit Union',type:'Teacher-Trunk Candy Sponsor',value:'12 × 5.75-lb bags pledged',desc:'Pledged 12 extra-large Costco candy variety bags (69 lb total) for seven teacher trunks. Piece count will be verified on receipt.',url:'https://aplusfcu.org/',domain:'aplusfcu.org'},
       {name:'Shine Pediatric Dental Co.',type:'Attraction Sponsor',value:'$195 pledged',desc:'Pledged $195 to fully cover the Fall Festival bounce/combo inflatable experience.',url:'https://shinepediatricdentalco.com/',domain:'shinepediatricdentalco.com'},
       {name:'AiRCO Mechanical',type:'Trackless Train Sponsor',value:'$1,095 pledged',desc:'Fully sponsoring the Viking Quest trackless train attraction for festival night.',url:'https://aircomechanical.com/',domain:'aircomechanical.com'},
       {name:'Toybrary Austin',type:'Family Experience Donor',value:'$60 donated',desc:'Donated a $60 Stay & Play punch card for a young-family festival prize.',url:'https://toybraryaustin.com/',domain:'toybraryaustin.com'},
-      {name:'Express Commercial Cleaning',type:'Safety & Cleanup Supporter',desc:'Pledged event safety and cleanup support; final donated quantities are being coordinated.',url:'',domain:''}
+      {name:'Express Commercial Cleaning',type:'Safety & Cleanup Supporter',desc:'Committed the documented mop, broom, disinfectant, liners, paper towels, floor cleaner, gloves and hand-sanitizer supplies.',url:'',domain:''}
     ],
     vendors:[
-      {name:"Coco's Eats & Sweets",type:'Confirmed Food & Dessert Vendor',desc:'Shaved ice, chamoy pickles, nachos and water are planned for Food Truck Row.',url:'',domain:''},
-      {name:'Hearth & Honey',type:'Confirmed Food Vendor',desc:'Honeyfire chicken bowls, Mediterranean turkey meatball bowls, a vegan Garden of Gold bowl, and honey-mint-lavender lemonade.',url:'https://www.hearthandhoneyatx.com/order',domain:'hearthandhoneyatx.com'},
-      {name:'K&K BBQ Mexican Food',type:'Confirmed Food Vendor',desc:'BBQ and Mexican favorites including Frito pies, sausage wraps, brisket wraps and sandwiches, tacos, quesabirria, aguas frescas and sodas.',url:'http://kkbbqmexicanfoodroundrock.com/',domain:'kkbbqmexicanfoodroundrock.com'},
-      {name:'Kona Ice Greater Austin',type:'Confirmed Dessert Vendor',desc:'Shaved ice and toppings will be rolling into Food Truck Row for a colorful festival treat.',url:'https://www.kona-ice.com/local-site/kona-ice-of-greater-austin/',domain:'kona-ice.com'},
-      {name:'Pour The Fun',type:'Confirmed Beverage + Food Vendor',desc:'Non-alcoholic Halloween drinks and street corn.',url:'https://pourthefun.com/',domain:'pourthefun.com'},
-      {name:'Roxk N Grill',type:'Confirmed Food Vendor',desc:'Indian snacks, food and drinks including samosas, veg lollipops, mango lassi and masala tea.',url:'https://rockngrillusa.com',domain:'rockngrillusa.com'}
+      {name:'K&K BBQ Mexican Food',type:'Savory Vendor',desc:'The selected savory vendor for the capped Fall Festival food plan.',url:'http://kkbbqmexicanfoodroundrock.com/',domain:'kkbbqmexicanfoodroundrock.com'},
+      {name:'Hearth & Honey',type:'Sweet Vendor',desc:'The selected sweet vendor for the capped Fall Festival food plan.',url:'https://www.hearthandhoneyatx.com/order',domain:'hearthandhoneyatx.com'},
+      {name:'Pour The Fun',type:'Beverage Add-On',desc:'Non-alcoholic specialty drinks for festival night.',url:'https://pourthefun.com/',domain:'pourthefun.com'}
     ]
   };
 
@@ -272,7 +267,7 @@
           <aside class="sponsor-side">
             <span class="mini-label">WAYS TO HELP</span>
             <h3>Funding, goods, services — all of it matters.</h3>
-            <p>Current Fall Festival support can include attractions, activity supplies, sensory-friendly resources, prizes, volunteer support, entertainment, or another useful contribution.</p>
+            <p>Current Fall Festival support can include uncovered Viking-station and carnival supplies, quest prizes and pouches, photo-stop materials, signage, volunteer support, or another current tracker need.</p>
             <p><strong>Want to make a financial gift?</strong> The secure fee-free donation checkout is being prepared on the Donate page and will be activated once the PTA bank connection is completed.</p>
             <a class="btn secondary" href="/donate" style="margin-top:12px">Open donation page →</a>
           </aside>
