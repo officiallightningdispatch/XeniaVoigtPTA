@@ -7,6 +7,17 @@
     "venue": "Xenia Voigt Arts Integration Academy, 1201 Cushing Drive, Round Rock, TX 78664",
     "attendance": "Approximately 320"
   },
+  "metrics": {
+    "approvedVendors": ["K&K BBQ", "Hearth & Honey", "Pour The Fun", "The Gelato Lab"],
+    "trunkSpacesClaimed": 9,
+    "trunkSpacesTarget": 20,
+    "stationsPlanned": ["Pumpkin Bowling", "Apple Scoop Challenge", "Fall Sensory Mystery", "Collaborative Autumn Mural", "Gratitude Tree"],
+    "applesCovered": 80,
+    "applesTarget": 80,
+    "cashPledges": 1290,
+    "budgetAllocation": 300,
+    "cashSpent": 0
+  },
   "confirmed": [
     {
       "title": "Board-approved vendor lineup",
