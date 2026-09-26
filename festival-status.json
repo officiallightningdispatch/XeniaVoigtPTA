@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-25",
+  "updatedAt": "2026-09-26",
   "event": {
     "title": "Xenia Voigt Viking Quest Fall Festival",
     "date": "Friday, October 23, 2026",
@@ -8,134 +8,168 @@
     "attendance": "Approximately 320"
   },
   "metrics": {
-    "approvedVendors": ["K&K BBQ", "Hearth & Honey", "Pour The Fun", "The Gelato Lab"],
+    "approvedVendors": [
+      "K&K BBQ",
+      "Hearth & Honey",
+      "Pour The Fun"
+    ],
+    "foodPlan": "1 savory + 1 sweet + Pour The Fun",
+    "teacherTrunks": 7,
+    "teacherTrunksTarget": 7,
+    "communityHostsBringOwnCandy": true,
+    "candyBagsPledged": 12,
+    "candyBagWeightLb": 5.75,
+    "candyTotalWeightLb": 69,
+    "candyPieceCount": "Verify on receipt",
     "trunkSpacesClaimed": 9,
     "trunkSpacesTarget": 20,
-    "stationsPlanned": ["Pumpkin Bowling", "Apple Scoop Challenge", "Fall Sensory Mystery", "Collaborative Autumn Mural", "Gratitude Tree"],
+    "stationsPlanned": [
+      "Pumpkin Bowling",
+      "Apple Scoop Challenge",
+      "Fall Sensory Mystery",
+      "Collaborative Autumn Mural",
+      "Gratitude Tree"
+    ],
     "applesCovered": 80,
     "applesTarget": 80,
+    "activeInventoryLines": 110,
+    "coveredInventoryLines": 20,
+    "openInventoryLines": 90,
     "cashPledges": 1290,
     "budgetAllocation": 300,
     "cashSpent": 0
   },
   "confirmed": [
     {
-      "title": "Board-approved vendor lineup",
-      "detail": "K&K BBQ (savory), Hearth & Honey (sweet), Pour The Fun, and The Gelato Lab. The PTA board waived the 10% vendor fee. Participation approval only; no vendor contracts or agreements will be sent."
+      "title": "Current vendor plan",
+      "detail": "K&K BBQ is the savory vendor, Hearth & Honey is the sweet vendor, and Pour The Fun is the beverage add-on. The PTA board waived the 10% fee. Participation approval only; no vendor contracts or agreements will be sent."
     },
     {
-      "title": "Trackless train pledge",
-      "detail": "AiRCO Mechanical pledged $1,095 to cover the train."
+      "title": "Major attractions",
+      "detail": "One covered bounce/combo inflatable sponsored for $195 by Shine Pediatric Dental Co., plus one trackless train sponsored for $1,095 by AiRCO Mechanical. Extra inflatables are not part of the event plan."
     },
     {
-      "title": "Bounce/combo inflatable support",
-      "detail": "Shine Pediatric Dental pledged $195."
+      "title": "Teacher-trunk candy",
+      "detail": "A+ Federal Credit Union pledged 12 extra-large Costco candy variety bags at 5.75 lb each (69 lb total) for seven teacher trunks, one per grade Pre-K through 5. This is projected to cover the teacher trunks; verify the actual piece count when received. Community trunk hosts provide their own candy."
     },
     {
-      "title": "Candy",
-      "detail": "A+ Federal Credit Union committed 12 extra-large 5.75 lb candy bags; pickup/drop-off and recognition details are being coordinated."
+      "title": "Activities and Viking stations",
+      "detail": "The plan includes carnival games, activities, and five Viking stations: Pumpkin Bowling, Apple Scoop Challenge, Fall Sensory Mystery, Collaborative Autumn Mural, and Gratitude Tree. All 80 apples are covered."
+    },
+    {
+      "title": "Cake Walk",
+      "detail": "The PE teacher provides 30 numbered floor spots, Brittani's phone provides music playback, and the school provides display tables. Prizes are covered by 15 Nothing Bundt Cakes Bundtlets plus one Paige's Bakehouse cookie bundle; packaging remains conditional on the final prize format."
+    },
+    {
+      "title": "Sensory-friendly retreat",
+      "detail": "The retreat will be in the Boys & Girls Club portable. No PTA materials are needed; only campus coordination and signage remain."
+    },
+    {
+      "title": "Silent auction setup",
+      "detail": "Prizes will be displayed on the cafeteria stage. School tables will be placed in front of the stage, with bid sheets arranged in 2–4 stacked rows per table."
+    },
+    {
+      "title": "Event audio",
+      "detail": "There will be no DJ. The event will use the school sound system; Brittani's phone will be used for Cake Walk music playback."
     },
     {
       "title": "Cleanup and safety supplies",
-      "detail": "Express Commercial Cleaning committed a mop bucket with wringer; 2 mop handles and 2 mop heads; broom and dustpan; 1 gallon PHQ7 disinfectant with 4 labeled sprayers; 1 case 38×58 liners; half case 30×37 liners; 20 rolls kitchen paper towels; 1 gallon floor cleaner; 2 boxes medium gloves; 1 box large gloves; and ½ gallon hand sanitizer with pump."
+      "detail": "Express Commercial Cleaning committed the listed mop, broom, disinfectant, liners, paper towels, floor cleaner, gloves, and hand-sanitizer supplies."
     },
     {
-      "title": "School activity equipment",
-      "detail": "Coach Pettit identified available PE equipment, including cones/markers, poly spots, bean bags, balls, hoops, jump ropes, pool noodles, buckets, ropes, sacks, balance/obstacle equipment, hippity hops, and plastic pools. Final station pull list is pending."
-    },
-    {
-      "title": "Activities",
-      "detail": "Five planned stations: Pumpkin Bowling; Apple Scoop Challenge (80 apples covered by Brittani; no mouth-contact bobbing); Fall Sensory Mystery; Collaborative Autumn Mural; and Gratitude Tree."
+      "title": "School equipment",
+      "detail": "The school/PE inventory includes numbered floor spots, cones/markers, bean bags, balls, hoops, jump ropes, pool noodles, buckets, ropes, sacks, balance/obstacle equipment, hippity hops, plastic pools, and display tables. The final activity pull list is still required."
     },
     {
       "title": "Garage Band",
-      "detail": "Voigt Garage Band confirmed one song, up to 5 minutes, on the cafeteria stage. A 6:00–6:30 PM window is under consideration; final timing and room setup are pending."
-    },
-    {
-      "title": "Trunk-or-Treat",
-      "detail": "9 of 20 spaces claimed; 11 remain open."
-    },
-    {
-      "title": "Community donations",
-      "detail": "Austin Aquarium membership (up to 5); Austin Zoo (4 tickets); Round Rock Pumpkin Festival family pass (6); Monster Mini Golf family 4-pack; Toybrary Austin $60 punch card; Cookies & Crumbles $65 certificate; Nothing Bundt Cakes 15 individually packaged single Bundtlet towers; Paige’s Bakehouse one dozen decorated cookies for Cake Walk."
-    },
-    {
-      "title": "Community partner",
-      "detail": "PHP Agency booth with family education and an optional, consent-based raffle. Round Rock Sweethearts offered student volunteers; headcount and assignments are pending."
+      "detail": "Voigt Garage Band confirmed one song, up to 5 minutes, on the cafeteria stage. Final timing and school-audio setup are pending."
     },
     {
       "title": "School website PTA link",
-      "detail": "Megan Aguirre confirmed the school website’s PTA links have been updated to point to the existing public PTA domain xeniavoigtpta.org."
+      "detail": "The school website should link to the existing public PTA domain xeniavoigtpta.org, not the blank Google Site."
     }
   ],
   "pending": [
     {
       "title": "Campus approvals and safety layout",
-      "detail": "School approval is needed for vendor and activity locations, emergency clearances, traffic flow, ADA routes, room/field use, and campus access. Visitor parking is on School Days street; general campus parking is unavailable."
+      "detail": "Written school approval is still needed for vendor and activity locations, train/inflatable placement, emergency clearances, traffic flow, ADA routes, room/field use, and campus access."
     },
     {
       "title": "Vendor operations",
-      "detail": "Confirm exact outlet locations/load, power access, arrival window, check-in, unloading route, and placements for the four approved vendors. School power is available in principle; exact specifications are not confirmed."
+      "detail": "Confirm arrival/check-in, unloading routes, placements, power needs, and service details for K&K BBQ, Hearth & Honey, and Pour The Fun."
     },
     {
-      "title": "Activity supplies",
-      "detail": "Purchase or source food-safe tubs and child-safe scoops/tongs for the Apple Scoop Challenge; finalize the supply pull list and activity layout."
+      "title": "Viking/carnival supply pull",
+      "detail": "Match the revised 110-line needs plan to school/PE inventory, then source only the uncovered station, carnival, photo-stop, signage, and event-operations items."
     },
     {
       "title": "Volunteer coverage",
-      "detail": "Dana Berwick’s new website signup needs review and assignment. Round Rock Sweethearts’ student count and arrival/check-in details are pending."
+      "detail": "Review and assign the current signup roster; confirm Round Rock Sweethearts' headcount, arrival, check-in, and assignments."
     },
     {
-      "title": "Donation logistics",
-      "detail": "Coordinate pickups/drop-offs and recognition details for A+ FCU, Express Commercial Cleaning, Board & Brush’s offered $50 digital gift certificate, Cookies & Crumbles, Nothing Bundt Cakes, and PIE Foundation materials. PIE Foundation materials require the Campus Request Form."
+      "title": "Donation fulfillment",
+      "detail": "Coordinate pickups/drop-offs and recognition for confirmed donations, including the 12 A+ candy bags and Cake Walk prizes. Submit the PIE Foundation Campus Request Form if those materials are still needed."
     },
     {
       "title": "Funding applications",
-      "detail": "H-E-B request up to $200 pending; SC Johnson $1,000 application pending; Texas Stars ticket donation is processing with no allocation yet."
+      "detail": "H-E-B and SC Johnson remain pending applications/requests and must not be counted as confirmed. Texas Stars is processing with no allocation yet."
     },
     {
       "title": "Signage estimate",
-      "detail": "FASTSIGNS estimate EST-17493 is under review. Do not approve production until the final school layout, quantities, and budget are confirmed."
+      "detail": "FASTSIGNS estimate EST-17493 remains under review; do not approve production before the school layout, quantities, and budget are final."
     },
     {
-      "title": "Sound operations",
-      "detail": "The board chose the school system for event audio. Confirm the district employee operating it, basic system capabilities, and how it can support the Garage Band."
+      "title": "School audio operations",
+      "detail": "Confirm the district employee operating the school system, its capabilities, Garage Band inputs, and event-night audio timeline."
     }
   ],
   "declined": [
     {
+      "title": "Removed from the event plan",
+      "detail": "DJ/MC, extra obstacle-course/interactive inflatables, and a materials purchase bundle for the sensory retreat."
+    },
+    {
       "title": "Unselected vendor replies",
-      "detail": "Ed’s Smokehouse, Sweet’er Than Sour, Captain’s Pizza, Rock N Grill, and 05 Diaz were not selected after the board finalized the lineup; unsent reply drafts are prepared."
+      "detail": "Ed's Smokehouse, Sweet'er Than Sour, Captain's Pizza, Rock N Grill, 05 Diaz, Kona Ice, and Coco's Eats & Sweets are not in the capped vendor plan."
     }
   ],
   "followUp": [
     {
-      "title": "Reply drafts prepared — pending review",
-      "detail": "Ed’s Smokehouse; Sweet’er Than Sour; Board & Brush; A+ FCU; Brent Massey; Emily Ferguson; Infinity Sound Lab; Express Commercial Cleaning; Cookies & Crumbles; Nothing Bundt Cakes; Round Rock Sweethearts; The Train Quest; Evolve Round Rock; Captain’s Pizza; FASTSIGNS; Dana Berwick; Rock N Grill; 05 Diaz; LC Entertainment; and Hearth & Honey."
+      "title": "Gelato Lab reconciliation",
+      "detail": "A board approval/fee-waiver notice was sent earlier, but the capped live plan is K&K BBQ, Hearth & Honey, and Pour The Fun. No explicit Gelato Lab vendor reply was found; keep it off the public confirmed lineup until the conflict is resolved."
     },
     {
-      "title": "Vendor notices",
-      "detail": "The four selected vendors were emailed the board’s approval and 10% fee waiver. No contracts or agreements will be sent."
+      "title": "Candy receipt check",
+      "detail": "Record brand/SKU and actual piece count when the 12 bags arrive, then confirm the allocation across seven teacher trunks."
+    },
+    {
+      "title": "Tracker/site parity",
+      "detail": "Master tracker, detailed-needs workbook, command center, sponsor-needs list, and public event copy must stay aligned with explicit commitments only."
     }
   ],
   "changes": [
-    "The board finalized four approved vendors and waived the 10% vendor fee.",
-    "The board chose school-operated sound; the district staff operator and system capabilities are being confirmed.",
-    "The activity plan is now five fall-themed stations."
+    "Reconciled the plan to one savory vendor, one sweet vendor, and Pour The Fun.",
+    "Removed the DJ and all extra inflatable asks; school audio replaces the DJ.",
+    "Recorded A+ FCU's exact pledge as 12 × 5.75 lb bags (69 lb) for seven teacher trunks.",
+    "Marked Cake Walk floor spots, phone playback, school tables, and 16 prizes as covered.",
+    "Moved the sensory-friendly retreat to the Boys & Girls Club portable with no PTA materials required.",
+    "Recorded the silent-auction stage and 2–4-row bid-sheet table layout.",
+    "Recalculated the detailed inventory to 110 active lines: 20 covered and 90 open."
   ],
   "blockers": [
-    "School-approved campus layout, traffic, emergency clearances, ADA routes, and vendor locations.",
-    "Exact power outlets/load and district staff coordination for school audio.",
-    "Pickup schedules and final counts for donated items and student volunteers."
+    "School-approved campus layout, traffic plan, emergency clearances, ADA routes, and attraction/vendor placements.",
+    "Exact vendor power/load requirements and district staff coordination for school audio.",
+    "Final school/PE equipment pull list and fulfillment logistics for remaining activity supplies.",
+    "Gelato Lab's earlier approval notice conflicts with the capped three-part vendor plan and needs administrative reconciliation."
   ],
   "deadlines": [
     {
       "date": "October 16, 2026",
-      "detail": "Target to lock school layout, vendor placements, safety details, and event materials; request digital donation certificates by this date."
+      "detail": "Lock school layout, vendor/attraction placements, safety details, audio operations, equipment pull list, and printed-material quantities."
     },
     {
       "date": "October 22, 2026",
-      "detail": "Planned pickup date for printed donation items where the donor confirms it works."
+      "detail": "Complete planned pickups of printed certificates, candy, Cake Walk prizes, and other physical donations."
     },
     {
       "date": "October 23, 2026",
@@ -143,11 +177,11 @@
     }
   ],
   "actions": [
-    "Get written campus approval for the layout, safety routes, vendor placements, and electrical plan.",
-    "Confirm a district sound-system operator and the Garage Band’s time and setup area.",
-    "Close donation pickup/check-in details and submit the PIE Foundation Campus Request Form.",
-    "Review FASTSIGNS estimate only after layout and quantities are approved.",
-    "Assign the new volunteer signup and confirm Sweethearts’ headcount."
+    "Obtain written campus approval for the final layout, safety routes, train/inflatable placement, vendor placements, and electrical plan.",
+    "Confirm the district sound-system operator and Garage Band/Cake Walk audio setup.",
+    "Complete the school/PE equipment pull list and purchase only the remaining uncovered activity and Viking-station items.",
+    "Confirm receipt logistics for A+ candy and record the actual candy piece count.",
+    "Resolve the Gelato Lab approval conflict before any public or vendor-facing status change."
   ],
   "budget": {
     "allocation": "$300",
