@@ -4,6 +4,8 @@ import { sendVendorConfirmation } from './_email.js';
 
 const INITIAL_SALT='voigt-board-2026-bootstrap-v1';
 const INITIAL_HASH='9ca194f999c2a0093a833692e44e3fd171906896f4a5cc7e2fe9fd49c9844675cbce6fe042aaeeae35d08e87c6e1da2fdaccccda89659d48a41b1f544ea50f37';
+const TEMP_RESET_SALT='voigt-temp-reset-2026-09-26';
+const TEMP_RESET_HASH='718d282e5ca2a43022f18840fae2970f9cc998684a09ab1d7d36c80fc21c1442ada412945666e6488c5c301a5648f426728875cca105191f93253ef54bede54b';
 const BOARD = {
   nikki: { firstName: 'Nikki', fullName: 'Nikki Clark', role: 'President', email: 'voigtpta7@gmail.com' },
   john: { firstName: 'John', fullName: 'John Clark', role: 'Vice President', email: 'john@5cconstruction.com' },
@@ -32,6 +34,20 @@ async function ensureBoardUsers(sql){
     await sql`INSERT INTO pta_board_users (username,full_name,role,password_salt,password_hash,must_change_password)
       VALUES (${username},${member.fullName},${member.role},${INITIAL_SALT},${INITIAL_HASH},TRUE)
       ON CONFLICT (username) DO UPDATE SET full_name=EXCLUDED.full_name,role=EXCLUDED.role`;
+  }
+  await sql`CREATE TABLE IF NOT EXISTS pta_board_migrations (
+    migration_key TEXT PRIMARY KEY,
+    applied_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+  )`;
+  const applied=await sql`INSERT INTO pta_board_migrations (migration_key)
+    VALUES ('board-temp-password-reset-20260926')
+    ON CONFLICT (migration_key) DO NOTHING
+    RETURNING migration_key`;
+  if(applied.length){
+    for(const username of ['nikki','veronica','john','rudy']){
+      await sql`UPDATE pta_board_users SET password_salt=${TEMP_RESET_SALT},password_hash=${TEMP_RESET_HASH},must_change_password=TRUE,updated_at=NOW() WHERE username=${username}`;
+      await sql`DELETE FROM pta_board_sessions WHERE username=${username}`;
+    }
   }
   await sql`DELETE FROM pta_board_sessions WHERE expires_at<=NOW()`;
 }
