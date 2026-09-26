@@ -12,7 +12,7 @@
         <div class="fall26-copy">
           <span class="fall26-kicker">XENIA VOIGT ARTS ACADEMY PTA PRESENTS</span>
           <h1>The 2026<br><strong>Voigt PTA</strong><br>Fall Festival</h1>
-          <p class="fall26-lede">A full-campus fall night built for families: rides, inflatables, carnival games, food trucks, performances, Trunk-or-Treat, art, the Viking Quest, and more.</p>
+          <p class="fall26-lede">A full-campus fall night built for families: one bounce/combo inflatable, a trackless train, carnival games, food, performances, Trunk-or-Treat, art, the Viking Quest, and more.</p>
           <div class="fall26-meta">
             <div><span>WHEN</span><b>Friday, October 23</b><small>5:30–7:30 PM</small></div>
             <div><span>WHERE</span><b>Xenia Voigt Arts Academy</b><small>1201 Cushing Dr · Round Rock</small></div>
@@ -22,7 +22,7 @@
         <aside class="fall26-poster" aria-label="Festival highlights">
           <div class="fall26-poster-top">ONE BIG FALL NIGHT</div>
           <div class="fall26-bigtype">FUN<br>EVERY<br>WHERE.</div>
-          <div class="fall26-poster-strip">RIDES · FOOD · GAMES · ART · MUSIC · TRUNKS</div>
+          <div class="fall26-poster-strip">TRAIN · BOUNCE · FOOD · GAMES · ART · TRUNKS</div>
         </aside>
       </div>
     </section>
@@ -32,28 +32,24 @@
     <section class="section fall26-attractions"><div class="container">
       <div class="fall26-section-head"><span>THE CAMPUS BECOMES THE FESTIVAL</span><h2>More than a school event.<br>A whole-night experience.</h2><p>Every part of the campus has a purpose, so families can move from high-energy attractions to food, performances, creative activities, and quieter spaces without missing the fun.</p></div>
       <div class="fall26-grid fall26-adventure-grid">
-        <article class="fall26-card hero-card"><div class="fall26-icon" aria-hidden="true">🏰</div><span>BOUNCE · CLIMB · RACE</span><h3>Inflatable Zone</h3><p>Big bounce energy and obstacle-course fun.</p></article>
+        <article class="fall26-card hero-card"><div class="fall26-icon" aria-hidden="true">🚂</div><span>ONE COMBO + ONE TRAIN</span><h3>Bounce/Combo + Trackless Train</h3><p>One sponsored covered bounce/combo inflatable and one sponsored trackless train.</p></article>
         <article class="fall26-card"><div class="fall26-icon" aria-hidden="true">🎃</div><span>PLAY TO WIN</span><h3>Fall Carnival</h3><p>Toss it. Bowl it. Hit the target. Try them all.</p></article>
         <article class="fall26-card quest-card"><div class="fall26-icon" aria-hidden="true">⚔️</div><span>YOUR ADVENTURE AWAITS</span><h3>Viking Quest</h3><p>Five fall challenges. One Viking Quest. Complete them all to become an official Voigt Viking.</p><div class="fall26-chips"><b>🎃 Test Your Viking Strength · Pumpkin Bowling</b><b>🍎 Gather the Viking Harvest · Apple Scoop</b><b>🍂 Brave the Harvest Mystery · Fall Sensory</b><b>🎨 Create the Viking Banner · Autumn Mural</b><b>🌳 Build the Viking Village · Gratitude Tree</b></div><p><strong>Apple Scoop ready:</strong> all 80 apples are covered for festival night.</p></article>
         <article class="fall26-card"><div class="fall26-icon" aria-hidden="true">🍔</div><span>COME HUNGRY</span><h3>Food Truck Row</h3><p>Pick your favorites, then come back for dessert.</p></article>
-        <article class="fall26-card"><div class="fall26-icon" aria-hidden="true">🍬</div><span>COSTUMES + CANDY</span><h3>Trunk-or-Treat</h3><p>Decorated trunks, sweet treats, and Halloween fun.</p></article>
+        <article class="fall26-card"><div class="fall26-icon" aria-hidden="true">🍬</div><span>COSTUMES + CANDY</span><h3>Trunk-or-Treat</h3><p>Seven teacher trunks are supported by A+ FCU candy; community hosts bring candy for their own trunks.</p></article>
         <article class="fall26-card"><div class="fall26-icon" aria-hidden="true">🎨</div><span>MAKE SOMETHING AWESOME</span><h3>Art + Creativity</h3><p>Create, color, build, and leave your mark on festival night.</p></article>
-        <article class="fall26-card stage-card"><div class="fall26-icon" aria-hidden="true">🎸</div><span>TURN IT UP</span><h3>Live Stage + DJ</h3><p>Student stars, live music, dancing, and festival energy.</p></article>
-        <article class="fall26-card calm-card"><div class="fall26-icon" aria-hidden="true">✨</div><span>TAKE A BREATHER</span><h3>Sensory Retreat</h3><p>A quieter place to reset whenever you need it.</p></article>
+        <article class="fall26-card stage-card"><div class="fall26-icon" aria-hidden="true">🎸</div><span>SCHOOL SOUND SYSTEM</span><h3>Student Performance Stage</h3><p>Student performers and announcements using the school audio system. No DJ this year.</p></article>
+        <article class="fall26-card calm-card"><div class="fall26-icon" aria-hidden="true">✨</div><span>TAKE A BREATHER</span><h3>Sensory-Friendly Retreat</h3><p>A quieter reset space in the Boys &amp; Girls Club portable; no donated materials are needed.</p></article>
       </div>
     </div></section>
 
     <section class="section fall26-vendors-live" aria-labelledby="fall26-vendors-title"><div class="container">
-      <div class="fall26-section-head"><span>FOOD TRUCK ROW</span><h2 id="fall26-vendors-title">Meet the confirmed food lineup.</h2><p>Six vendors are currently confirmed for October 23. Menus may be refined as festival night gets closer.</p></div>
-      <div class="fall26-partner-grid" role="list" aria-label="Confirmed Fall Festival food vendors">
-        <article class="fall26-partner-card" role="listitem"><div class="fall26-partner-logo-wrap"><span style="font-size:32px;font-weight:900" aria-hidden="true">C</span></div><div class="fall26-partner-copy"><span class="fall26-partner-type">CONFIRMED FOOD & DESSERT VENDOR</span><h3>Coco's Eats &amp; Sweets</h3><p>Shaved ice, chamoy pickles, nachos and water.</p></div></article>
-        <article class="fall26-partner-card" role="listitem"><a class="fall26-partner-logo-wrap" href="https://www.hearthandhoneyatx.com/order" target="_blank" rel="noopener noreferrer"><img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://www.hearthandhoneyatx.com&sz=256" alt="" loading="lazy" decoding="async"></a><div class="fall26-partner-copy"><span class="fall26-partner-type">CONFIRMED FOOD VENDOR</span><h3>Hearth &amp; Honey</h3><p>Honeyfire chicken bowls, Mediterranean turkey meatball bowls, a vegan Garden of Gold bowl, and honey-mint-lavender lemonade.</p><a class="fall26-partner-link" href="https://www.hearthandhoneyatx.com/order" target="_blank" rel="noopener noreferrer">Visit vendor <span aria-hidden="true">→</span></a></div></article>
-        <article class="fall26-partner-card" role="listitem"><a class="fall26-partner-logo-wrap" href="http://kkbbqmexicanfoodroundrock.com/" target="_blank" rel="noopener noreferrer"><img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=http://kkbbqmexicanfoodroundrock.com&sz=256" alt="" loading="lazy" decoding="async"></a><div class="fall26-partner-copy"><span class="fall26-partner-type">CONFIRMED FOOD VENDOR</span><h3>K&amp;K BBQ Mexican Food</h3><p>BBQ and Mexican favorites for Food Truck Row.</p><a class="fall26-partner-link" href="http://kkbbqmexicanfoodroundrock.com/" target="_blank" rel="noopener noreferrer">Visit vendor <span aria-hidden="true">→</span></a></div></article>
-        <article class="fall26-partner-card" role="listitem"><a class="fall26-partner-logo-wrap" href="https://www.kona-ice.com/local-site/kona-ice-of-greater-austin/" target="_blank" rel="noopener noreferrer"><img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://www.kona-ice.com&sz=256" alt="" loading="lazy" decoding="async"></a><div class="fall26-partner-copy"><span class="fall26-partner-type">CONFIRMED DESSERT VENDOR</span><h3>Kona Ice Greater Austin</h3><p>Shaved ice and toppings.</p><a class="fall26-partner-link" href="https://www.kona-ice.com/local-site/kona-ice-of-greater-austin/" target="_blank" rel="noopener noreferrer">Visit vendor <span aria-hidden="true">→</span></a></div></article>
-        <article class="fall26-partner-card" role="listitem"><a class="fall26-partner-logo-wrap" href="https://pourthefun.com/" target="_blank" rel="noopener noreferrer"><img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://pourthefun.com&sz=256" alt="" loading="lazy" decoding="async"></a><div class="fall26-partner-copy"><span class="fall26-partner-type">CONFIRMED BEVERAGE + FOOD VENDOR</span><h3>Pour The Fun</h3><p>Non-alcoholic Halloween drinks and street corn.</p><a class="fall26-partner-link" href="https://pourthefun.com/" target="_blank" rel="noopener noreferrer">Visit vendor <span aria-hidden="true">→</span></a></div></article>
-        <article class="fall26-partner-card" role="listitem"><a class="fall26-partner-logo-wrap" href="https://rockngrillusa.com/" target="_blank" rel="noopener noreferrer"><img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://rockngrillusa.com&sz=256" alt="" loading="lazy" decoding="async"></a><div class="fall26-partner-copy"><span class="fall26-partner-type">CONFIRMED FOOD VENDOR</span><h3>Roxk N Grill</h3><p>Indian snacks, food and drinks including samosas, veg lollipops, mango lassi and masala tea.</p><a class="fall26-partner-link" href="https://rockngrillusa.com/" target="_blank" rel="noopener noreferrer">Visit vendor <span aria-hidden="true">→</span></a></div></article>
+      <div class="fall26-section-head"><span>FOOD VENDOR ROW</span><h2 id="fall26-vendors-title">The current capped lineup.</h2><p>One savory vendor, one sweet vendor, plus Pour The Fun.</p></div>
+      <div class="fall26-partner-grid" role="list" aria-label="Confirmed Fall Festival vendors">
+        <article class="fall26-partner-card" role="listitem"><div class="fall26-partner-copy"><span class="fall26-partner-type">SAVORY VENDOR</span><h3>K&amp;K BBQ Mexican Food</h3><p>BBQ and Mexican favorites.</p></div></article>
+        <article class="fall26-partner-card" role="listitem"><div class="fall26-partner-copy"><span class="fall26-partner-type">SWEET VENDOR</span><h3>Hearth &amp; Honey</h3><p>The event's selected sweet vendor.</p></div></article>
+        <article class="fall26-partner-card" role="listitem"><div class="fall26-partner-copy"><span class="fall26-partner-type">BEVERAGE ADD-ON</span><h3>Pour The Fun</h3><p>Non-alcoholic specialty drinks.</p></div></article>
       </div>
-      <div class="fall26-actions center" style="margin-top:22px"><a class="btn secondary" href="/vendors">View vendor page / apply →</a></div>
     </div></section>
 
     <section class="section fall26-partners" aria-labelledby="fall26-partners-title"><div class="container">
@@ -194,5 +190,5 @@
       </div>
     </div></section>
 
-    <section class="fall26-final"><div class="container"><span>FRIDAY · OCTOBER 23 · 5:30–7:30 PM</span><h2>Meet us at Voigt.</h2><p>Games on. Music up. Trunks open. Food trucks rolling. Fall night handled.</p><div class="fall26-actions center"><a class="btn primary" href="/event.ics" download>Add to calendar</a><a class="btn secondary" href="/volunteer">Volunteer</a></div></div></section>`;
+    <section class="fall26-final"><div class="container"><span>FRIDAY · OCTOBER 23 · 5:30–7:30 PM</span><h2>Meet us at Voigt.</h2><p>Games on. Train rolling. Trunks open. Food vendors serving. Fall night handled.</p><div class="fall26-actions center"><a class="btn primary" href="/event.ics" download>Add to calendar</a><a class="btn secondary" href="/volunteer">Volunteer</a></div></div></section>`;
 })();
