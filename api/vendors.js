@@ -65,11 +65,13 @@ export default async function handler(req,res){
       const contactName=cleanText(body.contactName,180);
       const email=cleanText(body.email,320);
       if(!businessName||!contactName||!email) return send(res,400,{error:'Business name, contact name, and email are required.'});
-      if(body.profitShareAccepted!==true) return send(res,400,{error:'The 10% event-sales contribution agreement must be accepted.'});
+      const event=cleanText(body.event,180);
+      if(/fall festival|october 23,? 2026/i.test(event)) return send(res,400,{error:'The October 23 Fall Festival vendor lineup is closed. Please submit future-event interest instead.'});
+      if(body.futureInterestAccepted!==true) return send(res,400,{error:'Please confirm that this submission is for future PTA event interest.'});
       const phone=cleanText(body.phone,80);
       await sql`INSERT INTO pta_vendors (status,business_name,contact_name,email,phone,payload)
         VALUES ('pending',${businessName},${contactName},${email},${phone},${JSON.stringify(body)}::jsonb)`;
-      await sendFormEmails({type:'vendor application',email,name:contactName,details:[['Business',businessName],['Contact',contactName],['Email',email],['Phone',phone],['10% contribution agreement','Accepted']]});
+      await sendFormEmails({type:'future vendor interest',email,name:contactName,details:[['Business',businessName],['Contact',contactName],['Email',email],['Phone',phone],['Event',event||'Future PTA event / general interest'],['Fall Festival lineup','Closed — this submission is for future events only']]});
       return send(res,201,{ok:true});
     }
 
