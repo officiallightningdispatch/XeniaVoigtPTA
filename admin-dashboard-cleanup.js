@@ -140,13 +140,111 @@
     return true;
   }
 
+
+  function wireActionButtons(){
+    if(document.documentElement.dataset.adminActionFix==='1') return;
+    document.documentElement.dataset.adminActionFix='1';
+
+    document.addEventListener('click', async (e)=>{
+      const btn=e.target.closest('button');
+      if(!btn) return;
+
+      const viewId=btn.dataset.viewId;
+      const confirmId=btn.dataset.confirmVendor;
+      const declineId=btn.dataset.declineVendor;
+
+      if(viewId){
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        const entry=btn.closest('.admin-entry');
+        entry?.classList.toggle('open');
+        btn.textContent=entry?.classList.contains('open')?'Hide details':'View details';
+        return;
+      }
+
+      if(confirmId){
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        const entry=btn.closest('.admin-entry');
+        const name=entry?.querySelector('.admin-entry-name')?.textContent?.trim()||'this vendor';
+        if(!window.confirm(`Verify and confirm ${name}? This will immediately email the vendor from info@xeniavoigtpta.org.`)) return;
+
+        const session=sessionStorage.getItem('voigt-pta-board-session');
+        if(!session){ alert('Your board session expired. Please sign in again.'); return; }
+
+        const old=btn.textContent;
+        btn.disabled=true;
+        btn.textContent='Confirming…';
+        try{
+          const r=await fetch('/api/admin',{
+            method:'PATCH',
+            headers:{'Content-Type':'application/json','x-admin-session':session},
+            body:JSON.stringify({kind:'vendors',id:Number(confirmId),status:'confirmed'})
+          });
+          const j=await r.json().catch(()=>({}));
+          if(!r.ok) throw new Error(j.error||'Could not confirm vendor.');
+
+          const pill=entry?.querySelector('.admin-status-pill');
+          if(pill){
+            pill.textContent='Confirmed';
+            pill.classList.remove('warn','hot');
+            pill.classList.add('good');
+          }
+          entry?.querySelector('[data-decline-vendor]')?.remove();
+          btn.remove();
+        }catch(err){
+          btn.disabled=false;
+          btn.textContent=old;
+          alert(err.message||'Could not confirm vendor.');
+        }
+        return;
+      }
+
+      if(declineId){
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        const entry=btn.closest('.admin-entry');
+        const name=entry?.querySelector('.admin-entry-name')?.textContent?.trim()||'this vendor';
+        if(!window.confirm(`Decline ${name}?`)) return;
+
+        const session=sessionStorage.getItem('voigt-pta-board-session');
+        if(!session){ alert('Your board session expired. Please sign in again.'); return; }
+
+        btn.disabled=true;
+        const old=btn.textContent;
+        btn.textContent='Declining…';
+        try{
+          const r=await fetch('/api/admin',{
+            method:'PATCH',
+            headers:{'Content-Type':'application/json','x-admin-session':session},
+            body:JSON.stringify({kind:'vendors',id:Number(declineId),status:'declined'})
+          });
+          const j=await r.json().catch(()=>({}));
+          if(!r.ok) throw new Error(j.error||'Could not decline vendor.');
+
+          const pill=entry?.querySelector('.admin-status-pill');
+          if(pill){
+            pill.textContent='Declined';
+            pill.classList.remove('warn','good');
+          }
+          entry?.querySelector('[data-confirm-vendor]')?.remove();
+          btn.remove();
+        }catch(err){
+          btn.disabled=false;
+          btn.textContent=old;
+          alert(err.message||'Could not decline vendor.');
+        }
+      }
+    },true);
+  }
+
   async function install(){
     const root=document.getElementById('adminRoot');
     if(!root) return false;
     try{
       const r=await fetch('/api/festival-status',{cache:'no-store'});
       if(!r.ok) return false;
-      return render(await r.json());
+      const ok=render(await r.json()); wireActionButtons(); return ok;
     }catch(_){return false;}
   }
 
