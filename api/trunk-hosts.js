@@ -3,9 +3,9 @@ import { sendFormEmails } from './_email.js';
 
 const allowedTypes=new Set(['Teacher','Parent','Faculty/Staff','Community Partner','Other']);
 const TOTAL_SPOTS=20;
-const TEACHER_RESERVED=6;
+const TEACHER_RESERVED=7;
 const COMMUNITY_CONFIRMED=1;
-const PARENT_CONFIRMED=2;
+const PARENT_CONFIRMED=1;
 const RESERVED_SPOTS=TEACHER_RESERVED+COMMUNITY_CONFIRMED+PARENT_CONFIRMED;
 const PUBLIC_CAPACITY=TOTAL_SPOTS-RESERVED_SPOTS;
 
