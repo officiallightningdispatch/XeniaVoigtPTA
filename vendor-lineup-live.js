@@ -30,7 +30,7 @@
             </article>`;
           }).join('')}
         </div>
-        <div class="fall26-actions center" style="margin-top:22px"><a class="btn secondary" href="/vendors">View vendor page / apply →</a></div>
+        <div class="fall26-actions center" style="margin-top:22px"><a class="btn secondary" href="/vendors">View vendor lineup →</a></div>
       </div>`;
       target.insertAdjacentElement('beforebegin',section);
     }catch(_){}
