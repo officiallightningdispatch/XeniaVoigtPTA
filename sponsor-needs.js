@@ -11,7 +11,7 @@
     .need-head p{max-width:760px}
     .need-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
     .need-card{background:#fff;border:2px solid #171717;border-radius:22px;padding:20px;box-shadow:6px 6px 0 #171717;display:flex;flex-direction:column;gap:12px}
-    .need-card.fulfilled{opacity:.72}
+    .need-card.fulfilled{opacity:.72}.need-card.hold{background:#f7f6f2;opacity:.86}
     .need-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
     .need-category,.need-priority{font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
     .need-priority{background:#171717;color:#fff;border-radius:999px;padding:5px 8px;white-space:nowrap}
@@ -82,16 +82,16 @@
       }
       grid.innerHTML=needs.map(n=>{
         const pct=n.target>0?Math.min(100,Math.round((n.funded/n.target)*100)):0;
-        return `<article class="need-card ${n.fulfilled?'fulfilled':''}">
-          <div class="need-top"><div><span class="need-category">${esc(n.category)}</span><h3>${esc(n.title)}</h3></div><span class="need-priority">${esc(n.fulfilled?'Fulfilled':n.priority)}</span></div>
+        return `<article class="need-card ${n.fulfilled?'fulfilled':''} ${n.hold?'hold':''}">
+          <div class="need-top"><div><span class="need-category">${esc(n.category)}</span><h3>${esc(n.title)}</h3></div><span class="need-priority">${esc(n.fulfilled?'Fulfilled':n.hold?'Inventory first':n.priority)}</span></div>
           <p>${esc(n.details)}</p>
           ${n.outreachStatus?`<div class="need-outreach">${esc(n.outreachStatus)}</div>`:''}
           ${n.inKindPendingValue
-            ? `<div class="need-covered-note">${esc(n.coverageNote||'Confirmed in-kind support')}</div>
+            ? `<div class="need-covered-note">${esc(n.coverageNote||n.outreachStatus||'In-kind need')}</div>
                <div class="need-status-line">
-                 <div class="need-stat"><small>Target</small><strong>${n.quantityTarget ? esc(n.quantityTarget+' '+(n.quantityUnit||'')) : 'In-kind'}</strong></div>
-                 <div class="need-stat"><small>Pledged</small><strong>${n.quantityConfirmedMin ? esc((n.quantityConfirmedMin===n.quantityConfirmedMax?n.quantityConfirmedMin:(n.quantityConfirmedMin+'–'+n.quantityConfirmedMax))+' '+(n.quantityUnit||'')) : 'Confirmed'}</strong></div>
-                 <div class="need-stat"><small>Still needed</small><strong>${n.quantityRemainingMin ? esc((n.quantityRemainingMin===n.quantityRemainingMax?n.quantityRemainingMin:(n.quantityRemainingMin+'–'+n.quantityRemainingMax))+' '+(n.quantityUnit||'')) : 'Final count pending'}</strong></div>
+                 <div class="need-stat"><small>Target</small><strong>${n.openEnded?'Additional donations':n.hold?'TBD after inventory':n.quantityTarget ? esc(n.quantityTarget+' '+(n.quantityUnit||'')) : 'In-kind'}</strong></div>
+                 <div class="need-stat"><small>Confirmed</small><strong>${n.quantityConfirmedMin ? esc((n.quantityConfirmedMin===n.quantityConfirmedMax?n.quantityConfirmedMin:(n.quantityConfirmedMin+'–'+n.quantityConfirmedMax))+' '+(n.quantityUnit||'')) : n.hold?'Inventory being reconciled':'Confirmed support'}</strong></div>
+                 <div class="need-stat"><small>Still needed</small><strong>${n.openEnded?'More donations needed':n.hold?'TBD':n.quantityRemainingMin ? esc((n.quantityRemainingMin===n.quantityRemainingMax?n.quantityRemainingMin:(n.quantityRemainingMin+'–'+n.quantityRemainingMax))+' '+(n.quantityUnit||'')) : 'Final count pending'}</strong></div>
                </div>`
             : `<div class="need-meter" aria-label="${pct}% funded"><span style="width:${pct}%"></span></div>
                <div class="need-status-line">
@@ -99,9 +99,11 @@
                  <div class="need-stat"><small>Confirmed</small><strong>${money(n.funded)}</strong></div>
                  <div class="need-stat"><small>Remaining</small><strong>${n.fulfilled?'$0':money(n.remaining)}</strong></div>
                </div>`}
-          ${n.inKindPendingValue&&!n.fulfilled
-            ? `<a class="btn primary" href="mailto:info@xeniavoigtpta.org?subject=${encodeURIComponent('In-kind support — '+n.title)}">Offer in-kind support →</a>`
-            : `<button class="btn ${n.fulfilled?'secondary':'primary'}" type="button" data-need="${esc(n.id)}" ${n.fulfilled?'disabled':''}>${n.fulfilled?'Covered ✓':'Sponsor this need →'}</button>`}
+          ${n.hold
+            ? `<button class="btn secondary" type="button" disabled>Inventory check first</button>`
+            : n.inKindPendingValue&&!n.fulfilled
+              ? `<a class="btn primary" href="mailto:info@xeniavoigtpta.org?subject=${encodeURIComponent('In-kind support — '+n.title)}">Offer in-kind support →</a>`
+              : `<button class="btn ${n.fulfilled?'secondary':'primary'}" type="button" data-need="${esc(n.id)}" ${n.fulfilled?'disabled':''}>${n.fulfilled?'Covered ✓':'Sponsor this need →'}</button>`}
         </article>`;
       }).join('');
     }catch(err){grid.innerHTML=`<div class="modern-panel"><h3>Current needs are temporarily unavailable.</h3><p>${esc(err.message)}</p></div>`;}
@@ -118,7 +120,7 @@
 
   grid.addEventListener('click',e=>{
     const btn=e.target.closest('[data-need]'); if(!btn)return;
-    const n=needs.find(x=>x.id===btn.dataset.need); if(!n||n.fulfilled)return;
+    const n=needs.find(x=>x.id===btn.dataset.need); if(!n||n.fulfilled||n.hold)return;
     const form=document.getElementById('needForm');
     form.elements.needId.value=n.id;
     form.elements.amount.value=Math.max(1,Math.round(n.remaining*100)/100);
