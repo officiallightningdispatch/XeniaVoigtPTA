@@ -91,7 +91,7 @@
                <div class="need-status-line">
                  <div class="need-stat"><small>Target</small><strong>${n.openEnded?'Additional donations':n.hold?'TBD after inventory':n.quantityTarget ? esc(n.quantityTarget+' '+(n.quantityUnit||'')) : 'In-kind'}</strong></div>
                  <div class="need-stat"><small>Confirmed</small><strong>${n.quantityConfirmedMin ? esc((n.quantityConfirmedMin===n.quantityConfirmedMax?n.quantityConfirmedMin:(n.quantityConfirmedMin+'–'+n.quantityConfirmedMax))+' '+(n.quantityUnit||'')) : n.hold?'Inventory being reconciled':'Confirmed support'}</strong></div>
-                 <div class="need-stat"><small>Still needed</small><strong>${n.openEnded?'More donations needed':n.hold?'TBD':n.quantityRemainingMin ? esc((n.quantityRemainingMin===n.quantityRemainingMax?n.quantityRemainingMin:(n.quantityRemainingMin+'–'+n.quantityRemainingMax))+' '+(n.quantityUnit||'')) : 'Final count pending'}</strong></div>
+                 <div class="need-stat"><small>Still needed</small><strong>${n.openEnded?'More donations needed':n.hold?'TBD':(n.quantityRemainingMin!==undefined&&n.quantityRemainingMin!==null) ? esc((n.quantityRemainingMin===n.quantityRemainingMax?n.quantityRemainingMin:(n.quantityRemainingMin+'–'+n.quantityRemainingMax))+' '+(n.quantityUnit||'')) : 'Final count pending'}</strong></div>
                </div>`
             : `<div class="need-meter" aria-label="${pct}% funded"><span style="width:${pct}%"></span></div>
                <div class="need-status-line">
