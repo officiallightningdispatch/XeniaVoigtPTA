@@ -42,7 +42,7 @@ export default async function handler(req,res){
       const cashPledged=needs.reduce((sum,n)=>sum+Number(n.funded||0),0);
       const openCashTarget=needs.filter(n=>!n.inKindPendingValue&&!n.hold&&!n.openEnded).reduce((sum,n)=>sum+Number(n.target||0),0);
       const openCashRemaining=needs.filter(n=>!n.inKindPendingValue&&!n.hold&&!n.openEnded).reduce((sum,n)=>sum+Number(n.remaining||0),0);
-      const inKindConfirmed=needs.filter(n=>n.inKindPendingValue&&n.coverageNote).map(n=>({id:n.id,title:n.title,note:n.coverageNote}));
+      const inKindConfirmed=needs.filter(n=>n.inKindPendingValue&&n.coverageNote&&!n.fulfilled).map(n=>({id:n.id,title:n.title,note:n.coverageNote}));
       const confirmedCoverage=[
         {label:'Shine Pediatric Dental Co.',detail:'$195 bounce/combo inflatable — fully covered; the only inflatable planned'},
         {label:'AiRCO Mechanical',detail:'$1,095 trackless train — fully covered'},
