@@ -57,8 +57,8 @@
     ];
 
     const deadlines=[
-      'Oct 16 — lock layout, safety, placements, audio, equipment pull and print quantities.',
-      'Oct 22 — complete physical donation and supply pickups.',
+      'Sep 30 evening — confirmation freeze: hosts, themes, donations, volunteers and required approvals locked.',
+      'Oct 1 morning — promotion-only mode begins; no new planning unless a true exception is required.',
       'Oct 23 — Fall Festival, 5:30–7:30 PM.'
     ];
 
