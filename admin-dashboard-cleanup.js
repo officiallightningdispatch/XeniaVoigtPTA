@@ -1,5 +1,5 @@
 (()=> {
-  const path=(location.pathname.replace(/\\/index\\.html$/,'').replace(/\\/$/,'')||'/');
+  let path=location.pathname; if(path.endsWith('/index.html')) path=path.slice(0,-11); if(path.length>1&&path.endsWith('/')) path=path.slice(0,-1); path=path||'/';
   if(path!=='/admin') return;
 
   const MASTER='https://docs.google.com/spreadsheets/d/18AZisrkN6lm9IP0npjKgPvoQ1ucLxbWN/edit';
