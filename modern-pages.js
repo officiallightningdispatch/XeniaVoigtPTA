@@ -35,7 +35,7 @@
 
   if(p==='/fundraising'){
     main.innerHTML=`${hero('SUPPORT + PARTNERSHIPS','Help without making it weird.','Local businesses, families, and community partners can support Voigt through goods, services, sponsorships, volunteering, and event participation.')}
-    <section class="section"><div class="container"><div class="grid two">${card('Future vendor interest','The October 23 Fall Festival lineup is closed. Businesses can share interest for future PTA events.','/vendors','Future-event interest')}${card('Sponsor or donate','Support an event, donate an item, provide a service, or help make something possible.','/contact','Start a conversation')}${card('Give time or talent','Volunteer for an event, planning task, creative project, or behind-the-scenes need.','/volunteer','Volunteer')}${card('Offer a community resource','Have an idea, program, partnership, or resource that could help Voigt? We want to hear it.','/contact','Contact PTA')}</div></div></section>`;
+    <section class="section"><div class="container"><div class="grid two">${card('Fall Festival vendor lineup','The October 23 vendor lineup is set. See the selected food vendors for festival night.','/vendors','View lineup')}${card('Sponsor or donate','Support an event, donate an item, provide a service, or help make something possible.','/contact','Start a conversation')}${card('Give time or talent','Volunteer for an event, planning task, creative project, or behind-the-scenes need.','/volunteer','Volunteer')}${card('Offer a community resource','Have an idea, program, partnership, or resource that could help Voigt? We want to hear it.','/contact','Contact PTA')}</div></div></section>`;
   }
 
   if(p==='/donate'){
