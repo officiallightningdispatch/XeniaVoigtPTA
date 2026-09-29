@@ -39,7 +39,7 @@ export default async function handler(req,res){
         SELECT DISTINCT ON (LOWER(TRIM(business_name)))
           id,business_name,payload,created_at
         FROM pta_vendors
-        WHERE status='approved'
+        WHERE status IN ('approved','confirmed')
         ORDER BY LOWER(TRIM(business_name)), created_at DESC
       `;
       const vendors=rows.map(r=>{
