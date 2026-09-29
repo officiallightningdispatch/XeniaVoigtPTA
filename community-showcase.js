@@ -330,13 +330,15 @@
 
   if(path==='/vendors'){
     const formSection=main.querySelector('.section')?.outerHTML||'';
-    main.innerHTML=`${hero('FALL FESTIVAL FOOD + VENDORS','Come hungry. Shop local. Meet the businesses joining us.','We proudly feature vendors after their participation is confirmed. New confirmations will be added here as the lineup grows.')}
-      <section class="section showcase-vendors"><div class="container"><div class="showcase-intro"><span class="showcase-count">${data.vendors.length}</span><div><h2>Confirmed vendor lineup</h2><p>Friday, October 23, 2026 · 5:30–7:30 PM. Menus and final setup details may continue to be updated as the event gets closer.</p></div></div>${cards(data.vendors)}</div></section>
+    main.innerHTML=`${hero('2026 FALL FESTIVAL VENDORS','The October 23 lineup is set.','We are not accepting additional vendors for the 2026 Fall Festival. The selected food lineup is shown below; businesses may still submit interest for future PTA events.')}
+      <section class="section showcase-vendors"><div class="container"><div class="showcase-intro"><span class="showcase-count">${data.vendors.length}</span><div><h2>Selected Fall Festival lineup</h2><p>Friday, October 23, 2026 · 5:30–7:30 PM. K&amp;K BBQ Mexican Food, Hearth &amp; Honey, and Pour The Fun are the capped vendor plan.</p></div></div>${cards(data.vendors)}</div></section>
       ${formSection}`;
     const side=main.querySelector('.vendor-side');
     if(side){
-      side.querySelector('.mini-label')?.replaceChildren(document.createTextNode('WANT TO JOIN THE LINEUP?'));
-      const h=side.querySelector('h2'); if(h)h.textContent='Vendor applications are still open.';
+      side.querySelector('.mini-label')?.replaceChildren(document.createTextNode('FUTURE EVENT INTEREST'));
+      const h=side.querySelector('h2'); if(h)h.textContent='Fall Festival vendor applications are closed.';
+      const paragraphs=[...side.querySelectorAll('p')];
+      if(paragraphs[0]) paragraphs[0].textContent='The October 23 lineup is set. Businesses can use the form for future PTA event consideration only.';
     }
     refreshApprovedVendors();
   }
