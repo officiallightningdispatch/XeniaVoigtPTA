@@ -33,6 +33,9 @@
   <link rel="stylesheet" href="/community-showcase.css?v=1" />
 </head>
 <body>
+  <script data-release-guard>
+  window.addEventListener('pageshow',function(e){if(e.persisted)location.reload();});
+  </script>
   <div id="app"><main id="main"><section class="hero"><div class="container"><div class="eyebrow">Xenia Voigt Arts Academy PTA</div><h1>Loading the PTA website…</h1></div></section></main></div>
   <script src="/app.js?v=11" defer></script>
   <script src="/home-hype.js?v=5" defer></script>
@@ -45,7 +48,7 @@
   <script src="/modern-pages.js?v=10" defer></script>
   <script src="/events-calendar.js?v=1" defer></script>
   <script src="/vendor-form.js?v=2" defer></script>
-  <script src="/community-showcase.js?v=15" defer></script>
+  <script src="/community-showcase.js?v=16" defer></script>
   <script src="/sponsor-needs.js?v=16" defer></script>
   <script>if(new URLSearchParams(location.search).has("reset"))sessionStorage.removeItem("voigt-pta-board-session");</script>
   <script src="/admin.js?v=6" defer></script>
