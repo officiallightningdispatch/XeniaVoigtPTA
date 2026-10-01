@@ -268,6 +268,14 @@
     ],
     "working": [
       {
+        "item": "School/PTA closet materials",
+        "status": "Reserve approval pending",
+        "date": "ASAP",
+        "tone": "working",
+        "detail": "Closet inventory is reconciled. On-hand items can cover Viking Quest station totes and materially reduce game-prop, table-cover, craft, pumpkin-decorating, face-paint, prize, photo-stop and operations needs.",
+        "next": "Mrs. Cobb has been asked to approve reserving the listed closet items for Oct. 23; after approval, remove duplicate external sourcing and tag the physical inventory."
+      },
+      {
         "item": "A+ candy handoff",
         "status": "Scheduling",
         "date": "Oct 22",
@@ -309,6 +317,14 @@
       }
     ],
     "action": [
+      {
+        "item": "Confirm closet material reservation",
+        "status": "Action Needed",
+        "date": "ASAP",
+        "tone": "action",
+        "detail": "At least 6 lidded totes, labeled game equipment, red/white tablecloths, glue/craft supplies, one face-paint kit, fall/photo props, prize stock, coolers and event-service supplies are already on campus.",
+        "next": "Get school authorization, then reserve/count the items and close duplicate sourcing lines."
+      },
       {
         "item": "Confirm 12A outlet + audio operator",
         "status": "Action Needed",
@@ -379,7 +395,8 @@
       "Food vendors: back-drive spaces nearest gate.",
       "Trunk-or-Treat: back-drive spaces facing school; accessible spaces remain open.",
       "Indoor public use: gym, downstairs restrooms, main hallway, cafeteria only.",
-      "Audio: school car-rider speaker + microphone; district operator still to be confirmed."
+      "Audio: school car-rider speaker + microphone; district operator still to be confirmed.",
+      "School/PTA closet inventory has been reconciled; use on-hand supplies before purchasing or accepting duplicate donations."
     ]
   }
 }
