@@ -235,11 +235,11 @@
       },
       {
         "item": "H-E-B $125 Cake Walk support",
-        "status": "Approved",
-        "date": "Sep 30",
+        "status": "Confirmed",
+        "date": "Oct 22",
         "tone": "confirmed",
-        "detail": "H-E-B approved $125 for Fall Festival support and the contribution is assigned to Cake Walk bakery prizes. H-E-B will apply the credit through the Business Center after the register suspends the transaction.",
-        "next": "Confirm the proposed Oct. 22 at 10:00 AM shopping appointment and keep the bakery purchase at or under $125."
+        "detail": "H-E-B approved $125 for Fall Festival support, assigned to Cake Walk bakery prizes. Deidre Kirts confirmed the Business Center shopping appointment for Thursday, October 22 at 10:00 AM.",
+        "next": "Bring the locked bakery list on Oct. 22 at 10:00 AM, keep the final purchase at or under $125, and use like-for-like bakery substitutions only if an item is unavailable."
       },
       {
         "item": "Round Rock Sweethearts — 9 students",
@@ -268,14 +268,6 @@
     ],
     "working": [
       {
-        "item": "H-E-B Cake Walk shopping",
-        "status": "Appointment pending",
-        "date": "Oct 22",
-        "tone": "working",
-        "detail": "The Cake Walk plan is built around 23 H-E-B bakery prize packages plus 17 donated prize packages for a working total of 40 prizes. The current bakery estimate is designed to stay within the $125 H-E-B contribution.",
-        "next": "Wait for Deidre to confirm Oct. 22 at 10:00 AM, then shop the locked list with like-for-like bakery substitutions only if needed."
-      },
-      {
         "item": "A+ candy handoff",
         "status": "Scheduling",
         "date": "Oct 22",
@@ -284,12 +276,12 @@
         "next": "Confirm whether Oct. 22 branch pickup or school drop-off is the final handoff method and record receipt."
       },
       {
-        "item": "St. Richard’s — 86 pumpkins",
-        "status": "Quantity pending",
-        "date": "Oct 22",
+        "item": "St. Richard’s — 86 pumpkins at $50",
+        "status": "Sponsor pending",
+        "date": "ASAP",
         "tone": "working",
-        "detail": "The exact request is 86 small pumpkins: 80 for the no-carve decorating activity and 6 durable mini pumpkins for Pumpkin Bowling. St. Richard’s has not yet confirmed whether it can provide the full quantity.",
-        "next": "Obtain the confirmed quantity and Oct. 22 pickup window; fill only any remaining gap."
+        "detail": "Mary Ann Conkel confirmed by phone on Oct. 1 that St. Richard’s cannot donate the pumpkins, but will provide all 86 needed pumpkins for a discounted total price of $50. This covers 80 no-carve decorating pumpkins plus 6 sturdy mini pumpkins for Pumpkin Bowling.",
+        "next": "Secure one $50 sponsor, then confirm the payment method and Oct. 22 pickup time with St. Richard’s."
       },
       {
         "item": "Train Quest onsite walk-through",
@@ -298,6 +290,14 @@
         "tone": "working",
         "detail": "Train Quest offered an onsite walkthrough one week before the festival to verify the train route, inflatable location/power, giant games, clearances, and setup access.",
         "next": "Receive the school-approved Oct. 16 time from Mrs. Cobb/Ana/Ferguson."
+      },
+      {
+        "item": "$50 pumpkin sponsorship outreach",
+        "status": "3 asks sent",
+        "date": "Oct 2",
+        "tone": "working",
+        "detail": "Targeted exact-need sponsorship requests were sent Oct. 1 in existing threads to Lamppost Coffee Round Rock West, Watkins Insurance Group, and Frontier Bank of Texas. Each was asked to cover the full $50 pumpkin cost.",
+        "next": "Accept the first confirmed $50 sponsor, stop the other asks before payment, and update St. Richard’s/payment records immediately."
       }
     ],
     "action": [
