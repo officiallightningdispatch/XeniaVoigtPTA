@@ -47,7 +47,10 @@
       <div class="ff-status-head"><span class="ff-status-head-icon ${tone}">${icons[icon]}</span><h2>${esc(title)}</h2><span>${items.length} item${items.length===1?'':'s'}</span></div>
       <div class="ff-table-head"><span>Item</span><span>${kind==='confirmed'||kind==='complete'?'Date':'Due Date'}</span></div>
       <div class="ff-status-rows">
-        ${items.map(item=>`<div class="ff-status-row"><div><b>${esc(item.item)}</b><span class="ff-pill ${esc(item.tone||kind)}">${esc(item.status||title)}</span></div><time>${esc(item.date||'—')}</time><span class="ff-chevron">›</span></div>`).join('')}
+        ${items.map((item,index)=>{
+          const next=item.next?'<div class="ff-detail-next"><strong>Next:</strong> '+esc(item.next)+'</div>':'';
+          return '<article class="ff-status-item"><button class="ff-status-row" type="button" data-detail-toggle aria-expanded="false"><div><b>'+esc(item.item)+'</b><span class="ff-pill '+esc(item.tone||kind)+'">'+esc(item.status||title)+'</span></div><time>'+esc(item.date||'—')+'</time><span class="ff-chevron" aria-hidden="true">›</span></button><div class="ff-status-detail" hidden><p>'+esc(item.detail||'No additional details have been added yet.')+'</p>'+next+'</div></article>';
+        }).join('')}
       </div>
     </section>`;
   }
@@ -169,6 +172,20 @@
             ${statusSection('action','Action Needed',board.action||[])}
             ${statusSection('complete','Complete',board.complete||[])}
           </div>`;
+        wireDetailToggles();
+      }
+      function wireDetailToggles(){
+        view.querySelectorAll('[data-detail-toggle]').forEach(btn=>{
+          btn.addEventListener('click',()=>{
+            const item=btn.closest('.ff-status-item');
+            const detail=item?.querySelector('.ff-status-detail');
+            if(!detail) return;
+            const open=btn.getAttribute('aria-expanded')==='true';
+            btn.setAttribute('aria-expanded',String(!open));
+            detail.hidden=open;
+            item?.classList.toggle('open',!open);
+          });
+        });
       }
       function setActive(id){
         root.querySelectorAll('[data-board-view]').forEach(b=>b.classList.toggle('active',b.dataset.boardView===id));
