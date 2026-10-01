@@ -1,258 +1,206 @@
 (()=> {
-  let path=location.pathname; if(path.endsWith('/index.html')) path=path.slice(0,-11); if(path.length>1&&path.endsWith('/')) path=path.slice(0,-1); path=path||'/';
+  let path=location.pathname;
+  if(path.endsWith('/index.html')) path=path.slice(0,-11);
+  if(path.length>1&&path.endsWith('/')) path=path.slice(0,-1);
+  path=path||'/';
   if(path!=='/admin') return;
 
-  const MASTER='https://docs.google.com/spreadsheets/d/18AZisrkN6lm9IP0npjKgPvoQ1ucLxbWN/edit';
-  const NEEDS='https://docs.google.com/spreadsheets/d/1g9GJpTSXrL3aoRhd--KXvSf5AvP8iN4U/edit';
+  const SESSION_KEY='voigt-pta-board-session';
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const shortDate=s=>{try{return new Date(s+'T12:00:00').toLocaleDateString(undefined,{month:'short',day:'numeric'});}catch(_){return s;}};
+  const money=n=>Number.isFinite(Number(n))?'$'+Number(n).toLocaleString(undefined,{maximumFractionDigits:2}):'$0';
+  const titleCase=s=>String(s||'').replace(/[_-]+/g,' ').replace(/\b\w/g,m=>m.toUpperCase());
 
-  function daysToEvent(){
-    const now=new Date();
-    const event=new Date(2026,9,23);
-    const today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
-    return Math.max(0,Math.ceil((event-today)/86400000));
+  const icons={
+    home:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5.5 9.5V21h13V9.5"/><path d="M9.5 21v-7h5v7"/></svg>',
+    heart:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>',
+    store:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h16"/><path d="M5 10v10h14V10"/><path d="M3 6h18l-1 4H4L3 6Z"/><path d="M9 14h6v6H9z"/></svg>',
+    users:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-4 2.2-7 6-7s6 3 6 7"/><path d="M14.5 14c3.3.2 5.5 2.1 5.5 6"/></svg>',
+    megaphone:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 13-5v12L3 13z"/><path d="M16 10c3 0 5-1 5-1v6s-2-1-5-1"/><path d="m7 14 2 6h3l-2-7"/></svg>',
+    map:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3Z"/><path d="M9 3v15M15 6v15"/></svg>',
+    gift:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h18v12H3z"/><path d="M12 9v12M3 13h18"/><path d="M12 9H7.5A2.5 2.5 0 1 1 10 6.5L12 9Zm0 0h4.5A2.5 2.5 0 1 0 14 6.5L12 9Z"/></svg>',
+    clock:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>',
+    check:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>',
+    alert:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2.8 20h18.4L12 3Z"/><path d="M12 9v5M12 17h.01"/></svg>',
+    logout:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4H4v16h6"/><path d="m14 8 4 4-4 4M8 12h10"/></svg>'
+  };
+
+  function navButton(id,label,icon){
+    return `<button class="ff-side-link ${id==='dashboard'?'active':''}" type="button" data-board-view="${id}"><span class="ff-side-icon">${icons[icon]}</span><span>${esc(label)}</span></button>`;
   }
 
-  function metric(value,label,cls=''){
-    return `<article class="${cls}"><strong>${esc(value)}</strong><span>${esc(label)}</span></article>`;
-  }
-
-  function list(items){
-    return `<ul>${items.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`;
-  }
-
-  function render(data){
-    const root=document.getElementById('adminRoot');
-    const head=root?.querySelector('.admin-suite-head');
-    if(!root||!head) return false;
-
-    document.getElementById('festivalSharedStatus')?.remove();
-
-    const m=data.metrics||{};
-    const budget=data.budget||{};
-    const vendors=Array.isArray(m.approvedVendors)?m.approvedVendors:[];
-    const trunks=Number(m.trunkSpacesClaimed)||0;
-    const trunkTarget=Number(m.trunkSpacesTarget)||20;
-    const trunksOpen=Math.max(0,trunkTarget-trunks);
-    const attractions=Number(m.majorAttractionsSponsored)||2;
-    const attractionTarget=Number(m.majorAttractionsTarget)||2;
-    const auction=Number(m.silentAuctionPrizes)||7;
-    const foodTarget=Number(m.foodPlanTarget)||3;
-    const days=daysToEvent();
-
-    const priorities=[
-      'Finalize campus layout, safety, ADA, traffic, attraction placement and power approvals.',
-      'Finish the PE/school + PTA inventory pull; source only the materials that are actually still missing.',
-      'Secure additional donated Cake Walk prizes so PTA cash is preserved.',
-      `Fill the remaining ${trunksOpen} Trunk-or-Treat spaces and confirm candy pickup/distribution.`,
-      'Finalize volunteer assignments and the school audio/Garage Band event-night plan.'
-    ];
-
-    const locked=[
-      'Trackless train and combo inflatable are sponsored; sponsors pay the attraction providers directly.',
-      `Food plan is capped at ${vendors.length||3}/${foodTarget}: ${vendors.join(' + ')||'K&K BBQ + Hearth & Honey + Pour The Fun'}.`,
-      `${auction} silent-auction prizes are confirmed.`,
-      'Face painting is covered by volunteers; no paid face-painting vendor is needed.'
-    ];
-
-    const deadlines=[
-      'Sep 30 evening — confirmation freeze: hosts, themes, donations, volunteers and required approvals locked.',
-      'Oct 1 morning — promotion-only mode begins; no new planning unless a true exception is required.',
-      'Oct 23 — Fall Festival, 5:30–7:30 PM.'
-    ];
-
-    const box=document.createElement('section');
-    box.id='festivalSharedStatus';
-    box.className='admin-compact-command';
-    box.innerHTML=`
-      <div class="admin-compact-top">
-        <div>
-          <span class="mini-label">FALL FESTIVAL · COMMAND CENTER</span>
-          <h2>${days} days to go</h2>
-          <p>Friday, October 23 · 5:30–7:30 PM · Updated ${esc(shortDate(data.updatedAt||'2026-09-28'))}</p>
-        </div>
-        <div class="admin-compact-actions">
-          <a class="btn secondary" href="${MASTER}" target="_blank" rel="noopener">Master tracker ↗</a>
-          <a class="btn secondary" href="${NEEDS}" target="_blank" rel="noopener">Needs tracker ↗</a>
-        </div>
+  function metricCard(item){
+    const pct=Math.max(0,Math.min(100,Number(item.percent)||0));
+    return `<article class="ff-metric-card">
+      <div class="ff-metric-top">
+        <span class="ff-metric-icon">${icons[item.icon]||icons.heart}</span>
+        <div><strong>${esc(item.value)}</strong><span>${esc(item.label)}</span></div>
       </div>
-
-      <div class="admin-compact-metrics">
-        ${metric(`${budget.spent||'$0'} / ${budget.allocation||'$300'}`,'PTA spend / allocation','covered')}
-        ${metric(`${attractions} / ${attractionTarget}`,'Major attractions sponsored','covered')}
-        ${metric(`${vendors.length||3} / ${foodTarget}`,'Current food plan','covered')}
-        ${metric(`${trunks} / ${trunkTarget}`,'Trunk-or-Treat spaces')}
-        ${metric(String(auction),'Silent-auction prizes','covered')}
-      </div>
-
-      <div class="admin-focus-grid">
-        <article class="admin-focus urgent">
-          <div class="admin-focus-head"><span>NEEDS ACTION NOW</span><b>5</b></div>
-          ${list(priorities)}
-        </article>
-        <article class="admin-focus confirmed">
-          <div class="admin-focus-head"><span>LOCKED IN</span><b>4</b></div>
-          ${list(locked)}
-        </article>
-        <article class="admin-focus open">
-          <div class="admin-focus-head"><span>DEADLINES</span><b>3</b></div>
-          ${list(deadlines)}
-        </article>
-      </div>
-    `;
-
-    head.insertAdjacentElement('afterend',box);
-
-    const nav=root.querySelector('.admin-suite-tabs');
-    root.querySelectorAll('.admin-suite-tabs [data-panel]').forEach(b=>{
-      if(!['submissions','resources'].includes(b.dataset.panel)) b.remove();
-    });
-    ['panel-role','panel-events','panel-finance','panel-communications'].forEach(id=>document.getElementById(id)?.remove());
-
-    let details=document.getElementById('boardToolsFold');
-    if(!details){
-      details=document.createElement('details');
-      details.id='boardToolsFold';
-      details.className='admin-full-workspace';
-      details.innerHTML='<summary><span><b>Forms & board files</b><small>Open only when you need submissions or source documents.</small></span><b>＋</b></summary><div class="admin-full-workspace-body"></div>';
-      root.appendChild(details);
-    }
-    const body=details.querySelector('.admin-full-workspace-body');
-    if(nav && nav.parentElement!==body) body.appendChild(nav);
-
-    ['panel-submissions','panel-resources'].forEach(id=>{
-      const panel=document.getElementById(id);
-      if(panel && panel.parentElement!==body) body.appendChild(panel);
-    });
-
-    [...root.children].forEach(node=>{
-      if(node!==head && node!==box && node!==details) node.remove();
-    });
-
-    const firstTab=nav?.querySelector('[data-panel="submissions"]');
-    if(firstTab){
-      nav.querySelectorAll('[data-panel]').forEach(x=>x.classList.remove('active'));
-      firstTab.classList.add('active');
-      body.querySelectorAll('.admin-panel').forEach(x=>x.classList.remove('active'));
-      body.querySelector('#panel-submissions')?.classList.add('active');
-    }
-    return true;
+      <div class="ff-progress"><i style="width:${pct}%"></i></div>
+      <small>${pct}%</small>
+    </article>`;
   }
 
-
-  function wireActionButtons(){
-    if(document.documentElement.dataset.adminActionFix==='1') return;
-    document.documentElement.dataset.adminActionFix='1';
-
-    document.addEventListener('click', async (e)=>{
-      const btn=e.target.closest('button');
-      if(!btn) return;
-
-      const viewId=btn.dataset.viewId;
-      const confirmId=btn.dataset.confirmVendor;
-      const declineId=btn.dataset.declineVendor;
-
-      if(viewId){
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        const entry=btn.closest('.admin-entry');
-        entry?.classList.toggle('open');
-        btn.textContent=entry?.classList.contains('open')?'Hide details':'View details';
-        return;
-      }
-
-      if(confirmId){
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        const entry=btn.closest('.admin-entry');
-        const name=entry?.querySelector('.admin-entry-name')?.textContent?.trim()||'this vendor';
-        if(!window.confirm(`Verify and confirm ${name}? This will immediately email the vendor from info@xeniavoigtpta.org.`)) return;
-
-        const session=sessionStorage.getItem('voigt-pta-board-session');
-        if(!session){ alert('Your board session expired. Please sign in again.'); return; }
-
-        const old=btn.textContent;
-        btn.disabled=true;
-        btn.textContent='Confirming…';
-        try{
-          const r=await fetch('/api/admin',{
-            method:'PATCH',
-            headers:{'Content-Type':'application/json','x-admin-session':session},
-            body:JSON.stringify({kind:'vendors',id:Number(confirmId),status:'confirmed'})
-          });
-          const j=await r.json().catch(()=>({}));
-          if(!r.ok) throw new Error(j.error||'Could not confirm vendor.');
-
-          const pill=entry?.querySelector('.admin-status-pill');
-          if(pill){
-            pill.textContent='Confirmed';
-            pill.classList.remove('warn','hot');
-            pill.classList.add('good');
-          }
-          entry?.querySelector('[data-decline-vendor]')?.remove();
-          btn.remove();
-        }catch(err){
-          btn.disabled=false;
-          btn.textContent=old;
-          alert(err.message||'Could not confirm vendor.');
-        }
-        return;
-      }
-
-      if(declineId){
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        const entry=btn.closest('.admin-entry');
-        const name=entry?.querySelector('.admin-entry-name')?.textContent?.trim()||'this vendor';
-        if(!window.confirm(`Decline ${name}?`)) return;
-
-        const session=sessionStorage.getItem('voigt-pta-board-session');
-        if(!session){ alert('Your board session expired. Please sign in again.'); return; }
-
-        btn.disabled=true;
-        const old=btn.textContent;
-        btn.textContent='Declining…';
-        try{
-          const r=await fetch('/api/admin',{
-            method:'PATCH',
-            headers:{'Content-Type':'application/json','x-admin-session':session},
-            body:JSON.stringify({kind:'vendors',id:Number(declineId),status:'declined'})
-          });
-          const j=await r.json().catch(()=>({}));
-          if(!r.ok) throw new Error(j.error||'Could not decline vendor.');
-
-          const pill=entry?.querySelector('.admin-status-pill');
-          if(pill){
-            pill.textContent='Declined';
-            pill.classList.remove('warn','good');
-          }
-          entry?.querySelector('[data-confirm-vendor]')?.remove();
-          btn.remove();
-        }catch(err){
-          btn.disabled=false;
-          btn.textContent=old;
-          alert(err.message||'Could not decline vendor.');
-        }
-      }
-    },true);
+  function statusSection(kind,title,items){
+    const map={confirmed:['check','green'],working:['clock','gold'],action:['alert','red'],complete:['check','gray']};
+    const [icon,tone]=map[kind]||map.working;
+    return `<section class="ff-status-card ff-${kind}">
+      <div class="ff-status-head"><span class="ff-status-head-icon ${tone}">${icons[icon]}</span><h2>${esc(title)}</h2><span>${items.length} item${items.length===1?'':'s'}</span></div>
+      <div class="ff-table-head"><span>Item</span><span>${kind==='confirmed'||kind==='complete'?'Date':'Due Date'}</span></div>
+      <div class="ff-status-rows">
+        ${items.map(item=>`<div class="ff-status-row"><div><b>${esc(item.item)}</b><span class="ff-pill ${esc(item.tone||kind)}">${esc(item.status||title)}</span></div><time>${esc(item.date||'—')}</time><span class="ff-chevron">›</span></div>`).join('')}
+      </div>
+    </section>`;
   }
 
-  async function install(){
+  function fallbackDashboard(admin){
+    const sponsors=(admin.sponsorships||[]).filter(x=>['pledged','confirmed','paid'].includes(x.status));
+    const confirmedVendors=(admin.vendors||[]).filter(x=>x.status==='confirmed');
+    const volunteerCount=(admin.volunteers||[]).filter(x=>!['closed','declined'].includes(x.status)).length;
+    return {
+      metrics:[
+        {label:'Sponsors & Funding',value:`${Math.max(2,new Set(sponsors.map(x=>x.organization||x.donor_name).filter(Boolean)).size)} / 2`,percent:100,icon:'heart'},
+        {label:'Vendors & Attractions',value:`${Math.max(3,confirmedVendors.length)+2} / 5`,percent:100,icon:'store'},
+        {label:'Volunteers',value:`${Math.max(11,volunteerCount)} / 36`,percent:31,icon:'users'},
+        {label:'Donations & Fulfillment',value:'3 / 7',percent:43,icon:'gift'},
+        {label:'Family Communications',value:'2 / 3',percent:67,icon:'megaphone'}
+      ],
+      confirmed:[
+        {item:'Train Quest package (trackless train + games)',status:'Confirmed',date:'Oct 1',tone:'confirmed'},
+        {item:'H-E-B $125 Cake Walk support',status:'Approved',date:'Sep 30',tone:'confirmed'},
+        {item:'Round Rock Sweethearts — 9 students',status:'Confirmed',date:'Sep 30',tone:'confirmed'},
+        {item:'Nothing Bundt Cakes — 15 Bundtlets',status:'Confirmed',date:'Oct 22',tone:'confirmed'},
+        {item:'Teacher trunks — Pre-K through 5',status:'Confirmed',date:'Sep 30',tone:'confirmed'}
+      ],
+      working:[
+        {item:'H-E-B Cake Walk shopping',status:'Appointment pending',date:'Oct 22',tone:'working'},
+        {item:'A+ candy handoff',status:'Scheduling',date:'Oct 22',tone:'working'},
+        {item:'St. Richard’s — 86 pumpkins',status:'Quantity pending',date:'Oct 22',tone:'working'},
+        {item:'Train Quest onsite walk-through',status:'Time pending',date:'Oct 16',tone:'working'}
+      ],
+      action:[
+        {item:'Shine inflatable payment — INV0763',status:'Action Needed',date:'ASAP',tone:'action'},
+        {item:'Confirm 12A outlet + audio operator',status:'Action Needed',date:'Oct 16',tone:'action'},
+        {item:'Finalize volunteer adult leads',status:'Action Needed',date:'Oct 16',tone:'action'}
+      ],
+      complete:[
+        {item:'AiRCO $1,095 Train Quest payment',status:'Completed',date:'Oct 1',tone:'complete'},
+        {item:'Express supplies delivered to Voigt',status:'Completed',date:'Sep 25',tone:'complete'},
+        {item:'Family candy drive live through Oct. 23',status:'Completed',date:'Oct 1',tone:'complete'}
+      ],
+      communications:[
+        'Family candy drive is live through October 23.',
+        'Volunteer recruitment is active.',
+        'Public website stays family-facing only; no internal planning content.'
+      ],
+      layoutOps:[
+        'Train: track route; batting area loading/unloading; queue along fence.',
+        'Inflatable: covered-area/portable power zone; 110V, 12A, within 50 feet.',
+        'Food vendors: back-drive spaces nearest gate.',
+        'Trunk-or-Treat: back-drive spaces facing school; accessible spaces remain open.',
+        'Indoor public use: gym, downstairs restrooms, main hallway, cafeteria only.',
+        'Audio: school car-rider speaker + microphone; district operator still to be confirmed.'
+      ]
+    };
+  }
+
+  function renderListPanel(title,subtitle,rows){
+    return `<section class="ff-view-panel"><div class="ff-panel-head"><div><h2>${esc(title)}</h2><p>${esc(subtitle)}</p></div></div><div class="ff-simple-list">${rows.length?rows.join(''):'<div class="ff-empty">Nothing to show.</div>'}</div></section>`;
+  }
+
+  function sponsorRows(data){
+    return (data.sponsorships||[]).map(x=>`<div class="ff-simple-row"><div><b>${esc(x.organization||x.donor_name||x.need_title||'Sponsor')}</b><span>${esc(x.need_title||'')} · ${money(x.amount)}</span></div><span class="ff-pill ${x.status==='paid'?'complete':x.status==='confirmed'||x.status==='pledged'?'confirmed':'working'}">${esc(titleCase(x.status))}</span></div>`);
+  }
+
+  function vendorRows(data){
+    return (data.vendors||[]).map(x=>`<div class="ff-simple-row"><div><b>${esc(x.business_name||'Vendor')}</b><span>${esc(x.contact_name||'')}${x.email?' · '+esc(x.email):''}</span></div><span class="ff-pill ${x.status==='confirmed'?'confirmed':x.status==='declined'||x.status==='closed'?'complete':'working'}">${esc(titleCase(x.status))}</span></div>`);
+  }
+
+  function volunteerRows(data){
+    return (data.volunteers||[]).map(x=>`<div class="ff-simple-row"><div><b>${esc([x.first_name,x.last_name].filter(Boolean).join(' ')||'Volunteer')}</b><span>${esc(x.event||'General availability')}${x.email?' · '+esc(x.email):''}</span></div><span class="ff-pill ${x.status==='approved'?'confirmed':x.status==='closed'?'complete':'working'}">${esc(titleCase(x.status))}</span></div>`);
+  }
+
+  async function render(){
     const root=document.getElementById('adminRoot');
     if(!root) return false;
+    const session=sessionStorage.getItem(SESSION_KEY);
+    if(!session) return false;
+
     try{
-      const r=await fetch('/api/festival-status',{cache:'no-store'});
-      if(!r.ok) return false;
-      const ok=render(await r.json()); wireActionButtons(); return ok;
+      const [ar,fr]=await Promise.all([
+        fetch('/api/admin',{headers:{'x-admin-session':session},cache:'no-store'}),
+        fetch('/api/festival-status',{cache:'no-store'})
+      ]);
+      if(!ar.ok) return false;
+      const admin=await ar.json();
+      const festival=fr.ok?await fr.json():{};
+      const board=festival.dashboard||fallbackDashboard(admin);
+      const updated=festival.updatedAt||new Date().toISOString().slice(0,10);
+
+      root.className='ff-board-dashboard';
+      root.innerHTML=`
+        <aside class="ff-board-sidebar">
+          <div class="ff-brand"><strong>XENIA VOIGT</strong><span>ELEMENTARY</span><b>PTA</b><i></i></div>
+          <nav>
+            ${navButton('dashboard','Dashboard','home')}
+            ${navButton('sponsors','Sponsors','heart')}
+            ${navButton('vendors','Vendors','store')}
+            ${navButton('volunteers','Volunteers','users')}
+            ${navButton('communications','Communications','megaphone')}
+            ${navButton('layout','Layout & Ops','map')}
+          </nav>
+          <button class="ff-logout" id="adminLogout" type="button"><span class="ff-side-icon">${icons.logout}</span><span>Sign out</span></button>
+        </aside>
+        <main class="ff-board-main">
+          <header class="ff-board-header">
+            <div><h1>Xenia Voigt Elementary PTA — <em>Fall Festival Board Dashboard</em></h1><p>Internal planning view</p></div>
+            <span>Updated daily</span>
+          </header>
+          <div id="ffBoardView"></div>
+        </main>
+      `;
+
+      const view=document.getElementById('ffBoardView');
+      function showDashboard(){
+        view.innerHTML=`
+          <div class="ff-metric-grid">${(board.metrics||[]).map(metricCard).join('')}</div>
+          <div class="ff-status-grid">
+            ${statusSection('confirmed','Confirmed',board.confirmed||[])}
+            ${statusSection('working','Working On / Pending',board.working||[])}
+            ${statusSection('action','Action Needed',board.action||[])}
+            ${statusSection('complete','Complete',board.complete||[])}
+          </div>`;
+      }
+      function setActive(id){
+        root.querySelectorAll('[data-board-view]').forEach(b=>b.classList.toggle('active',b.dataset.boardView===id));
+      }
+
+      root.querySelectorAll('[data-board-view]').forEach(btn=>btn.addEventListener('click',()=>{
+        const id=btn.dataset.boardView; setActive(id);
+        if(id==='dashboard') return showDashboard();
+        if(id==='sponsors') return view.innerHTML=renderListPanel('Sponsors & Funding','Current internal sponsorship records.',sponsorRows(admin));
+        if(id==='vendors') return view.innerHTML=renderListPanel('Vendors','Current vendor applications and confirmations.',vendorRows(admin));
+        if(id==='volunteers') return view.innerHTML=renderListPanel('Volunteers','Website volunteer submissions. Group commitments are summarized on the dashboard.',volunteerRows(admin));
+        if(id==='communications') return view.innerHTML=renderListPanel('Communications','Current family-facing communication work.',(board.communications||[]).map(x=>`<div class="ff-simple-row"><div><b>${esc(x)}</b></div><span class="ff-pill confirmed">Current</span></div>`));
+        if(id==='layout') return view.innerHTML=renderListPanel('Layout & Operations','Working internal operating plan; not for the public website.',(board.layoutOps||[]).map(x=>`<div class="ff-simple-row"><div><b>${esc(x)}</b></div><span class="ff-pill working">Working Final</span></div>`));
+      }));
+
+      document.getElementById('adminLogout')?.addEventListener('click',async()=>{
+        try{await fetch('/api/admin',{method:'POST',headers:{'Content-Type':'application/json','x-admin-session':session},body:JSON.stringify({action:'logout'})});}catch(_){}
+        sessionStorage.removeItem(SESSION_KEY);
+        location.reload();
+      });
+
+      showDashboard();
+      document.documentElement.dataset.ffDashboardUpdated=updated;
+      return true;
     }catch(_){return false;}
   }
 
-  let n=0;
+  let tries=0;
   const timer=setInterval(async()=>{
-    n++;
-    if(await install()||n>60) clearInterval(timer);
-  },500);
+    tries++;
+    if(await render()||tries>80) clearInterval(timer);
+  },250);
 
-  document.addEventListener('visibilitychange',()=>{if(!document.hidden) install();});
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden) render();});
 })();
