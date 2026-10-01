@@ -231,7 +231,7 @@
         "date": "Oct 1",
         "tone": "confirmed",
         "detail": "AiRCO paid Train Quest invoice INV0761 in full for $1,095. The package covers the trackless train plus the agreed giant-game/bubble package. The train is planned for the track with the batting area used for loading/unloading and the fence line used for the queue.",
-        "next": "Complete the school-approved Oct. 16 onsite walk-through and verify final setup access."
+        "next": "Mrs. Cobb approved Tuesday, Oct. 13 at 8:00 AM for the onsite walkthrough. Phillis has been asked to lock that time and send the paid INV0763 receipt."
       },
       {
         "item": "H-E-B $125 Cake Walk support",
@@ -280,82 +280,98 @@
         "status": "Sponsor pending",
         "date": "ASAP",
         "tone": "working",
-        "detail": "Mary Ann Conkel confirmed by phone on Oct. 1 that St. Richard’s cannot donate the pumpkins, but will provide all 86 needed pumpkins for a discounted total price of $50. This covers 80 no-carve decorating pumpkins plus 6 sturdy mini pumpkins for Pumpkin Bowling.",
-        "next": "Secure one $50 sponsor, then confirm the payment method and Oct. 22 pickup time with St. Richard’s."
+        "detail": "Mary Ann Conkel confirmed by phone on Oct. 1 that St. Richard’s cannot donate the pumpkins, but will provide all 86 needed pumpkins for $50 total: 80 decorating pumpkins plus 6 sturdy mini pumpkins for Pumpkin Bowling.",
+        "next": "Accept the first confirmed $50 sponsor, then confirm payment method and Oct. 22 pickup with St. Richard’s."
       },
       {
-        "item": "Train Quest onsite walk-through",
-        "status": "Time pending",
+        "item": "Activity materials closeout",
+        "status": "12 specialty lines sourcing",
         "date": "Oct 16",
         "tone": "working",
-        "detail": "Train Quest offered an onsite walkthrough one week before the festival to verify the train route, inflatable location/power, giant games, clearances, and setup access.",
-        "next": "Receive the school-approved Oct. 16 time from Mrs. Cobb/Ana/Ferguson."
+        "detail": "The school/PTA closet photo inventory reduced the true sourcing list from 28 active lines to 12 specialty/consumable lines. On-hand stock now covers or substantially reduces totes, school toss games, face-paint equipment, tablecloths, photo-stop props, craft tools, food-service support, coolers and several operations supplies.",
+        "next": "Complete one physical pull/count and safety check, then close only the remaining specialty gaps."
+      },
+      {
+        "item": "PIE Foundation supply request",
+        "status": "Approval needed",
+        "date": "ASAP",
+        "tone": "working",
+        "detail": "PIE asked that the Fall Festival supply request be submitted through its Campus Request Form. The form is ready except for principal/department approval and the loan return date for clipboards.",
+        "next": "Receive Mrs. Cobb’s approval response, then submit the form for markers, paper/cardstock, pens, clipboards and other remaining school-event consumables."
       },
       {
         "item": "$50 pumpkin sponsorship outreach",
-        "status": "3 asks sent",
-        "date": "Oct 2",
+        "status": "14 active asks",
+        "date": "ASAP",
         "tone": "working",
-        "detail": "Targeted exact-need sponsorship requests were sent Oct. 1 in existing threads to Lamppost Coffee Round Rock West, Watkins Insurance Group, and Frontier Bank of Texas. Each was asked to cover the full $50 pumpkin cost.",
-        "next": "Accept the first confirmed $50 sponsor, stop the other asks before payment, and update St. Richard’s/payment records immediately."
+        "detail": "The exact $50 pumpkin sponsorship has been sent to 13 prior sponsorship prospects plus Round Rock Yoga, which specifically replied that it would consider an in-kind contribution.",
+        "next": "Take the first firm YES, stop the remaining asks before duplicate payment, and close St. Richard’s immediately."
       }
     ],
     "action": [
       {
-        "item": "Shine inflatable payment — INV0763",
-        "status": "Action Needed",
-        "date": "ASAP",
-        "tone": "action",
-        "detail": "Train Quest reduced the Kids Rainbow Combo to exactly $195, matching Shine Pediatric Dental Co.’s sponsorship commitment. INV0763 was reissued to Shine for $195 with no PTA balance.",
-        "next": "Confirm Shine payment and obtain the paid receipt/reservation confirmation and updated COI."
-      },
-      {
         "item": "Confirm 12A outlet + audio operator",
         "status": "Action Needed",
-        "date": "Oct 16",
+        "date": "Oct 13",
         "tone": "action",
         "detail": "The Kids Rainbow Combo requires one standard 110V outlet at about 12 amps and Train Quest prefers the extension-cord run to stay within 50 feet. The school also identified a car-rider speaker and microphone, but the district employee responsible for operating them still needs to be named.",
-        "next": "Get written confirmation of the outlet/circuit suitability and the assigned district audio operator."
+        "next": "Get written confirmation of the outlet/circuit suitability and assigned district audio operator before the Oct. 13 walkthrough."
       },
       {
         "item": "Finalize volunteer adult leads",
         "status": "Action Needed",
         "date": "Oct 16",
         "tone": "action",
-        "detail": "All 9 currently confirmed Sweethearts have working student-support assignments, but several roles still require adult ownership for safety, money/prize custody, or escalation.",
-        "next": "Assign adult leads for silent auction, train/inflatable queue support, face painting supervision, welcome/check-in, and teardown."
+        "detail": "Nine Sweethearts are currently confirmed, but several event roles still require adult ownership for safety, money/prize custody, or escalation.",
+        "next": "Assign adult leads for silent auction, train/inflatable queue support, face painting supervision, welcome/check-in and teardown."
+      },
+      {
+        "item": "Closet pull + safety check",
+        "status": "Action Needed",
+        "date": "Before Oct 16",
+        "tone": "action",
+        "detail": "Photo inventory found the equipment, but several items still need a physical count/condition check: tablecloths, bowling pins, four food-safe Apple Scoop tubs, eight food-safe utensils, face-paint condition/hygiene supplies, a safe mural/longship panel and the child-safe tactile-object count.",
+        "next": "Pull these exact items once, label them for Fall Festival, and update quantities so no duplicate sourcing resumes."
       }
     ],
     "complete": [
+      {
+        "item": "Shine $195 inflatable sponsorship",
+        "status": "Completed",
+        "date": "Oct 1",
+        "tone": "complete",
+        "detail": "Shine Pediatric Dental Co. paid Train Quest INV0763 in full for $195. The updated dental-office COI has also been received.",
+        "next": "File the paid receipt/reservation confirmation from Train Quest when Phillis sends it and keep Shine on sponsor recognition."
+      },
       {
         "item": "AiRCO $1,095 Train Quest payment",
         "status": "Completed",
         "date": "Oct 1",
         "tone": "complete",
-        "detail": "AiRCO paid Train Quest invoice INV0761 in full for $1,095, fully using the original AiRCO pledge. AiRCO should not be asked for any additional amount.",
+        "detail": "AiRCO paid Train Quest invoice INV0761 in full for $1,095, fully using the original AiRCO pledge.",
         "next": "Keep the paid invoice/receipt with sponsor records and recognition materials."
+      },
+      {
+        "item": "School/PTA closet inventory reconciled",
+        "status": "Completed",
+        "date": "Oct 1",
+        "tone": "complete",
+        "detail": "Photo-based closet inventory was reconciled against the Activity Materials list. Duplicate sourcing was removed or narrowed for reusable totes, toss-game equipment, face-paint core supplies, tablecloths, food-service support, photo-stop props and basic craft tools.",
+        "next": "Use the Closet Inventory sheet as the internal reuse plan and source only remaining gaps."
       },
       {
         "item": "Express supplies delivered to Voigt",
         "status": "Completed",
         "date": "Sep 25",
         "tone": "complete",
-        "detail": "Express Commercial Cleaning delivered its donated cleanup and safety supplies to the Voigt front desk. The fulfillment item is closed.",
-        "next": "Use the donated supplies for event cleanup and acknowledge Express in sponsor/donor recognition."
-      },
-      {
-        "item": "Family candy drive live through Oct. 23",
-        "status": "Completed",
-        "date": "Oct 1",
-        "tone": "complete",
-        "detail": "The corrected family candy-drive communication is live with an October 23 deadline, allowing families to donate through the day of the Fall Festival.",
-        "next": "Monitor incoming candy and assign an event-day candy runner to redistribute reserve candy between trunks as needed."
+        "detail": "Express Commercial Cleaning delivered its donated cleanup and safety supplies to the Voigt front desk.",
+        "next": "Use the donated supplies for event cleanup and sponsor/donor recognition."
       }
     ],
     "communications": [
-      "Family candy drive is live through October 23.",
-      "Volunteer recruitment is active.",
-      "Public website remains family-facing only; internal planning stays in the board dashboard and master tracker."
+      "Family Fall Festival page is live with verified public details only.",
+      "School leadership has been sent the family-ready event summary for normal parent communication channels.",
+      "Candy donations remain open through October 23; volunteer recruitment remains active."
     ],
     "layoutOps": [
       "Train: track route; batting area loading/unloading; queue along fence.",
