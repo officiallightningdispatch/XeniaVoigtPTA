@@ -13,7 +13,7 @@
       "Hearth & Honey",
       "Pour The Fun"
     ],
-    "foodPlan": "1 savory + 1 sweet + Pour The Fun",
+    "foodPlan": "2 food vendors + Pour The Fun",
     "teacherTrunks": 7,
     "teacherTrunksTarget": 7,
     "communityHostsBringOwnCandy": true,
@@ -23,18 +23,30 @@
     "candyPieceCount": "Verify on receipt",
     "trunkSpacesClaimed": 9,
     "trunkSpacesTarget": 20,
-    "stationsPlanned": [
+    "vikingQuestTrials": [
+      "The Trial of Skill",
+      "The Shield Wall",
+      "The Rune Maker’s Workshop",
+      "The Voigt Longship Builders",
+      "The Skald’s Stage"
+    ],
+    "generalActivities": [
       "Pumpkin Bowling",
       "Apple Scoop Challenge",
       "Fall Sensory Mystery",
       "Collaborative Autumn Mural",
-      "Gratitude Tree"
+      "Gratitude Tree",
+      "Pumpkin Decorating",
+      "Face Painting"
     ],
     "applesCovered": 80,
     "applesTarget": 80,
-    "activeInventoryLines": 110,
-    "coveredInventoryLines": 20,
-    "openInventoryLines": 90,
+    "activeInventoryLines": 81,
+    "coveredInventoryLines": 26,
+    "partialInventoryLines": 32,
+    "sourcingInventoryLines": 12,
+    "designDecisionLines": 11,
+    "openInventoryLines": 55,
     "cashPledges": 1290,
     "budgetAllocation": 300,
     "cashSpent": 0,
@@ -45,145 +57,147 @@
   },
   "confirmed": [
     {
-      "title": "Current vendor plan",
-      "detail": "K&K BBQ is the savory vendor, Hearth & Honey is the sweet vendor, and Pour The Fun is the beverage add-on. The PTA board waived the 10% fee. Participation approval only; no vendor contracts or agreements will be sent."
+      "title": "Final food/vendor lineup",
+      "detail": "K&K BBQ and Hearth & Honey are the two food vendors, plus Pour The Fun. The board waived the 10% vendor contribution for the final lineup; no additional food vendors are being added."
     },
     {
-      "title": "Major attractions",
-      "detail": "AiRCO Mechanical is sponsoring the trackless train and Shine Pediatric Dental Co. is sponsoring the combo inflatable. The sponsors will pay the attraction providers directly so the PTA does not have to front the cost and each sponsor can document its charitable contribution. No extra inflatables are part of the current plan."
+      "title": "Major attractions paid",
+      "detail": "AiRCO paid Train Quest INV0761 in full for $1,095. Shine Pediatric Dental Co. paid INV0763 in full for $195 for the Kids Rainbow Combo, and the updated Shine COI has been received."
     },
     {
-      "title": "Teacher-trunk candy",
-      "detail": "A+ Federal Credit Union pledged 12 extra-large Costco candy variety bags at 5.75 lb each (69 lb total) for seven teacher trunks, one per grade Pre-K through 5. This is projected to cover the teacher trunks; verify the actual piece count when received. Community trunk hosts provide their own candy."
+      "title": "Train Quest walkthrough",
+      "detail": "Tuesday, October 13 at 8:00 AM is confirmed with the school and Train Quest for the onsite walkthrough."
     },
     {
-      "title": "Activities and Viking stations",
-      "detail": "The plan includes carnival games, activities, and five Viking stations: Pumpkin Bowling, Apple Scoop Challenge, Fall Sensory Mystery, Collaborative Autumn Mural, and Gratitude Tree. All 80 apples are covered."
+      "title": "H-E-B Cake Walk support",
+      "detail": "H-E-B approved $125 and confirmed the Business Center shopping appointment for Thursday, October 22 at 10:00 AM."
+    },
+    {
+      "title": "Viking Quest identity",
+      "detail": "The five authentic trials are The Trial of Skill, The Shield Wall, The Rune Maker’s Workshop, The Voigt Longship Builders, and The Skald’s Stage. General fall activities are separate."
+    },
+    {
+      "title": "Closet inventory reconciled",
+      "detail": "The school/PTA closet photo inventory reduced the active specialty-sourcing list from 28 lines to 12. On-hand equipment can cover or substantially reduce totes, toss games, face-paint supplies, tablecloths, photo-stop props, food-service support, coolers and basic craft tools, pending school authorization to reserve/use the items."
+    },
+    {
+      "title": "Cake Walk plan",
+      "detail": "The working plan is 40 prize packages: 17 confirmed donated prize packages plus 23 H-E-B bakery packages at the Oct. 22 shopping appointment."
     },
     {
       "title": "Sensory-friendly retreat",
-      "detail": "The retreat will be in the Boys & Girls Club portable. No PTA materials are needed; only campus coordination and signage remain."
+      "detail": "The Boys & Girls Club portable is the sensory-friendly retreat. No PTA-purchased sensory materials are needed."
     },
     {
-      "title": "Silent auction setup",
-      "detail": "Seven silent-auction prizes are currently confirmed. Prizes will be displayed on the cafeteria stage, with school tables in front and bid sheets arranged in stacked rows."
-    },
-    {
-      "title": "Face painting",
-      "detail": "Face painting will be handled by volunteers; no paid face-painting vendor is needed."
-    },
-    {
-      "title": "Event audio",
-      "detail": "There will be no DJ. The event will use the school sound system; Brittani's phone will be used for Cake Walk music playback."
-    },
-    {
-      "title": "Cleanup and safety supplies",
-      "detail": "Express Commercial Cleaning committed the listed mop, broom, disinfectant, liners, paper towels, floor cleaner, gloves, and hand-sanitizer supplies."
-    },
-    {
-      "title": "School equipment",
-      "detail": "The school/PE inventory includes numbered floor spots, cones/markers, bean bags, balls, hoops, jump ropes, pool noodles, buckets, ropes, sacks, balance/obstacle equipment, hippity hops, plastic pools, and display tables. The final activity pull list is still required."
-    },
-    {
-      "title": "Garage Band",
-      "detail": "Voigt Garage Band confirmed one song, up to 5 minutes, on the cafeteria stage. Final timing and school-audio setup are pending."
-    },
-    {
-      "title": "School website PTA link",
-      "detail": "The school website should link to the existing public PTA domain xeniavoigtpta.org, not the blank Google Site."
+      "title": "School maps received",
+      "detail": "Ana Garza provided both the grounds map and interior map. Classroom-area doors must remain closed throughout the event."
     }
   ],
   "pending": [
     {
-      "title": "Campus approvals and safety layout",
-      "detail": "Written school approval is still needed for vendor and activity locations, train/inflatable placement, emergency clearances, traffic flow, ADA routes, room/field use, and campus access."
+      "title": "School power and audio closeout",
+      "detail": "Confirm the inflatable outlet/circuit can support 110V at about 12 amps within 50 feet and identify the district employee responsible for the school speaker/microphone."
     },
     {
-      "title": "Vendor operations",
-      "detail": "Confirm arrival/check-in, unloading routes, placements, power needs, and service details for K&K BBQ, Hearth & Honey, and Pour The Fun."
+      "title": "Closet-use authorization",
+      "detail": "Mrs. Cobb’s explicit approval is still needed before the PTA tags/reserves the reconciled closet supplies for October 23."
     },
     {
-      "title": "Viking/carnival supply pull",
-      "detail": "Match the revised 110-line needs plan to school/PE inventory, then source only the uncovered station, carnival, photo-stop, signage, and event-operations items."
+      "title": "PIE Foundation Campus Request Form",
+      "detail": "PIE requires the Campus Request Form for audit purposes. The exact list is ready, but the form still needs principal/department-lead approval and a return date for loaned clipboards. Ruth Erb plans to pull approved items Tuesday or Wednesday after submission."
     },
     {
-      "title": "Cake Walk donations",
-      "detail": "15 Nothing Bundt Cakes Bundtlets and one Paige's Bakehouse cookie bundle are committed, but additional donated cake/treat prizes are still needed. Continue sourcing donations so the PTA does not have to spend cash unnecessarily."
+      "title": "Twelve remaining specialty material lines",
+      "detail": "Continue only the true specialty/consumable gaps in Activity Materials, including Quest cards/signs, completion bags, foam axe sets/targets, shield blanks, rune blanks, rhythm props, sensory filler, washable paint, Gratitude Tree leaves, and clips/twine/ribbon."
     },
     {
-      "title": "Volunteer coverage",
-      "detail": "Review and assign the current signup roster; confirm Round Rock Sweethearts' headcount, arrival, check-in, and assignments."
+      "title": "Apple Scoop food-safe smallwares",
+      "detail": "Inspect the school food-service stock for four suitable tubs and eight clean food-safe utensils. K&K confirmed serving utensils can be a backup if the school comes up short; K&K does not have bus tubs."
     },
     {
-      "title": "Donation fulfillment",
-      "detail": "Coordinate pickups/drop-offs and recognition for confirmed donations, including the 12 A+ candy bags and Cake Walk prizes. Submit the PIE Foundation Campus Request Form if those materials are still needed."
+      "title": "Pumpkin sponsorship",
+      "detail": "St. Richard’s will provide all 86 pumpkins for $50 total. Exact $50 sponsorship asks are active with 14 prospects. No sponsor has explicitly committed yet."
     },
     {
-      "title": "Funding applications",
-      "detail": "Amy's Ice Cream donation application was submitted September 27 and is pending. H-E-B and SC Johnson also remain pending; Texas Stars is still processing with no allocation yet. Do not count any of these as confirmed until an explicit award or pledge is received."
+      "title": "A+ candy handoff",
+      "detail": "A+ Federal Credit Union pledged 12 Costco variety bags totaling 69 lb for the teacher trunks. Final pickup/drop-off timing remains open."
     },
     {
-      "title": "Signage estimate",
-      "detail": "FASTSIGNS estimate EST-17493 remains under review; do not approve production before the school layout, quantities, and budget are final."
+      "title": "Volunteer closeout",
+      "detail": "Nine Round Rock Sweethearts are confirmed. Roster/chaperone details, adult lead assignments and any Cedar Ridge additions remain open."
     },
     {
-      "title": "School audio operations",
-      "detail": "Confirm the district employee operating the school system, its capabilities, Garage Band inputs, and event-night audio timeline."
+      "title": "FASTSIGNS release",
+      "detail": "Keep production on hold until the final campus map, station/activity sign list, quantities and school safety closeout are complete."
     }
   ],
   "declined": [
     {
-      "title": "Removed from the event plan",
-      "detail": "DJ/MC, extra obstacle-course/interactive inflatables, and a materials purchase bundle for the sensory retreat."
+      "title": "Removed from current event plan",
+      "detail": "DJ/MC, extra inflatables, additional food vendors, paid face-painter outreach, new silent-auction outreach, and new sensory-retreat material purchases are closed unless Brittani explicitly changes scope."
     },
     {
-      "title": "Unselected vendor replies",
-      "detail": "Ed's Smokehouse, Sweet'er Than Sour, Captain's Pizza, Rock N Grill, 05 Diaz, Kona Ice, and Coco's Eats & Sweets are not in the capped vendor plan."
+      "title": "Unselected food-vendor outreach",
+      "detail": "Previously contacted food vendors outside K&K BBQ, Hearth & Honey and Pour The Fun are not part of the final lineup."
     }
   ],
   "followUp": [
     {
-      "title": "Candy receipt check",
-      "detail": "Record brand/SKU and actual piece count when the 12 bags arrive, then confirm the allocation across seven teacher trunks."
+      "title": "School maps + event map",
+      "detail": "Use the exact school-provided grounds/interior maps for the internal event map. Keep classroom doors closed and public traffic inside the approved accessible footprint."
     },
     {
-      "title": "Tracker/site parity",
-      "detail": "Master tracker, detailed-needs workbook, command center, sponsor-needs list, and public event copy must stay aligned with explicit commitments only."
+      "title": "Closet pull/count",
+      "detail": "After school authorization, physically reserve/count the exact closet items and record condition/safety checks so duplicate sourcing stays closed."
+    },
+    {
+      "title": "Pumpkin sponsor stop rule",
+      "detail": "The first explicit $50 sponsor commitment closes the need. Immediately stop the remaining asks before duplicate payment and confirm St. Richard’s payment/pickup."
     }
   ],
   "changes": [
-    "The Trunk-or-Treat plan reserves seven teacher trunks, one for each grade Pre-K through 5.",
-    "The public Trunk-or-Treat application currently has 11 of 20 spaces open.",
-    "Mini Pumpkin Decorating remains on the approved event plan.",
-    "The pumpkin need is now locked at 86 total: 80 small pumpkins for decorating and 6 durable mini pumpkins for Pumpkin Bowling.",
-    "Operational confirmation freeze is Wednesday evening, September 30; Thursday morning begins promotion-only mode."
+    "Ana Garza supplied both the grounds map and interior map; classroom-area doors must stay closed during the event.",
+    "Train Quest onsite walkthrough is confirmed for Tuesday, October 13 at 8:00 AM.",
+    "K&K BBQ confirmed it can provide serving utensils if needed, but not bus tubs; inspect school food-service stock first.",
+    "Rockler Round Rock manager received the exact request for up to 300 child-safe wooden rune blanks/tokens at store45mgr@rockler.com; no reply yet.",
+    "PIE requires its Campus Request Form; principal approval and a clipboard return date are still needed before submission.",
+    "The school/PTA closet reconciliation leaves 12 true active specialty material lines.",
+    "Expanded $50 pumpkin-sponsorship outreach is active with 14 prospects; no confirmed sponsor yet."
   ],
   "blockers": [
-    "Seven teacher Trunk-or-Treat theme/host details are still awaiting grade-level confirmation.",
-    "Eleven public Trunk-or-Treat spaces remain open.",
-    "St. Richard's has offered pumpkins but the exact 86-pumpkin quantity and Oct. 22 pickup window are awaiting confirmation.",
-    "Any remaining volunteer assignments or required school approvals that are still unconfirmed by Wednesday evening."
+    "School confirmation of the 12-amp/50-foot inflatable power condition.",
+    "Name of the district employee responsible for the school speaker/microphone.",
+    "Mrs. Cobb’s explicit authorization to reserve/use the reconciled closet supplies.",
+    "Principal/department approval and clipboard return date needed to submit the PIE Campus Request Form.",
+    "One confirmed $50 sponsor for the St. Richard’s pumpkin package.",
+    "Remaining adult volunteer leads and Sweethearts roster/chaperone details."
   ],
   "deadlines": [
     {
+      "date": "October 13, 2026",
+      "detail": "Train Quest onsite walkthrough at 8:00 AM."
+    },
+    {
       "date": "October 16, 2026",
-      "detail": "Lock school layout, vendor/attraction placements, safety details, audio operations, equipment pull list, and printed-material quantities."
+      "detail": "Freeze final campus map, safety/audio closeout, volunteer placements, equipment pull and print quantities."
     },
     {
       "date": "October 22, 2026",
-      "detail": "Complete planned pickups of printed certificates, candy, Cake Walk prizes, and other physical donations."
+      "detail": "Nothing Bundt pickup at 9:00 AM; H-E-B Cake Walk shop at 10:00 AM; complete other planned physical pickups."
     },
     {
       "date": "October 23, 2026",
-      "detail": "Festival, 5:30–7:30 PM."
+      "detail": "Festival, 5:30–7:30 PM; family candy donations remain open through event day."
     }
   ],
   "actions": [
-    "Confirm all seven teacher Trunk-or-Treat hosts, themes, vehicles, electricity needs, and setup notes by Wednesday evening.",
-    "Fill the 11 remaining public Trunk-or-Treat spaces and reconcile the ninth currently reserved non-teacher host.",
-    "Confirm St. Richard's exact pumpkin quantity against the locked need of 86 total: 80 decorating pumpkins + 6 Pumpkin Bowling pumpkins.",
-    "Close remaining Cake Walk donation/pickup details and volunteer assignments.",
-    "By Wednesday evening, freeze event operations; beginning Thursday morning, shift to public event promotion only except true exceptions."
+    "Get Mrs. Cobb’s explicit yes for reserving the listed closet supplies, then tag/count them.",
+    "Get the school’s 12-amp outlet confirmation and district audio operator name.",
+    "Submit the PIE Campus Request Form immediately after principal approval and the clipboard return date are confirmed.",
+    "Close the first $50 pumpkin sponsor and stop all duplicate pumpkin-sponsorship asks.",
+    "Work only the 12 remaining specialty material lines; do not restart sourcing for closet-covered items.",
+    "Use the school-provided grounds/interior maps to finish the internal event map and keep classroom doors closed.",
+    "Receive Sweethearts roster/chaperone details and assign remaining adult leads."
   ],
   "budget": {
     "allocation": "$300",
@@ -226,94 +240,94 @@
     ],
     "confirmed": [
       {
-        "item": "Train Quest package (trackless train + games)",
+        "item": "Train Quest package + Oct. 13 walkthrough",
         "status": "Confirmed",
-        "date": "Oct 1",
+        "date": "Oct 13",
         "tone": "confirmed",
-        "detail": "AiRCO paid Train Quest invoice INV0761 in full for $1,095. The package covers the trackless train plus the agreed giant-game/bubble package. The train is planned for the track with the batting area used for loading/unloading and the fence line used for the queue.",
-        "next": "Mrs. Cobb approved Tuesday, Oct. 13 at 8:00 AM for the onsite walkthrough. Phillis has been asked to lock that time and send the paid INV0763 receipt."
+        "detail": "AiRCO paid INV0761 in full for $1,095. Shine paid INV0763 in full for $195 and the Shine COI is received. The onsite walkthrough is confirmed for Tuesday, Oct. 13 at 8:00 AM.",
+        "next": "Use the walkthrough to close power distance, placements, clearances and setup access."
       },
       {
         "item": "H-E-B $125 Cake Walk support",
         "status": "Confirmed",
         "date": "Oct 22",
         "tone": "confirmed",
-        "detail": "H-E-B approved $125 for Fall Festival support, assigned to Cake Walk bakery prizes. Deidre Kirts confirmed the Business Center shopping appointment for Thursday, October 22 at 10:00 AM.",
-        "next": "Bring the locked bakery list on Oct. 22 at 10:00 AM, keep the final purchase at or under $125, and use like-for-like bakery substitutions only if an item is unavailable."
+        "detail": "H-E-B approved $125 for Cake Walk bakery prizes and confirmed the Business Center shopping appointment for Thursday, Oct. 22 at 10:00 AM.",
+        "next": "Shop the locked bakery list at or under $125."
       },
       {
         "item": "Round Rock Sweethearts — 9 students",
         "status": "Confirmed",
         "date": "Sep 30",
         "tone": "confirmed",
-        "detail": "Round Rock Sweethearts reported 9 student volunteers currently confirmed, with room for the group to grow to 15.",
-        "next": "Receive the current roster/chaperone information and confirm the proposed 5:15 PM volunteer check-in time."
+        "detail": "Nine student volunteers are currently confirmed, with room for the group to grow to 15.",
+        "next": "Receive roster/chaperone information and confirm 5:15 PM check-in."
       },
       {
         "item": "Nothing Bundt Cakes — 15 Bundtlets",
         "status": "Confirmed",
         "date": "Oct 22",
         "tone": "confirmed",
-        "detail": "Nothing Bundt Cakes confirmed 15 individually packaged Bundtlet towers for the Cake Walk. Voigt red/black/white ribbon colors were requested, along with 2 clearly labeled gluten-free Bundtlets if available. Pickup is set for Oct. 22 as early as 9:00 AM.",
-        "next": "Complete pickup on Oct. 22 and add the prizes to the Cake Walk staging inventory."
+        "detail": "Fifteen individually packaged Bundtlet towers are confirmed for pickup Oct. 22 at 9:00 AM; red/black/white ribbon and two clearly labeled gluten-free Bundtlets were requested.",
+        "next": "Complete pickup and stage with the Cake Walk prizes."
       },
       {
-        "item": "Teacher trunks — Pre-K through 5",
+        "item": "School maps received",
         "status": "Confirmed",
-        "date": "Sep 30",
+        "date": "Oct 1",
         "tone": "confirmed",
-        "detail": "Mrs. Cobb confirmed one teacher Trunk-or-Treat vehicle per grade level, covering Pre-K through 5th grade.",
-        "next": "Close theme/host details and integrate teacher trunks into the final parking assignment."
+        "detail": "Ana provided both grounds and interior maps. Classroom-area doors must remain closed throughout the event.",
+        "next": "Use only these exact school maps for the internal event-map build."
       }
     ],
     "working": [
       {
         "item": "School/PTA closet materials",
-        "status": "Reserve approval pending",
+        "status": "Authorization pending",
         "date": "ASAP",
         "tone": "working",
-        "detail": "Closet inventory is reconciled. On-hand items can cover Viking Quest station totes and materially reduce game-prop, table-cover, craft, pumpkin-decorating, face-paint, prize, photo-stop and operations needs.",
-        "next": "Mrs. Cobb has been asked to approve reserving the listed closet items for Oct. 23; after approval, remove duplicate external sourcing and tag the physical inventory."
+        "detail": "Closet inventory is reconciled and materially reduces supply needs, but Mrs. Cobb has not yet explicitly approved reserving/using the listed items.",
+        "next": "Receive a simple yes, then tag/count the supplies and close any remaining duplicate sourcing."
       },
       {
-        "item": "A+ candy handoff",
-        "status": "Scheduling",
-        "date": "Oct 22",
+        "item": "PIE Foundation supply request",
+        "status": "Form pending approval",
+        "date": "ASAP",
         "tone": "working",
-        "detail": "A+ Federal Credit Union committed 12 extra-large Costco candy variety bags at 5.75 lb each, for 69 lb total, intended for the teacher trunks.",
-        "next": "Confirm whether Oct. 22 branch pickup or school drop-off is the final handoff method and record receipt."
+        "detail": "PIE requires its Campus Request Form. The exact supply list is ready; principal/department approval and a clipboard return date are the remaining required fields.",
+        "next": "Submit immediately after Mrs. Cobb confirms those two fields; Ruth plans to pull items Tuesday or Wednesday."
       },
       {
         "item": "St. Richard’s — 86 pumpkins at $50",
         "status": "Sponsor pending",
         "date": "ASAP",
         "tone": "working",
-        "detail": "Mary Ann Conkel confirmed by phone on Oct. 1 that St. Richard’s cannot donate the pumpkins, but will provide all 86 needed pumpkins for $50 total: 80 decorating pumpkins plus 6 sturdy mini pumpkins for Pumpkin Bowling.",
-        "next": "Accept the first confirmed $50 sponsor, then confirm payment method and Oct. 22 pickup with St. Richard’s."
+        "detail": "All 86 pumpkins are available for $50 total. Fourteen exact $50 sponsorship asks are active, including Round Rock Yoga after it expressed willingness to support in-kind.",
+        "next": "Accept the first firm yes, stop all remaining asks, and close payment/pickup with St. Richard’s."
       },
       {
         "item": "Activity materials closeout",
         "status": "12 specialty lines sourcing",
         "date": "Oct 16",
         "tone": "working",
-        "detail": "The school/PTA closet photo inventory reduced the true sourcing list from 28 active lines to 12 specialty/consumable lines. On-hand stock now covers or substantially reduces totes, school toss games, face-paint equipment, tablecloths, photo-stop props, craft tools, food-service support, coolers and several operations supplies.",
-        "next": "Complete one physical pull/count and safety check, then close only the remaining specialty gaps."
+        "detail": "Closet reuse reduced the original 28 active source lines to 12 true specialty/consumable gaps.",
+        "next": "Work only the remaining 12 and do not reopen closet-covered sourcing unless a physical count/safety check fails."
       },
       {
-        "item": "PIE Foundation supply request",
-        "status": "Approval needed",
-        "date": "ASAP",
+        "item": "Apple Scoop smallwares",
+        "status": "School stock check",
+        "date": "Oct 16",
         "tone": "working",
-        "detail": "PIE asked that the Fall Festival supply request be submitted through its Campus Request Form. The form is ready except for principal/department approval and the loan return date for clipboards.",
-        "next": "Receive Mrs. Cobb’s approval response, then submit the form for markers, paper/cardstock, pens, clipboards and other remaining school-event consumables."
+        "detail": "School food-service stock may cover the four tubs and eight utensils. K&K can back up serving utensils but does not have bus tubs.",
+        "next": "Inspect and sanitize school stock first; ask K&K only for an exact utensil shortfall."
       },
       {
-        "item": "$50 pumpkin sponsorship outreach",
-        "status": "14 active asks",
-        "date": "ASAP",
+        "item": "A+ candy handoff",
+        "status": "Scheduling",
+        "date": "Oct 22",
         "tone": "working",
-        "detail": "The exact $50 pumpkin sponsorship has been sent to 13 prior sponsorship prospects plus Round Rock Yoga, which specifically replied that it would consider an in-kind contribution.",
-        "next": "Take the first firm YES, stop the remaining asks before duplicate payment, and close St. Richard’s immediately."
+        "detail": "A+ committed 12 Costco variety bags totaling 69 lb for the seven teacher trunks.",
+        "next": "Confirm branch pickup or school drop-off and count actual pieces on receipt."
       }
     ],
     "action": [
@@ -322,32 +336,32 @@
         "status": "Action Needed",
         "date": "ASAP",
         "tone": "action",
-        "detail": "At least 6 lidded totes, labeled game equipment, red/white tablecloths, glue/craft supplies, one face-paint kit, fall/photo props, prize stock, coolers and event-service supplies are already on campus.",
-        "next": "Get school authorization, then reserve/count the items and close duplicate sourcing lines."
+        "detail": "The inventory is known, but school authorization is still needed before on-hand materials are treated as reserved.",
+        "next": "Get Mrs. Cobb’s explicit yes, then pull/count/label the selected items."
       },
       {
         "item": "Confirm 12A outlet + audio operator",
         "status": "Action Needed",
         "date": "Oct 13",
         "tone": "action",
-        "detail": "The Kids Rainbow Combo requires one standard 110V outlet at about 12 amps and Train Quest prefers the extension-cord run to stay within 50 feet. The school also identified a car-rider speaker and microphone, but the district employee responsible for operating them still needs to be named.",
-        "next": "Get written confirmation of the outlet/circuit suitability and assigned district audio operator before the Oct. 13 walkthrough."
+        "detail": "The inflatable needs 110V at about 12 amps within 50 feet. The school speaker/mic exists, but the assigned district operator is still unknown.",
+        "next": "Get both confirmations before or at the Oct. 13 walkthrough."
+      },
+      {
+        "item": "Submit PIE Campus Request Form",
+        "status": "Action Needed",
+        "date": "ASAP",
+        "tone": "action",
+        "detail": "Ruth confirmed the form is required for PIE’s yearly audit and plans to pull approved supplies Tuesday or Wednesday.",
+        "next": "Submit as soon as principal approval and the clipboard return date are confirmed."
       },
       {
         "item": "Finalize volunteer adult leads",
         "status": "Action Needed",
         "date": "Oct 16",
         "tone": "action",
-        "detail": "Nine Sweethearts are currently confirmed, but several event roles still require adult ownership for safety, money/prize custody, or escalation.",
-        "next": "Assign adult leads for silent auction, train/inflatable queue support, face painting supervision, welcome/check-in and teardown."
-      },
-      {
-        "item": "Closet pull + safety check",
-        "status": "Action Needed",
-        "date": "Before Oct 16",
-        "tone": "action",
-        "detail": "Photo inventory found the equipment, but several items still need a physical count/condition check: tablecloths, bowling pins, four food-safe Apple Scoop tubs, eight food-safe utensils, face-paint condition/hygiene supplies, a safe mural/longship panel and the child-safe tactile-object count.",
-        "next": "Pull these exact items once, label them for Fall Festival, and update quantities so no duplicate sourcing resumes."
+        "detail": "Nine Sweethearts are confirmed, but adult ownership is still required for several safety/custody/escalation roles.",
+        "next": "Assign adult leads after the event map is frozen."
       }
     ],
     "complete": [
@@ -356,32 +370,32 @@
         "status": "Completed",
         "date": "Oct 1",
         "tone": "complete",
-        "detail": "Shine Pediatric Dental Co. paid Train Quest INV0763 in full for $195. The updated dental-office COI has also been received.",
-        "next": "File the paid receipt/reservation confirmation from Train Quest when Phillis sends it and keep Shine on sponsor recognition."
+        "detail": "Shine paid Train Quest INV0763 in full for $195. The updated dental-office COI has been received.",
+        "next": "Keep paid/payment documentation and sponsor recognition together."
       },
       {
         "item": "AiRCO $1,095 Train Quest payment",
         "status": "Completed",
         "date": "Oct 1",
         "tone": "complete",
-        "detail": "AiRCO paid Train Quest invoice INV0761 in full for $1,095, fully using the original AiRCO pledge.",
-        "next": "Keep the paid invoice/receipt with sponsor records and recognition materials."
+        "detail": "AiRCO paid Train Quest INV0761 in full for $1,095.",
+        "next": "Retain paid documentation and sponsor recognition."
       },
       {
         "item": "School/PTA closet inventory reconciled",
         "status": "Completed",
         "date": "Oct 1",
         "tone": "complete",
-        "detail": "Photo-based closet inventory was reconciled against the Activity Materials list. Duplicate sourcing was removed or narrowed for reusable totes, toss-game equipment, face-paint core supplies, tablecloths, food-service support, photo-stop props and basic craft tools.",
-        "next": "Use the Closet Inventory sheet as the internal reuse plan and source only remaining gaps."
+        "detail": "Photo inventory was reconciled against Activity Materials and narrowed the active specialty-sourcing list from 28 to 12 lines.",
+        "next": "Use the Closet Inventory sheet as the reuse plan after school authorization."
       },
       {
         "item": "Express supplies delivered to Voigt",
         "status": "Completed",
         "date": "Sep 25",
         "tone": "complete",
-        "detail": "Express Commercial Cleaning delivered its donated cleanup and safety supplies to the Voigt front desk.",
-        "next": "Use the donated supplies for event cleanup and sponsor/donor recognition."
+        "detail": "Express Commercial Cleaning delivered the cleanup/safety supply package to the Voigt front desk.",
+        "next": "Use the supplied materials for event cleanup and recognition."
       }
     ],
     "communications": [
@@ -390,13 +404,15 @@
       "Candy donations remain open through October 23; volunteer recruitment remains active."
     ],
     "layoutOps": [
+      "Use Ana Garza’s exact school-provided grounds and interior maps for the internal event map.",
       "Train: track route; batting area loading/unloading; queue along fence.",
       "Inflatable: covered-area/portable power zone; 110V, 12A, within 50 feet.",
       "Food vendors: back-drive spaces nearest gate.",
       "Trunk-or-Treat: back-drive spaces facing school; accessible spaces remain open.",
-      "Indoor public use: gym, downstairs restrooms, main hallway, cafeteria only.",
+      "Indoor public use: gym, downstairs restrooms, main hallway and cafeteria only.",
+      "Classroom-area doors must remain closed throughout the event.",
       "Audio: school car-rider speaker + microphone; district operator still to be confirmed.",
-      "School/PTA closet inventory has been reconciled; use on-hand supplies before purchasing or accepting duplicate donations."
+      "School/PTA closet inventory is reconciled; use on-hand supplies before purchasing or accepting duplicate donations once school authorizes reservation."
     ]
   }
 }
