@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-28",
+  "updatedAt": "2026-10-01",
   "event": {
     "title": "Xenia Voigt Viking Quest Fall Festival",
     "date": "Friday, October 23, 2026",
@@ -190,5 +190,150 @@
     "spent": "$0",
     "goal": "$0 PTA cash spend where possible",
     "cashPledges": "$1,290"
+  },
+  "dashboard": {
+    "metrics": [
+      {
+        "label": "Sponsors & Funding",
+        "value": "2 / 2",
+        "percent": 100,
+        "icon": "heart"
+      },
+      {
+        "label": "Vendors & Attractions",
+        "value": "5 / 5",
+        "percent": 100,
+        "icon": "store"
+      },
+      {
+        "label": "Volunteers",
+        "value": "11 / 36",
+        "percent": 31,
+        "icon": "users"
+      },
+      {
+        "label": "Donations & Fulfillment",
+        "value": "3 / 7",
+        "percent": 43,
+        "icon": "gift"
+      },
+      {
+        "label": "Family Communications",
+        "value": "2 / 3",
+        "percent": 67,
+        "icon": "megaphone"
+      }
+    ],
+    "confirmed": [
+      {
+        "item": "Train Quest package (trackless train + games)",
+        "status": "Confirmed",
+        "date": "Oct 1",
+        "tone": "confirmed"
+      },
+      {
+        "item": "H-E-B $125 Cake Walk support",
+        "status": "Approved",
+        "date": "Sep 30",
+        "tone": "confirmed"
+      },
+      {
+        "item": "Round Rock Sweethearts — 9 students",
+        "status": "Confirmed",
+        "date": "Sep 30",
+        "tone": "confirmed"
+      },
+      {
+        "item": "Nothing Bundt Cakes — 15 Bundtlets",
+        "status": "Confirmed",
+        "date": "Oct 22",
+        "tone": "confirmed"
+      },
+      {
+        "item": "Teacher trunks — Pre-K through 5",
+        "status": "Confirmed",
+        "date": "Sep 30",
+        "tone": "confirmed"
+      }
+    ],
+    "working": [
+      {
+        "item": "H-E-B Cake Walk shopping",
+        "status": "Appointment pending",
+        "date": "Oct 22",
+        "tone": "working"
+      },
+      {
+        "item": "A+ candy handoff",
+        "status": "Scheduling",
+        "date": "Oct 22",
+        "tone": "working"
+      },
+      {
+        "item": "St. Richard’s — 86 pumpkins",
+        "status": "Quantity pending",
+        "date": "Oct 22",
+        "tone": "working"
+      },
+      {
+        "item": "Train Quest onsite walk-through",
+        "status": "Time pending",
+        "date": "Oct 16",
+        "tone": "working"
+      }
+    ],
+    "action": [
+      {
+        "item": "Shine inflatable payment — INV0763",
+        "status": "Action Needed",
+        "date": "ASAP",
+        "tone": "action"
+      },
+      {
+        "item": "Confirm 12A outlet + audio operator",
+        "status": "Action Needed",
+        "date": "Oct 16",
+        "tone": "action"
+      },
+      {
+        "item": "Finalize volunteer adult leads",
+        "status": "Action Needed",
+        "date": "Oct 16",
+        "tone": "action"
+      }
+    ],
+    "complete": [
+      {
+        "item": "AiRCO $1,095 Train Quest payment",
+        "status": "Completed",
+        "date": "Oct 1",
+        "tone": "complete"
+      },
+      {
+        "item": "Express supplies delivered to Voigt",
+        "status": "Completed",
+        "date": "Sep 25",
+        "tone": "complete"
+      },
+      {
+        "item": "Family candy drive live through Oct. 23",
+        "status": "Completed",
+        "date": "Oct 1",
+        "tone": "complete"
+      }
+    ],
+    "communications": [
+      "Family candy drive is live through October 23.",
+      "Volunteer recruitment is active.",
+      "Public website remains family-facing only; internal planning stays in the board dashboard and master tracker."
+    ],
+    "layoutOps": [
+      "Train: track route; batting area loading/unloading; queue along fence.",
+      "Inflatable: covered-area/portable power zone; 110V, 12A, within 50 feet.",
+      "Food vendors: back-drive spaces nearest gate.",
+      "Trunk-or-Treat: back-drive spaces facing school; accessible spaces remain open.",
+      "Indoor public use: gym, downstairs restrooms, main hallway, cafeteria only.",
+      "Audio: school car-rider speaker + microphone; district operator still to be confirmed."
+    ]
   }
 }
