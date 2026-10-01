@@ -54,11 +54,21 @@ body:has(.ff-board-dashboard) main#main{padding:0!important;margin:0!important}
 .ff-table-head{display:grid;grid-template-columns:1fr 92px;padding:10px 16px;background:#f5f6f7;color:#374151;font-size:.74rem}
 .ff-table-head span:last-child{text-align:center}
 .ff-status-rows{display:grid}
-.ff-status-row{min-height:55px;border-top:1px solid #eceff1;padding:10px 13px 10px 16px;display:grid;grid-template-columns:minmax(0,1fr) 92px 18px;gap:9px;align-items:center}
+.ff-status-item{border-top:1px solid #eceff1;background:#fff}
+.ff-status-item:first-child{border-top:0}
+.ff-status-row{width:100%;min-height:55px;border:0;background:#fff;padding:10px 13px 10px 16px;display:grid;grid-template-columns:minmax(0,1fr) 92px 18px;gap:9px;align-items:center;text-align:left;font:inherit;color:inherit;cursor:pointer}
+.ff-status-row:hover{background:#fbfcfd}
+.ff-status-row:focus-visible{outline:3px solid rgba(225,15,32,.22);outline-offset:-3px}
 .ff-status-row>div{display:flex;align-items:center;gap:12px;min-width:0}
 .ff-status-row b{font-size:.8rem;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ff-status-row time{font-size:.72rem;color:#4b5563;text-align:center}
-.ff-chevron{font-size:1.4rem;color:#4b5563;line-height:1}
+.ff-chevron{font-size:1.4rem;color:#4b5563;line-height:1;transition:transform .18s ease}
+.ff-status-item.open .ff-chevron{transform:rotate(90deg)}
+.ff-status-detail{padding:0 16px 14px;background:#fbfcfd;border-top:1px dashed #e2e6ea}
+.ff-status-detail[hidden]{display:none!important}
+.ff-status-detail p{margin:12px 0 0;font-size:.78rem;line-height:1.5;color:#4b5563}
+.ff-detail-next{margin-top:9px;padding:9px 11px;border-radius:8px;background:#fff;border:1px solid #e5e7eb;font-size:.75rem;line-height:1.45;color:#374151}
+.ff-detail-next strong{color:#111827}
 .ff-pill{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;border-radius:7px;padding:5px 10px;font-size:.66rem;font-weight:700}
 .ff-pill.confirmed{background:#dff6e8;color:#187347}
 .ff-pill.working{background:#fff0c7;color:#9a6400}
