@@ -229,31 +229,41 @@
         "item": "Train Quest package (trackless train + games)",
         "status": "Confirmed",
         "date": "Oct 1",
-        "tone": "confirmed"
+        "tone": "confirmed",
+        "detail": "AiRCO paid Train Quest invoice INV0761 in full for $1,095. The package covers the trackless train plus the agreed giant-game/bubble package. The train is planned for the track with the batting area used for loading/unloading and the fence line used for the queue.",
+        "next": "Complete the school-approved Oct. 16 onsite walk-through and verify final setup access."
       },
       {
         "item": "H-E-B $125 Cake Walk support",
         "status": "Approved",
         "date": "Sep 30",
-        "tone": "confirmed"
+        "tone": "confirmed",
+        "detail": "H-E-B approved $125 for Fall Festival support and the contribution is assigned to Cake Walk bakery prizes. H-E-B will apply the credit through the Business Center after the register suspends the transaction.",
+        "next": "Confirm the proposed Oct. 22 at 10:00 AM shopping appointment and keep the bakery purchase at or under $125."
       },
       {
         "item": "Round Rock Sweethearts — 9 students",
         "status": "Confirmed",
         "date": "Sep 30",
-        "tone": "confirmed"
+        "tone": "confirmed",
+        "detail": "Round Rock Sweethearts reported 9 student volunteers currently confirmed, with room for the group to grow to 15.",
+        "next": "Receive the current roster/chaperone information and confirm the proposed 5:15 PM volunteer check-in time."
       },
       {
         "item": "Nothing Bundt Cakes — 15 Bundtlets",
         "status": "Confirmed",
         "date": "Oct 22",
-        "tone": "confirmed"
+        "tone": "confirmed",
+        "detail": "Nothing Bundt Cakes confirmed 15 individually packaged Bundtlet towers for the Cake Walk. Voigt red/black/white ribbon colors were requested, along with 2 clearly labeled gluten-free Bundtlets if available. Pickup is set for Oct. 22 as early as 9:00 AM.",
+        "next": "Complete pickup on Oct. 22 and add the prizes to the Cake Walk staging inventory."
       },
       {
         "item": "Teacher trunks — Pre-K through 5",
         "status": "Confirmed",
         "date": "Sep 30",
-        "tone": "confirmed"
+        "tone": "confirmed",
+        "detail": "Mrs. Cobb confirmed one teacher Trunk-or-Treat vehicle per grade level, covering Pre-K through 5th grade.",
+        "next": "Close theme/host details and integrate teacher trunks into the final parking assignment."
       }
     ],
     "working": [
@@ -261,25 +271,33 @@
         "item": "H-E-B Cake Walk shopping",
         "status": "Appointment pending",
         "date": "Oct 22",
-        "tone": "working"
+        "tone": "working",
+        "detail": "The Cake Walk plan is built around 23 H-E-B bakery prize packages plus 17 donated prize packages for a working total of 40 prizes. The current bakery estimate is designed to stay within the $125 H-E-B contribution.",
+        "next": "Wait for Deidre to confirm Oct. 22 at 10:00 AM, then shop the locked list with like-for-like bakery substitutions only if needed."
       },
       {
         "item": "A+ candy handoff",
         "status": "Scheduling",
         "date": "Oct 22",
-        "tone": "working"
+        "tone": "working",
+        "detail": "A+ Federal Credit Union committed 12 extra-large Costco candy variety bags at 5.75 lb each, for 69 lb total, intended for the teacher trunks.",
+        "next": "Confirm whether Oct. 22 branch pickup or school drop-off is the final handoff method and record receipt."
       },
       {
         "item": "St. Richard’s — 86 pumpkins",
         "status": "Quantity pending",
         "date": "Oct 22",
-        "tone": "working"
+        "tone": "working",
+        "detail": "The exact request is 86 small pumpkins: 80 for the no-carve decorating activity and 6 durable mini pumpkins for Pumpkin Bowling. St. Richard’s has not yet confirmed whether it can provide the full quantity.",
+        "next": "Obtain the confirmed quantity and Oct. 22 pickup window; fill only any remaining gap."
       },
       {
         "item": "Train Quest onsite walk-through",
         "status": "Time pending",
         "date": "Oct 16",
-        "tone": "working"
+        "tone": "working",
+        "detail": "Train Quest offered an onsite walkthrough one week before the festival to verify the train route, inflatable location/power, giant games, clearances, and setup access.",
+        "next": "Receive the school-approved Oct. 16 time from Mrs. Cobb/Ana/Ferguson."
       }
     ],
     "action": [
@@ -287,19 +305,25 @@
         "item": "Shine inflatable payment — INV0763",
         "status": "Action Needed",
         "date": "ASAP",
-        "tone": "action"
+        "tone": "action",
+        "detail": "Train Quest reduced the Kids Rainbow Combo to exactly $195, matching Shine Pediatric Dental Co.’s sponsorship commitment. INV0763 was reissued to Shine for $195 with no PTA balance.",
+        "next": "Confirm Shine payment and obtain the paid receipt/reservation confirmation and updated COI."
       },
       {
         "item": "Confirm 12A outlet + audio operator",
         "status": "Action Needed",
         "date": "Oct 16",
-        "tone": "action"
+        "tone": "action",
+        "detail": "The Kids Rainbow Combo requires one standard 110V outlet at about 12 amps and Train Quest prefers the extension-cord run to stay within 50 feet. The school also identified a car-rider speaker and microphone, but the district employee responsible for operating them still needs to be named.",
+        "next": "Get written confirmation of the outlet/circuit suitability and the assigned district audio operator."
       },
       {
         "item": "Finalize volunteer adult leads",
         "status": "Action Needed",
         "date": "Oct 16",
-        "tone": "action"
+        "tone": "action",
+        "detail": "All 9 currently confirmed Sweethearts have working student-support assignments, but several roles still require adult ownership for safety, money/prize custody, or escalation.",
+        "next": "Assign adult leads for silent auction, train/inflatable queue support, face painting supervision, welcome/check-in, and teardown."
       }
     ],
     "complete": [
@@ -307,19 +331,25 @@
         "item": "AiRCO $1,095 Train Quest payment",
         "status": "Completed",
         "date": "Oct 1",
-        "tone": "complete"
+        "tone": "complete",
+        "detail": "AiRCO paid Train Quest invoice INV0761 in full for $1,095, fully using the original AiRCO pledge. AiRCO should not be asked for any additional amount.",
+        "next": "Keep the paid invoice/receipt with sponsor records and recognition materials."
       },
       {
         "item": "Express supplies delivered to Voigt",
         "status": "Completed",
         "date": "Sep 25",
-        "tone": "complete"
+        "tone": "complete",
+        "detail": "Express Commercial Cleaning delivered its donated cleanup and safety supplies to the Voigt front desk. The fulfillment item is closed.",
+        "next": "Use the donated supplies for event cleanup and acknowledge Express in sponsor/donor recognition."
       },
       {
         "item": "Family candy drive live through Oct. 23",
         "status": "Completed",
         "date": "Oct 1",
-        "tone": "complete"
+        "tone": "complete",
+        "detail": "The corrected family candy-drive communication is live with an October 23 deadline, allowing families to donate through the day of the Fall Festival.",
+        "next": "Monitor incoming candy and assign an event-day candy runner to redistribute reserve candy between trunks as needed."
       }
     ],
     "communications": [
