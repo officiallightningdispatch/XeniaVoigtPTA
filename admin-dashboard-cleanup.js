@@ -81,8 +81,10 @@
         {item:'Train Quest onsite walk-through',status:'Time pending',date:'Oct 16',tone:'working'}
       ],
       action:[
-        {item:'Shine inflatable payment — INV0763',status:'Action Needed',date:'ASAP',tone:'action'},
-        {item:'Confirm 12A outlet + audio operator',status:'Action Needed',date:'Oct 16',tone:'action'},
+        {item:'Confirm 12A outlet + audio operator',status:'Action Needed',date:'ASAP / Oct 13',tone:'action'},
+        {item:'Submit PIE Campus Request Form',status:'Action Needed',date:'ASAP',tone:'action'},
+        {item:'Close $50 pumpkin sponsor',status:'Action Needed',date:'ASAP',tone:'action'},
+        {item:'Lock A+ candy handoff',status:'Action Needed',date:'ASAP',tone:'action'},
         {item:'Finalize volunteer adult leads',status:'Action Needed',date:'Oct 16',tone:'action'}
       ],
       complete:[
@@ -131,7 +133,7 @@
     try{
       const [ar,fr]=await Promise.all([
         fetch('/api/admin',{headers:{'x-admin-session':session},cache:'no-store'}),
-        fetch('/api/festival-status',{cache:'no-store'})
+        fetch('/api/festival-status',{headers:{'x-admin-session':session},cache:'no-store'})
       ]);
       if(!ar.ok) return false;
       const admin=await ar.json();
@@ -167,9 +169,9 @@
         view.innerHTML=`
           <div class="ff-metric-grid">${(board.metrics||[]).map(metricCard).join('')}</div>
           <div class="ff-status-grid">
-            ${statusSection('confirmed','Confirmed',board.confirmed||[])}
-            ${statusSection('working','Working On / Pending',board.working||[])}
             ${statusSection('action','Action Needed',board.action||[])}
+            ${statusSection('working','Working On / Pending',board.working||[])}
+            ${statusSection('confirmed','Confirmed / Scheduled',board.confirmed||[])}
             ${statusSection('complete','Complete',board.complete||[])}
           </div>`;
         wireDetailToggles();
