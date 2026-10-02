@@ -92,15 +92,15 @@ const STATUS={
     },
     {
       "title": "PIE Foundation Campus Request Form",
-      "detail": "The exact list is ready. PIE requires its form; the remaining school-supplied fields are principal/department-lead approval and the clipboard return date."
+      "detail": "The exact reconciled list is ready. Ruth Erb confirmed October 2 that principal approval is not required; use October 26 as the clipboard return date and submit the form now."
     },
     {
       "title": "Pumpkin sponsorship",
-      "detail": "St. Richard’s will provide all 86 pumpkins for $50 total. Exact $50 sponsorship asks are active; the first firm commitment closes the need."
+      "detail": "St. Richard’s will provide all 86 pumpkins for $50 total. Five Points Board of REALTORS® asked October 2 whether the final $50 business-sponsor need is still open; Brittani confirmed yes. Do not send new asks; the first firm commitment closes the need."
     },
     {
       "title": "A+ candy handoff",
-      "detail": "A+ Federal Credit Union pledged 12 Costco variety bags totaling 69 lb. Pickup/drop-off timing and recognition assets remain open."
+      "detail": "A+ Federal Credit Union pledged 12 Costco variety bags totaling 69 lb. Pickup is scheduled for October 22 at about 11:30 AM at the Mays Street branch; count actual pieces and capture recognition assets at handoff."
     },
     {
       "title": "Volunteer closeout",
@@ -108,7 +108,7 @@ const STATUS={
     },
     {
       "title": "Twelve remaining specialty material lines",
-      "detail": "All 12 true remaining specialty/consumable gaps have active source paths. Reconcile exact quantities as replies arrive and stop each category once covered."
+      "detail": "All 12 true remaining specialty/consumable gaps still have active source paths. Alpha Print declined completion bags October 2; the bag need remains active with Round Rock Church of Christ, Big Frog and Kwalwasser. Reconcile exact quantities and do not re-contact declined sources."
     },
     {
       "title": "FASTSIGNS release",
@@ -148,13 +148,16 @@ const STATUS={
     "Internal working-final event map was created and stored in the Fall Festival Drive folder.",
     "PTA closet ownership correction applied: no school authorization is required for PTA-owned closet inventory.",
     "A consolidated school closeout email was sent Oct. 2 for power, audio, first-aid/lost-child and weather/custodial/security items.",
-    "All 12 remaining specialty material lines have active source paths."
+    "All 12 remaining specialty material lines have active source paths; Alpha Print is closed/declined for completion bags.",
+    "PIE principal-approval hold was removed October 2; the exact Campus Request Form is ready to submit using October 26 as the clipboard return date.",
+    "A+ candy pickup is scheduled for October 22 at about 11:30 AM at the Mays Street branch.",
+    "Five Points Board of REALTORS® is a live prospect for the final $50 pumpkin sponsorship; no new sponsor asks should be sent."
   ],
   "blockers": [
     "School confirmation of the 12-amp/50-foot inflatable power condition.",
     "Name of the district employee responsible for the school speaker/microphone.",
     "School confirmation of first-aid/lost-child point and any weather/custodial/security requirements.",
-    "Required school fields needed to submit the PIE Campus Request Form.",
+
     "One confirmed $50 sponsor for the St. Richard’s pumpkin package.",
     "Remaining adult volunteer leads and Sweethearts roster/chaperone/day-of contact."
   ],
@@ -169,7 +172,7 @@ const STATUS={
     },
     {
       "date": "October 22, 2026",
-      "detail": "Nothing Bundt pickup at 9:00 AM; H-E-B Cake Walk shop at 10:00 AM; complete aligned candy/pumpkin pickups if confirmed."
+      "detail": "Nothing Bundt pickup at 9:00 AM; H-E-B Cake Walk shop at 10:00 AM; A+ candy pickup at about 11:30 AM; align St. Richard’s pumpkins after sponsor/payment closes."
     },
     {
       "date": "October 23, 2026",
@@ -178,11 +181,11 @@ const STATUS={
   ],
   "actions": [
     "Close school power/audio/first-aid/lost-child/weather/custodial/security items.",
-    "Submit the PIE Campus Request Form as soon as the required school fields arrive.",
-    "Close the first $50 pumpkin sponsor and stop duplicate asks.",
-    "Lock the A+ candy handoff.",
+    "Submit the PIE Campus Request Form now using October 26 as the clipboard return date.",
+    "Wait on existing $50 pumpkin-sponsor prospects only; accept the first firm commitment and stop all other asks.",
+    "Complete the scheduled A+ candy pickup October 22 at about 11:30 AM and count pieces at handoff.",
     "Receive Sweethearts roster/chaperone/day-of contact and assign remaining adult leads.",
-    "Reconcile the 12 specialty material lines by exact confirmed quantity.",
+    "Reconcile the 12 specialty material lines by exact confirmed quantity; Alpha Print is closed for bags and must not be re-contacted.",
     "Release the final FASTSIGNS scope only after the Oct. 13 field verification."
   ],
   "budget": {
@@ -235,27 +238,27 @@ const STATUS={
       },
       {
         "item": "Submit PIE Campus Request Form",
-        "status": "Action Needed",
+        "status": "Ready to Submit",
         "date": "ASAP",
-        "tone": "action",
-        "detail": "The exact request list is ready. PIE requires the Campus Request Form for its audit.",
-        "next": "Submit immediately when the required approval field and clipboard return date are confirmed."
+        "tone": "working",
+        "detail": "Ruth Erb confirmed principal approval is not required. The exact reconciled request is ready and October 26 is the clipboard return date.",
+        "next": "Submit the Campus Request Form now and retain the submission confirmation."
       },
       {
         "item": "Close $50 pumpkin sponsor",
         "status": "Action Needed",
         "date": "ASAP",
         "tone": "action",
-        "detail": "St. Richard’s has all 86 pumpkins available for $50 total; exact sponsorship asks are active.",
-        "next": "Accept the first firm yes, stop all other pumpkin asks, and lock payment/pickup."
+        "detail": "St. Richard’s has all 86 pumpkins available for $50 total. Five Points is a live October 2 prospect and existing asks remain pending.",
+        "next": "Do not send new asks. Accept the first firm yes, stop all other pumpkin asks, and lock payment/pickup."
       },
       {
-        "item": "Lock A+ candy handoff",
-        "status": "Action Needed",
-        "date": "ASAP",
-        "tone": "action",
-        "detail": "A+ pledged 12 extra-large Costco variety bags totaling 69 lb.",
-        "next": "Confirm Oct. 22 Mays Street pickup or an earlier school drop-off and collect recognition assets."
+        "item": "A+ candy pickup",
+        "status": "Scheduled",
+        "date": "Oct 22 · ~11:30 AM",
+        "tone": "confirmed",
+        "detail": "A+ pledged 12 extra-large Costco variety bags totaling 69 lb; pickup is scheduled at the Mays Street branch.",
+        "next": "Pick up, count actual pieces, and record the recognition asset at handoff."
       },
       {
         "item": "Close volunteer adult leads / roster",
@@ -270,8 +273,8 @@ const STATUS={
         "status": "Action Needed",
         "date": "Oct 16",
         "tone": "action",
-        "detail": "All 12 true remaining material lines have active source paths; no additional broad sourcing is needed.",
-        "next": "Track exact confirmed quantities and stop each category immediately when fully covered."
+        "detail": "All 12 true remaining material lines have active source paths. Alpha Print declined completion bags October 2.",
+        "next": "Track exact confirmed quantities, do not re-contact declined sources, and stop each category immediately when fully covered."
       },
       {
         "item": "Release FASTSIGNS final scope",
@@ -304,7 +307,7 @@ const STATUS={
         "status": "Scheduled / coordinating",
         "date": "Oct 22",
         "tone": "working",
-        "detail": "Nothing Bundt pickup is 9:00 AM and H-E-B is 10:00 AM; pumpkin/candy handoffs should be aligned if possible.",
+        "detail": "Nothing Bundt pickup is 9:00 AM, H-E-B is 10:00 AM and A+ candy is about 11:30 AM; St. Richard’s pumpkin pickup will be added after sponsor/payment closes.",
         "next": "Keep one fulfillment route and helper plan so pickups do not conflict."
       }
     ],
