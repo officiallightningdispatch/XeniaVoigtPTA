@@ -104,7 +104,11 @@
               <label>Event / project *<select name="event" id="volEvent" required><option value="">Select one</option><option>Any PTA event / general availability</option><option>Viking Quest Fall Festival — October 23, 2026</option><option>Teacher & staff appreciation</option><option>Family event / school activity</option><option>Fundraising / sponsorship support</option><option>PTA operations / behind-the-scenes help</option><option>Other event / project</option></select></label>
               <label>Other event / project<input name="otherEvent" placeholder="Optional"></label>
             </div>
-            <div class="field-label">What would you enjoy helping with? <span>Select all that apply.</span></div>
+            <div class="vol-grid two">
+              <label>Preferred role *<select name="preferredRole" required><option value="">Select your first choice</option><option>Setup / decorating</option><option>Welcome / check-in</option><option>Games / activity stations</option><option>Arts / creative activities</option><option>Food court / concessions support</option><option>Sensory-friendly space support</option><option>Performances / stage support</option><option>Trunk-or-treat support</option><option>Silent auction / fundraising</option><option>Vendor / sponsor support</option><option>Photography / event memories</option><option>Cleanup / breakdown</option><option>Planning / project management</option><option>Administrative / remote help</option><option>Wherever I’m needed</option></select></label>
+              <label>Role notes<input name="preferredRoleNotes" placeholder="Optional — station, area, or role details"></label>
+            </div>
+            <div class="field-label">Other roles you’re willing to help with <span>Select all that apply.</span></div>
             <div class="choice-grid roles">
               ${['Setup / decorating','Welcome / check-in','Games / activity stations','Arts / creative activities','Food court / concessions support','Sensory-friendly space support','Performances / stage support','Trunk-or-treat support','Silent auction / fundraising','Vendor / sponsor support','Photography / event memories','Cleanup / breakdown','Planning / project management','Administrative / remote help','Wherever I’m needed'].map(x=>`<label class="choice"><input type="checkbox" name="roles" value="${x}"><span>${x}</span></label>`).join('')}
             </div>
@@ -113,6 +117,12 @@
           <fieldset data-step-title="Availability">
             <legend><span>3</span> Your availability</legend>
             <p class="step-intro">No guilt, no pressure — just tell us what actually works for your schedule.</p>
+            <div id="festivalTimeSlotBlock" hidden>
+              <div class="field-label">Viking Quest Fall Festival time slot * <span>Select every shift that works for you.</span></div>
+              <div class="choice-grid compact">
+                ${['Pre-event setup — before 5:30 PM','Sensory-friendly opening + first hour — 5:30–6:30 PM','Second hour — 6:30–7:30 PM','Post-event cleanup — after 7:30 PM','Full event — 5:30–7:30 PM','Flexible — assign me where needed'].map(x=>`<label class="choice"><input type="checkbox" name="festivalTimeSlots" value="${x}"><span>${x}</span></label>`).join('')}
+              </div>
+            </div>
             <div class="field-label">When are you usually available? <span>Select all that apply.</span></div>
             <div class="choice-grid compact">
               ${['Weekday mornings','School-day hours','Weekday afternoons','Weekday evenings','Saturday','Sunday','Event day only','Flexible / varies'].map(x=>`<label class="choice"><input type="checkbox" name="availability" value="${x}"><span>${x}</span></label>`).join('')}
@@ -168,6 +178,7 @@
 
   const form=document.getElementById('volunteerForm');
   const eventSelect=document.getElementById('volEvent');
+  const festivalTimeSlotBlock=document.getElementById('festivalTimeSlotBlock');
   const fieldsets=[...form.querySelectorAll('fieldset')];
   const nextBtn=document.getElementById('volNext');
   const backBtn=document.getElementById('volBack');
@@ -190,9 +201,26 @@
   function saveDraft(showMessage=false){localStorage.setItem(key,JSON.stringify(values()));if(showMessage){const s=document.getElementById('volStatus');s.textContent='Draft saved on this device ✓';setTimeout(()=>s.textContent='',2200);}}
   try{const draft=JSON.parse(localStorage.getItem(key)||'null');if(draft){Object.entries(draft).forEach(([name,val])=>{const els=form.elements[name];if(!els)return;if(els instanceof RadioNodeList){[...els].forEach(el=>{if(el.type==='checkbox')el.checked=(val||[]).includes(el.value);});}else if(els.type==='checkbox'){els.checked=!!val;}else{els.value=val??'';}})}}catch{}
 
+  function isFestival(){return (eventSelect.value||'').includes('Viking Quest Fall Festival');}
+  function updateFestivalTimeSlots(){
+    const show=isFestival();
+    festivalTimeSlotBlock.hidden=!show;
+    festivalTimeSlotBlock.querySelectorAll('input[name="festivalTimeSlots"]').forEach(el=>{el.disabled=!show;});
+  }
+  eventSelect.addEventListener('change',updateFestivalTimeSlots);
+  updateFestivalTimeSlots();
+
   function validateStep(index){
     const controls=[...fieldsets[index].querySelectorAll('input,select,textarea')].filter(el=>!el.disabled);
     for(const el of controls){if(!el.checkValidity()){el.reportValidity();el.focus({preventScroll:true});el.scrollIntoView({behavior:'smooth',block:'center'});return false;}}
+    if(index===2 && isFestival() && !form.querySelector('input[name="festivalTimeSlots"]:checked')){
+      const first=form.querySelector('input[name="festivalTimeSlots"]');
+      const s=document.getElementById('volStatus');
+      s.textContent='Please select at least one Fall Festival time slot.';
+      first?.focus({preventScroll:true});
+      festivalTimeSlotBlock.scrollIntoView({behavior:'smooth',block:'center'});
+      return false;
+    }
     return true;
   }
   function list(x){return Array.isArray(x)?x.join(', '):(x||'None selected');}
@@ -201,7 +229,9 @@
     review.innerHTML=`<div class="vol-review-head"><span>QUICK REVIEW</span><b>Looks good?</b></div><div class="vol-review-grid">
       <div><small>Volunteer</small><strong>${v.firstName||'—'} ${v.lastName||''}</strong><span>${v.relationship||'—'}</span></div>
       <div><small>Event / project</small><strong>${v.event||'—'}</strong><span>${v.otherEvent||''}</span></div>
-      <div><small>Preferred roles</small><strong>${list(v.roles)}</strong></div>
+      <div><small>Preferred role</small><strong>${v.preferredRole||'—'}</strong><span>${v.preferredRoleNotes||''}</span></div>
+      <div><small>Other roles</small><strong>${list(v.roles)}</strong></div>
+      <div><small>Fall Festival time slot</small><strong>${isFestival()?list(v.festivalTimeSlots):'Not applicable'}</strong></div>
       <div><small>Availability</small><strong>${list(v.availability)}</strong><span>${v.commitment||''}</span></div>
     </div>`;
   }
@@ -234,7 +264,7 @@
     const v=values();
     const subject=`Volunteer Interest — ${v.event}${v.otherEvent?' — '+v.otherEvent:''}`;
     const body=[
-      'VOIGT PTA VOLUNTEER INTEREST','',`Name: ${v.firstName} ${v.lastName}`,`Email: ${v.email}`,`Phone: ${v.phone||'Not provided'}`,`Connection to Voigt: ${v.relationship}`,`Preferred contact: ${v.contactMethod}`,'',`Event / project: ${v.event}`,`Other event/project: ${v.otherEvent||'—'}`,`Preferred roles: ${list(v.roles)}`,'',`Availability: ${list(v.availability)}`,`Time commitment: ${v.commitment}`,`Availability notes: ${v.availabilityNotes||'—'}`,'',`Skills / interests: ${list(v.skills)}`,`Skills notes: ${v.skillsNotes||'—'}`,`Comfort / accessibility notes: ${v.comfortNotes||'—'}`,'',`Student grade: ${v.studentGrade||'Not applicable'}`,`Student school/org: ${v.studentOrg||'—'}`,`Student supervision acknowledgement: ${v.studentSupervision||'No / not applicable'}`,'',`Additional notes: ${v.notes||'—'}`,'','Consent to PTA contact: Yes'
+      'VOIGT PTA VOLUNTEER INTEREST','',`Name: ${v.firstName} ${v.lastName}`,`Email: ${v.email}`,`Phone: ${v.phone||'Not provided'}`,`Connection to Voigt: ${v.relationship}`,`Preferred contact: ${v.contactMethod}`,'',`Event / project: ${v.event}`,`Other event/project: ${v.otherEvent||'—'}`,`Preferred role: ${v.preferredRole||'—'}`,`Preferred role notes: ${v.preferredRoleNotes||'—'}`,`Other acceptable roles: ${list(v.roles)}`,`Fall Festival time slots: ${isFestival()?list(v.festivalTimeSlots):'Not applicable'}`,'',`Availability: ${list(v.availability)}`,`Time commitment: ${v.commitment}`,`Availability notes: ${v.availabilityNotes||'—'}`,'',`Skills / interests: ${list(v.skills)}`,`Skills notes: ${v.skillsNotes||'—'}`,`Comfort / accessibility notes: ${v.comfortNotes||'—'}`,'',`Student grade: ${v.studentGrade||'Not applicable'}`,`Student school/org: ${v.studentOrg||'—'}`,`Student supervision acknowledgement: ${v.studentSupervision||'No / not applicable'}`,'',`Additional notes: ${v.notes||'—'}`,'','Consent to PTA contact: Yes'
     ].join('\n');
     localStorage.removeItem(key);
     location.href=`mailto:info@xeniavoigtpta.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
