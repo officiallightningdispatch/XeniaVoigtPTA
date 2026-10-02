@@ -55,73 +55,27 @@
     </section>`;
   }
 
-  function fallbackDashboard(admin){
-    const sponsors=(admin.sponsorships||[]).filter(x=>['pledged','confirmed','paid'].includes(x.status));
-    const confirmedVendors=(admin.vendors||[]).filter(x=>x.status==='confirmed');
-    const volunteerCount=(admin.volunteers||[]).filter(x=>!['closed','declined'].includes(x.status)).length;
+  function fallbackDashboard(){
     return {
       metrics:[
-        {label:'Sponsors & Funding',value:`${Math.max(2,new Set(sponsors.map(x=>x.organization||x.donor_name).filter(Boolean)).size)} / 2`,percent:100,icon:'heart'},
-        {label:'Vendors & Attractions',value:`${Math.max(3,confirmedVendors.length)+2} / 5`,percent:100,icon:'store'},
-        {label:'Volunteers',value:`${Math.max(11,volunteerCount)} / 36`,percent:31,icon:'users'},
-        {label:'Donations & Fulfillment',value:'3 / 7',percent:43,icon:'gift'},
-        {label:'Family Communications',value:'2 / 3',percent:67,icon:'megaphone'}
+        {label:'Festival Status',value:'Syncing',percent:0,icon:'heart'},
+        {label:'Vendors',value:'Syncing',percent:0,icon:'store'},
+        {label:'Volunteers',value:'Syncing',percent:0,icon:'users'},
+        {label:'Materials',value:'Syncing',percent:0,icon:'gift'},
+        {label:'Communications',value:'Syncing',percent:0,icon:'megaphone'}
       ],
-      confirmed:[
-        {item:'Train Quest package (trackless train + games)',status:'Confirmed',date:'Oct 1',tone:'confirmed'},
-        {item:'H-E-B $125 Cake Walk support',status:'Approved',date:'Sep 30',tone:'confirmed'},
-        {item:'Round Rock Sweethearts — 9 students',status:'Confirmed',date:'Sep 30',tone:'confirmed'},
-        {item:'Nothing Bundt Cakes — 15 Bundtlets',status:'Confirmed',date:'Oct 22',tone:'confirmed'},
-        {item:'Teacher trunks — Pre-K through 5',status:'Confirmed',date:'Sep 30',tone:'confirmed'}
-      ],
-      working:[
-        {item:'H-E-B Cake Walk shopping',status:'Appointment pending',date:'Oct 22',tone:'working'},
-        {item:'A+ candy handoff',status:'Scheduling',date:'Oct 22',tone:'working'},
-        {item:'St. Richard’s — 86 pumpkins',status:'Quantity pending',date:'Oct 22',tone:'working'},
-        {item:'Train Quest onsite walk-through',status:'Time pending',date:'Oct 16',tone:'working'}
-      ],
-      action:[
-        {item:'Confirm 12A outlet + audio operator',status:'Action Needed',date:'ASAP / Oct 13',tone:'action'},
-        {item:'Submit PIE Campus Request Form',status:'Action Needed',date:'ASAP',tone:'action'},
-        {item:'Close $50 pumpkin sponsor',status:'Action Needed',date:'ASAP',tone:'action'},
-        {item:'Lock A+ candy handoff',status:'Action Needed',date:'ASAP',tone:'action'},
-        {item:'Finalize volunteer adult leads',status:'Action Needed',date:'Oct 16',tone:'action'}
-      ],
-      complete:[
-        {item:'AiRCO $1,095 Train Quest payment',status:'Completed',date:'Oct 1',tone:'complete'},
-        {item:'Express supplies delivered to Voigt',status:'Completed',date:'Sep 25',tone:'complete'},
-        {item:'Family candy drive live through Oct. 23',status:'Completed',date:'Oct 1',tone:'complete'}
-      ],
-      communications:[
-        'Family candy drive is live through October 23.',
-        'Volunteer recruitment is active.',
-        'Public website stays family-facing only; no internal planning content.'
-      ],
-      layoutOps:[
-        'Train: track route; batting area loading/unloading; queue along fence.',
-        'Inflatable: covered-area/portable power zone; 110V, 12A, within 50 feet.',
-        'Food vendors: back-drive spaces nearest gate.',
-        'Trunk-or-Treat: back-drive spaces facing school; accessible spaces remain open.',
-        'Indoor public use: gym, downstairs restrooms, main hallway, cafeteria only.',
-        'Audio: school car-rider speaker + microphone; district operator still to be confirmed.'
-      ]
+      action:[{
+        item:'Live planning status unavailable',
+        status:'Refresh',
+        date:'Now',
+        tone:'action',
+        detail:'The authenticated Fall Festival status could not be loaded.',
+        next:'Refresh this private board page. If the issue continues, use the master tracker.'
+      }],
+      working:[],
+      confirmed:[],
+      complete:[]
     };
-  }
-
-  function renderListPanel(title,subtitle,rows){
-    return `<section class="ff-view-panel"><div class="ff-panel-head"><div><h2>${esc(title)}</h2><p>${esc(subtitle)}</p></div></div><div class="ff-simple-list">${rows.length?rows.join(''):'<div class="ff-empty">Nothing to show.</div>'}</div></section>`;
-  }
-
-  function sponsorRows(data){
-    return (data.sponsorships||[]).map(x=>`<div class="ff-simple-row"><div><b>${esc(x.organization||x.donor_name||x.need_title||'Sponsor')}</b><span>${esc(x.need_title||'')} · ${money(x.amount)}</span></div><span class="ff-pill ${x.status==='paid'?'complete':x.status==='confirmed'||x.status==='pledged'?'confirmed':'working'}">${esc(titleCase(x.status))}</span></div>`);
-  }
-
-  function vendorRows(data){
-    return (data.vendors||[]).map(x=>`<div class="ff-simple-row"><div><b>${esc(x.business_name||'Vendor')}</b><span>${esc(x.contact_name||'')}${x.email?' · '+esc(x.email):''}</span></div><span class="ff-pill ${x.status==='confirmed'?'confirmed':x.status==='declined'||x.status==='closed'?'complete':'working'}">${esc(titleCase(x.status))}</span></div>`);
-  }
-
-  function volunteerRows(data){
-    return (data.volunteers||[]).map(x=>`<div class="ff-simple-row"><div><b>${esc([x.first_name,x.last_name].filter(Boolean).join(' ')||'Volunteer')}</b><span>${esc(x.event||'General availability')}${x.email?' · '+esc(x.email):''}</span></div><span class="ff-pill ${x.status==='approved'?'confirmed':x.status==='closed'?'complete':'working'}">${esc(titleCase(x.status))}</span></div>`);
   }
 
   async function render(){
