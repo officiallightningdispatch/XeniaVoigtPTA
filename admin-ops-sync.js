@@ -29,7 +29,7 @@
         </div></article>
         <article class="admin-card" style="border-top:5px solid #ed2c24"><span class="mini-label">ACTIVE GAPS</span><h3>What still needs action</h3><div class="admin-role-list">
           <div class="admin-role-item"><span class="dot"></span><div><b>Campus plan:</b> written layout, safety, traffic, ADA, train/inflatable, vendor and power approvals.</div></div>
-          <div class="admin-role-item"><span class="dot"></span><div><b>PIE request:</b> exact Campus Request Form is prepared; Google reCAPTCHA must be completed and the form submitted exactly once.</div></div>
+          <div class="admin-role-item"><span class="dot"></span><div><b>PIE request:</b> Campus Request Form submitted Oct. 2; confirmation received. Do not resubmit or send a duplicate follow-up. Await PIE’s Tuesday/Wednesday pull and pickup-ready notice.</div></div>
           <div class="admin-role-item"><span class="dot"></span><div><b>Pumpkins:</b> accept the first firm $50 sponsor for all 86 St. Richard’s pumpkins, then stop every other pumpkin ask.</div></div>
           <div class="admin-role-item"><span class="dot"></span><div><b>Volunteers:</b> receive Sweethearts roster/chaperone/day-of contact, fill adult safety leads, then fill student-support gaps.</div></div>
           <div class="admin-role-item"><span class="dot"></span><div><b>Materials + print:</b> reconcile the 12 specialty material lines; release final FASTSIGNS scope only after the Oct. 13 field verification.</div></div>
