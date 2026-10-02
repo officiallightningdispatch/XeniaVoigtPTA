@@ -13,8 +13,8 @@
     });
     const quest=[...document.querySelectorAll('.fall26-card')].find(x=>(x.querySelector('h3')?.textContent||'').trim()==='Viking Quest');
     if(quest){
-      const p=quest.querySelector('p'); if(p) p.textContent='Complete five fall-themed stations: Pumpkin Bowling, Apple Scoop Challenge, Fall Sensory Mystery, Collaborative Autumn Mural and Gratitude Tree.';
-      const chips=quest.querySelector('.fall26-chips'); if(chips) chips.innerHTML='<b>🎃 Pumpkin Bowling</b><b>🍎 Apple Scoop Challenge</b><b>🍂 Fall Sensory Mystery</b><b>🎨 Collaborative Autumn Mural</b><b>🌳 Gratitude Tree</b>';
+      const p=quest.querySelector('p'); if(p) p.textContent='Complete five authentic Viking Quest trials: The Trial of Skill, The Shield Wall, The Rune Maker’s Workshop, The Voigt Longship Builders and The Skald’s Stage.';
+      const chips=quest.querySelector('.fall26-chips'); if(chips) chips.innerHTML='<b>🪓 The Trial of Skill</b><b>🛡️ The Shield Wall</b><b>ᚱ The Rune Maker’s Workshop</b><b>⛵ The Voigt Longship Builders</b><b>🎵 The Skald’s Stage</b>';
     }
     const grid=document.querySelector('.fall26-adventure-grid');
     if(grid && !grid.querySelector('[data-pumpkin-decorating]')){
@@ -40,7 +40,7 @@
         const finalSection=document.querySelector('.fall26-final');
         finalSection?.insertAdjacentElement('beforebegin',section);
       }
-      section.innerHTML='<div class="container"><div class="fall26-section-head"><span>TRUNK-OR-TREAT HOSTS NEEDED</span><h2>'+open+' trunk spots are still open.</h2><p>'+claimed+' of '+total+' spaces are currently claimed or reserved. Families, staff, and approved community partners can host a family-friendly decorated trunk. We are finalizing the full host roster by Wednesday evening, September 30.</p></div><div class="fall26-actions center"><a class="btn primary" href="/trunk-host.html">Apply to host a trunk →</a></div></div>';
+      section.innerHTML='<div class="container"><div class="fall26-section-head"><span>TRUNK-OR-TREAT HOSTS NEEDED</span><h2>'+open+' trunk spots are still open.</h2><p>'+claimed+' of '+total+' spaces are currently claimed or reserved. Families, staff, and approved community partners can host a family-friendly decorated trunk. Applications remain open only for the remaining approved spaces while the final roster is completed.</p></div><div class="fall26-actions center"><a class="btn primary" href="/trunk-host.html">Apply to host a trunk →</a></div></div>';
     }
     refreshTrunkRecruitment();
 
