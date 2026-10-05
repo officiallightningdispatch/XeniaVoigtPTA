@@ -78,7 +78,7 @@ const STATUS={
     },
     {
       "title": "Forest Creek photo-stop trailer",
-      "detail": "Forest Creek Mini Storage donated the 12-foot utility trailer with 2-foot walls at $0 for 24 hours. No deposit is required; driver’s license, proof of insurance and a card copy for damage security are required. Pickup is available 9:00 AM–3:00 PM and the trailer uses a 2-inch ball."
+      "detail": "Forest Creek Mini Storage donated the 12-foot utility trailer with 2-foot walls at $0 for 24 hours. Brittani is scheduled to pick up Oct. 23 shortly after 9:00 AM and return it Oct. 24 morning. No deposit is required; driver’s license, proof of insurance and a card copy for damage security are required; the trailer uses a 2-inch ball."
     },
     {
       "title": "School maps received",
@@ -153,7 +153,8 @@ const STATUS={
   ],
   "changes": [
     "October 5: Five Points Board of REALTORS® committed the full $50 pumpkin sponsorship; the sponsor gap is closed and other pumpkin asks are stopped.",
-    "October 5: Forest Creek Mini Storage confirmed a free 24-hour donation of the 12-foot utility trailer for the retained Viking-ship photo stop.",
+    "October 5: Forest Creek Mini Storage confirmed a free 24-hour donation of the 12-foot utility trailer for the retained Viking-ship photo stop; Brittani scheduled pickup for Oct. 23 shortly after 9 AM and return for Oct. 24 morning.",
+    "October 5: Austin Christian University committed a minimum of 15 student volunteers, with a final 15–20 headcount due Friday; the group is available 4:30–8:30 PM for setup, event support and teardown.",
     "October 5: status follow-ups were sent for FASTSIGNS, completion bags, Church material support, hand percussion, Lakeshore, Office Depot, Sweethearts and Cedar Ridge; same-day/new asks were not duplicated.",
     "October 5: AS Awards declined medals and BeamBalloons confirmed paid-only décor; both are closed for in-kind outreach.",
     "Planning closeout package completed Oct. 2: Final Zone Plan, Viking Quest Ops, PTA Closet Pull, Day-of Command, Family Rollout, revised Run of Show and revised Volunteer Assignments.",
@@ -171,8 +172,8 @@ const STATUS={
     "School confirmation of first-aid/lost-child point and any weather/custodial/security requirements.",
 
     "St. Richard’s payment method and October 22 pumpkin pickup window.",
-    "Trailer pickup/return driver, tow vehicle and proof-of-insurance logistics for the Forest Creek donation.",
-    "Remaining adult volunteer leads and Sweethearts roster/chaperone/day-of contact."
+    "Tow vehicle, proof-of-insurance and Saturday-return instructions for the Forest Creek donation; Brittani is the confirmed pickup/return driver.",
+    "Remaining adult safety/custody leads, Austin Christian University final 15–20 headcount Friday, and Sweethearts roster/chaperone/day-of contact."
   ],
   "deadlines": [
     {
@@ -197,7 +198,7 @@ const STATUS={
     "Reconcile PIE quantities when Ruth completes the Tuesday/Wednesday pull; do not duplicate requested items.",
     "Finalize St. Richard’s payment method and October 22 pickup window, then send Five Points the payment instructions.",
     "Complete the scheduled A+ candy pickup October 22 at about 11:30 AM and count pieces at handoff.",
-    "Receive Sweethearts roster/chaperone/day-of contact and assign remaining adult leads.",
+    "Receive Austin Christian University final 15–20 headcount Friday and Sweethearts roster/chaperone/day-of contact; assign adult safety/custody leads first, then student-support/setup/teardown placements.",
     "Reconcile the specialty material lines by exact confirmed quantity; close categories immediately when covered and do not re-contact Alpha Print, AS Awards, BeamBalloons or other closed/declined sources.",
     "Await the October 5 FASTSIGNS status reply and release the final production scope only after the Oct. 13 field verification."
   ],
@@ -222,9 +223,9 @@ const STATUS={
         "icon": "store"
       },
       {
-        "label": "Known Volunteers",
-        "value": "11 / 36",
-        "percent": 31,
+        "label": "Committed Volunteer Pool",
+        "value": "26 / 36 minimum",
+        "percent": 72,
         "icon": "users"
       },
       {
@@ -346,8 +347,8 @@ const STATUS={
         "status": "Confirmed / $0 In-Kind",
         "date": "Oct 5",
         "tone": "confirmed",
-        "detail": "Forest Creek Mini Storage donated a 12-foot utility trailer with 2-foot walls for 24 hours. ID, proof of insurance and a card copy are required; pickup is available 9:00 AM–3:00 PM.",
-        "next": "Assign the pickup/return driver and tow vehicle; confirm the 2-inch hitch/light connection."
+        "detail": "Forest Creek Mini Storage donated a 12-foot utility trailer with 2-foot walls for 24 hours. Brittani is scheduled to pick up Oct. 23 shortly after 9:00 AM and return it Oct. 24 morning. ID, proof of insurance and a card copy are required.",
+        "next": "Confirm tow vehicle/proof of insurance, 2-inch hitch/light connection and any special Saturday-return instructions."
       },
       {
         "item": "H-E-B $125 Cake Walk support",
