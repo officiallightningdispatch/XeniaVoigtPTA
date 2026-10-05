@@ -34,7 +34,7 @@
           <div class="admin-role-item"><span class="dot"></span><div><b>Campus closeout:</b> the internal working plan is complete. Oct. 13 field verification must close power/audio, first-aid/lost-child, weather, custodial/security and exact placement details.</div></div>
           <div class="admin-role-item"><span class="dot"></span><div><b>PIE request:</b> Campus Request Form submitted Oct. 2; confirmation received. Do not resubmit or send a duplicate follow-up. Await PIE’s Tuesday/Wednesday pull and pickup-ready notice.</div></div>
           <div class="admin-role-item"><span class="dot"></span><div><b>Pumpkin fulfillment:</b> sponsor is secured. Await St. Richard’s payment instructions + Oct. 22 pickup window, then send the payment details to Five Points.</div></div>
-          <div class="admin-role-item"><span class="dot"></span><div><b>Volunteers:</b> minimum committed pool is 26/36, with a raw gap of 10 that may fall to 5 if ACU confirms 20. ACU volunteers are adults age 18+, so adult-lead headcount is covered at a minimum 17 known adults for 15 lead positions; role assignments remain open. Receive ACU final headcount Friday + Sweethearts roster/chaperone.</div></div>
+          <div class="admin-role-item"><span class="dot"></span><div><b>Volunteers:</b> minimum committed pool is 26/36, with a raw gap of 10 that may fall to 5 if ACU confirms 20. ACU volunteers are adults age 18+, so adult-lead headcount is covered because the minimum 15 ACU adults exactly matches the 15 adult-lead positions, with Brittani as the additional event lead; role assignments remain open. Receive ACU final headcount Friday + Sweethearts roster/chaperone.</div></div>
           <div class="admin-role-item"><span class="dot"></span><div><b>Trailer logistics:</b> Brittani is the pickup/return driver. Confirm towing vehicle/proof of insurance and Forest Creek’s Saturday-return instructions.</div></div>
           <div class="admin-role-item"><span class="dot"></span><div><b>Materials + print:</b> reconcile the 12 specialty material lines; release final FASTSIGNS scope only after the Oct. 13 field verification.</div></div>
         </div></article>
@@ -57,7 +57,7 @@
         ${card('Sensory retreat','1 / 1','BGC portable confirmed; Tyla is access/closeout contact')}
         ${card('Specialty material lines','12 open','Each has an active source path; stop sourcing category-by-category as covered')}
         ${card('Volunteer pool','26 / 36 minimum','ACU final 15–20 count due Friday; potential committed pool 31')}
-        ${card('Adult lead roles','15 positions / 17+ known adults','ACU university volunteers are age 18+; assignment remains to be finalized')}
+        ${card('Adult lead roles','15 positions / 16 known adults','ACU university volunteers are age 18+; the minimum 15 exactly matches the 15 lead positions. Brittani is the additional event lead.')}
         ${card('Pumpkin sponsorship','1 / 1 secured','Five Points covers the full $50; payment logistics pending')}
         ${card('Photo-stop trailer','1 / 1 secured','Brittani pickup Oct. 23 AM / return Oct. 24 AM')}
         ${card('DJ / MC','Removed','School sound system will be used')}
