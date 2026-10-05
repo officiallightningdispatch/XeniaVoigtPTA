@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto';
 import { db, ensureSchema, send } from './_db.js';
 
 const STATUS={
-  "updatedAt": "2026-10-02",
+  "updatedAt": "2026-10-05",
   "event": {
     "title": "Xenia Voigt Viking Quest Fall Festival",
     "date": "Friday, October 23, 2026",
@@ -43,7 +43,7 @@ const STATUS={
     ],
     "activeInventoryLines": 81,
     "sourcingInventoryLines": 12,
-    "cashPledges": 1290,
+    "cashPledges": 1340,
     "budgetAllocation": 300,
     "cashSpent": 0,
     "foodPlanTarget": 3,
@@ -73,6 +73,14 @@ const STATUS={
       "detail": "H-E-B approved $125 and confirmed the Business Center shopping appointment for Thursday, October 22 at 10:00 AM."
     },
     {
+      "title": "Five Points pumpkin sponsorship",
+      "detail": "Five Points Board of REALTORS® explicitly committed the full $50 sponsorship on October 5 for all 86 St. Richard’s pumpkins — 80 for no-carve decorating and 6 for Pumpkin Bowling. All other pumpkin-sponsor asks are closed."
+    },
+    {
+      "title": "Forest Creek photo-stop trailer",
+      "detail": "Forest Creek Mini Storage donated the 12-foot utility trailer with 2-foot walls at $0 for 24 hours. No deposit is required; driver’s license, proof of insurance and a card copy for damage security are required. Pickup is available 9:00 AM–3:00 PM and the trailer uses a 2-inch ball."
+    },
+    {
       "title": "School maps received",
       "detail": "Ana Garza supplied the grounds and interior maps. Classroom-area doors must remain closed throughout the event."
     },
@@ -92,11 +100,11 @@ const STATUS={
     },
     {
       "title": "PIE Foundation Campus Request Form",
-      "detail": "The exact reconciled list is ready. Ruth Erb confirmed October 2 that principal approval is not required; use October 26 as the clipboard return date and submit the form now."
+      "detail": "The reconciled PIE Campus Request Form was submitted October 2 and the confirmation showed the response was recorded. Ruth Erb plans to pull the requested items Tuesday or Wednesday; reconcile exact quantities when the pull is ready."
     },
     {
-      "title": "Pumpkin sponsorship",
-      "detail": "St. Richard’s will provide all 86 pumpkins for $50 total. Five Points Board of REALTORS® asked October 2 whether the final $50 business-sponsor need is still open; Brittani confirmed yes. Do not send new asks; the first firm commitment closes the need."
+      "title": "Pumpkin payment + pickup closeout",
+      "detail": "Five Points Board of REALTORS® committed the full $50 sponsorship October 5, so the funding gap is closed. St. Richard’s has been asked for its preferred payment method and the October 22 pickup window; send Five Points the payment instructions when St. Richard’s replies."
     },
     {
       "title": "A+ candy handoff",
@@ -104,15 +112,15 @@ const STATUS={
     },
     {
       "title": "Volunteer closeout",
-      "detail": "Nine Round Rock Sweethearts are confirmed. Names/chaperone/day-of contact, remaining adult leads and any Cedar Ridge additions are still open."
+      "detail": "Nine Round Rock Sweethearts are confirmed. A status follow-up was sent October 5 requesting the names, adult chaperone/day-of lead and any updated headcount. Cedar Ridge was also followed up October 5 for student volunteers plus an adult sponsor/chaperone. Remaining adult safety/custody leads are still open."
     },
     {
       "title": "Twelve remaining specialty material lines",
-      "detail": "All 12 true remaining specialty/consumable gaps still have active source paths. Alpha Print declined completion bags October 2; the bag need remains active with Round Rock Church of Christ, Big Frog and Kwalwasser. Reconcile exact quantities and do not re-contact declined sources."
+      "detail": "All true remaining specialty/consumable gaps have active source paths. October 5 follow-ups went to Round Rock Church of Christ, Big Frog, Kwalwasser, School of Rock, Lakeshore and Office Depot; fresh October 5 requests also cover medal, Conqueror-card printing, art, percussion and photo-stop material paths. AS Awards declined medals and must not be re-contacted."
     },
     {
       "title": "FASTSIGNS release",
-      "detail": "Production remains on hold. Final copy/scope is defined; exact placement and quantity will be released after the Oct. 13 field verification."
+      "detail": "A status follow-up was sent October 5 asking for the donation/discount determination plus recommended sizes/materials. Production remains on hold until the October 13 field verification locks exact placement and quantity."
     },
     {
       "title": "Boys & Girls Club operational confirmation",
@@ -139,26 +147,31 @@ const STATUS={
       "detail": "Pull/count/condition-check the PTA-owned totes, games, craft supplies, tablecloths, face-paint supplies, photo props, coolers and operations stock using the new PTA Closet Pull sheet."
     },
     {
-      "title": "Pumpkin sponsor stop rule",
-      "detail": "The first explicit $50 sponsor commitment closes the need. Stop remaining asks immediately, then confirm St. Richard’s payment method and pickup."
+      "title": "Pumpkin fulfillment",
+      "detail": "The $50 sponsorship is secured with Five Points and all other sponsor asks are closed. Confirm St. Richard’s payment method and October 22 pickup window, then send Five Points the payment instructions."
     }
   ],
   "changes": [
+    "October 5: Five Points Board of REALTORS® committed the full $50 pumpkin sponsorship; the sponsor gap is closed and other pumpkin asks are stopped.",
+    "October 5: Forest Creek Mini Storage confirmed a free 24-hour donation of the 12-foot utility trailer for the retained Viking-ship photo stop.",
+    "October 5: status follow-ups were sent for FASTSIGNS, completion bags, Church material support, hand percussion, Lakeshore, Office Depot, Sweethearts and Cedar Ridge; same-day/new asks were not duplicated.",
+    "October 5: AS Awards declined medals and BeamBalloons confirmed paid-only décor; both are closed for in-kind outreach.",
     "Planning closeout package completed Oct. 2: Final Zone Plan, Viking Quest Ops, PTA Closet Pull, Day-of Command, Family Rollout, revised Run of Show and revised Volunteer Assignments.",
     "Internal working-final event map was created and stored in the Fall Festival Drive folder.",
     "PTA closet ownership correction applied: no school authorization is required for PTA-owned closet inventory.",
     "A consolidated school closeout email was sent Oct. 2 for power, audio, first-aid/lost-child and weather/custodial/security items.",
     "All 12 remaining specialty material lines have active source paths; Alpha Print is closed/declined for completion bags.",
-    "PIE principal-approval hold was removed October 2; the exact Campus Request Form is ready to submit using October 26 as the clipboard return date.",
+    "PIE principal-approval hold was removed October 2; the exact Campus Request Form was submitted and Ruth plans the requested-item pull Tuesday or Wednesday.",
     "A+ candy pickup is scheduled for October 22 at about 11:30 AM at the Mays Street branch.",
-    "Five Points Board of REALTORS® is a live prospect for the final $50 pumpkin sponsorship; no new sponsor asks should be sent."
+    "Five Points Board of REALTORS® is the confirmed $50 pumpkin sponsor; all other pumpkin-sponsor asks are closed."
   ],
   "blockers": [
     "School confirmation of the 12-amp/50-foot inflatable power condition.",
     "Name of the district employee responsible for the school speaker/microphone.",
     "School confirmation of first-aid/lost-child point and any weather/custodial/security requirements.",
 
-    "One confirmed $50 sponsor for the St. Richard’s pumpkin package.",
+    "St. Richard’s payment method and October 22 pumpkin pickup window.",
+    "Trailer pickup/return driver, tow vehicle and proof-of-insurance logistics for the Forest Creek donation.",
     "Remaining adult volunteer leads and Sweethearts roster/chaperone/day-of contact."
   ],
   "deadlines": [
@@ -172,7 +185,7 @@ const STATUS={
     },
     {
       "date": "October 22, 2026",
-      "detail": "Nothing Bundt pickup at 9:00 AM; H-E-B Cake Walk shop at 10:00 AM; A+ candy pickup at about 11:30 AM; align St. Richard’s pumpkins after sponsor/payment closes."
+      "detail": "Nothing Bundt pickup at 9:00 AM; H-E-B Cake Walk shop at 10:00 AM; A+ candy pickup at about 11:30 AM; add St. Richard’s pumpkin pickup after its payment method/window is confirmed."
     },
     {
       "date": "October 23, 2026",
@@ -181,18 +194,18 @@ const STATUS={
   ],
   "actions": [
     "Close school power/audio/first-aid/lost-child/weather/custodial/security items.",
-    "Submit the PIE Campus Request Form now using October 26 as the clipboard return date.",
-    "Wait on existing $50 pumpkin-sponsor prospects only; accept the first firm commitment and stop all other asks.",
+    "Reconcile PIE quantities when Ruth completes the Tuesday/Wednesday pull; do not duplicate requested items.",
+    "Finalize St. Richard’s payment method and October 22 pickup window, then send Five Points the payment instructions.",
     "Complete the scheduled A+ candy pickup October 22 at about 11:30 AM and count pieces at handoff.",
     "Receive Sweethearts roster/chaperone/day-of contact and assign remaining adult leads.",
-    "Reconcile the 12 specialty material lines by exact confirmed quantity; Alpha Print is closed for bags and must not be re-contacted.",
-    "Release the final FASTSIGNS scope only after the Oct. 13 field verification."
+    "Reconcile the specialty material lines by exact confirmed quantity; close categories immediately when covered and do not re-contact Alpha Print, AS Awards, BeamBalloons or other closed/declined sources.",
+    "Await the October 5 FASTSIGNS status reply and release the final production scope only after the Oct. 13 field verification."
   ],
   "budget": {
     "allocation": "$300",
     "spent": "$0",
     "goal": "$0 PTA cash spend where possible",
-    "cashPledges": "$1,290"
+    "cashPledges": "$1,340"
   },
   "dashboard": {
     "metrics": [
@@ -237,20 +250,20 @@ const STATUS={
         "next": "Use the Oct. 2 consolidated email and Oct. 13 walkthrough to close every remaining school-side item."
       },
       {
-        "item": "Submit PIE Campus Request Form",
-        "status": "Ready to Submit",
-        "date": "ASAP",
+        "item": "Reconcile PIE fulfillment",
+        "status": "Submitted / Awaiting Pull",
+        "date": "Tue–Wed",
         "tone": "working",
-        "detail": "Ruth Erb confirmed principal approval is not required. The exact reconciled request is ready and October 26 is the clipboard return date.",
-        "next": "Submit the Campus Request Form now and retain the submission confirmation."
+        "detail": "The reconciled Campus Request Form was submitted October 2 and the submission was recorded. Ruth plans to pull the requested items Tuesday or Wednesday.",
+        "next": "Record exact fulfilled quantities and subtract them from every matching open material line."
       },
       {
-        "item": "Close $50 pumpkin sponsor",
-        "status": "Action Needed",
+        "item": "Finalize pumpkin payment + pickup",
+        "status": "Sponsor Secured",
         "date": "ASAP",
-        "tone": "action",
-        "detail": "St. Richard’s has all 86 pumpkins available for $50 total. Five Points is a live October 2 prospect and existing asks remain pending.",
-        "next": "Do not send new asks. Accept the first firm yes, stop all other pumpkin asks, and lock payment/pickup."
+        "tone": "working",
+        "detail": "Five Points committed the full $50 sponsorship October 5 for all 86 St. Richard’s pumpkins. The sponsor gap is closed.",
+        "next": "Get St. Richard’s payment method and October 22 pickup window, then send Five Points the payment instructions."
       },
       {
         "item": "A+ candy pickup",
@@ -265,24 +278,24 @@ const STATUS={
         "status": "Action Needed",
         "date": "Oct 16",
         "tone": "action",
-        "detail": "Nine Sweethearts are confirmed and working placements are built, but adult safety/custody leads and final names/chaperone/day-of contact remain open.",
-        "next": "Receive the roster and fill adult leads; use Cedar Ridge/family volunteers for remaining student support roles."
+        "detail": "Nine Sweethearts are confirmed and working placements are built. October 5 follow-ups requested the Sweethearts roster/chaperone/day-of lead and asked Cedar Ridge for student volunteers with an adult sponsor/chaperone; adult safety/custody leads remain open.",
+        "next": "Track those October 5 replies and fill adult leads before assigning remaining student support roles."
       },
       {
         "item": "Close 12 specialty material lines",
         "status": "Action Needed",
         "date": "Oct 16",
         "tone": "action",
-        "detail": "All 12 true remaining material lines have active source paths. Alpha Print declined completion bags October 2.",
-        "next": "Track exact confirmed quantities, do not re-contact declined sources, and stop each category immediately when fully covered."
+        "detail": "The remaining true material lines have active source paths. October 5 follow-ups/new requests cover bags, specialty Quest materials, printing, medals, percussion, art consumables and photo-stop materials. Alpha Print and AS Awards are declined/closed.",
+        "next": "Track exact quantities, close each category immediately when covered, and do not duplicate same-day or declined-source outreach."
       },
       {
         "item": "Release FASTSIGNS final scope",
         "status": "Action Needed",
         "date": "Oct 13–16",
         "tone": "action",
-        "detail": "Print copy and categories are defined; production remains intentionally on hold until field verification.",
-        "next": "After Oct. 13, send only final sign quantities/artwork and authorize nothing outside the current scope."
+        "detail": "Print copy and categories are defined. An October 5 status follow-up asked FASTSIGNS for its donation/discount determination and recommended production specs; production remains intentionally on hold until field verification.",
+        "next": "After Oct. 13, release only final sign quantities/artwork using FASTSIGNS’ confirmed specs and authorize nothing outside current scope."
       }
     ],
     "working": [
@@ -307,7 +320,7 @@ const STATUS={
         "status": "Scheduled / coordinating",
         "date": "Oct 22",
         "tone": "working",
-        "detail": "Nothing Bundt pickup is 9:00 AM, H-E-B is 10:00 AM and A+ candy is about 11:30 AM; St. Richard’s pumpkin pickup will be added after sponsor/payment closes.",
+        "detail": "Nothing Bundt pickup is 9:00 AM, H-E-B is 10:00 AM and A+ candy is about 11:30 AM; St. Richard’s pumpkin pickup will be added once its payment method and pickup window are confirmed.",
         "next": "Keep one fulfillment route and helper plan so pickups do not conflict."
       }
     ],
@@ -319,6 +332,22 @@ const STATUS={
         "tone": "confirmed",
         "detail": "AiRCO paid $1,095. Shine paid $195 and COI is received. Walkthrough is Tuesday Oct. 13 at 8:00 AM.",
         "next": "Field-verify power, placement, clearances and setup access."
+      },
+      {
+        "item": "Five Points — all 86 pumpkins sponsored",
+        "status": "Confirmed / $50 Committed",
+        "date": "Oct 5",
+        "tone": "confirmed",
+        "detail": "Five Points Board of REALTORS® committed the full $50 for St. Richard’s 86-pumpkin package.",
+        "next": "Send payment instructions when St. Richard’s confirms its preferred method and pickup window."
+      },
+      {
+        "item": "Forest Creek — photo-stop trailer",
+        "status": "Confirmed / $0 In-Kind",
+        "date": "Oct 5",
+        "tone": "confirmed",
+        "detail": "Forest Creek Mini Storage donated a 12-foot utility trailer with 2-foot walls for 24 hours. ID, proof of insurance and a card copy are required; pickup is available 9:00 AM–3:00 PM.",
+        "next": "Assign the pickup/return driver and tow vehicle; confirm the 2-inch hitch/light connection."
       },
       {
         "item": "H-E-B $125 Cake Walk support",
