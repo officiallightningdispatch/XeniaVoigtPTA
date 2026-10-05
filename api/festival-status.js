@@ -173,7 +173,7 @@ const STATUS={
 
     "St. Richard’s payment method and October 22 pumpkin pickup window.",
     "Tow vehicle, proof-of-insurance and Saturday-return instructions for the Forest Creek donation; Brittani is the confirmed pickup/return driver.",
-    "Adult-lead role assignment: at least 17 known adults are available for 15 adult-lead positions because ACU volunteers are age 18+. Finalize ACU’s 15–20 headcount Friday and map adults to roles; also receive Sweethearts roster/chaperone/day-of contact."
+    "Adult-lead role assignment: the minimum 15 ACU volunteers are age 18+ and exactly match the 15 adult-lead positions; Brittani is the additional event lead. Finalize ACU’s 15–20 headcount Friday and map adults to roles; also receive Sweethearts roster/chaperone/day-of contact."
   ],
   "deadlines": [
     {
@@ -198,7 +198,7 @@ const STATUS={
     "Reconcile PIE quantities when Ruth completes the Tuesday/Wednesday pull; do not duplicate requested items.",
     "Finalize St. Richard’s payment method and October 22 pickup window, then send Five Points the payment instructions.",
     "Complete the scheduled A+ candy pickup October 22 at about 11:30 AM and count pieces at handoff.",
-    "Receive Austin Christian University final 15–20 adult-volunteer headcount Friday and Sweethearts roster/chaperone/day-of contact; assign the 15 adult-lead positions from the 17+ known adults, then complete support/setup/teardown placements.",
+    "Receive Austin Christian University final 15–20 adult-volunteer headcount Friday and Sweethearts roster/chaperone/day-of contact; assign the 15 adult-lead positions from the minimum 15 ACU adult volunteers, with Brittani serving as event lead, then complete support/setup/teardown placements.",
     "Reconcile the specialty material lines by exact confirmed quantity; close categories immediately when covered and do not re-contact Alpha Print, AS Awards, BeamBalloons or other closed/declined sources.",
     "Await the October 5 FASTSIGNS status reply and release the final production scope only after the Oct. 13 field verification."
   ],
