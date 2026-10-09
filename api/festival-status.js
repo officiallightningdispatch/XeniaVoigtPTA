@@ -1,8 +1,9 @@
 import { createHash } from 'node:crypto';
 import { db, ensureSchema, send } from './_db.js';
 
-const STATUS={
-  "updatedAt": "2026-10-05",
+const STATUS=
+{
+  "updatedAt": "2026-10-09",
   "event": {
     "title": "Xenia Voigt Viking Quest Fall Festival",
     "date": "Friday, October 23, 2026",
@@ -28,7 +29,7 @@ const STATUS={
       "The Trial of Skill",
       "The Shield Wall",
       "The Rune Maker’s Workshop",
-      "The Voigt Longship Builders",
+      "The Navigator’s Trial",
       "The Skald’s Stage"
     ],
     "generalActivities": [
@@ -42,8 +43,8 @@ const STATUS={
       "Photo Stop"
     ],
     "activeInventoryLines": 81,
-    "sourcingInventoryLines": 12,
-    "cashPledges": 1340,
+    "sourcingInventoryLines": 11,
+    "cashPledges": 1290,
     "budgetAllocation": 300,
     "cashSpent": 0,
     "foodPlanTarget": 3,
@@ -73,10 +74,6 @@ const STATUS={
       "detail": "H-E-B approved $125 and confirmed the Business Center shopping appointment for Thursday, October 22 at 10:00 AM."
     },
     {
-      "title": "Five Points pumpkin sponsorship",
-      "detail": "Five Points Board of REALTORS® explicitly committed the full $50 sponsorship on October 5 for all 86 St. Richard’s pumpkins — 80 for no-carve decorating and 6 for Pumpkin Bowling. All other pumpkin-sponsor asks are closed."
-    },
-    {
       "title": "Forest Creek photo-stop trailer",
       "detail": "Forest Creek Mini Storage donated the 12-foot utility trailer with 2-foot walls at $0 for 24 hours. Brittani is scheduled to pick up Oct. 23 shortly after 9:00 AM and return it Oct. 24 morning. No deposit is required; driver’s license, proof of insurance and a card copy for damage security are required; the trailer uses a 2-inch ball."
     },
@@ -85,12 +82,16 @@ const STATUS={
       "detail": "Ana Garza supplied the grounds and interior maps. Classroom-area doors must remain closed throughout the event."
     },
     {
-      "title": "Cake Walk plan",
-      "detail": "Working target is 40 prize packages: 17 confirmed donated packages plus approximately 23 H-E-B bakery packages at the Oct. 22 appointment."
-    },
-    {
       "title": "Sensory-friendly retreat",
       "detail": "The Boys & Girls Club portable is the planned sensory-friendly retreat. No PTA-purchased sensory materials are needed."
+    },
+    {
+      "title": "St. Richard’s pumpkins",
+      "detail": "All 86 pumpkins donated; October 22 pickup confirmation pending."
+    },
+    {
+      "title": "Volunteer commitments",
+      "detail": "At least 31 unique people committed: Brittani, Dana, Quinteria, 13 Round Rock Sweethearts, and at least 15 ACU adults. Assignments and final ACU count pending."
     }
   ],
   "pending": [
@@ -103,32 +104,32 @@ const STATUS={
       "detail": "The reconciled PIE Campus Request Form was submitted October 2 and the confirmation showed the response was recorded. Ruth Erb plans to pull the requested items Tuesday or Wednesday; reconcile exact quantities when the pull is ready."
     },
     {
-      "title": "Pumpkin payment + pickup closeout",
-      "detail": "Five Points Board of REALTORS® committed the full $50 sponsorship October 5, so the funding gap is closed. St. Richard’s has been asked for its preferred payment method and the October 22 pickup window; send Five Points the payment instructions when St. Richard’s replies."
-    },
-    {
       "title": "A+ candy handoff",
       "detail": "A+ Federal Credit Union pledged 12 Costco variety bags totaling 69 lb. Pickup is scheduled for October 22 at about 11:30 AM at the Mays Street branch; count actual pieces and capture recognition assets at handoff."
     },
     {
-      "title": "Volunteer closeout",
-      "detail": "Nine Round Rock Sweethearts are confirmed. A status follow-up was sent October 5 requesting the names, adult chaperone/day-of lead and any updated headcount. Cedar Ridge was also followed up October 5 for student volunteers plus an adult sponsor/chaperone. Remaining adult safety/custody leads are still open."
-    },
-    {
-      "title": "Twelve remaining specialty material lines",
-      "detail": "All true remaining specialty/consumable gaps have active source paths. October 5 follow-ups went to Round Rock Church of Christ, Big Frog, Kwalwasser, School of Rock, Lakeshore and Office Depot; fresh October 5 requests also cover medal, Conqueror-card printing, art, percussion and photo-stop material paths. AS Awards declined medals and must not be re-contacted."
-    },
-    {
-      "title": "FASTSIGNS release",
-      "detail": "A status follow-up was sent October 5 asking for the donation/discount determination plus recommended sizes/materials. Production remains on hold until the October 13 field verification locks exact placement and quantity."
-    },
-    {
-      "title": "Boys & Girls Club operational confirmation",
-      "detail": "Confirm sensory-retreat portable access/operator/hours and whether BGC still plans a trunk/booth so those can be placed on the final staffing/map packet."
-    },
-    {
       "title": "Board & Brush certificate",
       "detail": "The $50 digital gift certificate was accepted; receipt remains pending before final silent-auction fulfillment can be marked complete."
+    },
+    {
+      "title": "Insurance certificate",
+      "detail": "PTA annual liability coverage is paid and effective October 8; formal carrier COI remains pending."
+    },
+    {
+      "title": "Pumpkin pickup and reward sponsorship",
+      "detail": "St. Richard’s donated 86 pumpkins; confirm October 22 pickup. Five Points approved redirecting its $50 commitment to Viking Quest rewards; payment and item selection remain open."
+    },
+    {
+      "title": "Volunteer assignments",
+      "detail": "At least 31 of 36 unique people committed. ACU’s final count and named adult lead assignments remain open; all 13 Sweethearts need supervised roles."
+    },
+    {
+      "title": "Eleven specialty material lines",
+      "detail": "Pickup/count Austin Creative Reuse order by October 14; confirm Boys & Girls Club itemized offer and reconcile only verified quantities."
+    },
+    {
+      "title": "FASTSIGNS final package",
+      "detail": "Upload route confirmed. Field approval October 13 must precede a single locked package upload by October 14; await revised invoice/confirmation."
     }
   ],
   "declined": [
@@ -152,28 +153,18 @@ const STATUS={
     }
   ],
   "changes": [
-    "October 5: Five Points Board of REALTORS® committed the full $50 pumpkin sponsorship; the sponsor gap is closed and other pumpkin asks are stopped.",
-    "October 5: Forest Creek Mini Storage confirmed a free 24-hour donation of the 12-foot utility trailer for the retained Viking-ship photo stop; Brittani scheduled pickup for Oct. 23 shortly after 9 AM and return for Oct. 24 morning.",
-    "October 5: Austin Christian University committed a minimum of 15 university volunteers, all age 18+, with a final 15–20 headcount due Friday; they are adult volunteers available 4:30–8:30 PM for adult-lead, support, setup and teardown roles.",
-    "October 5: status follow-ups were sent for FASTSIGNS, completion bags, Church material support, hand percussion, Lakeshore, Office Depot, Sweethearts and Cedar Ridge; same-day/new asks were not duplicated.",
-    "October 5: AS Awards declined medals and BeamBalloons confirmed paid-only décor; both are closed for in-kind outreach.",
-    "Planning closeout package completed Oct. 2: Final Zone Plan, Viking Quest Ops, PTA Closet Pull, Day-of Command, Family Rollout, revised Run of Show and revised Volunteer Assignments.",
-    "Internal working-final event map was created and stored in the Fall Festival Drive folder.",
-    "PTA closet ownership correction applied: no school authorization is required for PTA-owned closet inventory.",
-    "A consolidated school closeout email was sent Oct. 2 for power, audio, first-aid/lost-child and weather/custodial/security items.",
-    "All 12 remaining specialty material lines have active source paths; Alpha Print is closed/declined for completion bags.",
-    "PIE principal-approval hold was removed October 2; the exact Campus Request Form was submitted and Ruth plans the requested-item pull Tuesday or Wednesday.",
-    "A+ candy pickup is scheduled for October 22 at about 11:30 AM at the Mays Street branch.",
-    "Five Points Board of REALTORS® is the confirmed $50 pumpkin sponsor; all other pumpkin-sponsor asks are closed."
+    "October 9: Round Rock Church of Christ received the current Amazon registry; selected items and quantities are pending.",
+    "October 8–9: PTA annual liability coverage paid and effective; formal COI pending.",
+    "October 8: 13 Round Rock Sweethearts confirmed with Amanda Shingleton as lead; adult supervision must be assigned by PTA/school.",
+    "October 8: St. Richard’s donated 86 pumpkins; Five Points approved redirecting $50 to Viking Quest rewards.",
+    "October 9: FASTSIGNS upload route confirmed; final package depends on October 13 field approval and October 14 delivery."
   ],
   "blockers": [
-    "School confirmation of the 12-amp/50-foot inflatable power condition.",
-    "Name of the district employee responsible for the school speaker/microphone.",
-    "School confirmation of first-aid/lost-child point and any weather/custodial/security requirements.",
-
-    "St. Richard’s payment method and October 22 pumpkin pickup window.",
-    "Tow vehicle, proof-of-insurance and Saturday-return instructions for the Forest Creek donation; Brittani is the confirmed pickup/return driver.",
-    "Adult-lead role assignment: the minimum 15 ACU volunteers are age 18+ and exactly match the 15 adult-lead positions; Brittani is the additional event lead. Finalize ACU’s 15–20 headcount Friday and map adults to roles; also receive Sweethearts roster/chaperone/day-of contact."
+    "School power, district audio operator, first aid/lost child, and remaining safety answers before final layout.",
+    "PTA insurance certificate (coverage is effective; carrier COI pending).",
+    "October 13 field approval before October 14 FASTSIGNS upload.",
+    "Named adult supervision/roles for 13 Sweethearts and final ACU count.",
+    "Austin Creative Reuse pickup by October 14 and physical reconciliation of 11 specialty material lines."
   ],
   "deadlines": [
     {
@@ -194,247 +185,358 @@ const STATUS={
     }
   ],
   "actions": [
-    "Close school power/audio/first-aid/lost-child/weather/custodial/security items.",
-    "Reconcile PIE quantities when Ruth completes the Tuesday/Wednesday pull; do not duplicate requested items.",
-    "Finalize St. Richard’s payment method and October 22 pickup window, then send Five Points the payment instructions.",
-    "Complete the scheduled A+ candy pickup October 22 at about 11:30 AM and count pieces at handoff.",
-    "Receive Austin Christian University final 15–20 adult-volunteer headcount Friday and Sweethearts roster/chaperone/day-of contact; assign the 15 adult-lead positions from the minimum 15 ACU adult volunteers, with Brittani serving as event lead, then complete support/setup/teardown placements.",
-    "Reconcile the specialty material lines by exact confirmed quantity; close categories immediately when covered and do not re-contact Alpha Print, AS Awards, BeamBalloons or other closed/declined sources.",
-    "Await the October 5 FASTSIGNS status reply and release the final production scope only after the Oct. 13 field verification."
+    "Close school power, audio operator, safety and field placement at October 13 walkthrough.",
+    "Obtain the formal PTA insurance COI; save with event records.",
+    "Pick up and count Austin Creative Reuse order by October 14.",
+    "After field approval, send only the locked FASTSIGNS package through its upload route by October 14; confirm revised invoice.",
+    "Receive ACU final count and assign named adult leads; place Sweethearts in supervised roles.",
+    "Confirm St. Richard’s October 22 pumpkin pickup; send Five Points approved Viking Quest reward selection/payment instructions.",
+    "Keep A+ candy, H-E-B and Nothing Bundt pickups scheduled for October 22."
   ],
   "budget": {
     "allocation": "$300",
     "spent": "$0",
     "goal": "$0 PTA cash spend where possible",
-    "cashPledges": "$1,340"
+    "cashPledges": "$1,290 (prior figure needs itemized reconciliation)"
   },
   "dashboard": {
     "metrics": [
       {
-        "label": "Sponsors & Major Attractions",
-        "value": "2 / 2",
-        "percent": 100,
-        "icon": "heart"
-      },
-      {
-        "label": "Food Vendors",
+        "label": "Food lineup",
         "value": "3 / 3",
         "percent": 100,
         "icon": "store"
       },
       {
-        "label": "Committed Volunteer Pool",
-        "value": "26 / 36 minimum",
-        "percent": 72,
+        "label": "Major attractions",
+        "value": "2 / 2 paid",
+        "percent": 100,
+        "icon": "heart"
+      },
+      {
+        "label": "Committed people",
+        "value": "31 / 36 minimum",
+        "percent": 86,
         "icon": "users"
       },
       {
-        "label": "Specialty Material Lines Sourced",
-        "value": "12 / 12",
-        "percent": 100,
+        "label": "Specialty materials",
+        "value": "11 lines open",
+        "percent": 0,
         "icon": "gift"
       },
       {
-        "label": "Family Communication Plan",
-        "value": "7 / 7",
+        "label": "Silent auction",
+        "value": "7 / 7 identified",
         "percent": 100,
-        "icon": "megaphone"
+        "icon": "gift"
       }
     ],
     "action": [
       {
-        "item": "Close school power / audio / safety items",
-        "status": "Action Needed",
-        "date": "ASAP / Oct 13",
+        "item": "School power, audio and safety answers",
+        "status": "Action needed",
+        "date": "Oct 13",
         "tone": "action",
-        "detail": "Internal program planning is complete. The school-side closeout is now limited to inflatable power, school PA operator, first-aid/lost-child point, and any weather/custodial/security requirements.",
-        "next": "Use the Oct. 2 consolidated email and Oct. 13 walkthrough to close every remaining school-side item."
+        "detail": "Field verification closes inflatable power/clearance, school audio operator, first-aid/lost-child point, and remaining campus safety rules.",
+        "next": "Get school answers and approve final layout at the October 13 walkthrough."
       },
       {
-        "item": "Reconcile PIE fulfillment",
-        "status": "Submitted / Awaiting Pull",
-        "date": "Tue–Wed",
-        "tone": "working",
-        "detail": "The reconciled Campus Request Form was submitted October 2 and the submission was recorded. Ruth plans to pull the requested items Tuesday or Wednesday.",
-        "next": "Record exact fulfilled quantities and subtract them from every matching open material line."
-      },
-      {
-        "item": "Finalize pumpkin payment + pickup",
-        "status": "Sponsor Secured",
+        "item": "PTA liability certificate",
+        "status": "COI pending",
         "date": "ASAP",
-        "tone": "working",
-        "detail": "Five Points committed the full $50 sponsorship October 5 for all 86 St. Richard’s pumpkins. The sponsor gap is closed.",
-        "next": "Get St. Richard’s payment method and October 22 pickup window, then send Five Points the payment instructions."
+        "tone": "action",
+        "detail": "Annual coverage is paid and effective October 8; the formal carrier certificate is still outstanding.",
+        "next": "Save the carrier COI in event records when received."
       },
       {
-        "item": "A+ candy pickup",
-        "status": "Scheduled",
-        "date": "Oct 22 · ~11:30 AM",
-        "tone": "confirmed",
-        "detail": "A+ pledged 12 extra-large Costco variety bags totaling 69 lb; pickup is scheduled at the Mays Street branch.",
-        "next": "Pick up, count actual pieces, and record the recognition asset at handoff."
+        "item": "Austin Creative Reuse pickup and count",
+        "status": "Ready",
+        "date": "Oct 14",
+        "tone": "action",
+        "detail": "Paid bulk order is ready for pickup. Eleven specialty material lines remain open until actual quantities are counted.",
+        "next": "Pick up by October 14; reconcile items against Activity Materials and avoid duplicate sourcing."
       },
       {
-        "item": "Close volunteer adult leads / roster",
-        "status": "Action Needed",
+        "item": "FASTSIGNS final artwork and invoice",
+        "status": "Field approval first",
+        "date": "Oct 14",
+        "tone": "action",
+        "detail": "Upload route is confirmed. The revised itemized scope and invoice require verification against the approved signs.",
+        "next": "Following October 13 field approval, upload one final package by October 14 and get written receipt."
+      },
+      {
+        "item": "Assign volunteer adult leads",
+        "status": "Assignments open",
         "date": "Oct 16",
         "tone": "action",
-        "detail": "Nine Sweethearts are confirmed and working placements are built. October 5 follow-ups requested the Sweethearts roster/chaperone/day-of lead and asked Cedar Ridge for student volunteers with an adult sponsor/chaperone; adult safety/custody leads remain open.",
-        "next": "Track those October 5 replies and fill adult leads before assigning remaining student support roles."
-      },
-      {
-        "item": "Close 12 specialty material lines",
-        "status": "Action Needed",
-        "date": "Oct 16",
-        "tone": "action",
-        "detail": "The remaining true material lines have active source paths. October 5 follow-ups/new requests cover bags, specialty Quest materials, printing, medals, percussion, art consumables and photo-stop materials. Alpha Print and AS Awards are declined/closed.",
-        "next": "Track exact quantities, close each category immediately when covered, and do not duplicate same-day or declined-source outreach."
-      },
-      {
-        "item": "Release FASTSIGNS final scope",
-        "status": "Action Needed",
-        "date": "Oct 13–16",
-        "tone": "action",
-        "detail": "Print copy and categories are defined. An October 5 status follow-up asked FASTSIGNS for its donation/discount determination and recommended production specs; production remains intentionally on hold until field verification.",
-        "next": "After Oct. 13, release only final sign quantities/artwork using FASTSIGNS’ confirmed specs and authorize nothing outside current scope."
+        "detail": "Minimum 31/36 unique people committed, including 13 Sweethearts and at least 15 ACU adults; final ACU count and named supervision remain open.",
+        "next": "Assign PTA/school adult leads for Sweethearts and safety/custody roles; then place student volunteers."
       }
     ],
     "working": [
       {
-        "item": "Boys & Girls Club retreat / trunk / booth details",
-        "status": "Waiting on confirmation",
-        "date": "Before Oct 16",
-        "tone": "working",
-        "detail": "The portable is the planned sensory retreat. Operational access/operator/hours and any trunk/booth participation need final confirmation.",
-        "next": "Get one concise operational confirmation from Tyla."
-      },
-      {
-        "item": "Board & Brush $50 certificate",
-        "status": "Waiting on fulfillment",
-        "date": "Oct 16",
-        "tone": "working",
-        "detail": "The digital $50 gift certificate was accepted for the silent auction.",
-        "next": "Receive the digital certificate and mark the prize fulfilled."
-      },
-      {
-        "item": "Oct. 22 fulfillment run",
-        "status": "Scheduled / coordinating",
+        "item": "St. Richard’s pumpkin pickup",
+        "status": "86 donated",
         "date": "Oct 22",
         "tone": "working",
-        "detail": "Nothing Bundt pickup is 9:00 AM, H-E-B is 10:00 AM and A+ candy is about 11:30 AM; St. Richard’s pumpkin pickup will be added once its payment method and pickup window are confirmed.",
-        "next": "Keep one fulfillment route and helper plan so pickups do not conflict."
+        "detail": "All 86 pumpkins donated. Pickup window still needs confirmation; Five Points redirected its $50 pledge to Viking Quest rewards.",
+        "next": "Confirm pickup, then close the approved reward selection and payment instructions."
+      },
+      {
+        "item": "Church registry selections",
+        "status": "Link sent",
+        "date": "Pending",
+        "tone": "working",
+        "detail": "Round Rock Church of Christ received the current Amazon registry October 9.",
+        "next": "Record exact selected items and quantities only after the church replies or purchases."
+      },
+      {
+        "item": "Conqueror card printing",
+        "status": "Sponsor path",
+        "date": "Oct 16",
+        "tone": "working",
+        "detail": "Brittani is not printing the cards; in-kind printing fulfillment and exact quantity remain to be verified.",
+        "next": "Confirm printer commitment and delivery before marking covered."
+      },
+      {
+        "item": "October 22 fulfillment route",
+        "status": "Scheduled",
+        "date": "Oct 22",
+        "tone": "working",
+        "detail": "Nothing Bundt pickup 9 AM, H-E-B Cake Walk shop 10 AM, A+ candy around 11:30 AM; add pumpkin pickup after confirmation.",
+        "next": "Assign transport/helpers and capture actual fulfilled quantities."
       }
     ],
     "confirmed": [
       {
-        "item": "Train Quest package + Oct. 13 walkthrough",
-        "status": "Confirmed / Paid",
-        "date": "Oct 13",
-        "tone": "confirmed",
-        "detail": "AiRCO paid $1,095. Shine paid $195 and COI is received. Walkthrough is Tuesday Oct. 13 at 8:00 AM.",
-        "next": "Field-verify power, placement, clearances and setup access."
-      },
-      {
-        "item": "Five Points — all 86 pumpkins sponsored",
-        "status": "Confirmed / $50 Committed",
-        "date": "Oct 5",
-        "tone": "confirmed",
-        "detail": "Five Points Board of REALTORS® committed the full $50 for St. Richard’s 86-pumpkin package.",
-        "next": "Send payment instructions when St. Richard’s confirms its preferred method and pickup window."
-      },
-      {
-        "item": "Forest Creek — photo-stop trailer",
-        "status": "Confirmed / $0 In-Kind",
-        "date": "Oct 5",
-        "tone": "confirmed",
-        "detail": "Forest Creek Mini Storage donated a 12-foot utility trailer with 2-foot walls for 24 hours. Brittani is scheduled to pick up Oct. 23 shortly after 9:00 AM and return it Oct. 24 morning. ID, proof of insurance and a card copy are required.",
-        "next": "Confirm tow vehicle/proof of insurance, 2-inch hitch/light connection and any special Saturday-return instructions."
-      },
-      {
-        "item": "H-E-B $125 Cake Walk support",
-        "status": "Confirmed",
-        "date": "Oct 22",
-        "tone": "confirmed",
-        "detail": "H-E-B approved $125 and confirmed the Business Center appointment at 10:00 AM.",
-        "next": "Shop the locked list at or under $125."
-      },
-      {
-        "item": "Nothing Bundt Cakes — 15 Bundtlets",
-        "status": "Confirmed",
-        "date": "Oct 22",
-        "tone": "confirmed",
-        "detail": "Fifteen Bundtlet towers are confirmed for 9:00 AM pickup.",
-        "next": "Pickup and stage with Cake Walk prizes."
-      },
-      {
-        "item": "Food vendor lineup",
-        "status": "Locked",
+        "item": "K&K BBQ, Hearth & Honey, Pour The Fun",
+        "status": "Lineup locked",
         "date": "Oct 23",
         "tone": "confirmed",
-        "detail": "K&K BBQ, Hearth & Honey and Pour The Fun only; no additional vendors.",
-        "next": "Operations/arrival details only."
+        "detail": "Two food vendors, one savory and one sweet, plus beverage vendor; 10% fee waived. No additional vendors."
       },
       {
-        "item": "PTA closet inventory",
-        "status": "Available",
-        "date": "Now",
+        "item": "Train Quest and covered combo inflatable",
+        "status": "Paid",
+        "date": "Oct 13",
         "tone": "confirmed",
-        "detail": "PTA-owned inventory is available without school authorization.",
-        "next": "Physical pull/count/condition checks only."
+        "detail": "AiRCO paid $1,095 and Shine paid $195; Train Quest field walkthrough confirmed October 13 at 8 AM."
       },
       {
-        "item": "School maps / classroom restriction",
-        "status": "Confirmed",
-        "date": "Oct 1",
+        "item": "Cake Walk plan",
+        "status": "Board-approved",
+        "date": "Oct 23",
         "tone": "confirmed",
-        "detail": "Grounds and interior maps are received; classroom-area doors remain closed.",
-        "next": "Use only the school-provided map as the base for internal field verification."
+        "detail": "One-hour plan with 40 prize target. Seventeen donated packages identified; H-E-B $125 appointment supports the remaining bakery packages."
+      },
+      {
+        "item": "Silent auction",
+        "status": "7 prizes identified",
+        "date": "Oct 23",
+        "tone": "confirmed",
+        "detail": "Seven-prize cap; fulfillment/custody still tracked separately."
+      },
+      {
+        "item": "Sensory retreat",
+        "status": "Planned",
+        "date": "Oct 23",
+        "tone": "confirmed",
+        "detail": "Boys & Girls Club portable; no PTA-purchased materials needed."
       }
     ],
     "complete": [
       {
-        "item": "Planning package built",
-        "status": "Completed",
+        "item": "PTA closet inventory ownership",
+        "status": "Available",
         "date": "Oct 2",
         "tone": "complete",
-        "detail": "Final Zone Plan, Viking Quest Ops, PTA Closet Pull, Day-of Command, Family Rollout, Run of Show and Volunteer Assignments are built.",
-        "next": "Maintain them as external confirmations arrive."
+        "detail": "PTA-owned items can be used after count, condition and safety checks; no school authorization needed."
       },
       {
-        "item": "Internal working-final map",
-        "status": "Completed",
-        "date": "Oct 2",
-        "tone": "complete",
-        "detail": "Annotated internal map is saved in the Fall Festival Drive folder.",
-        "next": "Field-verify Oct. 13 and issue final revision if needed."
-      },
-      {
-        "item": "Express supplies delivered to Voigt",
-        "status": "Completed",
+        "item": "Express cleanup supplies",
+        "status": "Delivered",
         "date": "Sep 25",
         "tone": "complete",
-        "detail": "Cleanup/safety supplies are delivered.",
-        "next": "Stage them during event setup."
+        "detail": "Supplies delivered to Voigt; stage them at setup."
       }
     ],
-    "communications": [
-      "Family-facing Fall Festival page is live with verified public details only.",
-      "Candy donations remain open through October 23.",
-      "A seven-touch family rollout plan is prepared through event day.",
-      "Internal maps, staffing gaps, power details, funding status and vendor negotiations stay off the public website."
-    ],
-    "layoutOps": [
-      "Train: track perimeter; batting-area/fence side used for loading/queue, field-verified Oct. 13.",
-      "Inflatable: covered-area/portable zone; one 110V blower at about 12A within 50 feet, pending confirmation.",
-      "Giant games: field-side lawn outside the train route; one table for Giant Jenga.",
-      "Viking Quest: five-trial cluster outside train path; children may complete trials in any order, then report to Finish.",
-      "General fall activities: separate cluster; no Quest initials awarded.",
-      "Food/drink: back-drive spaces nearest gate; exact spaces field-verified.",
-      "Trunk-or-Treat: back-drive row facing school; ADA spaces stay open.",
-      "Indoor public use: approved hall/cafeteria/downstairs bathrooms only; classroom-area doors remain closed.",
-      "Boys & Girls Club portable: sensory-friendly retreat.",
-      "Audio: school car-rider speaker + mic; district operator still pending."
-    ]
+    "panels": {
+      "sponsors": {
+        "title": "Sponsors & donations",
+        "description": "Commitments, fulfillment and current asks. Full record is in the master tracker.",
+        "rows": [
+          {
+            "item": "AiRCO — Train Quest",
+            "detail": "$1,095 paid directly to provider.",
+            "status": "Paid",
+            "tone": "complete"
+          },
+          {
+            "item": "Shine — combo inflatable",
+            "detail": "$195 paid; provider COI received.",
+            "status": "Paid",
+            "tone": "complete"
+          },
+          {
+            "item": "H-E-B — Cake Walk",
+            "detail": "$125 shopping appointment October 22 at 10 AM.",
+            "status": "Approved",
+            "tone": "confirmed"
+          },
+          {
+            "item": "St. Richard’s — 86 pumpkins",
+            "detail": "Donation confirmed; pickup window pending.",
+            "status": "Pickup pending",
+            "tone": "working"
+          },
+          {
+            "item": "Five Points — Viking Quest rewards",
+            "detail": "$50 redirect approved; selection/payment pending.",
+            "status": "Committed",
+            "tone": "working"
+          },
+          {
+            "item": "Church registry",
+            "detail": "Current list sent October 9; selections unverified.",
+            "status": "Waiting",
+            "tone": "working"
+          }
+        ]
+      },
+      "vendors": {
+        "title": "Vendors & attractions",
+        "description": "Locked participants and operational follow-up.",
+        "rows": [
+          {
+            "item": "K&K BBQ",
+            "detail": "Savory food; confirm final operating details.",
+            "status": "Approved",
+            "tone": "confirmed"
+          },
+          {
+            "item": "Hearth & Honey",
+            "detail": "Sweet vendor; 4:30 PM arrival, self-powered booth.",
+            "status": "Confirmed",
+            "tone": "confirmed"
+          },
+          {
+            "item": "Pour The Fun",
+            "detail": "Beverage vendor; confirm final setup details.",
+            "status": "Approved",
+            "tone": "confirmed"
+          },
+          {
+            "item": "Train Quest",
+            "detail": "Train/games paid; field verification October 13.",
+            "status": "Paid",
+            "tone": "confirmed"
+          },
+          {
+            "item": "Covered combo inflatable",
+            "detail": "Paid; school power/placement confirmation pending.",
+            "status": "Paid",
+            "tone": "confirmed"
+          }
+        ]
+      },
+      "volunteers": {
+        "title": "Volunteer coverage",
+        "description": "Committed pool and assignment work. Group pledges are not assigned shifts.",
+        "rows": [
+          {
+            "item": "Minimum committed pool",
+            "detail": "31 of 36 unique people, subject to final ACU count.",
+            "status": "31 / 36",
+            "tone": "working"
+          },
+          {
+            "item": "Round Rock Sweethearts",
+            "detail": "13 students; Amanda Shingleton lead. Assign PTA/school adult supervision.",
+            "status": "13 confirmed",
+            "tone": "confirmed"
+          },
+          {
+            "item": "Austin Christian University",
+            "detail": "At least 15 adults committed; final count and named roles pending.",
+            "status": "15+ committed",
+            "tone": "working"
+          },
+          {
+            "item": "Named adult leads",
+            "detail": "Safety, custody and station assignments must be placed by October 16.",
+            "status": "Action needed",
+            "tone": "action"
+          }
+        ]
+      },
+      "communications": {
+        "title": "Communications",
+        "description": "Only current family communication and print dependencies.",
+        "rows": [
+          {
+            "item": "Public festival page",
+            "detail": "Family-facing confirmed event information only.",
+            "status": "Live",
+            "tone": "complete"
+          },
+          {
+            "item": "Candy drive",
+            "detail": "October 23 deadline; family donations accepted through event day.",
+            "status": "Current",
+            "tone": "confirmed"
+          },
+          {
+            "item": "FASTSIGNS package",
+            "detail": "Final artwork after October 13 field approval; upload by October 14.",
+            "status": "Action needed",
+            "tone": "action"
+          },
+          {
+            "item": "Conqueror cards",
+            "detail": "In-kind printing fulfillment and quantity still need verification.",
+            "status": "Waiting",
+            "tone": "working"
+          }
+        ]
+      },
+      "layout": {
+        "title": "Layout & operations",
+        "description": "Internal work requiring final field and school confirmation.",
+        "rows": [
+          {
+            "item": "October 13 field check",
+            "detail": "Train, inflatable, access, clearances and sign placement.",
+            "status": "Scheduled",
+            "tone": "confirmed"
+          },
+          {
+            "item": "School power, audio and safety",
+            "detail": "Final school answers remain open.",
+            "status": "Action needed",
+            "tone": "action"
+          },
+          {
+            "item": "Sensory retreat",
+            "detail": "Boys & Girls Club portable; access and staffing tracked.",
+            "status": "Planned",
+            "tone": "working"
+          },
+          {
+            "item": "Photo stop trailer",
+            "detail": "Forest Creek donation; confirm towing, insurance and return.",
+            "status": "Confirmed / logistics",
+            "tone": "working"
+          },
+          {
+            "item": "October 22 pickups",
+            "detail": "Nothing Bundt, H-E-B, A+; pumpkin time pending.",
+            "status": "Coordinating",
+            "tone": "working"
+          }
+        ]
+      }
+    }
   }
 };
 
