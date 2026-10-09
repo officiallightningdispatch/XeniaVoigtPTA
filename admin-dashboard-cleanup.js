@@ -55,6 +55,18 @@
     </section>`;
   }
 
+
+  function renderListPanel(title,description,rows){
+    const items=Array.isArray(rows)?rows:[];
+    return `<section class="ff-view-panel">
+      <div class="ff-panel-head"><h2>${esc(title)}</h2><p>${esc(description)}</p></div>
+      <div class="ff-simple-list">${items.length?items.map(item=>`<article class="ff-simple-row">
+        <div><b>${esc(item.item)}</b><span>${esc(item.detail||'')}</span></div>
+        <span class="ff-pill ${esc(item.tone||'working')}">${esc(item.status||'Pending')}</span>
+      </article>`).join(''):'<p class="ff-empty">No current items in this view.</p>'}</div>
+    </section>`;
+  }
+
   function fallbackDashboard(){
     return {
       metrics:[
@@ -112,7 +124,7 @@
         <main class="ff-board-main">
           <header class="ff-board-header">
             <div><h1>Xenia Voigt Elementary PTA — <em>Fall Festival Board Dashboard</em></h1><p>Internal planning view</p></div>
-            <span>Updated daily</span>
+            <span>Updated ${esc(updated)}</span>
           </header>
           <div id="ffBoardView"></div>
         </main>
@@ -150,11 +162,9 @@
       root.querySelectorAll('[data-board-view]').forEach(btn=>btn.addEventListener('click',()=>{
         const id=btn.dataset.boardView; setActive(id);
         if(id==='dashboard') return showDashboard();
-        if(id==='sponsors') return view.innerHTML=renderListPanel('Sponsors & Funding','Current internal sponsorship records.',sponsorRows(admin));
-        if(id==='vendors') return view.innerHTML=renderListPanel('Vendors','Current vendor applications and confirmations.',vendorRows(admin));
-        if(id==='volunteers') return view.innerHTML=renderListPanel('Volunteers','Website volunteer submissions. Group commitments are summarized on the dashboard.',volunteerRows(admin));
-        if(id==='communications') return view.innerHTML=renderListPanel('Communications','Current family-facing communication work.',(board.communications||[]).map(x=>`<div class="ff-simple-row"><div><b>${esc(x)}</b></div><span class="ff-pill confirmed">Current</span></div>`));
-        if(id==='layout') return view.innerHTML=renderListPanel('Layout & Operations','Working internal operating plan; not for the public website.',(board.layoutOps||[]).map(x=>`<div class="ff-simple-row"><div><b>${esc(x)}</b></div><span class="ff-pill working">Working Final</span></div>`));
+        const panel=(board.panels||{})[id];
+        if(panel) return view.innerHTML=renderListPanel(panel.title,panel.description,panel.rows);
+        view.innerHTML=renderListPanel('Current status','Open the live master tracker for the full record.',[]);
       }));
 
       document.getElementById('adminLogout')?.addEventListener('click',async()=>{
