@@ -44,7 +44,7 @@ const STATUS=
     ],
     "activeInventoryLines": 81,
     "sourcingInventoryLines": 11,
-    "cashPledges": 1290,
+    "cashPledges": 1340,
     "budgetAllocation": 300,
     "cashSpent": 0,
     "foodPlanTarget": 3,
@@ -197,7 +197,7 @@ const STATUS=
     "allocation": "$300",
     "spent": "$0",
     "goal": "$0 PTA cash spend where possible",
-    "cashPledges": "$1,290 (prior figure needs itemized reconciliation)"
+    "cashPledges": "$1,340 committed/pledged; confirm itemized receipts"
   },
   "dashboard": {
     "metrics": [
