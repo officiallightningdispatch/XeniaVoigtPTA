@@ -3,7 +3,7 @@ import { db, ensureSchema, send } from './_db.js';
 
 const STATUS=
 {
-  "updatedAt": "2026-10-09",
+  "updatedAt": "2026-10-10",
   "event": {
     "title": "Xenia Voigt Viking Quest Fall Festival",
     "date": "Friday, October 23, 2026",
@@ -92,13 +92,13 @@ const STATUS=
     {
       "title": "Volunteer commitments",
       "detail": "At least 31 unique people committed: Brittani, Dana, Quinteria, 13 Round Rock Sweethearts, and at least 15 ACU adults. Assignments and final ACU count pending."
+    },
+    {
+      "title": "School safety procedures",
+      "detail": "Mrs. Cobb confirmed first-aid kit in Nurse’s Office, 911 for emergencies, campus-led lost-child reporting, posted exits, clear ADA routes, first-floor severe-weather shelter, custodian on duty and volunteer identification."
     }
   ],
   "pending": [
-    {
-      "title": "School operational closeout",
-      "detail": "A consolidated Oct. 2 school email asks only for the remaining 12A/50-foot inflatable power confirmation, school PA operator, first-aid/lost-child point, and any weather/custodial/security requirements."
-    },
     {
       "title": "PIE Foundation Campus Request Form",
       "detail": "The reconciled PIE Campus Request Form was submitted October 2 and the confirmation showed the response was recorded. Ruth Erb plans to pull the requested items Tuesday or Wednesday; reconcile exact quantities when the pull is ready."
@@ -130,6 +130,14 @@ const STATUS=
     {
       "title": "FASTSIGNS final package",
       "detail": "Upload route confirmed. Field approval October 13 must precede a single locked package upload by October 14; await revised invoice/confirmation."
+    },
+    {
+      "title": "Power and audio closeout",
+      "detail": "Usual track/blue-awning portable power location identified, but 12A/50-foot fit remains unverified. School audio operator has not been assigned; resolve at Oct. 13 field check."
+    },
+    {
+      "title": "Ranger print decision",
+      "detail": "Three PDFs sent October 9. In-kind production scope and delivery pending."
     }
   ],
   "declined": [
@@ -153,6 +161,10 @@ const STATUS=
     }
   ],
   "changes": [
+    "October 9: Mrs. Cobb supplied safety procedures and customary inflatable power location; audio operator and exact electrical fit remain open.",
+    "October 9: ACU confirmed 15 adults; Sweethearts confirmed 13 students arriving 5:15 PM.",
+    "October 9: Ranger received three card/certificate PDFs; in-kind print decision pending.",
+    "October 9: SC Johnson declined; archived from active donor list.",
     "October 9: Round Rock Church of Christ received the current Amazon registry; selected items and quantities are pending.",
     "October 8–9: PTA annual liability coverage paid and effective; formal COI pending.",
     "October 8: 13 Round Rock Sweethearts confirmed with Amanda Shingleton as lead; adult supervision must be assigned by PTA/school.",
@@ -160,7 +172,7 @@ const STATUS=
     "October 9: FASTSIGNS upload route confirmed; final package depends on October 13 field approval and October 14 delivery."
   ],
   "blockers": [
-    "School power, district audio operator, first aid/lost child, and remaining safety answers before final layout.",
+    "October 13 field check: verify inflatable 12A load and <=50-foot cord run; obtain school audio operator.",
     "PTA insurance certificate (coverage is effective; carrier COI pending).",
     "October 13 field approval before October 14 FASTSIGNS upload.",
     "Named adult supervision/roles for 13 Sweethearts and final ACU count.",
@@ -214,8 +226,8 @@ const STATUS=
         "icon": "heart"
       },
       {
-        "label": "Committed people",
-        "value": "31 / 36 minimum",
+        "label": "Confirmed volunteer pool",
+        "value": "31 / 36",
         "percent": 86,
         "icon": "users"
       },
@@ -234,12 +246,12 @@ const STATUS=
     ],
     "action": [
       {
-        "item": "School power, audio and safety answers",
-        "status": "Action needed",
+        "item": "Verify inflatable power and name audio operator",
+        "status": "Field check / operator open",
         "date": "Oct 13",
         "tone": "action",
-        "detail": "Field verification closes inflatable power/clearance, school audio operator, first-aid/lost-child point, and remaining campus safety rules.",
-        "next": "Get school answers and approve final layout at the October 13 walkthrough."
+        "detail": "Mrs. Cobb identified the customary track/blue-awning portable power location. Exact 12A load and 50-foot cord run have not been verified. No school audio operator has been assigned.",
+        "next": "Measure and test the power path at the October 13 field check; obtain the operator name before the final run of show."
       },
       {
         "item": "PTA liability certificate",
@@ -270,11 +282,19 @@ const STATUS=
         "status": "Assignments open",
         "date": "Oct 16",
         "tone": "action",
-        "detail": "Minimum 31/36 unique people committed, including 13 Sweethearts and at least 15 ACU adults; final ACU count and named supervision remain open.",
-        "next": "Assign PTA/school adult leads for Sweethearts and safety/custody roles; then place student volunteers."
+        "detail": "ACU confirmed 15 adults, and 13 Sweethearts will arrive at 5:15 PM. The unique pool is 31/36; student supervision and named adult roles still need assignments.",
+        "next": "Place PTA/school/ACU adults in safety and station lead roles, then assign Sweethearts to supervised support."
       }
     ],
     "working": [
+      {
+        "item": "Ranger Quest cards and certificates",
+        "status": "Artwork sent",
+        "date": "Pending review",
+        "tone": "working",
+        "detail": "Three print PDFs were sent to Luis at Ranger Print House October 9: Quest card front/back and completion certificate front. In-kind production scope, quantity and delivery remain unconfirmed.",
+        "next": "Await Ranger’s review before marking printing covered; do not resend the same request."
+      },
       {
         "item": "St. Richard’s pumpkin pickup",
         "status": "86 donated",
@@ -290,14 +310,6 @@ const STATUS=
         "tone": "working",
         "detail": "Round Rock Church of Christ received the current Amazon registry October 9.",
         "next": "Record exact selected items and quantities only after the church replies or purchases."
-      },
-      {
-        "item": "Conqueror card printing",
-        "status": "Sponsor path",
-        "date": "Oct 16",
-        "tone": "working",
-        "detail": "Brittani is not printing the cards; in-kind printing fulfillment and exact quantity remain to be verified.",
-        "next": "Confirm printer commitment and delivery before marking covered."
       },
       {
         "item": "October 22 fulfillment route",
@@ -343,6 +355,13 @@ const STATUS=
         "date": "Oct 23",
         "tone": "confirmed",
         "detail": "Boys & Girls Club portable; no PTA-purchased materials needed."
+      },
+      {
+        "item": "School safety procedures",
+        "status": "Received",
+        "date": "Oct 9",
+        "tone": "confirmed",
+        "detail": "Mrs. Cobb confirmed Nurse’s Office first-aid kit/911, campus-led lost-child procedure, posted exits, clear ADA routes, first-floor severe-weather shelter, custodian on duty and staff/PTA identification. Exact lost-child point remains to be identified internally."
       }
     ],
     "complete": [
@@ -445,22 +464,22 @@ const STATUS=
         "description": "Committed pool and assignment work. Group pledges are not assigned shifts.",
         "rows": [
           {
-            "item": "Minimum committed pool",
-            "detail": "31 of 36 unique people, subject to final ACU count.",
+            "item": "Confirmed unique pool",
+            "detail": "31/36: Brittani, Dana, Quinteria, 13 Sweethearts and 15 ACU adults.",
             "status": "31 / 36",
             "tone": "working"
           },
           {
             "item": "Round Rock Sweethearts",
-            "detail": "13 students; Amanda Shingleton lead. Assign PTA/school adult supervision.",
+            "detail": "13 students; 5:15 PM arrival October 23. Amanda is student lead; PTA/school adult supervision required.",
             "status": "13 confirmed",
             "tone": "confirmed"
           },
           {
             "item": "Austin Christian University",
-            "detail": "At least 15 adults committed; final count and named roles pending.",
-            "status": "15+ committed",
-            "tone": "working"
+            "detail": "15 adults explicitly confirmed; working 4:30–8:30 PM availability.",
+            "status": "15 confirmed",
+            "tone": "confirmed"
           },
           {
             "item": "Named adult leads",
@@ -493,9 +512,9 @@ const STATUS=
             "tone": "action"
           },
           {
-            "item": "Conqueror cards",
-            "detail": "In-kind printing fulfillment and quantity still need verification.",
-            "status": "Waiting",
+            "item": "Quest cards and certificates",
+            "detail": "Three PDFs sent to Ranger October 9; in-kind production decision pending.",
+            "status": "Review pending",
             "tone": "working"
           }
         ]
@@ -511,8 +530,8 @@ const STATUS=
             "tone": "confirmed"
           },
           {
-            "item": "School power, audio and safety",
-            "detail": "Final school answers remain open.",
+            "item": "School power and audio",
+            "detail": "Portable outlet location identified; 12A/50-foot fit needs field check. Operator unassigned.",
             "status": "Action needed",
             "tone": "action"
           },
@@ -533,6 +552,12 @@ const STATUS=
             "detail": "Nothing Bundt, H-E-B, A+; pumpkin time pending.",
             "status": "Coordinating",
             "tone": "working"
+          },
+          {
+            "item": "School safety procedures",
+            "detail": "Confirmed October 9; use only in internal event briefing.",
+            "status": "Received",
+            "tone": "confirmed"
           }
         ]
       }
