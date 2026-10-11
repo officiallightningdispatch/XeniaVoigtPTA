@@ -19,7 +19,9 @@
           ${j.vendors.map(v=>{
             const approvedLogos={'K&K BBQ Mexican Food':'/logos/vendors/K_and_K_BBQ_Mexican_Food_Official.jpeg','Hearth & Honey':'/logos/vendors/Hearth_and_Honey_Official.jpeg'};
             const approved=approvedLogos[v.name];
-            const logo=approved?`<img class="fall26-partner-logo" src="${approved}" alt="${esc(v.name)} official logo" loading="lazy" decoding="async">`:`<span style="font-size:32px;font-weight:900" aria-hidden="true">${esc((v.name||'V').slice(0,1))}</span>`;
+            // Match the verified vendor-page Pour The Fun favicon without substituting an invented logo.
+            const pourLogo=v.name==='Pour The Fun'?'https://www.google.com/s2/favicons?domain_url=https://pourthefun.com&sz=256':'';
+            const logo=approved?`<img class="fall26-partner-logo" src="${approved}" alt="${esc(v.name)} official logo" loading="lazy" decoding="async">`:pourLogo?`<img class="fall26-partner-logo" src="${pourLogo}" alt="Pour The Fun logo" loading="lazy" decoding="async">`:`<span style="font-size:32px;font-weight:900" aria-hidden="true">${esc((v.name||'V').slice(0,1))}</span>`;
             return `<article class="fall26-partner-card" role="listitem">
               <div class="fall26-partner-logo-wrap">${logo}</div>
               <div class="fall26-partner-copy">
