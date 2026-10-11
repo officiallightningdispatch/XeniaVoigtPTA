@@ -17,8 +17,9 @@
         <div class="fall26-section-head"><span>FOOD TRUCK ROW</span><h2>Meet the confirmed food lineup.</h2><p>${j.vendors.length} vendors are currently confirmed for October 23. Menus may be refined as festival night gets closer.</p></div>
         <div class="fall26-partner-grid" role="list" aria-label="Confirmed Fall Festival food vendors">
           ${j.vendors.map(v=>{
-            const d=domain(v.website);
-            const logo=d?`<img class="fall26-partner-logo" src="https://www.google.com/s2/favicons?domain_url=https://${esc(d)}&sz=256" alt="" loading="lazy" decoding="async">`:`<span style="font-size:32px;font-weight:900" aria-hidden="true">${esc((v.name||'V').slice(0,1))}</span>`;
+            const approvedLogos={'K&K BBQ Mexican Food':'/logos/vendors/K_and_K_BBQ_Mexican_Food_Official.jpeg','Hearth & Honey':'/logos/vendors/Hearth_and_Honey_Official.jpeg'};
+            const approved=approvedLogos[v.name];
+            const logo=approved?`<img class="fall26-partner-logo" src="${approved}" alt="${esc(v.name)} official logo" loading="lazy" decoding="async">`:`<span style="font-size:32px;font-weight:900" aria-hidden="true">${esc((v.name||'V').slice(0,1))}</span>`;
             return `<article class="fall26-partner-card" role="listitem">
               <div class="fall26-partner-logo-wrap">${logo}</div>
               <div class="fall26-partner-copy">

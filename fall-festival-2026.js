@@ -47,8 +47,8 @@
     <section class="section fall26-vendors-live" aria-labelledby="fall26-vendors-title"><div class="container">
       <div class="fall26-section-head"><span>FOOD + DRINKS</span><h2 id="fall26-vendors-title">Festival vendor lineup</h2><p>Families can purchase food and drinks from our three confirmed vendors.</p></div>
       <div class="fall26-partner-grid" role="list" aria-label="Confirmed Fall Festival vendors">
-        <article class="fall26-partner-card" role="listitem"><div class="fall26-partner-copy"><span class="fall26-partner-type">FOOD VENDOR</span><h3>K&amp;K BBQ Mexican Food</h3><p>BBQ and Mexican favorites.</p></div></article>
-        <article class="fall26-partner-card" role="listitem"><div class="fall26-partner-copy"><span class="fall26-partner-type">FOOD VENDOR</span><h3>Hearth &amp; Honey</h3><p>Southern/Mediterranean-inspired comfort food and lemonade.</p></div></article>
+        <article class="fall26-partner-card" role="listitem"><div class="fall26-partner-logo-wrap"><img class="fall26-partner-logo" src="/logos/vendors/K_and_K_BBQ_Mexican_Food_Official.jpeg" alt="K&K BBQ Mexican Food official logo" loading="lazy" decoding="async"></div><div class="fall26-partner-copy"><span class="fall26-partner-type">FOOD VENDOR</span><h3>K&amp;K BBQ Mexican Food</h3><p>BBQ and Mexican favorites.</p></div></article>
+        <article class="fall26-partner-card" role="listitem"><div class="fall26-partner-logo-wrap"><img class="fall26-partner-logo" src="/logos/vendors/Hearth_and_Honey_Official.jpeg" alt="Hearth & Honey official logo" loading="lazy" decoding="async"></div><div class="fall26-partner-copy"><span class="fall26-partner-type">FOOD VENDOR</span><h3>Hearth &amp; Honey</h3><p>Southern/Mediterranean-inspired comfort food and lemonade.</p></div></article>
         <article class="fall26-partner-card" role="listitem"><div class="fall26-partner-copy"><span class="fall26-partner-type">BEVERAGE VENDOR</span><h3>Pour The Fun</h3><p>Family-friendly specialty drinks.</p></div></article>
       </div>
     </div></section>
