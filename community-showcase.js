@@ -26,8 +26,8 @@
       {name:'Express Commercial Cleaning',type:'Safety & Cleanup Supporter',desc:'Committed the documented mop, broom, disinfectant, liners, paper towels, floor cleaner, gloves and hand-sanitizer supplies.',url:'',domain:''}
     ],
     vendors:[
-      {name:'K&K BBQ Mexican Food',type:'Savory Vendor',desc:'The selected savory vendor for the capped Fall Festival food plan.',url:'http://kkbbqmexicanfoodroundrock.com/',domain:'kkbbqmexicanfoodroundrock.com'},
-      {name:'Hearth & Honey',type:'Sweet Vendor',desc:'The selected sweet vendor for the capped Fall Festival food plan.',url:'https://www.hearthandhoneyatx.com/order',domain:'hearthandhoneyatx.com'},
+      {name:'K&K BBQ Mexican Food',type:'Savory Vendor',desc:'The selected savory vendor for the capped Fall Festival food plan.',url:'http://kkbbqmexicanfoodroundrock.com/',domain:'kkbbqmexicanfoodroundrock.com',logoUrl:'/logos/vendors/K_and_K_BBQ_Mexican_Food_Official.jpeg'},
+      {name:'Hearth & Honey',type:'Sweet Vendor',desc:'The selected sweet vendor for the capped Fall Festival food plan.',url:'https://www.hearthandhoneyatx.com/order',domain:'hearthandhoneyatx.com',logoUrl:'/logos/vendors/Hearth_and_Honey_Official.jpeg'},
       {name:'Pour The Fun',type:'Beverage Add-On',desc:'Non-alcoholic specialty drinks for festival night.',url:'https://pourthefun.com/',domain:'pourthefun.com'}
     ]
   };
@@ -315,7 +315,8 @@
           type:v.type||'Confirmed Food Vendor',
           desc:v.offering||'Confirmed for the October 23 Viking Quest Fall Festival.',
           url:v.website||'',
-          domain
+          domain,
+          logoUrl: v.name==='K&K BBQ Mexican Food'?'/logos/vendors/K_and_K_BBQ_Mexican_Food_Official.jpeg':v.name==='Hearth & Honey'?'/logos/vendors/Hearth_and_Honey_Official.jpeg':undefined
         };
       });
       const section=main.querySelector('.showcase-vendors');
