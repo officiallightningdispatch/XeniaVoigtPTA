@@ -13,36 +13,20 @@
     });
     const quest=[...document.querySelectorAll('.fall26-card')].find(x=>(x.querySelector('h3')?.textContent||'').trim()==='Viking Quest');
     if(quest){
-      const p=quest.querySelector('p'); if(p) p.textContent='Complete five authentic Viking Quest trials: The Trial of Skill, The Shield Wall, The Rune Maker’s Workshop, The Voigt Longship Builders and The Skald’s Stage.';
-      const chips=quest.querySelector('.fall26-chips'); if(chips) chips.innerHTML='<b>🪓 The Trial of Skill</b><b>🛡️ The Shield Wall</b><b>ᚱ The Rune Maker’s Workshop</b><b>⛵ The Voigt Longship Builders</b><b>🎵 The Skald’s Stage</b>';
+      const p=quest.querySelector('p'); if(p) p.textContent='Complete five authentic Viking Quest trials: The Trial of Skill, The Shield Wall, The Rune Maker’s Workshop, Viking Harvest Bowling and The Skald’s Stage.';
+      const chips=quest.querySelector('.fall26-chips'); if(chips) chips.innerHTML='<b>🪓 The Trial of Skill</b><b>🛡️ The Shield Wall</b><b>ᚱ The Rune Maker’s Workshop</b><b>🎃 Viking Harvest Bowling</b><b>🎵 The Skald’s Stage</b>';
     }
     const grid=document.querySelector('.fall26-adventure-grid');
     if(grid && !grid.querySelector('[data-pumpkin-decorating]')){
       const card=document.createElement('article');
       card.className='fall26-card';
       card.setAttribute('data-pumpkin-decorating','');
-      card.innerHTML='<div class="fall26-icon" aria-hidden="true">🎃</div><span>CREATE YOUR OWN</span><h3>Mini Pumpkin Decorating</h3><p>A limited-quantity, no-carving decorating activity for children. Supplies are being finalized now.</p>';
+      card.innerHTML='<div class="fall26-icon" aria-hidden="true">🎃</div><span>CREATE YOUR OWN</span><h3>Mini Pumpkin Decorating</h3><p>A no-carving decorating activity for children.</p>';
       grid.appendChild(card);
     }
 
-    async function refreshTrunkRecruitment(){
-      let open=11,claimed=9,total=20;
-      try{
-        const r=await fetch('/api/trunk-hosts',{cache:'no-store'});
-        const j=await r.json();
-        if(r.ok){open=Number(j.remaining);claimed=Number(j.claimedSpots);total=Number(j.totalSpots);}
-      }catch(_){}
-      let section=document.querySelector('[data-trunk-recruitment]');
-      if(!section){
-        section=document.createElement('section');
-        section.className='section';
-        section.setAttribute('data-trunk-recruitment','');
-        const finalSection=document.querySelector('.fall26-final');
-        finalSection?.insertAdjacentElement('beforebegin',section);
-      }
-      section.innerHTML='<div class="container"><div class="fall26-section-head"><span>TRUNK-OR-TREAT HOSTS NEEDED</span><h2>'+open+' trunk spots are still open.</h2><p>'+claimed+' of '+total+' spaces are currently claimed or reserved. Families, staff, and approved community partners can host a family-friendly decorated trunk. Applications remain open only for the remaining approved spaces while the final roster is completed.</p></div><div class="fall26-actions center"><a class="btn primary" href="/trunk-host.html">Apply to host a trunk →</a></div></div>';
-    }
-    refreshTrunkRecruitment();
+    const trunkHostSection=document.querySelector('[data-trunk-recruitment]');
+    if(trunkHostSection) trunkHostSection.remove();
 
     const final=document.querySelector('.fall26-final p'); if(final) final.textContent='Games on. Train rolling. Trunks open. Food vendors serving. Fall night handled.';
   });
