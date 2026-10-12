@@ -21,12 +21,6 @@
       <div class="container">
         <div class="section-head compact-head"><div class="eyebrow">CURRENT + ONGOING OPPORTUNITIES</div><h2>Want something specific? Start here.</h2><p>These opportunities come directly from current PTA and Round Rock ISD volunteer information.</p></div>
         <div class="grid three">
-          <article class="modern-panel accent">
-            <span class="mini-label">SEPTEMBER 24</span>
-            <h3>Lotería Night</h3>
-            <p>Help with concession stand, setup, cleanup, or another event-night role.</p>
-            <a class="btn secondary" href="https://www.signupgenius.com/go/70A094AA5A622ABFA7-65971430-voigt" target="_blank" rel="noopener noreferrer">View open Lotería slots ↗</a>
-          </article>
           <article class="modern-panel">
             <span class="mini-label">ONGOING · ON CAMPUS</span>
             <h3>Voigt Clothes Closet</h3>
