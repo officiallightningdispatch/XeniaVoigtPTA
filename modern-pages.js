@@ -25,8 +25,8 @@
     main.innerHTML=`${hero('WHAT’S HAPPENING','One calendar for school life + PTA fun.','Use this page for the PTA’s confirmed events alongside important Voigt school dates. The official Voigt calendar remains the source of truth for campus schedule changes.')}
     <section class="section"><div class="container">
       <div class="pta-events-intro">
-        <article class="modern-panel accent"><span class="mini-label">NEXT SCHOOL EVENT</span><h2>Open House + Lotería Night</h2><p>Thursday, September 24, 2026 · 5:30–7:00 PM</p><div class="modern-chiprow"><span style="background:#fff;color:#171717">All families welcome</span><span style="background:#fff;color:#171717">5th Grade performance</span><span style="background:#fff;color:#171717">Lotería</span></div></article>
-        <article class="modern-panel"><span class="mini-label">NEXT PTA EVENT</span><h2>Viking Quest Fall Festival</h2><p>Friday, October 23, 2026 · 5:30–7:30 PM</p><a class="btn secondary" href="/viking-quest">Viking Quest details →</a></article>
+        <article class="modern-panel accent"><span class="mini-label">UPCOMING PTA EVENT</span><h2>Viking Quest Fall Festival</h2><p>Friday, October 23, 2026 · 5:30–7:30 PM</p><a class="btn secondary" href="/fall-festival">Fall Festival details →</a></article>
+        <article class="modern-panel"><span class="mini-label">OFFICIAL SCHOOL CALENDAR</span><h2>Keep up with Voigt</h2><p>Check the school calendar for current campus events and schedule changes.</p><a class="btn secondary" href="https://voigt.roundrockisd.org/events?view=list-month" target="_blank" rel="noopener noreferrer">View school calendar ↗</a></article>
       </div>
       <div id="eventsCalendarMount" aria-live="polite"></div>
       <div class="pta-calendar-source"><p><strong>School calendar source:</strong> Voigt Arts Integration Academy / Round Rock ISD. School dates may change.</p><a href="https://voigt.roundrockisd.org/events?view=list-month" target="_blank" rel="noopener">View official calendar ↗</a></div>
@@ -71,7 +71,7 @@
         ${card('Voigt Clothes Closet','The RRISD Council of PTAs Clothes Closet serves district students with gently used clothing plus new socks and underwear. Voigt hours: Wednesdays & Thursdays, 9:30–11:30 AM; first Saturday monthly, 10 AM–noon.','https://evite.me/GdJucNqSxR','Volunteer at Voigt')}
         ${card('Clothes Closet Wishlist','Prefer to donate? The Council of PTAs maintains a current wishlist for needed clothing-support items.','https://a.co/0gS8aMWI','Open wishlist')}
         ${card('Reading in the RRock','Volunteer with kindergarten students who need additional literacy practice. Training and materials are provided.','https://docs.google.com/forms/d/e/1FAIpQLSfB1DK1VE39jXMiIMrnHmOrdWqqa9tIyzu2FwclmTqbcKnc6Q/viewform','Volunteer interest form')}
-        ${card('PTA Volunteer Hub','See current one-time and ongoing opportunities, including Lotería Night, teacher support, Viking Quest, and Fun Run.','/volunteer','View volunteer opportunities')}
+        ${card('PTA Volunteer Hub','See current one-time and ongoing opportunities, including teacher support, Viking Quest, and Fun Run.','/volunteer','View volunteer opportunities')}
         ${card('Join the PTA','Membership supports Voigt and does not require volunteering or attending every meeting.','/join','Join PTA')}
         ${card('Official school calendar','Check Voigt / RRISD for campus dates and schedule changes.','https://voigt.roundrockisd.org/events?view=list-month','View school calendar')}
       </div>
