@@ -106,7 +106,7 @@ const STATUS=
     },
     {
       "title": "Board & Brush certificate",
-      "detail": "The $50 digital gift certificate was accepted; receipt remains pending before final silent-auction fulfillment can be marked complete."
+      "detail": "Steffany offered a $50 digital gift certificate; it has not been received. Follow-up sent October 14 requesting delivery by October 16 and clarification of redemption restrictions. Do not count as fulfilled auction prize."
     },
     {
       "title": "Insurance certificate",
@@ -117,8 +117,8 @@ const STATUS=
       "detail": "St. Richard’s donated 86 pumpkins; confirm October 22 pickup. Five Points approved redirecting its $50 commitment to Viking Quest rewards; payment and item selection remain open."
     },
     {
-      "title": "Volunteer assignments",
-      "detail": "At least 31 of 36 unique people committed. ACU’s final count and named adult lead assignments remain open; all 13 Sweethearts need supervised roles."
+      "title": "Volunteer assignment confirmation",
+      "detail": "Final assignment packets sent October 13 to ACU (15 adult roles), Sweethearts (13 student roles), and named individual volunteers. Confirm final names and supervision."
     },
     {
       "title": "Eleven specialty material lines",
@@ -133,7 +133,7 @@ const STATUS=
       "detail": "Usual track/blue-awning portable power location identified, but 12A/50-foot fit remains unverified. School audio operator has not been assigned; resolve at Oct. 13 field check."
     },
     {
-      "title": "Ranger print decision",
+      "title": "Ranger card proof and certificate printer",
       "detail": "Ranger confirmed 350 donated Viking Quest cards on October 14. Proof and pickup pending. Completion certificates require a separate printer; library contacted."
     }
   ],
