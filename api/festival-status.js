@@ -3,7 +3,7 @@ import { db, ensureSchema, send } from './_db.js';
 
 const STATUS=
 {
-  "updatedAt": "2026-10-10",
+  "updatedAt": "2026-10-14",
   "event": {
     "title": "Xenia Voigt Viking Quest Fall Festival",
     "date": "Friday, October 23, 2026",
@@ -125,7 +125,7 @@ const STATUS=
     },
     {
       "title": "Eleven specialty material lines",
-      "detail": "Pickup/count Austin Creative Reuse order by October 14; confirm Boys & Girls Club itemized offer and reconcile only verified quantities."
+      "detail": "Austin Creative Reuse order picked up October 14 in full; confirm Boys & Girls Club itemized offer and reconcile verified materials against the inventory."
     },
     {
       "title": "FASTSIGNS final package",
@@ -161,6 +161,7 @@ const STATUS=
     }
   ],
   "changes": [
+    "October 14: Toybrary Austin, Austin Aquarium and Austin Creative Reuse pickups completed; all promised items received in full, no substitutions or shortages.",
     "October 9: Mrs. Cobb supplied safety procedures and customary inflatable power location; audio operator and exact electrical fit remain open.",
     "October 9: ACU confirmed 15 adults; Sweethearts confirmed 13 students arriving 5:15 PM.",
     "October 9: Ranger received three card/certificate PDFs; in-kind print decision pending.",
@@ -176,7 +177,7 @@ const STATUS=
     "PTA insurance certificate (coverage is effective; carrier COI pending).",
     "October 13 field approval before October 14 FASTSIGNS upload.",
     "Named adult supervision/roles for 13 Sweethearts and final ACU count.",
-    "Austin Creative Reuse pickup by October 14 and physical reconciliation of 11 specialty material lines."
+    "Austin Creative Reuse picked up October 14 in full; inventory reconciliation of specialty material lines remains separate."
   ],
   "deadlines": [
     {
@@ -199,7 +200,7 @@ const STATUS=
   "actions": [
     "Close school power, audio operator, safety and field placement at October 13 walkthrough.",
     "Obtain the formal PTA insurance COI; save with event records.",
-    "Pick up and count Austin Creative Reuse order by October 14.",
+    "Austin Creative Reuse picked up October 14; all promised items received in full.",
     "After field approval, send only the locked FASTSIGNS package through its upload route by October 14; confirm revised invoice.",
     "Receive ACU final count and assign named adult leads; place Sweethearts in supervised roles.",
     "Confirm St. Richard’s October 22 pumpkin pickup; send Five Points approved Viking Quest reward selection/payment instructions.",
@@ -263,11 +264,11 @@ const STATUS=
       },
       {
         "item": "Austin Creative Reuse pickup and count",
-        "status": "Ready",
+        "status": "Received in full",
         "date": "Oct 14",
-        "tone": "action",
-        "detail": "Paid bulk order is ready for pickup. Eleven specialty material lines remain open until actual quantities are counted.",
-        "next": "Pick up by October 14; reconcile items against Activity Materials and avoid duplicate sourcing."
+        "tone": "confirmed",
+        "detail": "Picked up October 14; all promised items received with no shortages or substitutions.",
+        "next": "Pickup closed. Reconcile physical inventory against Activity Materials without duplicating sourcing."
       },
       {
         "item": "FASTSIGNS final artwork and invoice",
