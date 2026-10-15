@@ -34,10 +34,7 @@ const STATUS=
     ],
     "generalActivities": [
       "Pumpkin Bowling",
-      "Apple Scoop Challenge",
       "Fall Sensory Mystery",
-      "Collaborative Autumn Mural",
-      "Gratitude Tree",
       "Pumpkin Decorating",
       "Face Painting",
       "Photo Stop"
@@ -129,7 +126,7 @@ const STATUS=
     },
     {
       "title": "FASTSIGNS final package",
-      "detail": "Upload route confirmed. Field approval October 13 must precede a single locked package upload by October 14; await revised invoice/confirmation."
+      "detail": "22 final PNG artwork files accepted by FASTSIGNS; estimate EST-17493 approval/payment and proof confirmation remain to be verified. October 22 afternoon pickup conditional."
     },
     {
       "title": "Power and audio closeout",
@@ -472,13 +469,13 @@ const STATUS=
           },
           {
             "item": "Round Rock Sweethearts",
-            "detail": "13 students; 5:15 PM arrival October 23. Amanda is student lead; PTA/school adult supervision required.",
+            "detail": "13 students, 5:15 PM arrival. Final role packets sent October 13; verify adult supervision and roster.",
             "status": "13 confirmed",
             "tone": "confirmed"
           },
           {
             "item": "Austin Christian University",
-            "detail": "15 adults explicitly confirmed; working 4:30–8:30 PM availability.",
+            "detail": "15 adults confirmed, 4:30 PM arrival; assignment packet sent October 13. Final named roster confirmation pending.",
             "status": "15 confirmed",
             "tone": "confirmed"
           },
@@ -508,13 +505,13 @@ const STATUS=
           },
           {
             "item": "FASTSIGNS package",
-            "detail": "Final artwork after October 13 field approval; upload by October 14.",
+            "detail": "22 PNG files accepted. Verify estimate approval, payment and proofs; conditional October 22 pickup.",
             "status": "Action needed",
             "tone": "action"
           },
           {
             "item": "Quest cards and certificates",
-            "detail": "Three PDFs sent to Ranger October 9; in-kind production decision pending.",
+            "detail": "Ranger donated 350 cards; proof and pickup date pending. 350 completion certificates require another printer; library contacted October 14.",
             "status": "Review pending",
             "tone": "working"
           }
