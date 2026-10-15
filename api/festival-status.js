@@ -137,7 +137,7 @@ const STATUS=
     },
     {
       "title": "Ranger print decision",
-      "detail": "Three PDFs sent October 9. In-kind production scope and delivery pending."
+      "detail": "Ranger confirmed 350 donated Viking Quest cards on October 14. Proof and pickup pending. Completion certificates require a separate printer; library contacted."
     }
   ],
   "declined": [
