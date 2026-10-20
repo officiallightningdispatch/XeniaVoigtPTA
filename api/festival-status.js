@@ -3,7 +3,7 @@ import { db, ensureSchema, send } from './_db.js';
 
 const STATUS=
 {
-  "updatedAt": "2026-10-14",
+  "updatedAt": "2026-10-20",
   "event": {
     "title": "Xenia Voigt Viking Quest Fall Festival",
     "date": "Friday, October 23, 2026",
@@ -88,7 +88,7 @@ const STATUS=
     },
     {
       "title": "Volunteer commitments",
-      "detail": "At least 31 unique people committed: Brittani, Dana, Quinteria, 13 Round Rock Sweethearts, and at least 15 ACU adults. Assignments and final ACU count pending."
+      "detail": "ACU roster now lists 14 named volunteers: 10 original confirmed for 4:30–8:30 PM, four additional names with availability pending, and one vacant ACU slot. Other volunteer pools must be counted separately."
     },
     {
       "title": "School safety procedures",
@@ -118,7 +118,7 @@ const STATUS=
     },
     {
       "title": "Volunteer assignment confirmation",
-      "detail": "Final assignment packets sent October 13 to ACU (15 adult roles), Sweethearts (13 student roles), and named individual volunteers. Confirm final names and supervision."
+      "detail": "October 20 ACU reconciliation: 14 named / 15 target, 10 original confirmed 4:30–8:30 PM. Addy Jeffers accepted Face Painting Lead; Katie Salmon proposed Outdoor PA/MC pending acceptance; Adysen DeVaney sensory retreat and Caleb Kendrick relief/supplies tentative; Lee Dawn unassigned. Confirm newcomer hours, adult status and official #1–15 mapping."
     },
     {
       "title": "Eleven specialty material lines",
@@ -158,9 +158,10 @@ const STATUS=
     }
   ],
   "changes": [
+    "October 20: ACU roster reconciled to 14 named / 15 target; 10 original confirmed for 4:30–8:30 PM, four newer volunteers pending shift details. Addy moved to Face Painting Lead; Katie proposed as Outdoor PA/MC; Lee Dawn newly recruited.",
     "October 14: Toybrary Austin, Austin Aquarium and Austin Creative Reuse pickups completed; all promised items received in full, no substitutions or shortages.",
     "October 9: Mrs. Cobb supplied safety procedures and customary inflatable power location; audio operator and exact electrical fit remain open.",
-    "October 9: ACU confirmed 15 adults; Sweethearts confirmed 13 students arriving 5:15 PM.",
+    "October 9: ACU has 14 named volunteers, 10 original shift-confirmed; Sweethearts confirmed 13 students arriving 5:15 PM.",
     "October 9: Ranger received three card/certificate PDFs; in-kind print decision pending.",
     "October 9: SC Johnson declined; archived from active donor list.",
     "October 9: Round Rock Church of Christ received the current Amazon registry; selected items and quantities are pending.",
@@ -199,7 +200,7 @@ const STATUS=
     "Obtain the formal PTA insurance COI; save with event records.",
     "Austin Creative Reuse picked up October 14; all promised items received in full.",
     "After field approval, send only the locked FASTSIGNS package through its upload route by October 14; confirm revised invoice.",
-    "Receive ACU final count and assign named adult leads; place Sweethearts in supervised roles.",
+    "Receive ACU final name/shift mapping and assign named adult leads; place Sweethearts in supervised roles.",
     "Confirm St. Richard’s October 22 pumpkin pickup; send Five Points approved Viking Quest reward selection/payment instructions.",
     "Keep A+ candy, H-E-B and Nothing Bundt pickups scheduled for October 22."
   ],
@@ -224,9 +225,9 @@ const STATUS=
         "icon": "heart"
       },
       {
-        "label": "Confirmed volunteer pool",
-        "value": "31 / 36",
-        "percent": 86,
+        "label": "ACU named / target",
+        "value": "ACU 14 / 15",
+        "percent": 93,
         "icon": "users"
       },
       {
@@ -280,8 +281,8 @@ const STATUS=
         "status": "Assignments open",
         "date": "Oct 16",
         "tone": "action",
-        "detail": "ACU confirmed 15 adults, and 13 Sweethearts will arrive at 5:15 PM. The unique pool is 31/36; student supervision and named adult roles still need assignments.",
-        "next": "Place PTA/school/ACU adults in safety and station lead roles, then assign Sweethearts to supervised support."
+        "detail": "ACU has 14 named volunteers, 10 original shift-confirmed, and 13 Sweethearts will arrive at 5:15 PM. Four newer ACU volunteers need shift confirmation; one ACU vacancy remains. Confirm Katie for MC, Addy for face painting, and supervision of 13 Sweethearts.",
+        "next": "Confirm Katie Salmon as outdoor MC, Addy Jeffers as face-paint lead, Adysen DeVaney sensory retreat, Caleb Kendrick relief runner; assign Lee Dawn and fill one vacancy."
       }
     ],
     "working": [
