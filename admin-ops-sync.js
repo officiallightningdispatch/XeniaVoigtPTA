@@ -23,10 +23,10 @@
           <div class="admin-role-item"><span class="dot"></span><div><b>Vendor plan:</b> K&amp;K BBQ (savory), Hearth &amp; Honey (sweet), Pour The Fun canceled October 20. The 10% fee is waived; no contracts will be sent.</div></div>
           <div class="admin-role-item"><span class="dot"></span><div><b>Attractions:</b> AiRCO’s $1,095 Train Quest package is paid, and Shine Pediatric Dental Co.’s $195 Kids Rainbow Combo is paid and secured. No extra inflatables.</div></div>
           <div class="admin-role-item"><span class="dot"></span><div><b>Teacher trunks:</b> seven, one per grade Pre-K–5. A+ donated candy picked up October 22; community hosts bring their own candy.</div></div>
-          <div class="admin-role-item"><span class="dot"></span><div><b>Cake Walk:</b> board plan is exactly one hour with a 40-prize target. H-E-B fulfillment is scheduled Oct. 22 at 10 AM; Nothing Bundt pickup is 9 AM.</div></div>
+          <div class="admin-role-item"><span class="dot"></span><div><b>Cake Walk:</b> board plan is exactly one hour with a 40-prize target. H-E-B cakewalk shop scheduled Oct. 22 at 10 AM; verify receipt; Nothing Bundt pickup is 9 AM.</div></div>
           <div class="admin-role-item"><span class="dot"></span><div><b>Pumpkins:</b> St. Richard’s donated 86 pumpkins; pickup confirmation pending. Five Points redirected its $50 commitment to Viking Quest rewards; payment pending.</div></div>
           <div class="admin-role-item"><span class="dot"></span><div><b>Photo stop:</b> Forest Creek donated the 12' utility trailer at $0 for 24 hours. Brittani will pick up Oct. 23 shortly after 9 AM and return it Oct. 24 morning.</div></div>
-          <div class="admin-role-item"><span class="dot"></span><div><b>Volunteer pool:</b> Round Rock Sweethearts now total 14 confirmed; ACU assignments finalized. Historical Oct. 9 aggregate of 31/36 is superseded; do not use as current count. Named assignments finalized, including Avery Martin at Cakewalk, Jacob Thomas at Trial of Skill, and Kingsley Lawhorn supporting Trunk-or-Treat pedestrian flow.</div></div>
+          <div class="admin-role-item"><span class="dot"></span><div><b>Volunteer pool:</b> Round Rock Sweethearts now total 14 confirmed; ACU assignments finalized. Historical Oct. 9 aggregate of historical baseline is superseded; do not use as current count. Named assignments finalized, including Avery Martin at Cakewalk, Jacob Thomas at Trial of Skill, and Kingsley Lawhorn supporting Trunk-or-Treat pedestrian flow.</div></div>
           <div class="admin-role-item"><span class="dot"></span><div><b>Sensory retreat:</b> Boys &amp; Girls Club portable confirmed; Tyla Delestre is the access/closeout point person. One BGC Trunk-or-Treat trunk is also confirmed.</div></div>
           <div class="admin-role-item"><span class="dot"></span><div><b>Silent auction:</b> prizes on stage; school tables in front with bid sheets in 2–4 stacked rows per table.</div></div>
         </div></article>
@@ -34,7 +34,7 @@
           <div class="admin-role-item"><span class="dot"></span><div><b>Campus closeout:</b> Mrs. Cobb confirmed nurse-office first aid, posted exits, first-floor severe-weather shelter, custodian on duty, volunteer check-in/identification, and immediate campus-staff reporting for missing children. Oct. 13 field check must still verify inflatable 12A/50-foot power, named audio operator, exact reunification point and placement.</div></div>
           <div class="admin-role-item"><span class="dot"></span><div><b>PIE request:</b> Campus Request Form submitted Oct. 2; confirmation received. Do not resubmit or send a duplicate follow-up. Await PIE’s Tuesday/Wednesday pull and pickup-ready notice.</div></div>
           <div class="admin-role-item"><span class="dot"></span><div><b>Pumpkin fulfillment:</b> 86 pumpkins donated by St. Richard’s; confirm Oct. 22 pickup. Five Points $50 is now earmarked for Quest rewards, not pumpkins.</div></div>
-          <div class="admin-role-item"><span class="dot"></span><div><b>Volunteers:</b> Tracker Oct. 9 records 31/36 unique confirmed, a raw gap of 5; exact adult-lead assignments remain unfilled. ACU volunteers are adults age 18+, so adult-lead headcount is covered because the minimum 15 ACU adults exactly matches the 15 adult-lead positions, with Brittani as the additional event lead; role assignments remain open. Receive ACU final headcount Friday + Sweethearts roster/chaperone.</div></div>
+          <div class="admin-role-item"><span class="dot"></span><div><b>Volunteers:</b> Tracker Oct. 9 records historical baseline superseded, a raw gap of 5; exact adult-lead assignments remain unfilled. ACU volunteers are adults age 18+, so adult-lead headcount is covered because the minimum 15 ACU adults exactly matches the 15 adult-lead positions, with Brittani as the additional event lead; role assignments finalized. Receive ACU final headcount Friday + Sweethearts roster/chaperone.</div></div>
           <div class="admin-role-item"><span class="dot"></span><div><b>Trailer logistics:</b> Brittani is the pickup/return driver. Confirm towing vehicle/proof of insurance and Forest Creek’s Saturday-return instructions.</div></div>
           <div class="admin-role-item"><span class="dot"></span><div><b>Materials + print:</b> FASTSIGNS signage and 500 Ranger Viking Quest cards collected; event maps and auction materials printed. Verify remaining specialty materials against physical inventory.</div></div>
         </div></article>
@@ -55,13 +55,13 @@
         ${card('Cake Walk','1 hr / 40-prize plan','H-E-B + bakery fulfillment scheduled; physical closeout pending')}
         ${card('Cake Walk floor spots','30 / 30','Provided by PE')}
         ${card('Sensory retreat','1 / 1','BGC portable confirmed; Tyla is access/closeout contact')}
-        ${card('Specialty material lines','11 open','Each has an active source path; stop sourcing category-by-category as covered')}
+        ${card('Specialty material lines','verify physical inventory','Do not assume stale open lines remain; stop sourcing category-by-category as covered')}
         ${card('Sweethearts','14 confirmed','Kingsley Lawhorn added Oct. 22; assignments finalized')}
         ${card('Adult lead roles','15 positions / 16 known adults','ACU university volunteers are age 18+; the minimum 15 exactly matches the 15 lead positions. Brittani is the additional event lead.')}
         ${card('Pumpkin sponsorship','1 / 1 secured','Five Points $50 redirected to Viking Quest rewards; payment pending; pumpkin pickup still pending')}
         ${card('Photo-stop trailer','1 / 1 secured','Brittani pickup Oct. 23 AM / return Oct. 24 AM')}
         ${card('Outdoor PA / MC','Assigned','Katie Salmon; school sound system indoors')}
-        ${card('Trunk-or-Treat spaces','9 / 20','11 open; BGC trunk confirmed')}
+        ${card('Trunk-or-Treat','Teacher and community trunks','Grade 3 vehicle still provisional')}
         ${card('Silent auction setup','Covered','Stage display + school tables')}
       </div>
       <div class="admin-section-title" style="margin-top:20px"><h2>Pickup schedule</h2><p>One place for every current pickup, handoff, digital fulfillment and return date. Open only when needed.</p></div>
