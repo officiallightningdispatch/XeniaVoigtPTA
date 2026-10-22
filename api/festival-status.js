@@ -3,7 +3,7 @@ import { db, ensureSchema, send } from './_db.js';
 
 const STATUS=
 {
-  "updatedAt": "2026-10-20",
+  "updatedAt": "2026-10-22",
   "event": {
     "title": "Xenia Voigt Viking Quest Fall Festival",
     "date": "Friday, October 23, 2026",
@@ -50,6 +50,10 @@ const STATUS=
     "silentAuctionPrizes": 7
   },
   "confirmed": [
+    {
+      "title": "Third-grade Trunk-or-Treat participation",
+      "detail": "Ms. Ruiz, Miss Ortega, Ms. Benavidez, Ms. Ramirez, and Ms. Cardenas confirmed. Piñata theme with papel picado and marigolds; no accommodations needed. Existing third-grade reserved space; no additional trunk."
+    },
     {
       "title": "Major attractions paid",
       "detail": "AiRCO paid Train Quest INV0761 in full for $1,095. Shine Pediatric Dental Co. paid INV0763 in full for $195 for the Kids Rainbow Combo, and the updated Shine COI has been received."
@@ -158,6 +162,7 @@ const STATUS=
     }
   ],
   "changes": [
+    "October 22: Sabrina Ruiz confirmed third-grade teachers, piñata theme with papel picado and marigolds, and no accommodations. Likely Benavidez midsize crossover SUV remains NOT FINAL until Sabrina confirms; existing reserved space count unchanged.",
     "October 20: ACU roster reconciled to 14 named / 15 target; 10 original confirmed for 4:30–8:30 PM, four newer volunteers pending shift details. Addy moved to Face Painting Lead; Katie proposed as Outdoor PA/MC; Lee Dawn newly recruited.",
     "October 14: Toybrary Austin, Austin Aquarium and Austin Creative Reuse pickups completed; all promised items received in full, no substitutions or shortages.",
     "October 9: Mrs. Cobb supplied safety procedures and customary inflatable power location; audio operator and exact electrical fit remain open.",
@@ -196,6 +201,7 @@ const STATUS=
     }
   ],
   "actions": [
+    "Confirm third-grade final vehicle and vehicle-host email/phone with Sabrina Ruiz. Participation and theme are confirmed; likely Ms. Benavidez midsize crossover SUV is not final.",
     "Close school power, audio operator, safety and field placement at October 13 walkthrough.",
     "Obtain the formal PTA insurance COI; save with event records.",
     "Austin Creative Reuse picked up October 14; all promised items received in full.",
@@ -287,6 +293,14 @@ const STATUS=
     ],
     "working": [
       {
+        "item": "Third-grade trunk vehicle",
+        "status": "Vehicle not final",
+        "date": "Before Oct 23 setup",
+        "tone": "working",
+        "detail": "NOT FINAL: likely Ms. Benavidez’s midsize crossover SUV. Await Sabrina Ruiz’s confirmation of the final vehicle and vehicle-host email/phone.",
+        "next": "Sabrina to confirm final vehicle and vehicle-host email/phone; follow-up sent through website inbox reply."
+      },
+      {
         "item": "Ranger Quest cards and certificates",
         "status": "Artwork sent",
         "date": "Pending review",
@@ -320,6 +334,13 @@ const STATUS=
       }
     ],
     "confirmed": [
+      {
+        "item": "Third-grade Trunk-or-Treat",
+        "status": "Participation confirmed",
+        "date": "Oct 23",
+        "tone": "confirmed",
+        "detail": "Ms. Ruiz, Miss Ortega, Ms. Benavidez, Ms. Ramirez, and Ms. Cardenas confirmed. Piñata theme with papel picado and marigolds; no accommodations needed. Existing third-grade reserved space; no additional trunk."
+      },
       {
         "item": "K&K BBQ, Hearth & Honey, Pour The Fun",
         "status": "Lineup locked",
@@ -522,6 +543,12 @@ const STATUS=
         "title": "Layout & operations",
         "description": "Internal work requiring final field and school confirmation.",
         "rows": [
+          {
+            "item": "Third-grade Trunk-or-Treat",
+            "status": "Teachers/theme confirmed; vehicle pending",
+            "tone": "working",
+            "detail": "Ms. Ruiz, Miss Ortega, Ms. Benavidez, Ms. Ramirez, and Ms. Cardenas confirmed. Piñata theme with papel picado and marigolds; no accommodations needed. Existing third-grade reserved space; no additional trunk. NOT FINAL: likely Ms. Benavidez’s midsize crossover SUV. Await Sabrina Ruiz’s confirmation of the final vehicle and vehicle-host email/phone."
+          },
           {
             "item": "October 13 field check",
             "detail": "Train, inflatable, access, clearances and sign placement.",
