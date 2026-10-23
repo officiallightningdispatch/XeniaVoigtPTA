@@ -593,6 +593,23 @@ const STATUS=
 
 const digestToken=t=>createHash('sha256').update(String(t||'')).digest('hex');
 
+async function statusWithPrivateLiveOverrides(sql){
+  const result=JSON.parse(JSON.stringify(STATUS));
+  const rows=await sql`SELECT section,item_key,operation,payload,updated_at FROM public.pta_festival_status_overrides ORDER BY updated_at ASC,section,item_key`;
+  for(const row of rows){
+    const target=row.section.split('.').reduce((v,k)=>v&&v[k],result);
+    if(!Array.isArray(target)) continue;
+    const index=target.findIndex(item=>item&&(item.item===row.item_key||item.title===row.item_key||item.label===row.item_key));
+    if(row.operation==='remove'){if(index>=0)target.splice(index,1);continue;}
+    if(row.operation!=='upsert'||!row.payload||typeof row.payload!=='object')continue;
+    if(index>=0)target[index]={...target[index],...row.payload};
+    else target.push(row.payload);
+  }
+  if(rows.length)result.updatedAt=String(rows[rows.length-1].updated_at).slice(0,10);
+  return result;
+}
+
+
 export default async function handler(req,res){
   try{
     res.setHeader('Cache-Control','no-store, max-age=0');
@@ -608,7 +625,7 @@ export default async function handler(req,res){
       WHERE s.token_hash=${digestToken(token)} AND s.expires_at>NOW()
       LIMIT 1`;
     if(!rows[0]) return send(res,401,{error:'Board sign-in required.'});
-    return send(res,200,STATUS);
+    return send(res,200,await statusWithPrivateLiveOverrides(sql));
   }catch(err){
     console.error(err);
     return send(res,500,{error:'Festival status is temporarily unavailable.'});
