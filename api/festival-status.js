@@ -598,12 +598,16 @@ async function statusWithPrivateLiveOverrides(sql){
   const rows=await sql`SELECT section,item_key,operation,payload,updated_at FROM public.pta_festival_status_overrides ORDER BY updated_at ASC,section,item_key`;
   for(const row of rows){
     const target=row.section.split('.').reduce((v,k)=>v&&v[k],result);
-    if(!Array.isArray(target)) continue;
-    const index=target.findIndex(item=>item&&(item.item===row.item_key||item.title===row.item_key||item.label===row.item_key));
+    if(!Array.isArray(target)){
+      if(target&&typeof target==='object'&&row.operation==='set'&&Object.prototype.hasOwnProperty.call(row.payload||{},'value'))target[row.item_key]=row.payload.value;
+      continue;
+    }
+    const index=target.findIndex(item=>item&&(item===row.item_key||item.item===row.item_key||item.title===row.item_key||item.label===row.item_key));
     if(row.operation==='remove'){if(index>=0)target.splice(index,1);continue;}
     if(row.operation!=='upsert'||!row.payload||typeof row.payload!=='object')continue;
-    if(index>=0)target[index]={...target[index],...row.payload};
-    else target.push(row.payload);
+    const next=Object.prototype.hasOwnProperty.call(row.payload,'value')?row.payload.value:row.payload;
+    if(index>=0)target[index]=typeof next==='object'?{...target[index],...next}:next;
+    else target.push(next);
   }
   if(rows.length)result.updatedAt=String(rows[rows.length-1].updated_at).slice(0,10);
   return result;
