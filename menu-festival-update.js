@@ -45,8 +45,8 @@
         <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Events <span aria-hidden="true">▾</span></button>
         <div class="nav-dropdown-menu">
           <a href="/events" class="${current==='/events'?'active':''}">Calendar & Events</a>
-          <a href="/fall-festival" class="${current==='/fall-festival'?'active':''}">${FESTIVAL_NAME}</a>
-          <a href="/trunk-or-treat" class="${current==='/trunk-or-treat'||current==='/trunk-host.html'?'active':''}">Trunk-or-Treat Application</a>
+          <a href="/events#pta-photo-memories">Past Event Photos</a>
+
           <a href="/volunteer" class="${current==='/volunteer'?'active':''}">Volunteer</a>
           <a href="/vendors" class="${current==='/vendors'?'active':''}">Vendors</a>
           <a href="/community-partners" class="${current==='/community-partners'?'active':''}">Community Partners</a>
