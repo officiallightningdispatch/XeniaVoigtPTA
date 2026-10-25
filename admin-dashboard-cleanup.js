@@ -112,7 +112,9 @@
         <aside class="ff-board-sidebar">
           <div class="ff-brand"><strong>XENIA VOIGT</strong><span>ELEMENTARY</span><b>PTA</b><i></i></div>
           <nav>
-            ${navButton('dashboard','Dashboard','home')}
+            ${navButton('dashboard','PTA Overview','home')}
+            ${navButton('operations','Funding & PTA Records','heart')}
+            ${navButton('photos','Photo Approvals','gift')}
             ${navButton('sponsors','Sponsors','heart')}
             ${navButton('vendors','Vendors','store')}
             ${navButton('volunteers','Volunteers','users')}
@@ -123,7 +125,7 @@
         </aside>
         <main class="ff-board-main">
           <header class="ff-board-header">
-            <div><h1>Xenia Voigt Elementary PTA — <em>Fall Festival Board Dashboard</em></h1><p>Internal planning view</p></div>
+            <div><h1>Xenia Voigt Elementary PTA — <em>PTA Board Operations Dashboard</em></h1><p>2026–27 operations · post-festival closeout and year-round stewardship</p></div>
             <span>Updated ${esc(updated)}</span>
           </header>
           <div id="ffBoardView"></div>
@@ -131,6 +133,42 @@
       `;
 
       const view=document.getElementById('ffBoardView');
+      const sourceSections=[
+        {title:'Grants & funding',rows:[
+          ['National PTA Healthy Minds / New York Life Foundation','$1,500 requested · submitted October 12, 2026 · outcome expected November','https://docs.google.com/spreadsheets/d/18svZh4ynkP8a9A-98Zsir4l4wipvoCPuOZXyWiSSPzw/edit#gid=1977816323'],
+          ['Amazon Funding & Donations','Historical festival registry data; reconcile items received and purchased','https://docs.google.com/spreadsheets/d/18svZh4ynkP8a9A-98Zsir4l4wipvoCPuOZXyWiSSPzw/edit#gid=1503432159']
+        ]},
+        {title:'Sponsors, donors & partners',rows:[
+          ['Sponsor List','Outreach, previous funders and sponsor contact notes; some historical statuses need verification','https://docs.google.com/spreadsheets/d/18svZh4ynkP8a9A-98Zsir4l4wipvoCPuOZXyWiSSPzw/edit#gid=0'],
+          ['Live Sponsorship Fulfillment','Festival sponsorship commitments and needs; archive actual fulfillment after reconciliation','https://docs.google.com/spreadsheets/d/1Uy_sdelXl_bGrhT38p-b_DjEJ2EQ1TDNMVfqHxDs3kw/edit'],
+          ['Community partnership follow-up','Round Rock Public Library reported 10 new library card registrations at Viking Quest. Preserve for impact reporting.','https://mail.google.com/mail/u/0/#all/1a173f3e8f9b4973']
+        ]},
+        {title:'Vendors & volunteers',rows:[
+          ['Vendor records','Manage submitted vendors in the existing secured board database','/admin'],
+          ['Current PTA volunteers','Use existing application records for future events; retain festival records as history','/admin'],
+          ['Event outcomes & future planning','Use annual Events Calendar; the October 23 festival has ended','https://docs.google.com/spreadsheets/d/18svZh4ynkP8a9A-98Zsir4l4wipvoCPuOZXyWiSSPzw/edit#gid=82236447']
+        ]},
+        {title:'PTA operations & governance',rows:[
+          ['2026–27 Master Workbook','Membership, contacts, budget, surveys, communications, events and inventory','https://docs.google.com/spreadsheets/d/18svZh4ynkP8a9A-98Zsir4l4wipvoCPuOZXyWiSSPzw/edit'],
+          ['Budget','Current master sheet contains September balances; reconcile with actual bank records before reporting as current','https://docs.google.com/spreadsheets/d/18svZh4ynkP8a9A-98Zsir4l4wipvoCPuOZXyWiSSPzw/edit#gid=460085062'],
+          ['Important dates','PTA grants, registrations and award deadlines','https://docs.google.com/spreadsheets/d/18svZh4ynkP8a9A-98Zsir4l4wipvoCPuOZXyWiSSPzw/edit#gid=1996290705']
+        ]}
+      ];
+      function showOperations(){
+       view.innerHTML='<div class="ff-view-panel"><div class="ff-panel-head"><h2>PTA operations · October 2026 onward</h2><p>Source-linked board hub. Recorded grant submissions and historic festival outreach are not proof of awards, payments, or completed fulfillment. Only accessible source records are included.</p></div>'+sourceSections.map(section=>'<section style="margin:18px 0;padding:18px;border:1px solid #ddd;border-radius:12px"><h3>'+esc(section.title)+'</h3>'+section.rows.map(row=>'<article style="padding:12px 0;border-bottom:1px solid #eee"><b>'+esc(row[0])+'</b><p>'+esc(row[1])+'</p><a href="'+esc(row[2])+'" target="_blank" rel="noopener noreferrer">Open source ↗</a></article>').join('')+'</section>').join('')+'</div>';
+      }
+      async function showPhotos(){
+       view.innerHTML='<div class="ff-view-panel"><h2>Event photo moderation</h2><p>Only approved photos become public. Review each image and verify consent before publishing.</p><div id="photoQueue">Loading submissions…</div></div>';
+       try{
+        const r=await fetch('/api/event-photos?action=queue',{headers:{'x-admin-session':session},cache:'no-store'});
+        if(!r.ok)throw Error('Could not access photo submissions');
+        const data=await r.json(),list=view.querySelector('#photoQueue');
+        list.innerHTML=data.photos.length?data.photos.map(p=>'<article class="modern-panel" style="margin:14px 0"><p><strong>'+esc(p.submitter_name)+'</strong> · '+esc(p.submitter_email)+'</p><p>'+esc(p.caption||'No caption')+'</p><p>Status: '+esc(p.status)+'</p><button type="button" data-preview-photo="'+Number(p.id)+'">Preview privately</button> '+(p.status==='pending'?'<button type="button" data-review-photo="'+Number(p.id)+'" data-status="approved">Approve</button> <button type="button" data-review-photo="'+Number(p.id)+'" data-status="rejected">Reject</button>':'')+'<div class="photo-review-preview"></div></article>').join(''):'<p>No photos submitted yet.</p>';
+        list.querySelectorAll('[data-review-photo]').forEach(b=>b.onclick=async()=>{if(b.dataset.status==='approved'&&!confirm('Confirm permission and approve this photo for public display?'))return;const response=await fetch('/api/event-photos?action=review',{method:'POST',headers:{'Content-Type':'application/json','x-admin-session':session},body:JSON.stringify({id:Number(b.dataset.reviewPhoto),status:b.dataset.status})});if(response.ok)showPhotos();else alert('Review could not be saved.');});
+        list.querySelectorAll('[data-preview-photo]').forEach(b=>b.onclick=async()=>{const response=await fetch('/api/event-photos?action=image&id='+Number(b.dataset.previewPhoto),{headers:{'x-admin-session':session},cache:'no-store'});if(!response.ok)return alert('Could not load private preview.');const blob=await response.blob(),url=URL.createObjectURL(blob),box=b.closest('article').querySelector('.photo-review-preview');box.innerHTML='';const img=document.createElement('img');img.alt='Private photo awaiting review';img.style.cssText='max-width:360px;width:100%;margin-top:12px;border-radius:8px';img.src=url;img.onload=()=>URL.revokeObjectURL(url);box.appendChild(img);});
+       }catch(e){view.querySelector('#photoQueue').textContent=e.message;}
+      }
+
       function showDashboard(){
         view.innerHTML=`
           <div class="ff-metric-grid">${(board.metrics||[]).map(metricCard).join('')}</div>
@@ -161,7 +199,9 @@
 
       root.querySelectorAll('[data-board-view]').forEach(btn=>btn.addEventListener('click',()=>{
         const id=btn.dataset.boardView; setActive(id);
-        if(id==='dashboard') return showDashboard();
+        if(id==='dashboard') return showOperations();
+        if(id==='operations') return showOperations();
+        if(id==='photos') return showPhotos();
         const panel=(board.panels||{})[id];
         if(panel) return view.innerHTML=renderListPanel(panel.title,panel.description,panel.rows);
         view.innerHTML=renderListPanel('Current status','Open the live master tracker for the full record.',[]);
@@ -173,7 +213,7 @@
         location.reload();
       });
 
-      showDashboard();
+      showOperations();
       document.documentElement.dataset.ffDashboardUpdated=updated;
       return true;
     }catch(_){return false;}
