@@ -25,7 +25,7 @@
     main.innerHTML=`${hero('WHAT’S HAPPENING','One calendar for school life + PTA fun.','Use this page for the PTA’s confirmed events alongside important Voigt school dates. The official Voigt calendar remains the source of truth for campus schedule changes.')}
     <section class="section"><div class="container">
       <div class="pta-events-intro">
-        <article class="modern-panel accent"><span class="mini-label">UPCOMING PTA EVENT</span><h2>Viking Quest Fall Festival</h2><p>Friday, October 23, 2026 · 5:30–7:30 PM</p><a class="btn secondary" href="/fall-festival">Fall Festival details →</a></article>
+        <article class="modern-panel accent"><span class="mini-label">THANK YOU, VIKINGS!</span><h2>2026 Viking Quest Fall Festival</h2><p>October 23, 2026 · What an unforgettable evening! Share your favorite memories in our community photo collection.</p><a class="btn secondary" href="#pta-photo-memories">Share festival photos →</a></article>
         <article class="modern-panel"><span class="mini-label">OFFICIAL SCHOOL CALENDAR</span><h2>Keep up with Voigt</h2><p>Check the school calendar for current campus events and schedule changes.</p><a class="btn secondary" href="https://voigt.roundrockisd.org/events?view=list-month" target="_blank" rel="noopener noreferrer">View school calendar ↗</a></article>
       </div>
       <div id="eventsCalendarMount" aria-live="polite"></div>
