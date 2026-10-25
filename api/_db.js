@@ -89,6 +89,20 @@ export async function ensureSchema(sql){
   )`;
   await sql`CREATE INDEX IF NOT EXISTS pta_sponsorships_need_idx ON pta_sponsorships(need_id)`;
   await sql`CREATE INDEX IF NOT EXISTS pta_sponsorships_status_idx ON pta_sponsorships(status)`;
+  await sql`CREATE TABLE IF NOT EXISTS pta_event_photos (
+    id BIGSERIAL PRIMARY KEY,
+    event_slug TEXT NOT NULL,
+    submitter_name TEXT NOT NULL,
+    submitter_email TEXT NOT NULL,
+    caption TEXT NOT NULL DEFAULT '',
+    image_data BYTEA NOT NULL,
+    mime_type TEXT NOT NULL,
+    status TEXT NOT NULL DEFAULT 'pending',
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    reviewed_at TIMESTAMPTZ,
+    reviewed_by TEXT
+  )`;
+  await sql`CREATE INDEX IF NOT EXISTS pta_event_photos_status_idx ON pta_event_photos (event_slug,status)`;
   await sql`CREATE TABLE IF NOT EXISTS pta_bank_setup (
     id INTEGER PRIMARY KEY CHECK (id=1),
     encrypted_blob TEXT NOT NULL,
