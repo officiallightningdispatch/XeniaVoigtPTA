@@ -134,6 +134,7 @@
 
       const view=document.getElementById('ffBoardView');
       const sourceSections=[
+        {title:'Unified relationship tracker',rows:[['42 documented relationships','Single record of commitments, actual contributions, PTA owner, follow-up, verification status, and supporting evidence','https://docs.google.com/spreadsheets/d/18svZh4ynkP8a9A-98Zsir4l4wipvoCPuOZXyWiSSPzw/edit#gid=7261025']]},
         {title:'Grants & funding',rows:[
           ['National PTA Healthy Minds / New York Life Foundation','$1,500 requested · submitted October 12, 2026 · outcome expected November','https://docs.google.com/spreadsheets/d/18svZh4ynkP8a9A-98Zsir4l4wipvoCPuOZXyWiSSPzw/edit#gid=1977816323'],
           ['Amazon Funding & Donations','Historical festival registry data; reconcile items received and purchased','https://docs.google.com/spreadsheets/d/18svZh4ynkP8a9A-98Zsir4l4wipvoCPuOZXyWiSSPzw/edit#gid=1503432159']
