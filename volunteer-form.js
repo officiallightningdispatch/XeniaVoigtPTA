@@ -41,12 +41,6 @@
             <a class="btn secondary" href="#volunteerForm">Tell us your availability ↓</a>
           </article>
           <article class="modern-panel">
-            <span class="mini-label">OCTOBER 23</span>
-            <h3>Viking Quest Fall Festival</h3>
-            <p>Setup, check-in, activity stations, Trunk-or-Treat, sensory support, cleanup, and more.</p>
-            <a class="btn secondary" href="#volunteerForm">Volunteer for Viking Quest ↓</a>
-          </article>
-          <article class="modern-panel">
             <span class="mini-label">NOVEMBER 2</span>
             <h3>Fun Run</h3>
             <p>Pre-event planning and materials plus event-day setup, cleanup, and cheering support.</p>
@@ -95,7 +89,7 @@
             <legend><span>2</span> What are you volunteering for?</legend>
             <p class="step-intro">Choose one event or tell us you’re open to being matched anywhere.</p>
             <div class="vol-grid two">
-              <label>Event / project *<select name="event" id="volEvent" required><option value="">Select one</option><option>Any PTA event / general availability</option><option>Viking Quest Fall Festival — October 23, 2026</option><option>Teacher & staff appreciation</option><option>Family event / school activity</option><option>Fundraising / sponsorship support</option><option>PTA operations / behind-the-scenes help</option><option>Other event / project</option></select></label>
+              <label>Event / project *<select name="event" id="volEvent" required><option value="">Select one</option><option>Any PTA event / general availability</option><option>Teacher & staff appreciation</option><option>Family event / school activity</option><option>Fundraising / sponsorship support</option><option>PTA operations / behind-the-scenes help</option><option>Other event / project</option></select></label>
               <label>Other event / project<input name="otherEvent" placeholder="Optional"></label>
             </div>
             <div class="vol-grid two">
