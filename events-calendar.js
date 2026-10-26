@@ -5,7 +5,6 @@
   const mount=document.getElementById('eventsCalendarMount');
   if(!mount) return;
 
-  const districtUrl='https://www.roundrockisd.org/events';
   const voigtUrl='https://voigt.roundrockisd.org/events?view=list-month';
   let events=[];
   let cursor=new Date(); cursor=new Date(cursor.getFullYear(),cursor.getMonth(),1);
@@ -50,16 +49,16 @@
     mount.innerHTML=`
       <div class="pta-calendar-shell">
         <div class="pta-calendar-toolbar">
-          <div><span class="mini-label">VOIGT + ROUND ROCK ISD + PTA</span><h2>${fmtMonth.format(cursor)}</h2></div>
+          <div><span class="mini-label">VOIGT SCHOOL + PTA</span><h2>${fmtMonth.format(cursor)}</h2></div>
           <div class="pta-calendar-nav"><button type="button" data-cal-prev aria-label="Previous month">←</button><button type="button" data-cal-today>Today</button><button type="button" data-cal-next aria-label="Next month">→</button></div>
         </div>
-        <div class="pta-calendar-key"><span><i class="school-dot"></i>Voigt event</span><span><i class="district-dot"></i>RRISD event</span><span><i class="pta-dot"></i>PTA event</span></div>
+        <div class="pta-calendar-key"><span><i class="school-dot"></i>Voigt event</span><span><i class="pta-dot"></i>PTA event</span></div>
         <div class="pta-calendar-weekdays"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
         <div class="pta-calendar-grid">${cells.join('')}</div>
       </div>
       <div class="pta-events-list-wrap">
-        <div class="pta-events-list-head"><div><span class="mini-label">THIS MONTH</span><h2>${monthEvents.length?`${monthEvents.length} ${monthEvents.length===1?'event':'events'}`:'No events listed'}</h2><p>Voigt and Round Rock ISD calendars are combined automatically. Matching events are shown only once, with Voigt listings taking priority when both calendars contain the same event.</p></div><div class="buttons left"><a class="btn secondary" href="${voigtUrl}" target="_blank" rel="noopener">Voigt calendar ↗</a><a class="btn secondary" href="${districtUrl}" target="_blank" rel="noopener">RRISD calendar ↗</a></div></div>
-        <div class="pta-events-list">${monthEvents.length?monthEvents.map(e=>`<article class="pta-event-row"><div class="pta-event-datebox"><strong>${new Date(`${e.date}T12:00:00`).getDate()}</strong><span>${new Date(`${e.date}T12:00:00`).toLocaleDateString('en-US',{month:'short'}).toUpperCase()}</span></div><div><div class="pta-event-meta"><span>${esc(e.type)}</span><span>${fmtDay.format(new Date(`${e.date}T12:00:00`))}${formatTime(e)?` · ${esc(formatTime(e))}`:''}</span></div><h3>${esc(e.title)}</h3>${e.location?`<p><strong>Location:</strong> ${esc(e.location)}</p>`:''}${e.details?`<p>${esc(e.details)}</p>`:''}<a href="${esc(hrefFor(e))}" ${hrefFor(e).startsWith('http')?'target="_blank" rel="noopener"':''}>${e.type==='PTA event'?'Event details →':'View official calendar ↗'}</a></div></article>`).join(''):`<article class="pta-empty-month"><h3>No events are currently listed for ${fmtMonth.format(cursor)}.</h3><p>This calendar checks both official school sources plus PTA events.</p></article>`}</div>
+        <div class="pta-events-list-head"><div><span class="mini-label">THIS MONTH</span><h2>${monthEvents.length?`${monthEvents.length} ${monthEvents.length===1?'event':'events'}`:'No events listed'}</h2></div><div class="buttons left"><a class="btn secondary" href="${voigtUrl}" target="_blank" rel="noopener">Voigt calendar ↗</a></div></div>
+        <div class="pta-events-list">${monthEvents.length?monthEvents.map(e=>`<article class="pta-event-row"><div class="pta-event-datebox"><strong>${new Date(`${e.date}T12:00:00`).getDate()}</strong><span>${new Date(`${e.date}T12:00:00`).toLocaleDateString('en-US',{month:'short'}).toUpperCase()}</span></div><div><div class="pta-event-meta"><span>${esc(e.type)}</span><span>${fmtDay.format(new Date(`${e.date}T12:00:00`))}${formatTime(e)?` · ${esc(formatTime(e))}`:''}</span></div><h3>${esc(e.title)}</h3>${e.location?`<p><strong>Location:</strong> ${esc(e.location)}</p>`:''}${e.details?`<p>${esc(e.details)}</p>`:''}<a href="${esc(hrefFor(e))}" ${hrefFor(e).startsWith('http')?'target="_blank" rel="noopener"':''}>${e.type==='PTA event'?'Event details →':'View official calendar ↗'}</a></div></article>`).join(''):`<article class="pta-empty-month"><h3>No events are currently listed for ${fmtMonth.format(cursor)}.</h3></article>`}</div>
       </div>`;
 
     mount.querySelector('[data-cal-prev]').onclick=()=>{cursor=new Date(year,month-1,1);render();};
@@ -67,9 +66,13 @@
     mount.querySelector('[data-cal-today]').onclick=()=>{const now=new Date();cursor=new Date(now.getFullYear(),now.getMonth(),1);render();};
   }
 
-  mount.innerHTML='<div class="pta-calendar-loading"><span class="mini-label">SYNCING OFFICIAL CALENDARS</span><h2>Loading Voigt and Round Rock ISD events…</h2></div>';
+  mount.innerHTML='<div class="pta-calendar-loading"><span class="mini-label">SCHOOL EVENTS</span><h2>Loading Voigt events…</h2></div>';
+  const referenceEvents=[
+  ['2026-10-21','Unity Day - National Bullying Prevention Day'],['2026-10-23','PTA- Trunk or Treat'],['2026-10-23','Red Ribbon Week','2026-10-31'],['2026-10-28','Capital Projects Community Oversight Committee Meeting'],['2026-10-30','Book Character Day'],['2026-11-01','Native American Heritage Month','2026-11-30'],['2026-11-02','PTA Boosterthon'],['2026-11-05','Curiosity Cube 3rd-5th'],['2026-11-10','TAG Referral Window','2026-12-12'],['2026-11-11',"Veteran's Day Celebration"],['2026-11-12','STAAR Information Night & TAG Parent Information Night / Arts Integration / Title I'],['2026-11-12','Called Board Meeting'],['2026-11-14',"National Superintendent's Day"],['2026-11-18','Education Support Professionals Day'],['2026-11-18','Capital Projects Community Oversight Committee Meeting'],['2026-11-19','Thanksgiving Luncheon'],['2026-11-19','Regular Board Meeting'],['2026-11-20','Guest Educators Day'],['2026-11-23','Fall Break: Student & Staff Holiday','2026-11-27']
+  ];
+  const backup=()=>referenceEvents.flatMap(([start,title,end],i)=>{const rows=[];let d=new Date(start+'T12:00:00Z');const last=new Date((end||start)+'T12:00:00Z');while(d<=last&&rows.length<45){rows.push({id:'school-'+i+'-'+rows.length,title,date:d.toISOString().slice(0,10),allDay:true,type:'School event',sourceUrl:voigtUrl});d.setUTCDate(d.getUTCDate()+1);}return rows;});
   fetch('/api/school-calendar',{headers:{accept:'application/json'}})
     .then(r=>{if(!r.ok)throw new Error('calendar');return r.json();})
-    .then(data=>{events=Array.isArray(data.events)?data.events:[];render();})
-    .catch(()=>{events=[{id:'voigt-pta-fall-festival-2026',title:'The 2026 Voigt PTA Fall Festival',date:'2026-10-23',start:'2026-10-23T17:30:00-05:00',end:'2026-10-23T19:30:00-05:00',allDay:false,time:'5:30 PM',location:'Xenia Voigt Arts Integration Academy, 1201 Cushing Dr, Round Rock, TX 78664',details:'Voigt PTA family fall festival.',source:'Xenia Voigt PTA',sourceUrl:'/viking-quest',type:'PTA event'}];render();});
+    .then(data=>{events=Array.isArray(data.events)&&data.events.length?data.events:backup();render();})
+    .catch(()=>{events=backup();render();});
 })();
