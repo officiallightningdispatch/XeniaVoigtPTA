@@ -37,7 +37,7 @@
       const muted=d.getMonth()!==month;
       cells.push(`<button type="button" data-cal-date="${key}" aria-label="${esc(fmtDay.format(d))}, ${todaysEvents.length} events" class="pta-cal-day${selectedDay===key?' is-selected':''}${muted?' is-muted':''}${todaysEvents.length?' has-event':''}">
         <div class="pta-cal-date">${d.getDate()}</div>
-        ${todaysEvents.slice(0,2).map(e=>`<a class="pta-cal-pill ${classFor(e)}" href="${esc(hrefFor(e))}" ${hrefFor(e).startsWith('http')?'target="_blank" rel="noopener"':''} title="${esc(e.title)}">${esc(e.title)}</a>`).join('')}
+        ${todaysEvents.slice(0,2).map(e=>`<span class="pta-cal-pill ${classFor(e)}" title="${esc(e.title)}">${esc(e.title)}</span>`).join('')}
       </button>`);
     }
 
