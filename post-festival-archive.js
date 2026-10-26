@@ -1,5 +1,5 @@
 (()=>{
-  const route=location.pathname.replace(/\\/index\\.html$/,'').replace(/\\/$/,'')||'/';
+  const route=location.pathname.replace(/index[.]html$/,'').replace(/\/$/,'')||'/';
   if(route!=='/fall-festival'&&route!=='/viking-quest')return;
   function render(){
     const main=document.querySelector('main#main');if(!main)return;
