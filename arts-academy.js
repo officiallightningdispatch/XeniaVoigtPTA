@@ -5,8 +5,8 @@
   if(path!=='/viking-quest'){
     const announcement=document.querySelector('#announcement a');
     if(announcement){
-      announcement.href='/resources';
-      announcement.innerHTML='<span class="star">★</span> Xenia Voigt PTA · Resources, events, volunteering & ways to connect';
+      announcement.href='/events#pta-photo-memories';
+      announcement.innerHTML='<span class="star">★</span> Viking Quest memories · Share photos and celebrate our community';
     }
     document.querySelector('.nav a[href="/viking-quest"]')?.classList.remove('featured');
   }
