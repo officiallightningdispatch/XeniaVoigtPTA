@@ -5,8 +5,8 @@
   if(!hero) return;
   hero.classList.add('hype-hero');
   hero.innerHTML=`
-    <div class="hype-confetti" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-    <div class="hype-orbit hype-orbit-one">★</div><div class="hype-orbit hype-orbit-two">✦</div><div class="hype-orbit hype-orbit-three">V</div>
+    
+    
     <div class="container hype-grid">
       <div class="hype-copy reveal-now">
         <div class="hype-kicker"><span class="live-dot"></span> ARTS INTEGRATION · COMMUNITY · EXCELLENCE</div>
@@ -15,7 +15,7 @@
         <div class="hype-proof"><span>✓ Arts-integrated learning</span><span>✓ Every Viking belongs</span><span>✓ Stronger together</span></div>
         <div class="hype-actions">
           <a class="btn hype-primary" href="/join">Join the PTA <b>→</b></a>
-          <a class="btn hype-secondary" href="/events">Show me what’s happening</a>
+          <a class="btn hype-secondary" href="/events">View the school calendar</a>
         </div>
         <p class="hype-small">Parents · Caregivers · Teachers · Staff · Grandparents · Community supporters</p>
       </div>
@@ -33,7 +33,7 @@
         </div>
       </aside>
     </div>
-    <div class="hype-scroll">SCROLL FOR THE GOOD STUFF <span>↓</span></div>`;
+    <div class="hype-scroll">EXPLORE THE VOIGT COMMUNITY <span>↓</span></div>`;
 
   const strip=document.querySelector('.fun-strip');
   if(strip){
