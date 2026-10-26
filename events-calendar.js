@@ -37,7 +37,7 @@
       const muted=d.getMonth()!==month;
       cells.push(`<div class="pta-cal-day${muted?' is-muted':''}${todaysEvents.length?' has-event':''}">
         <div class="pta-cal-date">${d.getDate()}</div>
-        ${todaysEvents.map(e=>`<a class="pta-cal-pill ${classFor(e)}" href="${esc(hrefFor(e))}" ${hrefFor(e).startsWith('http')?'target="_blank" rel="noopener"':''} title="${esc(e.title)}">${esc(e.title)}</a>`).join('')}
+        ${todaysEvents.slice(0,2).map(e=>`<a class="pta-cal-pill ${classFor(e)}" href="${esc(hrefFor(e))}" ${hrefFor(e).startsWith('http')?'target="_blank" rel="noopener"':''} title="${esc(e.title)}">${esc(e.title)}</a>`).join('')}
       </div>`);
     }
 
@@ -73,6 +73,6 @@
   const backup=()=>referenceEvents.flatMap(([start,title,end],i)=>{const rows=[];let d=new Date(start+'T12:00:00Z');const last=new Date((end||start)+'T12:00:00Z');while(d<=last&&rows.length<45){rows.push({id:'school-'+i+'-'+rows.length,title,date:d.toISOString().slice(0,10),allDay:true,type:'School event',sourceUrl:voigtUrl});d.setUTCDate(d.getUTCDate()+1);}return rows;});
   fetch('/api/school-calendar',{headers:{accept:'application/json'}})
     .then(r=>{if(!r.ok)throw new Error('calendar');return r.json();})
-    .then(data=>{events=Array.isArray(data.events)&&data.events.length?data.events:backup();render();})
+    .then(data=>{events=Array.isArray(data.events)?data.events:[];for(const item of backup()){if(!events.some(e=>e.date===item.date&&e.title.toLowerCase()===item.title.toLowerCase()))events.push(item);}render();})
     .catch(()=>{events=backup();render();});
 })();
