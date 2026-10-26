@@ -22,13 +22,13 @@
   }
 
   if(p==='/events'){
-    main.innerHTML=`${hero('WHAT’S HAPPENING','The rhythm of our school community.','Discover school milestones, arts-integrated learning, family gatherings, and PTA experiences—all in one beautiful calendar.')}
+    main.innerHTML=`${hero('THE VOIGT CALENDAR','Moments worth gathering for.','Explore the month, tap any date to see what is happening, and keep every school milestone close at hand.')}
     <section class="section"><div class="container">
-      <div class="pta-events-intro">
-        <article class="modern-panel accent"><span class="mini-label">THANK YOU, VIKINGS!</span><h2>2026 Viking Quest Fall Festival</h2><p>October 23, 2026 · What an unforgettable evening! Share your favorite memories in our community photo collection.</p><a class="btn secondary" href="#pta-photo-memories">Share festival photos →</a></article>
-        <article class="modern-panel"><span class="mini-label">OFFICIAL SCHOOL CALENDAR</span><h2>Keep up with Voigt</h2><p>Check the school calendar for current campus events and schedule changes.</p><a class="btn secondary" href="https://voigt.roundrockisd.org/events?view=list-month" target="_blank" rel="noopener noreferrer">View school calendar ↗</a></article>
-      </div>
       <div id="eventsCalendarMount" aria-live="polite"></div>
+      <div class="pta-events-intro" style="margin-top:22px">
+        <article class="modern-panel"><span class="mini-label">SCHOOL CALENDAR</span><h2>Official campus updates</h2><p>For last-minute changes and the complete school schedule, consult the district's official calendar.</p><a class="btn secondary" href="https://voigt.roundrockisd.org/events?view=list-month" target="_blank" rel="noopener noreferrer">Open official calendar ↗</a></article>
+        <article class="modern-panel"><span class="mini-label">COMMUNITY MEMORIES</span><h2>Viking Quest 2026</h2><p>Our Fall Festival was a celebration of the people who make Voigt special. Explore and share the memories.</p><a class="btn secondary" href="#pta-photo-memories">Festival memories →</a></article>
+      </div>
     </div></section>`;
   }
 
