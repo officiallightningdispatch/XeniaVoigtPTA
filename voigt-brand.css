@@ -32,3 +32,23 @@ body{background:#fff!important;color:#211e1f!important}
 .pta-event-row{border-radius:9px!important}
 .footer{background:#211e1f!important}
 @media(max-width:760px){.page-hero{padding:50px 0 38px!important}.page-hero h1{font-size:clamp(2.6rem,10vw,4rem)!important}.hype-copy h1{font-size:clamp(2.5rem,10vw,4rem)!important}.pta-cal-day{min-height:82px!important}.section{padding-top:48px!important;padding-bottom:48px!important}}
+
+/* Editorial campus directory and brand refinement */
+.brand .voigt-wordmark{width:auto!important;min-width:0!important;height:auto!important;aspect-ratio:auto!important;border:0!important;box-shadow:none!important;border-radius:0!important;background:transparent!important;color:#b21e27!important;font:900 clamp(16px,2.3vw,24px)/1 'Inter',sans-serif!important;letter-spacing:-.07em!important;padding:0 10px 0 0!important}
+.academy-directory{width:100%;max-width:620px;padding:clamp(24px,4vw,46px);background:#faf8f7;border:1px solid #e7e0df;border-top:5px solid #b21e27;color:#242021;box-shadow:0 24px 60px rgba(33,24,24,.045)}
+.academy-directory-kicker{color:#a8242b;font-size:.72rem;font-weight:800;letter-spacing:.16em;margin:0 0 24px}
+.academy-directory h2{font:700 clamp(30px,3.4vw,49px)/1.12 Georgia,serif;letter-spacing:-.045em;margin:0 0 18px;color:#242021}
+.academy-directory h2 em{color:#a8242b;font-style:italic}
+.academy-directory-intro{color:#666;line-height:1.65;margin:0 0 26px;font-size:1rem}
+.academy-directory-links{border-top:1px solid #ded6d5}
+.academy-directory-links a{display:grid;grid-template-columns:32px 1fr 20px;align-items:center;gap:15px;padding:19px 0;border-bottom:1px solid #ded6d5;text-decoration:none;color:#242021;background:none!important;border-radius:0!important;box-shadow:none!important}
+.academy-directory-links a:hover strong{color:#a8242b}
+.academy-directory-num{color:#a8242b;font-size:.75rem;font-weight:800;align-self:start;padding-top:4px}
+.academy-directory-links strong{display:block;font-size:1.06rem;line-height:1.25}
+.academy-directory-links small{display:block;color:#666;font-size:.81rem;margin-top:5px;line-height:1.5}
+.hype-stage{min-height:0!important;display:block!important}.hype-stage .arts-stamp{display:none!important}
+.hype-hero:before{border-color:#e8e1df!important}.hype-kicker{border-radius:3px!important;background:#262122!important}.hype-proof span{border-radius:4px!important}
+.hype-copy h1{font-size:clamp(2.9rem,6vw,5.6rem)!important;line-height:1.08!important;letter-spacing:-.055em!important}
+.hype-copy h1 br{display:block!important}.hype-copy h1 em{display:inline!important}
+@media(max-width:960px){.hype-grid{gap:32px!important}.academy-directory{max-width:none}.hype-stage{min-height:0!important}}
+@media(max-width:640px){.brand .voigt-wordmark{font-size:14px!important;padding-right:4px!important}.brand-title{font-size:15px!important}.brand-sub{font-size:10px!important}.academy-directory{padding:24px 20px!important}.academy-directory h2{font-size:32px!important}.hype-copy h1{font-size:clamp(2.7rem,11vw,4.1rem)!important}.hype-copy h1 br{display:block!important}.hype-hero{padding-top:28px!important}.hype-proof{justify-content:flex-start!important}.hype-proof span{font-size:11px!important}.hype-kicker{font-size:9px!important;letter-spacing:.1em!important}}
