@@ -22,20 +22,19 @@
   }
 
   if(p==='/events'){
-    main.innerHTML=`${hero('WHAT’S HAPPENING','One calendar for school life + PTA fun.','Use this page for the PTA’s confirmed events alongside important Voigt school dates. The official Voigt calendar remains the source of truth for campus schedule changes.')}
+    main.innerHTML=`${hero('WHAT’S HAPPENING','The rhythm of our school community.','Discover school milestones, arts-integrated learning, family gatherings, and PTA experiences—all in one beautiful calendar.')}
     <section class="section"><div class="container">
       <div class="pta-events-intro">
         <article class="modern-panel accent"><span class="mini-label">THANK YOU, VIKINGS!</span><h2>2026 Viking Quest Fall Festival</h2><p>October 23, 2026 · What an unforgettable evening! Share your favorite memories in our community photo collection.</p><a class="btn secondary" href="#pta-photo-memories">Share festival photos →</a></article>
         <article class="modern-panel"><span class="mini-label">OFFICIAL SCHOOL CALENDAR</span><h2>Keep up with Voigt</h2><p>Check the school calendar for current campus events and schedule changes.</p><a class="btn secondary" href="https://voigt.roundrockisd.org/events?view=list-month" target="_blank" rel="noopener noreferrer">View school calendar ↗</a></article>
       </div>
       <div id="eventsCalendarMount" aria-live="polite"></div>
-      <div class="pta-calendar-source"><p><strong>School calendar source:</strong> Voigt Arts Integration Academy / Round Rock ISD. School dates may change.</p><a href="https://voigt.roundrockisd.org/events?view=list-month" target="_blank" rel="noopener">View official calendar ↗</a></div>
     </div></section>`;
   }
 
   if(p==='/fundraising'){
     main.innerHTML=`${hero('SUPPORT + PARTNERSHIPS','Help without making it weird.','Local businesses, families, and community partners can support Voigt through goods, services, sponsorships, volunteering, and event participation.')}
-    <section class="section"><div class="container"><div class="grid two">${card('Fall Festival vendor lineup','The October 23 vendor lineup is set. See the selected food vendors for festival night.','/vendors','View lineup')}${card('Sponsor or donate','Support an event, donate an item, provide a service, or help make something possible.','/contact','Start a conversation')}${card('Give time or talent','Volunteer for an event, planning task, creative project, or behind-the-scenes need.','/volunteer','Volunteer')}${card('Offer a community resource','Have an idea, program, partnership, or resource that could help Voigt? We want to hear it.','/contact','Contact PTA')}</div></div></section>`;
+    <section class="section"><div class="container"><div class="grid two">${card('Community vendors','Discover the businesses who make PTA celebrations possible.','/vendors','View lineup')}${card('Sponsor or donate','Support an event, donate an item, provide a service, or help make something possible.','/contact','Start a conversation')}${card('Give time or talent','Volunteer for an event, planning task, creative project, or behind-the-scenes need.','/volunteer','Volunteer')}${card('Offer a community resource','Have an idea, program, partnership, or resource that could help Voigt? We want to hear it.','/contact','Contact PTA')}</div></div></section>`;
   }
 
   if(p==='/donate'){
