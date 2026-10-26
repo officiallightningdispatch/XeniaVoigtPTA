@@ -6,7 +6,7 @@
   if(!mount) return;
 
   const voigtUrl='https://voigt.roundrockisd.org/events?view=list-month';
-  let events=[];
+  let events=[];let feedUnavailable=false;
   let cursor=new Date(); cursor=new Date(cursor.getFullYear(),cursor.getMonth(),1);
   const fmtMonth=new Intl.DateTimeFormat('en-US',{month:'long',year:'numeric'});
   const fmtDay=new Intl.DateTimeFormat('en-US',{weekday:'short',month:'short',day:'numeric'});
@@ -47,7 +47,7 @@
     });
 
     mount.innerHTML=`
-      <div class="pta-calendar-shell">
+      ${feedUnavailable?`<p class="pta-calendar-warning" role="status">The official school calendar is temporarily unavailable. The dates below are a limited historical reference, not a complete or current calendar. <a href="${voigtUrl}" target="_blank" rel="noopener">Check the official Voigt calendar</a>.</p>`:""}\n      <div class="pta-calendar-shell">
         <div class="pta-calendar-toolbar">
           <div><span class="mini-label">VOIGT SCHOOL + PTA</span><h2>${fmtMonth.format(cursor)}</h2></div>
           <div class="pta-calendar-nav"><button type="button" data-cal-prev aria-label="Previous month">←</button><button type="button" data-cal-today>Today</button><button type="button" data-cal-next aria-label="Next month">→</button></div>
@@ -73,6 +73,6 @@
   const backup=()=>referenceEvents.flatMap(([start,title,end],i)=>{const rows=[];let d=new Date(start+'T12:00:00Z');const last=new Date((end||start)+'T12:00:00Z');while(d<=last&&rows.length<45){rows.push({id:'school-'+i+'-'+rows.length,title,date:d.toISOString().slice(0,10),allDay:true,type:'School event',sourceUrl:voigtUrl});d.setUTCDate(d.getUTCDate()+1);}return rows;});
   fetch('/api/school-calendar',{headers:{accept:'application/json'}})
     .then(r=>{if(!r.ok)throw new Error('calendar');return r.json();})
-    .then(data=>{events=Array.isArray(data.events)?data.events:[];for(const item of backup()){if(!events.some(e=>e.date===item.date&&e.title.toLowerCase()===item.title.toLowerCase()))events.push(item);}render();})
-    .catch(()=>{events=backup();render();});
+    .then(data=>{if(!Array.isArray(data.events)||!data.events.length)throw new Error('empty school feed');events=data.events;for(const item of backup()){if(!events.some(e=>e.date===item.date&&e.title.toLowerCase()===item.title.toLowerCase()))events.push(item);}render();})
+    .catch(()=>{feedUnavailable=true;events=backup();render();});
 })();
