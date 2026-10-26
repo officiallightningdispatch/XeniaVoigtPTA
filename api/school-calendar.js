@@ -1,4 +1,4 @@
-const DISTRICT_ICS='https://thrillshare-cmsv2.services.thrillshare.com/api/v4/o/27049/cms/events/generate_ical?filter_ids=&section_ids=';
+
 const VOIGT_ICS='https://thrillshare-cmsv2.services.thrillshare.com/api/v4/o/27541/cms/events/generate_ical?filter_ids=&section_ids=';
 
 function unfold(text){return text.replace(/\r?\n[ \t]/g,'');}
@@ -39,9 +39,9 @@ function dedupeKey(e){return `${e.date}|${e.start||''}|${normalizeTitle(e.title)
 function parseCalendar(text,source,sourceUrl){
   const flat=unfold(text);
   const blocks=flat.match(/BEGIN:VEVENT[\s\S]*?END:VEVENT/g)||[];
-  return blocks.map((block,i)=>{
+  return blocks.flatMap((block,i)=>{
     const st=parseStart(block);
-    return {
+    const event={
       id:prop(block,'UID')||`${source}-${i}-${st.date}`,
       title:prop(block,'SUMMARY')||'Untitled event',
       date:st.date,
@@ -55,7 +55,12 @@ function parseCalendar(text,source,sourceUrl){
       sourceUrl,
       type:source==='Voigt Arts Integration Academy'?'School event':'District event'
     };
-  }).filter(e=>e.date&&e.title);
+    if(!event.date||!event.title)return [];
+    if(!event.allDay||!event.end)return [event];
+    const endDate=event.end.slice(0,10);const day=new Date(event.date+'T12:00:00Z');const last=new Date(endDate+'T12:00:00Z');const dates=[];
+    while(day<last&&dates.length<45){dates.push({...event,date:day.toISOString().slice(0,10),id:event.id+'-'+dates.length});day.setUTCDate(day.getUTCDate()+1);}
+    return dates.length?dates:[event];
+  });
 }
 function sameLoose(a,b){
   if(a.date!==b.date)return false;
@@ -68,17 +73,13 @@ function sameLoose(a,b){
 export default async function handler(req,res){
   if(req.method!=='GET'){res.status(405).json({error:'Method not allowed'});return;}
   try{
-    const [districtResp,voigtResp]=await Promise.all([
-      fetch(DISTRICT_ICS,{headers:{accept:'text/calendar'}}),
-      fetch(VOIGT_ICS,{headers:{accept:'text/calendar'}})
-    ]);
-    if(!districtResp.ok||!voigtResp.ok) throw new Error(`Calendar source error: district ${districtResp.status}, Voigt ${voigtResp.status}`);
-    const [districtText,voigtText]=await Promise.all([districtResp.text(),voigtResp.text()]);
-    const district=parseCalendar(districtText,'Round Rock ISD','https://www.roundrockisd.org/events');
+    const voigtResp=await fetch(VOIGT_ICS,{headers:{accept:'text/calendar'}});
+    if(!voigtResp.ok) throw new Error('School calendar feed unavailable');
+    const voigtText=await voigtResp.text();
     const voigt=parseCalendar(voigtText,'Voigt Arts Integration Academy','https://voigt.roundrockisd.org/events?view=list-month');
     const merged=[];
     const seen=new Set();
-    for(const e of [...voigt,...district]){
+    for(const e of voigt){
       const key=dedupeKey(e);
       if(seen.has(key)||merged.some(x=>sameLoose(x,e))) continue;
       seen.add(key); merged.push(e);
@@ -94,13 +95,13 @@ export default async function handler(req,res){
       location:'Xenia Voigt Arts Integration Academy, 1201 Cushing Dr, Round Rock, TX 78664',
       details:'Voigt PTA family fall festival with games, arts, food, performances, Trunk-or-Treat, and community activities.',
       source:'Xenia Voigt PTA',
-      sourceUrl:'/viking-quest',
+      sourceUrl:'/events#pta-photo-memories',
       type:'PTA event'
     };
     if(!merged.some(e=>sameLoose(e,pta))) merged.push(pta);
     merged.sort((a,b)=>String(a.start||a.date).localeCompare(String(b.start||b.date))||a.title.localeCompare(b.title));
     res.setHeader('Cache-Control','s-maxage=900, stale-while-revalidate=3600');
-    res.status(200).json({ok:true,events:merged,sources:{district:'https://www.roundrockisd.org/events',voigt:'https://voigt.roundrockisd.org/events?view=list-month'},counts:{district:district.length,voigt:voigt.length,merged:merged.length}});
+    res.status(200).json({ok:true,events:merged,sources:{district:'https://www.roundrockisd.org/events',voigt:'https://voigt.roundrockisd.org/events?view=list-month'},counts:{voigt:voigt.length,merged:merged.length}});
   }catch(err){
     console.error(err);
     res.status(502).json({ok:false,error:'Official school calendars are temporarily unavailable.'});
