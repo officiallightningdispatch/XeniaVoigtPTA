@@ -48,7 +48,7 @@
 
     const shownEvents=selectedDay?monthEvents.filter(e=>e.date===selectedDay):monthEvents;
     mount.innerHTML=`
-      ${feedUnavailable?`<p class="pta-calendar-warning" role="status">The official school calendar is temporarily unavailable. The dates below are a limited historical reference, not a complete or current calendar. <a href="${voigtUrl}" target="_blank" rel="noopener">Check the official Voigt calendar</a>.</p>`:""}\n      <div class="pta-calendar-shell">
+      ${feedUnavailable?`<p class="pta-calendar-warning" role="status">The official school calendar is temporarily unavailable. The official calendar could not be loaded. Any dates shown are a limited reference and may be outdated. <a href="${voigtUrl}" target="_blank" rel="noopener">Check the official Voigt calendar</a>.</p>`:""}\n      <div class="pta-calendar-shell">
         <div class="pta-calendar-toolbar">
           <div><span class="mini-label">VOIGT SCHOOL + PTA</span><h2>${fmtMonth.format(cursor)}</h2></div>
           <div class="pta-calendar-nav"><button type="button" data-cal-prev aria-label="Previous month">←</button><button type="button" data-cal-today>Today</button><button type="button" data-cal-next aria-label="Next month">→</button></div>
@@ -72,7 +72,7 @@
   const referenceEvents=[
   ['2026-10-21','Unity Day - National Bullying Prevention Day'],['2026-10-23','PTA- Trunk or Treat'],['2026-10-23','Red Ribbon Week','2026-10-31'],['2026-10-28','Capital Projects Community Oversight Committee Meeting'],['2026-10-30','Book Character Day'],['2026-11-01','Native American Heritage Month','2026-11-30'],['2026-11-02','PTA Boosterthon'],['2026-11-05','Curiosity Cube 3rd-5th'],['2026-11-10','TAG Referral Window','2026-12-12'],['2026-11-11',"Veteran's Day Celebration"],['2026-11-12','STAAR Information Night & TAG Parent Information Night / Arts Integration / Title I'],['2026-11-12','Called Board Meeting'],['2026-11-14',"National Superintendent's Day"],['2026-11-18','Education Support Professionals Day'],['2026-11-18','Capital Projects Community Oversight Committee Meeting'],['2026-11-19','Thanksgiving Luncheon'],['2026-11-19','Regular Board Meeting'],['2026-11-20','Guest Educators Day'],['2026-11-23','Fall Break: Student & Staff Holiday','2026-11-27']
   ];
-  const backup=()=>referenceEvents.flatMap(([start,title,end],i)=>{const rows=[];let d=new Date(start+'T12:00:00Z');const last=new Date((end||start)+'T12:00:00Z');while(d<=last&&rows.length<45){rows.push({id:'school-'+i+'-'+rows.length,title,date:d.toISOString().slice(0,10),allDay:true,type:'School event',sourceUrl:voigtUrl});d.setUTCDate(d.getUTCDate()+1);}return rows;});
+  const backup=()=>referenceEvents.filter(([start])=>start>=ymd(new Date())).flatMap(([start,title,end],i)=>{const rows=[];let d=new Date(start+'T12:00:00Z');const last=new Date((end||start)+'T12:00:00Z');while(d<=last&&rows.length<45){rows.push({id:'school-'+i+'-'+rows.length,title,date:d.toISOString().slice(0,10),allDay:true,type:'School event',sourceUrl:voigtUrl});d.setUTCDate(d.getUTCDate()+1);}return rows;});
   fetch('/api/school-calendar',{headers:{accept:'application/json'}})
     .then(r=>{if(!r.ok)throw new Error('calendar');return r.json();})
     .then(data=>{if(!Array.isArray(data.events)||!data.events.length)throw new Error('empty school feed');events=data.events;render();})
