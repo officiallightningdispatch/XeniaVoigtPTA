@@ -9,12 +9,12 @@
     <div class="hype-orbit hype-orbit-one">★</div><div class="hype-orbit hype-orbit-two">✦</div><div class="hype-orbit hype-orbit-three">V</div>
     <div class="container hype-grid">
       <div class="hype-copy reveal-now">
-        <div class="hype-kicker"><span class="live-dot"></span> YOU'RE INVITED IN</div>
-        <h1>Your kid gets one childhood.<br><em>Let’s make school unforgettable.</em></h1>
-        <p class="hype-lede">Join the Xenia Voigt PTA and help create the moments kids remember, teachers feel, and families actually want to show up for.</p>
-        <div class="hype-proof"><span>✓ No volunteer quota</span><span>✓ No pressure</span><span>✓ Real impact</span></div>
+        <div class="hype-kicker"><span class="live-dot"></span> ARTS INTEGRATION · COMMUNITY · EXCELLENCE</div>
+        <h1>A place to create.<br><em>A community to belong.</em></h1>
+        <p class="hype-lede">The Xenia Voigt PTA champions imagination, exceptional learning experiences, and meaningful partnerships between families, educators, and our community.</p>
+        <div class="hype-proof"><span>✓ Arts-integrated learning</span><span>✓ Every Viking belongs</span><span>✓ Stronger together</span></div>
         <div class="hype-actions">
-          <a class="btn hype-primary" href="/join">I’m in — Join the PTA <b>→</b></a>
+          <a class="btn hype-primary" href="/join">Join the PTA <b>→</b></a>
           <a class="btn hype-secondary" href="/events">Show me what’s happening</a>
         </div>
         <p class="hype-small">Parents · Caregivers · Teachers · Staff · Grandparents · Community supporters</p>
@@ -27,7 +27,7 @@
           <p class="quick-desk-intro">The most-used Voigt and PTA links, all in one place.</p>
           <div class="quick-desk-links">
             <a href="/resources"><span>📚</span><div><b>Resource Hub</b><small>Parents, students, staff & community</small></div><i>→</i></a>
-            <a href="/viking-quest"><span>🍂</span><div><b>Viking Quest</b><small>Oct. 23 · 5:30–7:30 PM</small></div><i>→</i></a>
+            <a href="/events#pta-photo-memories"><span>🎨</span><div><b>Festival Memories</b><small>Share and celebrate our community</small></div><i>→</i></a>
             <a href="/volunteer"><span>🙋</span><div><b>Volunteer</b><small>Flexible ways to help</small></div><i>→</i></a>
             <a href="https://voigt.roundrockisd.org/staff" target="_blank" rel="noopener"><span>🏫</span><div><b>Voigt Staff Directory</b><small>Find a teacher or staff member</small></div><i>↗</i></a>
           </div>
