@@ -1,0 +1,49 @@
+/* Xenia Voigt PTA — institutional design finish. Approved colors only. */
+:root{--pta-red:#a7192c;--pta-ink:#211c1d;--pta-muted:#665f60;--pta-line:#e9e1e1;--pta-paper:#fff}
+html{scroll-behavior:smooth}
+body{background:#fff;color:var(--pta-ink)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #b72237!important;outline-offset:3px}
+.site-header{background:#fff!important;border-bottom:1px solid var(--pta-line)!important}
+.site-header .header-inner{min-height:92px;gap:20px;align-items:center}
+.site-header .brand{display:flex;align-items:center;min-width:0;flex:1;padding:8px 0!important}
+.site-header .brand-approved-logo{display:block!important;width:min(100%,350px)!important;max-height:92px!important;object-fit:contain;object-position:left center}
+.header-actions{flex-shrink:0}
+.footer{background:#211c1d!important;color:#fff!important}
+.footer a,.footer small,.footer p,.footer b,.footer h3{color:#f7f3f3!important}
+.footer a:hover{color:#ffb8c0!important}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.17)!important}
+.page-hero{background:linear-gradient(145deg,#fff 0%,#f8f4f3 100%)!important}
+.page-hero h1,.section-head h2,.pta-calendar-toolbar h2,.pta-events-list-head h2{font-family:Georgia,'Times New Roman',serif!important;letter-spacing:-.045em}
+.eyebrow,.mini-label{color:#a7192c!important;letter-spacing:.12em}
+.modern-panel,.card,.pta-calendar-shell,.pta-events-list-wrap{border:1px solid var(--pta-line)!important;box-shadow:0 8px 28px rgba(33,28,29,.035)!important}
+.btn,.modern-panel,.card{transition:transform .2s ease,box-shadow .2s ease}
+.btn:hover{transform:translateY(-1px)}
+.pta-calendar-shell{background:#fff!important}
+.pta-cal-day{border-radius:0!important}
+.pta-events-list-wrap{background:#fff!important}
+.pta-events-list{scrollbar-color:#b6a8a8 #f7f3f3}
+.pta-event-datebox{background:#a7192c!important}
+.pta-cal-day.is-selected{background:#fff0f2!important}
+.pta-calendar-nav button{min-width:43px;min-height:43px}
+.pta-calendar-warning a{color:#8e1728!important}
+.badge.gold,.mini-label,.event-date,.hype-kicker{color:#a7192c!important}
+.hype-kicker,.hype-proof span{border-color:#e5d8d8!important}
+.hype-copy h1 em,.academy-directory h2 em{color:#a7192c!important}
+.hype-hero,.academy-directory{background:#fff!important}
+.announce .star{color:#fff!important}
+@media(max-width:760px){
+ .site-header .header-inner{min-height:76px!important;gap:10px!important;padding-inline:12px!important}
+ .site-header .brand{max-width:none!important;min-width:0!important}
+ .site-header .brand-approved-logo{width:min(100%,250px)!important;max-height:70px!important}
+ .header-actions{gap:6px!important}
+ .header-actions button{width:38px!important;height:38px!important;min-width:38px!important}
+ .pta-calendar-shell,.pta-events-list-wrap{padding:14px!important}
+ .pta-events-list{max-height:430px}
+ .pta-calendar-grid{border-left:1px solid #f0e8e8}
+ .pta-cal-day{min-height:58px!important}
+ .pta-cal-pill{display:none!important}
+ .pta-events-intro{gap:12px!important}
+ .page-hero h1{font-size:clamp(2.2rem,10vw,3.5rem)!important}
+ .footer-inner{gap:26px!important}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
