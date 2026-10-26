@@ -52,3 +52,12 @@ body{background:#fff!important;color:#211e1f!important}
 .hype-copy h1 br{display:block!important}.hype-copy h1 em{display:inline!important}
 @media(max-width:960px){.hype-grid{gap:32px!important}.academy-directory{max-width:none}.hype-stage{min-height:0!important}}
 @media(max-width:640px){.brand .voigt-wordmark{font-size:14px!important;padding-right:4px!important}.brand-title{font-size:15px!important}.brand-sub{font-size:10px!important}.academy-directory{padding:24px 20px!important}.academy-directory h2{font-size:32px!important}.hype-copy h1{font-size:clamp(2.7rem,11vw,4.1rem)!important}.hype-copy h1 br{display:block!important}.hype-hero{padding-top:28px!important}.hype-proof{justify-content:flex-start!important}.hype-proof span{font-size:11px!important}.hype-kicker{font-size:9px!important;letter-spacing:.1em!important}}
+
+/* Refined PTA institutional header */
+.site-header .brand{display:flex;align-items:center;gap:12px;text-decoration:none!important;padding:9px 0!important}
+.brand-academic{display:flex;flex-direction:column;gap:3px;min-width:0}
+.brand-academic-name{font:700 clamp(17px,2vw,23px)/1.08 Georgia,'Times New Roman',serif;letter-spacing:-.025em;color:#231f20}
+.brand-academic-pta{font:italic 500 clamp(12px,1.35vw,16px)/1.15 Georgia,'Times New Roman',serif;color:#b21e27;letter-spacing:.015em}
+.site-header{box-shadow:none!important;border-bottom:1px solid #e9e3e2!important}
+.nav-inner a{font-size:.84rem!important;font-weight:650!important}
+@media(max-width:760px){.brand-academic-name{font-size:clamp(15px,4vw,19px)}.brand-academic-pta{font-size:clamp(11px,3vw,14px)}.site-header .brand{max-width:calc(100vw - 158px)}}
