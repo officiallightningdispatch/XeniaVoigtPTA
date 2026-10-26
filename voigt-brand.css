@@ -61,3 +61,10 @@ body{background:#fff!important;color:#211e1f!important}
 .site-header{box-shadow:none!important;border-bottom:1px solid #e9e3e2!important}
 .nav-inner a{font-size:.84rem!important;font-weight:650!important}
 @media(max-width:760px){.brand-academic-name{font-size:clamp(15px,4vw,19px)}.brand-academic-pta{font-size:clamp(11px,3vw,14px)}.site-header .brand{max-width:calc(100vw - 158px)}}
+
+/* Exact approved image uploaded to the repository: responsive, uncropped identity */
+.site-header .brand-approved-logo{display:block;width:clamp(210px,31vw,370px);height:auto;max-height:86px;object-fit:contain;object-position:left center;flex-shrink:1}
+.site-header .brand-academic-fallback{display:none!important}
+.site-header .brand{min-width:0;max-width:100%;overflow:visible}
+@media(max-width:760px){.site-header .brand-approved-logo{width:clamp(160px,48vw,260px);max-height:72px}.site-header .brand{max-width:calc(100vw - 158px)}}
+@media(max-width:390px){.site-header .brand-approved-logo{width:clamp(145px,46vw,195px)}}
