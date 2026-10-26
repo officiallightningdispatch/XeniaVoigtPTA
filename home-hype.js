@@ -19,19 +19,17 @@
         </div>
         <p class="hype-small">Parents · Caregivers · Teachers · Staff · Grandparents · Community supporters</p>
       </div>
-      <aside class="hype-stage quick-desk reveal-now" aria-label="Quick access">
-        <div class="stage-glow"></div>
-        <div class="quick-desk-card">
-          <span class="stage-tag">QUICK ACCESS</span>
-          <h2>What do you need today?</h2>
-          <p class="quick-desk-intro">The most-used Voigt and PTA links, all in one place.</p>
-          <div class="quick-desk-links">
-            <a href="/resources"><span>📚</span><div><b>Resource Hub</b><small>Parents, students, staff & community</small></div><i>→</i></a>
-            <a href="/events#pta-photo-memories"><span>🎨</span><div><b>Festival Memories</b><small>Share and celebrate our community</small></div><i>→</i></a>
-            <a href="/volunteer"><span>🙋</span><div><b>Volunteer</b><small>Flexible ways to help</small></div><i>→</i></a>
-            <a href="https://voigt.roundrockisd.org/staff" target="_blank" rel="noopener"><span>🏫</span><div><b>Voigt Staff Directory</b><small>Find a teacher or staff member</small></div><i>↗</i></a>
+      <aside class="hype-stage reveal-now" aria-label="Explore Voigt PTA">
+        <div class="academy-directory">
+          <p class="academy-directory-kicker">EXPLORE OUR COMMUNITY</p>
+          <h2>Discover what makes<br><em>Voigt extraordinary.</em></h2>
+          <p class="academy-directory-intro">Arts integration. Family partnership. A school community with room for every voice.</p>
+          <div class="academy-directory-links">
+            <a href="/events"><span class="academy-directory-num">01</span><span><strong>School & PTA Calendar</strong><small>Important dates and community experiences</small></span><span aria-hidden="true">↗</span></a>
+            <a href="/resources"><span class="academy-directory-num">02</span><span><strong>Family Resources</strong><small>Everything you need in one place</small></span><span aria-hidden="true">↗</span></a>
+            <a href="/volunteer"><span class="academy-directory-num">03</span><span><strong>Get Involved</strong><small>Share your time, talent, or ideas</small></span><span aria-hidden="true">↗</span></a>
+            <a href="/events#pta-photo-memories"><span class="academy-directory-num">04</span><span><strong>Our Community Stories</strong><small>Festival memories and event galleries</small></span><span aria-hidden="true">↗</span></a>
           </div>
-          <div class="quick-desk-footer"><a href="/contact">Ask the PTA a question →</a></div>
         </div>
       </aside>
     </div>
