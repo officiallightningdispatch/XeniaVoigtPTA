@@ -137,6 +137,41 @@ export default async function handler(req,res){
       type:'PTA event'
     };
     if(!merged.some(e=>sameLoose(e,pta))) merged.push(pta);
+    // Confirmed by PTA board update October 28, 2026. Times were not provided;
+    // all-day markers denote date-only listings, not all-day programming.
+    const upcomingPtaEvents=[
+      {
+        id:'voigt-pta-teacher-thanksgiving-lunch-2026',
+        title:'Teacher Thanksgiving Lunch',
+        date:'2026-11-18',
+        details:'PTA teacher appreciation lunch. PTA will smoke and provide turkeys; staff will bring side dishes potluck-style. Time to be announced.',
+      },
+      {
+        id:'voigt-pta-boosterthon-fun-run-2026',
+        title:'Boosterthon Fun Run',
+        date:'2026-12-04',
+        details:'Boosterthon Fun Run scheduled for December 4. Planning and event details to follow from the PTA. Time to be announced.',
+      },
+      {
+        id:'voigt-pta-teacher-coffee-cart-2026',
+        title:'Teacher Appreciation Coffee Cart',
+        date:'2026-12-16',
+        details:'Teacher appreciation coffee cart scheduled for December 16. Time to be announced.',
+      }
+    ].map(e=>({
+      ...e,
+      start:e.date,
+      end:null,
+      allDay:true,
+      time:'Time to be announced',
+      location:'Xenia Voigt Arts Integration Academy',
+      source:'Xenia Voigt PTA board update, October 28, 2026',
+      sourceUrl:'/events',
+      type:'PTA event'
+    }));
+    for(const event of upcomingPtaEvents){
+      if(!merged.some(existing=>sameLoose(existing,event)))merged.push(event);
+    }
     merged.sort((a,b)=>String(a.start||a.date).localeCompare(String(b.start||b.date))||a.title.localeCompare(b.title));
     res.setHeader('Cache-Control','s-maxage=900, stale-while-revalidate=3600');
     res.status(200).json({ok:true,events:merged,sources:{voigt:'https://voigt.roundrockisd.org/events?view=list-month'},sourceStatus:{school:'synced',district:districtResp?.ok?'live events + academic dates':'academic dates only; live feed unavailable',pta:'historical event only'},counts:{voigt:voigt.length,district:district.length,merged:merged.length}});
