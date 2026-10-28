@@ -71,13 +71,45 @@ function fundraising(){
 main.innerHTML=wrap(hero('SUPPORT OUR STUDENTS','Invest in what makes Voigt extraordinary.','Every meaningful contribution begins with a clear purpose and responsible stewardship.')+'<section class="ed-section"><div class="container"><div class="ed-alert"><strong>Funding goals and current balances are awaiting board verification.</strong><p>We will not display invented targets, totals or percentages. Current needs below are areas for sponsorship inquiry, not approved budget requests.</p></div><div class="ed-three">'+panel('Arts-integrated enrichment','Explore sponsoring classroom creativity, reusable art materials or learning experiences. Scope and costs require school and PTA approval.')+panel('Family-centered experiences','Help support accessible, welcoming PTA activities, including sensory-considerate participation and event supplies.')+panel('Student and educator support','Discuss practical school needs, family resources or staff appreciation with the board before committing funds.')+'</div><div class="ed-join-cta"><h2>Become a community supporter</h2><p>Offer funding, goods, services or volunteer expertise. We will confirm the need, recognition terms and approval before any commitment.</p><a class="ed-primary" href="/contact">Discuss a sponsorship ↗</a></div><h2>Progress and accountability</h2><p>Verified funding goal: not yet published. Amount raised: not yet verified. Amount allocated: not yet verified. We will display progress when approved financial figures are available.</p><a href="/about">How PTA support benefits students →</a></div></section>');
 }
 function vendor(){
-const groups=[
-['Financial sponsors',[['Smile / Shine Pediatric Dental','Confirmed paid sponsor for the 2026 community festival'],['Mathnasium','Confirmed paid sponsor for the 2026 community festival'],['Five Points','Confirmed sponsor; contribution terms are not published']]],
-['Community and school partners',[['Boys & Girls Club','Sensory-friendly event support'],['Austin Creative Reuse','Creative reuse materials and activity collaboration'],['PHP Agency','Community event participation; not classified as a paid sponsor'],['Round the Rock','Community event publicity and promotion']]],
-['In-kind donors and supporters',[['A+ Federal Credit Union','Teacher Trunk-or-Treat candy donation'],["Amy’s Ice Cream",'Auction prize donation'],['Texas Stars','Auction prize donation'],['Monster Mini Golf','Auction prize donation'],['Board & Brush','Auction prize donation'],['Austin Zoo','Auction prize donation'],['Austin Aquarium','Auction prize donation'],['Cookies & Crumbles','Auction prize donation'],['Toybrary','Community activity support'],['Nothing Bundt Cakes','Cake Walk prize contribution']]],
-['Previous event vendors',[['K&K BBQ Mexican Food','Food vendor · 2026 Fall Festival'],['Hearth & Honey','Dessert vendor · 2026 Fall Festival'],['Pour The Fun','Beverage vendor · 2026 Fall Festival']]]
-];
-main.innerHTML=wrap(hero('OUR COMMUNITY NETWORK','The people who show up for Voigt.','A living directory of PTA supporters, sponsors, donors, vendors and community collaborators. Thank you for making our school community stronger.')+'<section class="ed-section"><div class="container"><p class="ed-wide">Every contribution matters, whether it is funding, food, materials, expertise, publicity or time. Recognition is organized by the nature of each verified contribution, not by a single event.</p>'+groups.map(([heading,items])=>'<h2>'+esc(heading)+'</h2><div class="ed-resource-grid">'+items.map(([name,detail])=>'<article class="ed-panel"><span class="ed-tag">Verified historical participation</span><h3>'+esc(name)+'</h3><p>'+esc(detail)+'</p></article>').join('')+'</div>').join('')+'<div class="ed-join-cta"><h2>Support future PTA programs</h2><p>We welcome businesses and community groups interested in student enrichment, family resources, school experiences and future events. Contact the PTA to discuss an opportunity; inquiries are not automatic approvals.</p><a class="ed-primary" href="/contact">Become a community partner ↗</a></div><p class="ed-footnote">This directory includes currently documented historical contributions. We will add other school-year supporters as records are confirmed. No unverified sponsorship, logo, dollar amount or future commitment is implied.</p></div></section>');
+const supporters=[
+['A+ Federal Credit Union','https://aplusfcu.org/','aplusfcu.org',''],
+['AiRCO Mechanical','https://www.aircomechanical.com/','aircomechanical.com','/assets/partners/airco.svg'],
+['Amy’s Ice Cream','https://amysicecreams.com/','amysicecreams.com',''],
+['Andy’s Frozen Custard','https://www.eatandys.com/','eatandys.com',''],
+['Austin Aquarium','https://austinaquarium.com/','austinaquarium.com',''],
+['Austin Creative Reuse','https://austincreativereuse.org/','austincreativereuse.org',''],
+['Austin Zoo','https://austinzoo.org/','austinzoo.org',''],
+['Blue Diamond Boutique','','',''],
+['Board & Brush','https://boardandbrush.com/','boardandbrush.com',''],
+['Boys & Girls Clubs of the Austin Area','https://www.bgcaustin.org/','bgcaustin.org',''],
+['Cookies & Crumbles','','',''],
+['FASTSIGNS','https://www.fastsigns.com/','fastsigns.com','/assets/partners/fastsigns.svg'],
+['Five Points Board of REALTORS','https://www.fivepointsrealtors.com/','fivepointsrealtors.com','/assets/partners/five-points.svg'],
+['Flix Brewhouse','https://www.flixbrewhouse.com/','flixbrewhouse.com',''],
+['H-E-B','https://www.heb.com/','heb.com','/assets/partners/heb.svg'],
+['Hearth & Honey','https://www.hearthandhoneyatx.com/','hearthandhoneyatx.com','/logos/vendors/Hearth_and_Honey_Official.jpeg'],
+['Hill Country Christmas Bureau','','',''],
+['K&K BBQ Mexican Food','https://www.kkbbqmexicanfoodroundrock.com/','kkbbqmexicanfoodroundrock.com','/logos/vendors/K_and_K_BBQ_Mexican_Food_Official.jpeg'],
+['Lady Bird Johnson Wildflower Center','https://www.wildflower.org/','wildflower.org',''],
+['Mathnasium','https://www.mathnasium.com/','mathnasium.com','/assets/partners/mathnasium.svg'],
+['Monster Mini Golf','https://monsterminigolf.com/','monsterminigolf.com',''],
+['Nothing Bundt Cakes','https://www.nothingbundtcakes.com/','nothingbundtcakes.com',''],
+['Oriental Trading','https://www.orientaltrading.com/','orientaltrading.com',''],
+['PHP Agency','https://phpagency.com/','phpagency.com',''],
+['Pour The Fun','','',''],
+['Round the Rock','https://roundtherocktx.com/','roundtherocktx.com','/round-the-rock-logo.png'],
+['Sam’s Club','https://www.samsclub.com/','samsclub.com',''],
+['Shine Pediatric Dental','https://shinepediatricdental.com/','shinepediatricdental.com','/assets/partners/shine.svg'],
+['Texas Stars','https://www.texasstars.com/','texasstars.com',''],
+['Toybrary Austin','https://toybraryaustin.com/','toybraryaustin.com',''],
+['Trader Joe’s','https://www.traderjoes.com/','traderjoes.com','']
+].filter(x=>x[0]!=='Hill Country Christmas Bureau');
+const tiles=supporters.map(([name,url,domain,logo])=>{
+ const image=logo|| (domain?'https://www.google.com/s2/favicons?domain='+encodeURIComponent(domain)+'&sz=128':'');
+ const content='<span class="ed-partner-mark">'+(image?'<img src="'+esc(image)+'" alt="'+esc(name)+' logo or website icon" loading="lazy" onerror="this.style.display=\'none\'">':'')+'</span><strong>'+esc(name)+'</strong>'+(url?'<small>Visit website ↗</small>':'<small>With appreciation</small>');
+ return url?'<a class="ed-partner-tile" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer" aria-label="Visit '+esc(name)+' website">'+content+'</a>':'<div class="ed-partner-tile">'+content+'</div>';
+}).join('');
+main.innerHTML=wrap(hero('OUR COMMUNITY','With gratitude to our community.','Celebrating the businesses, organizations and neighbors who have supported Voigt PTA across school years and programs.')+'<section class="ed-section"><div class="container"><p class="ed-wide">Great things happen when a community comes together. We are proud to recognize the organizations who have supported our students, educators and families.</p><div class="ed-partner-wall">'+tiles+'</div><p class="ed-footnote">Recognition includes confirmed 2024–25 and 2026–27 PTA contributions and collaborations documented in PTA records. Logo artwork is drawn from approved PTA Drive files where available; other tiles use a business website icon or text until approved artwork is obtained. Some historic supporters do not have a verified website link.</p><div class="ed-join-cta"><h2>Join our community of supporters</h2><p>Interested in supporting Voigt students and families? We would love to hear from you.</p><a class="ed-primary" href="/contact">Connect with our PTA ↗</a></div></div></section>');
 }
 function archive(){
 main.innerHTML=wrap(hero('OUR 2026 COMMUNITY ARCHIVE','Viking Quest, remembered.','The October 23 Fall Festival and its Trunk-or-Treat activities have concluded.')+'<section class="ed-section"><div class="container"><h2>Thank you, Vikings.</h2><p>This page preserves historical context only. Festival volunteer, trunk-host and vendor signups for October 23 are closed. Explore memories or discover current ways to get involved.</p><div class="ed-three">'+action('Festival memories','Explore the approved photo collection.','/events#pta-photo-memories','View memories')+action('Current volunteering','Find active opportunities.','/volunteer','Volunteer')+action('Upcoming events','Explore the current calendar.','/events','Calendar')+'</div></div></section>');
