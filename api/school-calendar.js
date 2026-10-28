@@ -84,9 +84,12 @@ export default async function handler(req,res){
     const voigtText=await voigtResp.text();
     const voigt=parseCalendar(voigtText,'Voigt Arts Integration Academy','https://voigt.roundrockisd.org/events?view=list-month');
     const district=districtResp?.ok?parseCalendar(await districtResp.text(),'Round Rock ISD','https://www.roundrockisd.org/events'):[];
+    const academicDates=[
+      ['2026-08-19','First day of school'],['2026-09-07','Labor Day — no school'],['2026-09-21','Student holiday / staff development'],['2026-10-09','Student holiday / staff development'],['2026-10-12','Student holiday / elementary conferences'],['2026-10-19','YOU Day — no school'],['2026-11-23','Fall Break — no school'],['2026-11-24','Fall Break — no school'],['2026-11-25','Fall Break — no school'],['2026-11-26','Fall Break — no school'],['2026-11-27','Fall Break — no school'],['2026-12-18','Student holiday / teacher work day'],['2026-12-21','Winter Break — no school'],['2026-12-22','Winter Break — no school'],['2026-12-23','Winter Break — no school'],['2026-12-24','Winter Break — no school'],['2026-12-25','Winter Break — no school'],['2026-12-28','Winter Break — no school'],['2026-12-29','Winter Break — no school'],['2026-12-30','Winter Break — no school'],['2026-12-31','Winter Break — no school'],['2027-01-01','New Year’s Day — no school'],['2027-01-04','Student holiday / staff development'],['2027-01-18','Martin Luther King Jr. Day — no school'],['2027-02-12','Student holiday / staff development'],['2027-02-15','YOU Day / Presidents Day — no school'],['2027-03-10','Student holiday / staff development'],['2027-03-15','Spring Break — no school'],['2027-03-16','Spring Break — no school'],['2027-03-17','Spring Break — no school'],['2027-03-18','Spring Break — no school'],['2027-03-19','Spring Break — no school'],['2027-03-26','Good Friday — no school'],['2027-05-27','Last day of school']
+    ].map(([date,title])=>({id:'rrisd-academic-'+date,title,date,start:date,end:null,allDay:true,time:'All day',source:'RRISD 2026–27 adopted academic calendar',sourceUrl:'https://www.roundrockisd.org/o/rrisd/page/calendars',type:'District event',details:'District academic calendar date; check the official calendar for updates.'}));
     const merged=[];
     const seen=new Set();
-    for(const e of [...voigt,...district]){
+    for(const e of [...voigt,...district,...academicDates]){
       const key=dedupeKey(e);
       if(seen.has(key)||merged.some(x=>sameLoose(x,e))) continue;
       seen.add(key); merged.push(e);
@@ -108,7 +111,7 @@ export default async function handler(req,res){
     if(!merged.some(e=>sameLoose(e,pta))) merged.push(pta);
     merged.sort((a,b)=>String(a.start||a.date).localeCompare(String(b.start||b.date))||a.title.localeCompare(b.title));
     res.setHeader('Cache-Control','s-maxage=900, stale-while-revalidate=3600');
-    res.status(200).json({ok:true,events:merged,sources:{voigt:'https://voigt.roundrockisd.org/events?view=list-month'},sourceStatus:{school:'synced',district:districtResp?.ok?'synced':'unavailable',pta:'historical event only'},counts:{voigt:voigt.length,district:district.length,merged:merged.length}});
+    res.status(200).json({ok:true,events:merged,sources:{voigt:'https://voigt.roundrockisd.org/events?view=list-month'},sourceStatus:{school:'synced',district:districtResp?.ok?'live events + academic dates':'academic dates only; live feed unavailable',pta:'historical event only'},counts:{voigt:voigt.length,district:district.length,merged:merged.length}});
   }catch(err){
     console.error(err);
     res.status(502).json({ok:false,error:'Official school calendars are temporarily unavailable.'});
