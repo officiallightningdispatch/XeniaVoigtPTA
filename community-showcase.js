@@ -1,7 +1,7 @@
 (()=>{
   const path=(location.pathname.replace(/\/index\.html$/,'').replace(/\/$/,'')||'/');
   const main=document.querySelector('main#main');
-  if(!main)return;
+  if(!main||path==='/vendors'||path==='/community-partners'||path==='/sponsors')return;
 
   const data={
     communityPartners:[
