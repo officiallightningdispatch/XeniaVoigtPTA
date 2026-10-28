@@ -11,29 +11,33 @@ function prop(block,name){
 }
 function propLine(block,name){return block.split(/\r?\n/).find(l=>l.toUpperCase().startsWith(name.toUpperCase()+':')||l.toUpperCase().startsWith(name.toUpperCase()+';'))||'';}
 function pad(n){return String(n).padStart(2,'0');}
-function parseStart(block){
-  const line=propLine(block,'DTSTART');
-  if(!line)return {date:'',start:null,allDay:true,time:''};
-  const raw=line.slice(line.indexOf(':')+1).trim();
-  const allDay=/VALUE=DATE/i.test(line)||/^\d{8}$/.test(raw);
-  const y=raw.slice(0,4),m=raw.slice(4,6),d=raw.slice(6,8);
-  const date=`${y}-${m}-${d}`;
-  if(allDay)return {date,start:`${date}T00:00:00`,allDay:true,time:'All day'};
-  let iso;
-  if(/Z$/.test(raw)) iso=`${y}-${m}-${d}T${raw.slice(9,11)}:${raw.slice(11,13)}:${raw.slice(13,15)||'00'}Z`;
-  else iso=`${y}-${m}-${d}T${raw.slice(9,11)}:${raw.slice(11,13)}:${raw.slice(13,15)||'00'}-05:00`;
-  const dt=new Date(iso);
-  const time=Number.isNaN(dt.getTime())?'':new Intl.DateTimeFormat('en-US',{hour:'numeric',minute:'2-digit',timeZone:'America/Chicago'}).format(dt);
-  return {date,start:iso,allDay:false,time};
+function centralOffset(date,time){
+ const hour=Number(time.slice(0,2)||12);
+ const guess=new Date(date+'T'+time+'Z');
+ const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',timeZoneName:'shortOffset'}).formatToParts(guess);
+ const offset=parts.find(p=>p.type==='timeZoneName')?.value||'GMT-6';
+ const n=Number((offset.match(/GMT([+-]\d+)/)||[])[1]||-6);
+ return (n<0?'-':'+')+String(Math.abs(n)).padStart(2,'0')+':00';
 }
-function parseEnd(block){
-  const line=propLine(block,'DTEND'); if(!line)return null;
-  const raw=line.slice(line.indexOf(':')+1).trim();
-  if(/^\d{8}$/.test(raw)) return `${raw.slice(0,4)}-${raw.slice(4,6)}-${raw.slice(6,8)}T00:00:00`;
-  const y=raw.slice(0,4),m=raw.slice(4,6),d=raw.slice(6,8);
-  if(/Z$/.test(raw)) return `${y}-${m}-${d}T${raw.slice(9,11)}:${raw.slice(11,13)}:${raw.slice(13,15)||'00'}Z`;
-  return `${y}-${m}-${d}T${raw.slice(9,11)}:${raw.slice(11,13)}:${raw.slice(13,15)||'00'}-05:00`;
+function parseDateLine(block,name){
+ const line=propLine(block,name);if(!line)return null;
+ const raw=line.slice(line.indexOf(':')+1).trim();
+ const allDay=/VALUE=DATE/i.test(line)||/^\d{8}$/.test(raw);
+ const date=raw.slice(0,4)+'-'+raw.slice(4,6)+'-'+raw.slice(6,8);
+ if(allDay)return {date,iso:date,allDay:true,time:'All day'};
+ const time=raw.slice(9,11)+':'+raw.slice(11,13)+':'+(raw.slice(13,15)||'00');
+ const tzid=(line.match(/TZID=([^;:]+)/i)||[])[1]||'';
+ let iso;
+ if(raw.endsWith('Z'))iso=date+'T'+time+'Z';
+ else if(/America\/Chicago|US\/Central/i.test(tzid)||!tzid)iso=date+'T'+time+centralOffset(date,time);
+ else {iso=date+'T'+time; /* preserve unsupported timezone as local wall time rather than inventing an offset */}
+ const dt=new Date(iso);
+ const fmt=Number.isNaN(dt.getTime())?'See official calendar':new Intl.DateTimeFormat('en-US',{hour:'numeric',minute:'2-digit',timeZone:'America/Chicago'}).format(dt);
+ const localDate=Number.isNaN(dt.getTime())?date:new Intl.DateTimeFormat('en-CA',{year:'numeric',month:'2-digit',day:'2-digit',timeZone:'America/Chicago'}).format(dt);
+ return {date:localDate,iso,allDay:false,time:fmt};
 }
+function parseStart(block){const p=parseDateLine(block,'DTSTART');return p?{date:p.date,start:p.iso,allDay:p.allDay,time:p.time}:{date:'',start:null,allDay:true,time:''};}
+function parseEnd(block){return parseDateLine(block,'DTEND')?.iso||null;}
 function normalizeTitle(s=''){return s.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g,' ').trim();}
 function dedupeKey(e){return `${e.date}|${e.start||''}|${normalizeTitle(e.title)}`;}
 function parseCalendar(text,source,sourceUrl){
@@ -73,7 +77,7 @@ function sameLoose(a,b){
 export default async function handler(req,res){
   if(req.method!=='GET'){res.status(405).json({error:'Method not allowed'});return;}
   try{
-    const voigtResp=await fetch(VOIGT_ICS,{headers:{accept:'text/calendar'}});
+    const voigtResp=await fetch(VOIGT_ICS,{headers:{accept:'text/calendar'},signal:AbortSignal.timeout(9000)});
     if(!voigtResp.ok) throw new Error('School calendar feed unavailable');
     const voigtText=await voigtResp.text();
     const voigt=parseCalendar(voigtText,'Voigt Arts Integration Academy','https://voigt.roundrockisd.org/events?view=list-month');
@@ -101,7 +105,7 @@ export default async function handler(req,res){
     if(!merged.some(e=>sameLoose(e,pta))) merged.push(pta);
     merged.sort((a,b)=>String(a.start||a.date).localeCompare(String(b.start||b.date))||a.title.localeCompare(b.title));
     res.setHeader('Cache-Control','s-maxage=900, stale-while-revalidate=3600');
-    res.status(200).json({ok:true,events:merged,sources:{district:'https://www.roundrockisd.org/events',voigt:'https://voigt.roundrockisd.org/events?view=list-month'},counts:{voigt:voigt.length,merged:merged.length}});
+    res.status(200).json({ok:true,events:merged,sources:{voigt:'https://voigt.roundrockisd.org/events?view=list-month'},sourceStatus:{school:'synced',district:'not connected',pta:'historical event only'},counts:{voigt:voigt.length,merged:merged.length}});
   }catch(err){
     console.error(err);
     res.status(502).json({ok:false,error:'Official school calendars are temporarily unavailable.'});
