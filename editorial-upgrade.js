@@ -75,46 +75,229 @@ main.innerHTML=wrap(hero('SUPPORT OUR STUDENTS','Invest in what makes Voigt extr
 }
 function vendor(){
 const supporters=[
-['A+ Federal Credit Union','https://aplusfcu.org/','aplusfcu.org',''],
-['AiRCO Mechanical','https://www.aircomechanical.com/','aircomechanical.com','/assets/partners/airco.svg'],
-['Amy’s Ice Cream','https://amysicecreams.com/','amysicecreams.com',''],
-['Andy’s Frozen Custard','https://www.eatandys.com/','eatandys.com',''],
-['Austin Aquarium','https://austinaquarium.com/','austinaquarium.com',''],
-['Austin Creative Reuse','https://austincreativereuse.org/','austincreativereuse.org',''],
-['Austin Christian University (ACU)','','',''],
-['Round Rock Sweethearts','','',''],
-['Austin Zoo','https://austinzoo.org/','austinzoo.org',''],
-['Blue Diamond Boutique','','',''],
-['Board & Brush','https://boardandbrush.com/','boardandbrush.com',''],
-['Boys & Girls Clubs of the Austin Area','https://www.bgcaustin.org/','bgcaustin.org',''],
-['Cookies & Crumbles','','',''],
-['FASTSIGNS','https://www.fastsigns.com/','fastsigns.com','/assets/partners/fastsigns.svg'],
-['Five Points Board of REALTORS','https://www.fivepointsrealtors.com/','fivepointsrealtors.com','/assets/partners/five-points.svg'],
-['Flix Brewhouse','https://www.flixbrewhouse.com/','flixbrewhouse.com',''],
-['H-E-B','https://www.heb.com/','heb.com','/assets/partners/heb.svg'],
-['Hearth & Honey','https://www.hearthandhoneyatx.com/','hearthandhoneyatx.com','/logos/vendors/Hearth_and_Honey_Official.jpeg'],
-['Hill Country Christmas Bureau','','',''],
-['K&K BBQ Mexican Food','https://www.kkbbqmexicanfoodroundrock.com/','kkbbqmexicanfoodroundrock.com','/logos/vendors/K_and_K_BBQ_Mexican_Food_Official.jpeg'],
-['Lady Bird Johnson Wildflower Center','https://www.wildflower.org/','wildflower.org',''],
-['Mathnasium','https://www.mathnasium.com/','mathnasium.com','/assets/partners/mathnasium.svg'],
-['Monster Mini Golf','https://monsterminigolf.com/','monsterminigolf.com',''],
-['Nothing Bundt Cakes','https://www.nothingbundtcakes.com/','nothingbundtcakes.com',''],
-['Oriental Trading','https://www.orientaltrading.com/','orientaltrading.com',''],
-['PHP Agency','https://phpagency.com/','phpagency.com',''],
-['Pour The Fun','','',''],
-['Round the Rock','https://roundtherocktx.com/','roundtherocktx.com','/round-the-rock-logo.png'],
-['Sam’s Club','https://www.samsclub.com/','samsclub.com',''],
-['Shine Pediatric Dental','https://shinepediatricdental.com/','shinepediatricdental.com','/assets/partners/shine.svg'],
-['Texas Stars','https://www.texasstars.com/','texasstars.com',''],
-['Toybrary Austin','https://toybraryaustin.com/','toybraryaustin.com',''],
-['Trader Joe’s','https://www.traderjoes.com/','traderjoes.com','']
-].filter(x=>x[0]!=='Hill Country Christmas Bureau');
-const tiles=supporters.map(([name,url,domain,logo])=>{
- const image=logo|| (domain?'https://www.google.com/s2/favicons?domain='+encodeURIComponent(domain)+'&sz=128':'');
- const content='<span class="ed-partner-mark">'+(image?'<img src="'+esc(image)+'" alt="'+esc(name)+' logo or website icon" loading="lazy" onerror="this.style.display=\'none\'">':'')+'</span><strong>'+esc(name)+'</strong>'+(url?'<small>Visit website ↗</small>':'<small>With appreciation</small>');
- return url?'<a class="ed-partner-tile" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer" aria-label="Visit '+esc(name)+' website">'+content+'</a>':'<div class="ed-partner-tile">'+content+'</div>';
+ [
+  "A+ Federal Credit Union",
+  "https://aplusfcu.org/",
+  "approved-aplus"
+ ],
+ [
+  "AiRCO Mechanical",
+  "https://www.aircomechanical.com/",
+  "airco"
+ ],
+ [
+  "Amy’s Ice Creams",
+  "https://amysicecreams.com/",
+  "approved-amy"
+ ],
+ [
+  "Andy’s Frozen Custard",
+  "https://www.eatandys.com/",
+  ""
+ ],
+ [
+  "Austin Aquarium",
+  "https://austinaquarium.com/",
+  "approved-austin-aquarium"
+ ],
+ [
+  "Austin Christian University (ACU)",
+  "https://www.austinchristianuniversity.org/",
+  "approved-acu"
+ ],
+ [
+  "Austin Creative Reuse",
+  "https://austincreativereuse.org/",
+  "approved-austin-creative-reuse"
+ ],
+ [
+  "Austin Zoo",
+  "https://austinzoo.org/",
+  "approved-austin-zoo"
+ ],
+ [
+  "Blue Diamond Boutique",
+  "https://shopbluediamondboutique.com/",
+  ""
+ ],
+ [
+  "Board & Brush",
+  "https://boardandbrush.com/",
+  "approved-board-brush"
+ ],
+ [
+  "Boys & Girls Clubs of the Austin Area",
+  "https://www.bgcaustin.org/",
+  "approved-boys-girls-club"
+ ],
+ [
+  "Cookies & Crumbles Bake Shop",
+  "https://www.cookiesandcrumblesbakeshop.com/",
+  "approved-cookies-crumbles"
+ ],
+ [
+  "Express Commercial Cleaning",
+  "https://www.expresscommercialcleaning.com/",
+  "approved-express-cleaning"
+ ],
+ [
+  "FASTSIGNS",
+  "https://www.fastsigns.com/",
+  "fastsigns"
+ ],
+ [
+  "Five Points Board of REALTORS",
+  "https://www.fivepointsrealtors.com/",
+  "five-points"
+ ],
+ [
+  "Flix Brewhouse",
+  "https://www.flixbrewhouse.com/",
+  ""
+ ],
+ [
+  "Forest Creek Mini Storage",
+  "https://forestcreekministorage.com/",
+  "approved-forest-creek"
+ ],
+ [
+  "H-E-B",
+  "https://www.heb.com/",
+  "heb"
+ ],
+ [
+  "Hearth & Honey",
+  "https://www.hearthandhoneyatx.com/",
+  ""
+ ],
+ [
+  "K&K BBQ Mexican Food",
+  "https://www.kkbbqmexicanfoodroundrock.com/",
+  ""
+ ],
+ [
+  "Lady Bird Johnson Wildflower Center",
+  "https://www.wildflower.org/",
+  ""
+ ],
+ [
+  "Longhorn Production Services",
+  "https://www.longhornproductions.com/",
+  "approved-longhorn"
+ ],
+ [
+  "Mathnasium",
+  "https://www.mathnasium.com/",
+  "mathnasium"
+ ],
+ [
+  "Mickan Motor Company",
+  "",
+  "approved-mickan"
+ ],
+ [
+  "Monster Mini Golf",
+  "https://monsterminigolf.com/",
+  "approved-monster-mini-golf"
+ ],
+ [
+  "Nothing Bundt Cakes",
+  "https://www.nothingbundtcakes.com/",
+  "approved-nothing-bundt"
+ ],
+ [
+  "Oriental Trading",
+  "https://www.orientaltrading.com/",
+  ""
+ ],
+ [
+  "Paige’s Bakehouse",
+  "https://www.paigesbakehouse.com/",
+  "approved-paiges"
+ ],
+ [
+  "PHP Agency",
+  "https://phpagency.com/",
+  "approved-php"
+ ],
+ [
+  "Pour The Fun",
+  "https://pourthefun.com/",
+  "approved-pour-the-fun"
+ ],
+ [
+  "Round Rock Church of Christ",
+  "",
+  "approved-round-rock-church"
+ ],
+ [
+  "Round Rock ISD PIE Foundation",
+  "https://www.rrisdeducationfoundation.org/",
+  "approved-pie"
+ ],
+ [
+  "Round Rock Pumpkin Festival",
+  "https://roundrockpumpkinfestival.com/",
+  "approved-pumpkin-festival"
+ ],
+ [
+  "Round Rock Sweethearts",
+  "https://www.roundrocksweethearts.org/",
+  "approved-sweethearts"
+ ],
+ [
+  "Round the Rock",
+  "https://roundtherocktx.com/",
+  ""
+ ],
+ [
+  "Sam’s Club",
+  "https://www.samsclub.com/",
+  ""
+ ],
+ [
+  "Shine Pediatric Dental",
+  "https://shinepediatricdental.com/",
+  "shine"
+ ],
+ [
+  "St. Richard’s Pumpkin Patch",
+  "https://saintrichards.org/pumpkin-patch/",
+  "approved-st-richards"
+ ],
+ [
+  "Texas Stars",
+  "https://www.texasstars.com/",
+  "approved-texas-stars"
+ ],
+ [
+  "Toybrary Austin",
+  "https://toybraryaustin.com/",
+  "approved-toybrary"
+ ],
+ [
+  "Trader Joe’s",
+  "https://www.traderjoes.com/",
+  ""
+ ],
+ [
+  "Train Quest",
+  "",
+  "approved-train-quest"
+ ],
+ [
+  "Walburg Feed Store",
+  "",
+  "approved-walburg"
+ ]
+];
+const tiles=supporters.map(([name,url,slug])=>{
+ const logo=slug?'/assets/partners/'+slug+'.svg':'';
+ const mark=logo?'<img src="'+esc(logo)+'" alt="'+esc(name)+' logo" loading="lazy" decoding="async" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"><span class="ed-partner-fallback" style="display:none">'+esc(name)+'</span>':'<span class="ed-partner-fallback">'+esc(name)+'</span>';
+ const inside='<span class="ed-partner-mark">'+mark+'</span><strong>'+esc(name)+'</strong>'+(url?'<small>Visit website ↗</small>':'<small>Thank you for your support</small>');
+ return url?'<a class="ed-partner-tile" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer" aria-label="Visit '+esc(name)+' website">'+inside+'</a>':'<article class="ed-partner-tile">'+inside+'</article>';
 }).join('');
-main.innerHTML=wrap(hero('OUR COMMUNITY','With gratitude to our community.','Celebrating the businesses, organizations and neighbors who have supported Voigt PTA across school years and programs.')+'<section class="ed-section"><div class="container"><p class="ed-wide">Great things happen when a community comes together. We are proud to recognize the organizations who have supported our students, educators and families.</p><div class="ed-partner-wall">'+tiles+'</div><section class="ed-volunteer-thanks"><h2>And to our incredible volunteers — thank you.</h2><p>Our PTA is powered by parents, grandparents, teachers, neighbors, students and community volunteers who contribute their time throughout the school year. From classrooms and the Clothes Closet to reading programs, family events and behind-the-scenes work, you make this community possible.</p><p>We are grateful to every volunteer, including the Round Rock Sweethearts, Austin Christian University (ACU) student volunteers, and families who helped make our events possible. Individual names and photos are added only with permission.</p><a class="ed-primary" href="/volunteer">Volunteer with us ↗</a></section><p class="ed-footnote">Recognition includes confirmed 2024–25 and 2026–27 PTA contributions and collaborations documented in PTA records. Logo artwork is drawn from approved PTA Drive files where available; other tiles use a business website icon or text until approved artwork is obtained. Some historic supporters do not have a verified website link.</p><div class="ed-join-cta"><h2>Join our community of supporters</h2><p>Interested in supporting Voigt students and families? We would love to hear from you.</p><a class="ed-primary" href="/contact">Connect with our PTA ↗</a></div></div></section>');
+main.innerHTML=wrap(hero('OUR COMMUNITY','The people who make it possible.','Celebrating the organizations and volunteers who support Voigt students, educators and families across school years.')+'<section class="ed-section"><div class="container"><p class="ed-wide">Every contribution matters. Explore the community organizations who have supported our PTA through volunteering, donations, collaboration and school activities.</p><div class="ed-partner-wall">'+tiles+'</div><section class="ed-volunteer-thanks"><h2>Thank you to every volunteer.</h2><p>Parents, grandparents, educators, students and neighbors make our school community stronger throughout the year. We are especially grateful to the Round Rock Sweethearts and Austin Christian University volunteers, whose organizations are recognized above.</p><a class="ed-primary" href="/volunteer">Volunteer with us ↗</a></section><div class="ed-join-cta"><h2>Help our Vikings thrive.</h2><p>Interested in supporting Voigt students and families? We would love to hear from you.</p><a class="ed-primary" href="/contact">Connect with our PTA ↗</a></div></div></section>');
 }
 function archive(){
 main.innerHTML=wrap(hero('OUR 2026 COMMUNITY ARCHIVE','Viking Quest, remembered.','The October 23 Fall Festival and its Trunk-or-Treat activities have concluded.')+'<section class="ed-section"><div class="container"><h2>Thank you, Vikings.</h2><p>This page preserves historical context only. Festival volunteer, trunk-host and vendor signups for October 23 are closed. Explore memories or discover current ways to get involved.</p><div class="ed-three">'+action('Festival memories','Explore the approved photo collection.','/events#pta-photo-memories','View memories')+action('Current volunteering','Find active opportunities.','/volunteer','Volunteer')+action('Upcoming events','Explore the current calendar.','/events','Calendar')+'</div></div></section>');
