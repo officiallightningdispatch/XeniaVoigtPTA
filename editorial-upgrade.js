@@ -128,7 +128,7 @@ const supporters=[
  [
   "Boys & Girls Clubs of the Austin Area",
   "https://www.bgcaustin.org/",
-  "approved-boys-girls-club"
+  "/assets/partners/approved-boys-girls-club.webp"
  ],
  [
   "Cookies & Crumbles Bake Shop",
@@ -228,7 +228,7 @@ const supporters=[
  [
   "Round Rock Church of Christ",
   "https://www.roundrockchurch.us/",
-  "approved-round-rock-church"
+  "/assets/partners/approved-round-rock-church.webp"
  ],
  [
   "Round Rock ISD PIE Foundation",
