@@ -172,7 +172,7 @@ const supporters=[
  ],
  [
   "K&K BBQ Mexican Food",
-  "https://www.kkbbqmexicanfoodroundrock.com/",
+  "https://www.ubereats.com/store/k%26k-bbq-mexican-food-s-mays-st/UAh33ctVXWu7dQNfbvRPAg",
   "/logos/vendors/K_and_K_BBQ_Mexican_Food_Official.jpeg"
  ],
  [
