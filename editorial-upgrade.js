@@ -84,5 +84,5 @@ main.innerHTML=wrap(hero(isSponsor?'SPONSORS AND DONORS':'COMMUNITY PARTNERS',is
 }
 
 const routes={'/sponsors':recognition,'/community-partners':recognition,'/':home,'/about':about,'/join':join,'/events':calendar,'/resources':resourcesPage,'/contact':contact,'/fundraising':fundraising,'/donate':fundraising,'/vendors':vendor,'/fall-festival':archive,'/trunk-or-treat':archive,'/trunk-host':archive,'/trunk-host.html':archive,'/viking-quest':archive};
-if(routes[path])routes[path]();
+if(path==='/fall-festival'||path==='/viking-quest'){location.replace('/events#pta-photo-memories');}else if(routes[path])routes[path]();
 })();
