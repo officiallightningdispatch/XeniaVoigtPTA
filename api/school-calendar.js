@@ -76,9 +76,37 @@ function sameLoose(a,b){
   return false;
 }
 
+async function mealForDate(date){
+ const result={date,breakfast:[],lunch:[],status:'unavailable',source:'https://www.roundrockisd.org/page/menus'};
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(date))return result;
+ const base='https://roundrockisd.api.nutrislice.com/menu/api';
+ try{
+  const schoolsResponse=await fetch(base+'/schools',{signal:AbortSignal.timeout(5000)});
+  if(!schoolsResponse.ok)return result;
+  const schools=await schoolsResponse.json();
+  const list=Array.isArray(schools)?schools:Array.isArray(schools.schools)?schools.schools:[];
+  const school=list.find(x=>/voigt/i.test([x.name,x.slug,x.id].join(' ')));
+  if(!school)return result;
+  const schoolSlug=school.slug||school.name?.toLowerCase().replace(/[^a-z0-9]+/g,'-');
+  if(!schoolSlug)return result;
+  const [y,m,d]=date.split('-');
+  const requests=['breakfast','lunch'].map(async kind=>{
+   const url=base+'/digest/school/'+encodeURIComponent(schoolSlug)+'/menu-type/'+kind+'/date/'+y+'/'+Number(m)+'/'+Number(d);
+   const response=await fetch(url,{signal:AbortSignal.timeout(5000)});
+   if(!response.ok)return [];
+   const data=await response.json();
+   return Array.isArray(data.menu_items)?data.menu_items.filter(x=>typeof x==='string'&&x.trim()).slice(0,18):[];
+  });
+  const [breakfast,lunch]=await Promise.all(requests);
+  return {...result,breakfast,lunch,status:breakfast.length||lunch.length?'published':'not published'};
+ }catch(e){return result;}
+}
+
 export default async function handler(req,res){
   if(req.method!=='GET'){res.status(405).json({error:'Method not allowed'});return;}
   try{
+    const mealDate=String(req.query?.mealDate||'');
+    if(mealDate){const menu=await mealForDate(mealDate);res.setHeader('Cache-Control','s-maxage=1800, stale-while-revalidate=3600');return res.status(200).json({ok:true,menu});}
     const [voigtResp,districtResp]=await Promise.all([fetch(VOIGT_ICS,{headers:{accept:'text/calendar'},signal:AbortSignal.timeout(9000)}),fetch(DISTRICT_ICS,{headers:{accept:'text/calendar'},signal:AbortSignal.timeout(9000)}).catch(()=>null)]);
     if(!voigtResp.ok) throw new Error('School calendar feed unavailable');
     const voigtText=await voigtResp.text();
