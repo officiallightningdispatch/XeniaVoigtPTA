@@ -1,4 +1,5 @@
 
+const DISTRICT_ICS_ID='27049';
 const VOIGT_ICS='https://thrillshare-cmsv2.services.thrillshare.com/api/v4/o/27541/cms/events/generate_ical?filter_ids=&section_ids=';
 
 function unfold(text){return text.replace(/\r?\n[ \t]/g,'');}
