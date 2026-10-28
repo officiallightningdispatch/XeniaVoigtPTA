@@ -1,5 +1,6 @@
 
 const DISTRICT_ICS_ID='27049';
+const DISTRICT_ICS=VOIGT_ICS.replace('/27541/','/'+DISTRICT_ICS_ID+'/');
 const VOIGT_ICS='https://thrillshare-cmsv2.services.thrillshare.com/api/v4/o/27541/cms/events/generate_ical?filter_ids=&section_ids=';
 
 function unfold(text){return text.replace(/\r?\n[ \t]/g,'');}
@@ -78,13 +79,14 @@ function sameLoose(a,b){
 export default async function handler(req,res){
   if(req.method!=='GET'){res.status(405).json({error:'Method not allowed'});return;}
   try{
-    const voigtResp=await fetch(VOIGT_ICS,{headers:{accept:'text/calendar'},signal:AbortSignal.timeout(9000)});
+    const [voigtResp,districtResp]=await Promise.all([fetch(VOIGT_ICS,{headers:{accept:'text/calendar'},signal:AbortSignal.timeout(9000)}),fetch(DISTRICT_ICS,{headers:{accept:'text/calendar'},signal:AbortSignal.timeout(9000)}).catch(()=>null)]);
     if(!voigtResp.ok) throw new Error('School calendar feed unavailable');
     const voigtText=await voigtResp.text();
     const voigt=parseCalendar(voigtText,'Voigt Arts Integration Academy','https://voigt.roundrockisd.org/events?view=list-month');
+    const district=districtResp?.ok?parseCalendar(await districtResp.text(),'Round Rock ISD','https://www.roundrockisd.org/events'):[];
     const merged=[];
     const seen=new Set();
-    for(const e of voigt){
+    for(const e of [...voigt,...district]){
       const key=dedupeKey(e);
       if(seen.has(key)||merged.some(x=>sameLoose(x,e))) continue;
       seen.add(key); merged.push(e);
@@ -106,7 +108,7 @@ export default async function handler(req,res){
     if(!merged.some(e=>sameLoose(e,pta))) merged.push(pta);
     merged.sort((a,b)=>String(a.start||a.date).localeCompare(String(b.start||b.date))||a.title.localeCompare(b.title));
     res.setHeader('Cache-Control','s-maxage=900, stale-while-revalidate=3600');
-    res.status(200).json({ok:true,events:merged,sources:{voigt:'https://voigt.roundrockisd.org/events?view=list-month'},sourceStatus:{school:'synced',district:'not connected',pta:'historical event only'},counts:{voigt:voigt.length,merged:merged.length}});
+    res.status(200).json({ok:true,events:merged,sources:{voigt:'https://voigt.roundrockisd.org/events?view=list-month'},sourceStatus:{school:'synced',district:districtResp?.ok?'synced':'unavailable',pta:'historical event only'},counts:{voigt:voigt.length,district:district.length,merged:merged.length}});
   }catch(err){
     console.error(err);
     res.status(502).json({ok:false,error:'Official school calendars are temporarily unavailable.'});
