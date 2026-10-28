@@ -208,7 +208,7 @@ const supporters=[
  [
   "Oriental Trading",
   "https://www.orientaltrading.com/",
-  ""
+  "https://tipspo-prod-2026.s3.us-east-2.amazonaws.com/documents/logo/primary_horz_blue_otclogo+1.png"
  ],
  [
   "Paige’s Bakehouse",
