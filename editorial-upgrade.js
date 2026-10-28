@@ -168,12 +168,12 @@ const supporters=[
  [
   "Hearth & Honey",
   "https://www.hearthandhoneyatx.com/",
-  ""
+  "/logos/vendors/Hearth_and_Honey_Official.jpeg"
  ],
  [
   "K&K BBQ Mexican Food",
   "https://www.kkbbqmexicanfoodroundrock.com/",
-  ""
+  "/logos/vendors/K_and_K_BBQ_Mexican_Food_Official.jpeg"
  ],
  [
   "Lady Bird Johnson Wildflower Center",
@@ -248,7 +248,7 @@ const supporters=[
  [
   "Round the Rock",
   "https://roundtherocktx.com/",
-  ""
+  "/round-the-rock-logo.png"
  ],
  [
   "Sam’s Club",
