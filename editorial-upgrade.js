@@ -192,7 +192,7 @@ const supporters=[
  ],
  [
   "Mickan Motor Company",
-  "",
+  "https://mickanmotor.com/",
   "approved-mickan"
  ],
  [
@@ -227,7 +227,7 @@ const supporters=[
  ],
  [
   "Round Rock Church of Christ",
-  "",
+  "https://www.roundrockchurch.us/",
   "approved-round-rock-church"
  ],
  [
@@ -282,12 +282,12 @@ const supporters=[
  ],
  [
   "Train Quest",
-  "",
+  "https://www.thetrainquest.com/",
   "approved-train-quest"
  ],
  [
   "Walburg Feed Store",
-  "",
+  "https://mickanmotor.com/",
   "approved-walburg"
  ]
 ];
