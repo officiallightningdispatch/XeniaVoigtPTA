@@ -292,7 +292,7 @@ const supporters=[
  ]
 ];
 const tiles=supporters.map(([name,url,slug])=>{
- const logo=slug?'/assets/partners/'+slug+'.svg':'';
+ const logo=slug?(slug[0]==='/'?slug:'/assets/partners/'+slug+'.svg'):'';
  const mark=logo?'<img src="'+esc(logo)+'" alt="'+esc(name)+' logo" loading="lazy" decoding="async" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"><span class="ed-partner-fallback" style="display:none">'+esc(name)+'</span>':'<span class="ed-partner-fallback">'+esc(name)+'</span>';
  const inside='<span class="ed-partner-mark">'+mark+'</span><strong>'+esc(name)+'</strong>'+(url?'<small>Visit website ↗</small>':'<small>Thank you for your support</small>');
  return url?'<a class="ed-partner-tile" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer" aria-label="Visit '+esc(name)+' website">'+inside+'</a>':'<article class="ed-partner-tile">'+inside+'</article>';
