@@ -178,7 +178,7 @@ const supporters=[
  [
   "Lady Bird Johnson Wildflower Center",
   "https://www.wildflower.org/",
-  ""
+  "https://giving.utexas.edu/wp-content/uploads/2022/01/0_LBJWFC_LOGO_endorsed_green.png"
  ],
  [
   "Longhorn Production Services",
