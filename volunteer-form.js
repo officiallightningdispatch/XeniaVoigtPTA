@@ -19,30 +19,30 @@
 
     <section class="section" id="current-volunteer-opportunities">
       <div class="container">
-        <div class="section-head compact-head"><div class="eyebrow">CURRENT + ONGOING OPPORTUNITIES</div><h2>Want something specific? Start here.</h2><p>These opportunities come directly from current PTA and Round Rock ISD volunteer information.</p></div>
+        <div class="section-head compact-head"><div class="eyebrow">CURRENT + ONGOING OPPORTUNITIES</div><h2>Want something specific? Start here.</h2><p>These opportunities are ongoing or upcoming. Times below describe published windows or planning estimates; please confirm an assignment before arriving.</p></div>
         <div class="grid three">
           <article class="modern-panel">
             <span class="mini-label">ONGOING · ON CAMPUS</span>
-            <h3>Voigt Clothes Closet</h3>
+            <h3>Voigt Clothes Closet</h3><p class="ed-vol-time"><strong>Time:</strong> Up to 2 hours per published shift; confirm exact coverage with the organizer.</p>
             <p>Help the RRISD Council of PTAs provide gently used clothing plus new socks and underwear to district students in need.</p>
             <p><strong>Voigt hours:</strong> Wednesdays & Thursdays, 9:30–11:30 AM; first Saturday of each month, 10 AM–noon.</p>
             <div class="buttons left"><a class="btn secondary" href="https://evite.me/GdJucNqSxR" target="_blank" rel="noopener noreferrer">Volunteer ↗</a><a class="btn secondary" href="https://a.co/0gS8aMWI" target="_blank" rel="noopener noreferrer">Wishlist ↗</a></div>
           </article>
           <article class="modern-panel">
             <span class="mini-label">ONGOING · LITERACY</span>
-            <h3>Reading in the RRock</h3>
+            <h3>Reading in the RRock</h3><p class="ed-vol-time"><strong>Time:</strong> Recurring commitment; exact schedule and training requirements set by RRISD.</p>
             <p>Work with kindergarten students who need extra literacy practice. Volunteers commit to a consistent time, complete the RRISD volunteer application, receive training, and use provided materials.</p>
             <a class="btn secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSfB1DK1VE39jXMiIMrnHmOrdWqqa9tIyzu2FwclmTqbcKnc6Q/viewform" target="_blank" rel="noopener noreferrer">Volunteer interest form ↗</a>
           </article>
           <article class="modern-panel">
             <span class="mini-label">ONGOING · TEACHER SUPPORT</span>
-            <h3>Help teachers behind the scenes</h3>
+            <h3>Help teachers behind the scenes</h3><p class="ed-vol-time"><strong>Time:</strong> Flexible; indicate whether you can offer 30 minutes, 1 hour or more.</p>
             <p>Support practical campus needs such as copying, laminating, stapling, cutting, and similar preparation tasks.</p>
             <a class="btn secondary" href="#volunteerForm">Tell us your availability ↓</a>
           </article>
           <article class="modern-panel">
             <span class="mini-label">NOVEMBER 2</span>
-            <h3>Fun Run</h3>
+            <h3>Fun Run</h3><p class="ed-vol-time"><strong>Time:</strong> Event-day or preparation shift; assignment duration to be confirmed.</p>
             <p>Pre-event planning and materials plus event-day setup, cleanup, and cheering support.</p>
             <a class="btn secondary" href="#volunteerForm">Volunteer for Fun Run ↓</a>
           </article>
