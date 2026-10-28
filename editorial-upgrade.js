@@ -93,7 +93,7 @@ const supporters=[
  [
   "Andy’s Frozen Custard",
   "https://www.eatandys.com/",
-  ""
+  "https://images.squarespace-cdn.com/content/v1/53b0a785e4b044d9476f4eac/1622149526017-BJHKGBJB2WYM2592CCK2/AFC%2BLogo.png"
  ],
  [
   "Austin Aquarium",
@@ -253,7 +253,7 @@ const supporters=[
  [
   "Sam’s Club",
   "https://www.samsclub.com/",
-  ""
+  "https://commons.wikimedia.org/wiki/Special:FilePath/Sam%27s_Club_logo_2026.svg"
  ],
  [
   "Shine Pediatric Dental",
@@ -278,7 +278,7 @@ const supporters=[
  [
   "Trader Joe’s",
   "https://www.traderjoes.com/",
-  ""
+  "https://commons.wikimedia.org/wiki/Special:FilePath/Trader_Joes_Logo.svg"
  ],
  [
   "Train Quest",
@@ -292,7 +292,7 @@ const supporters=[
  ]
 ];
 const tiles=supporters.map(([name,url,slug])=>{
- const logo=slug?(slug[0]==='/'?slug:'/assets/partners/'+slug+'.svg'):'';
+ const logo=slug?(/^https?:/.test(slug)||slug[0]==='/'?slug:'/assets/partners/'+slug+'.svg'):'';
  const mark=logo?'<img src="'+esc(logo)+'" alt="'+esc(name)+' logo" loading="lazy" decoding="async" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"><span class="ed-partner-fallback" style="display:none">'+esc(name)+'</span>':'<span class="ed-partner-fallback">'+esc(name)+'</span>';
  const inside='<span class="ed-partner-mark">'+mark+'</span><strong>'+esc(name)+'</strong>'+(url?'<small>Visit website ↗</small>':'<small>Thank you for your support</small>');
  const tileClass='ed-partner-tile'+(name==='Round Rock Church of Christ'?' ed-partner-dark':'');
