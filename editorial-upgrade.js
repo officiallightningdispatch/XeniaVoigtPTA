@@ -153,7 +153,7 @@ const supporters=[
  [
   "Flix Brewhouse",
   "https://www.flixbrewhouse.com/",
-  ""
+  "/assets/partners/approved-flix-brewhouse.png"
  ],
  [
   "Forest Creek Mini Storage",
