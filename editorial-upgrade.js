@@ -118,7 +118,7 @@ const supporters=[
  [
   "Blue Diamond Boutique",
   "https://shopbluediamondboutique.com/",
-  ""
+  "approved-blue-diamond-boutique"
  ],
  [
   "Board & Brush",
