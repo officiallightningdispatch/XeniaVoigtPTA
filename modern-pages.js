@@ -34,7 +34,7 @@
 
   if(p==='/fundraising'){
     main.innerHTML=`${hero('SUPPORT + PARTNERSHIPS','Help without making it weird.','Local businesses, families, and community partners can support Voigt through goods, services, sponsorships, volunteering, and event participation.')}
-    <section class="section"><div class="container"><div class="grid two">${card('Our Community','Explore the organizations supporting Voigt students and families.','/vendors','Meet our supporters')}${card('Sponsor or donate','Support an event, donate an item, provide a service, or help make something possible.','/contact','Start a conversation')}${card('Give time or talent','Volunteer for an event, planning task, creative project, or behind-the-scenes need.','/volunteer','Volunteer')}${card('Offer a community resource','Have an idea, program, partnership, or resource that could help Voigt? We want to hear it.','/contact','Contact PTA')}</div></div></section>`;
+    <section class="section"><div class="container"><div class="grid two">${card('Our Community','Explore the organizations supporting Voigt students and families.','/our-community','Meet our supporters')}${card('Sponsor or donate','Support an event, donate an item, provide a service, or help make something possible.','/contact','Start a conversation')}${card('Give time or talent','Volunteer for an event, planning task, creative project, or behind-the-scenes need.','/volunteer','Volunteer')}${card('Offer a community resource','Have an idea, program, partnership, or resource that could help Voigt? We want to hear it.','/contact','Contact PTA')}</div></div></section>`;
   }
 
   if(p==='/donate'){
@@ -80,7 +80,7 @@
 
   if(p==='/contact'){
     main.innerHTML=`${hero('CONTACT PTA','Send it to the right place the first time.','Questions, ideas, support requests, partnership conversations, and “who do I ask about this?” messages are all welcome.')}
-    <section class="section"><div class="container"><div class="modern-page-grid"><article class="modern-panel accent"><span class="mini-label">GENERAL PTA</span><h2>info@xeniavoigtpta.org</h2><p>Use this for membership, events, support requests, ideas, partnerships, or anything you are not sure how to route.</p><a class="btn secondary" href="mailto:info@xeniavoigtpta.org">Email PTA →</a></article><article class="modern-panel"><span class="mini-label">QUICK ROUTES</span><div class="concierge-links"><a href="/volunteer">Volunteer <span>→</span></a><a href="/vendors">Our Community <span>→</span></a><a href="/resources">Resources <span>→</span></a><a href="/events">Events <span>→</span></a></div></article></div></div></section>`;
+    <section class="section"><div class="container"><div class="modern-page-grid"><article class="modern-panel accent"><span class="mini-label">GENERAL PTA</span><h2>info@xeniavoigtpta.org</h2><p>Use this for membership, events, support requests, ideas, partnerships, or anything you are not sure how to route.</p><a class="btn secondary" href="mailto:info@xeniavoigtpta.org">Email PTA →</a></article><article class="modern-panel"><span class="mini-label">QUICK ROUTES</span><div class="concierge-links"><a href="/volunteer">Volunteer <span>→</span></a><a href="/our-community">Our Community <span>→</span></a><a href="/resources">Resources <span>→</span></a><a href="/events">Events <span>→</span></a></div></article></div></div></section>`;
   }
 
   if(p==='/access'){
