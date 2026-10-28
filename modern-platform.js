@@ -3,7 +3,7 @@
   const nav=document.querySelector('.nav-inner');
   if(nav && !nav.querySelector('a[href="/vendors"]')){
     const contact=nav.querySelector('a[href="/contact"]');
-    const vendor=document.createElement('a'); vendor.href='/vendors'; vendor.textContent='Vendors';
+    const vendor=document.createElement('a'); vendor.href='/vendors'; vendor.textContent='Our Community';
     if(contact) nav.insertBefore(vendor,contact); else nav.appendChild(vendor);
   }
 
