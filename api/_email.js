@@ -16,7 +16,7 @@ export async function sendFormEmails({type,email,name='',details=[]}){
     if(!r.ok) throw new Error(`Resend ${r.status}: ${await r.text()}`);
   };
   try{
-    await request({from:FROM,to:[PTA_EMAIL],reply_to:email?[email]:undefined,subject:`New website submission: ${type}`,text:`A new ${type} submission was received.\n\n${summary}`,html:`<!doctype html><html><body style="font-family:Arial,sans-serif;color:#222"><h2>New ${esc(type)} submission</h2><table>${htmlRows}</table><p>This submission is also saved in the Board Dashboard.</p></body></html>`});
+    await request({from:FROM,to:[PTA_EMAIL],reply_to:email?[email]:undefined,subject:`New website submission: ${type}`,text:`A new ${type} submission was received.\n\n${summary}`,html:`<!doctype html><html><body style="font-family:Arial,sans-serif;color:#222"><h2>New ${esc(type)} submission</h2><table>${htmlRows}</table></body></html>`});
     if(email){
       await request({from:FROM,to:[email],reply_to:[PTA_EMAIL],subject:`We received your ${type} submission`,text:`${name?`Hi ${name},\n\n`:''}Thank you. The Xenia Voigt Arts Academy PTA received your ${type} submission. We’ll follow up if anything else is needed.\n\nXenia Voigt Arts Academy PTA\n${PTA_EMAIL}`,html:`<!doctype html><html><body style="font-family:Arial,sans-serif;color:#222"><p>${name?`Hi ${esc(name)},`:''}</p><p>Thank you. The Xenia Voigt Arts Academy PTA received your ${esc(type)} submission. We’ll follow up if anything else is needed.</p><p>Xenia Voigt Arts Academy PTA<br>${PTA_EMAIL}</p></body></html>`});
     }
