@@ -122,7 +122,7 @@
       <div class="admin-grid-3">
         <article class="admin-card"><h3>Family engagement</h3><p>Membership, communications, school-community programs and accessibility.</p><a href="/join">Membership page ↗</a></article>
         <article class="admin-card"><h3>Volunteer coordination</h3><p>Review new applications and coordinate school-year opportunities.</p><a href="/volunteer">Volunteer opportunities ↗</a></article>
-        <article class="admin-card"><h3>Partners and funding</h3><p>Track sponsors, donors, community partners and future business interest.</p><a href="/vendors">Community recognition ↗</a></article>
+        <article class="admin-card"><h3>Partners and funding</h3><p>Track sponsors, donors, community partners and future business interest.</p><a href="/our-community">Community recognition ↗</a></article>
       </div>
       <div class="admin-callout"><strong>Historical archive:</strong> The October 2026 Fall Festival and Trunk-or-Treat have concluded. Their submissions remain accessible in the application records, but they are not active programs.</div>
       <nav class="admin-suite-tabs"><button class="active" data-panel="role">My Role</button><button data-panel="submissions">Forms & Applications</button><button data-panel="events">Events</button><button data-panel="finance">Finance</button><button data-panel="communications">Communications</button><button data-panel="resources">Drive Hub</button></nav>
