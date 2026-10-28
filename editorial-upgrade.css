@@ -19,3 +19,5 @@ a.ed-partner-tile:hover{transform:translateY(-3px);box-shadow:0 14px 28px #211c1
 .ed-volunteer-thanks{margin:36px 0 44px;padding:26px 0;border-top:1px solid #e8dedf}
 @media(max-width:850px){.ed-partner-wall{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:600px){.ed-partner-wall{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.ed-partner-tile{min-height:192px;padding:14px 9px;gap:10px}.ed-partner-mark{height:104px;min-height:104px;padding:7px}.ed-partner-tile strong{font-size:.95rem}.ed-partner-tile small{font-size:.72rem}.ed-partner-fallback{font-size:.95rem}}
+
+.ed-partner-dark .ed-partner-mark{background:#17272d;border-radius:8px}
