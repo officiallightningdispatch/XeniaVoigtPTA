@@ -21,3 +21,20 @@ a.ed-partner-tile:hover{transform:translateY(-3px);box-shadow:0 14px 28px #211c1
 @media(max-width:600px){.ed-partner-wall{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.ed-partner-tile{min-height:192px;padding:14px 9px;gap:10px}.ed-partner-mark{height:104px;min-height:104px;padding:7px}.ed-partner-tile strong{font-size:.95rem}.ed-partner-tile small{font-size:.72rem}.ed-partner-fallback{font-size:.95rem}}
 
 .ed-partner-dark .ed-partner-mark{background:#17272d;border-radius:8px}
+
+/* Small breakfast-first menu widget: applies to homepage and calendar. */
+.ed-meal-calendar{margin:16px 0 20px;padding:12px 14px;border:1px solid #e8e0e0;border-radius:8px;background:#fff}
+.ed-meal-calendar h3{font-size:1rem;line-height:1.3;margin:0 0 4px}
+.ed-meal-prompt{font-size:.82rem;color:#6b6062;margin:0 0 8px}
+.ed-meal-host{display:block;width:100%;margin:10px 0 0}
+.ed-meal-compact{border:1px solid #e8e0e0;background:#fff;border-radius:8px;overflow:hidden;max-width:100%}
+.ed-meal-calendar .ed-meal-compact{border:0;border-radius:0}
+.ed-meal-compact-title{font-size:.79rem;font-weight:750;color:#6b6062;padding:9px 13px;background:#faf6f6}
+.ed-meal-row{display:grid;grid-template-columns:minmax(78px,110px) minmax(0,1fr) auto;align-items:center;gap:10px;padding:11px 13px;border-top:1px solid #f0e9e9;min-height:45px}
+.ed-meal-row strong{font-size:.92rem}
+.ed-meal-summary{font-size:.84rem;line-height:1.35;color:#60595b;min-width:0}
+.ed-meal-row a{font-size:.8rem;font-weight:750;color:#962536;text-decoration:none;white-space:nowrap}
+.ed-meal-row a:hover{text-decoration:underline}
+.ed-meal-note{margin:0;padding:8px 13px;font-size:.72rem;color:#777;background:#fcfafa}
+.ed-meal-calendar-link{margin:8px 0 0;font-size:.82rem}
+@media(max-width:600px){.ed-meal-calendar{padding:10px 11px}.ed-meal-row{grid-template-columns:minmax(0,1fr) auto;gap:5px 10px;padding:9px 11px}.ed-meal-row strong{grid-column:1;grid-row:1}.ed-meal-row a{grid-column:2;grid-row:1}.ed-meal-summary{grid-column:1/-1;grid-row:2;font-size:.81rem}.ed-meal-compact-title{padding:8px 11px}.ed-meal-note{padding:7px 11px}}
